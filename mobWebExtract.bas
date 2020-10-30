@@ -390,9 +390,14 @@ Dim WijScore1, WijScore2, ZijScore1, ZijScore2, WijImps1, ZijImps1, WijImps2, Zi
 
 Dim Rekenkamerfolder As String
 
-Rekenkamerfolder = "C:\Users\pgjmw\Dropbox\DonderdagAvond\Rekenkamer"
+Dim RekenkamerOutputfolder As String
+
+Rekenkamerfolder = "C:\Users\pgjmw\Dropbox\DonderdagAvond\Rekenkamer\Viertallen\Seizoen_2020_2021\Excel\"
+RekenkamerOutputfolder = "C:\Users\pgjmw\Dropbox\DonderdagAvond\Rekenkamer\Viertallen\Seizoen_2020_2021\"
+
+
 TemplateExcelfile = Rekenkamerfolder & "\Team_Avond_Template.xlsx"
-ScoresheetExcelfile = Rekenkamerfolder & "\Team_Avond_" & Avond & "_" & Teamnr & "_" & Format(Now(), "hh_mm") & ".xlsx"
+ScoresheetExcelfile = RekenkamerOutputfolder & "\Team_Avond_" & Avond & "_" & Teamnr & "_" & Format(Now(), "hh_mm") & ".xlsx"
 
 
 Dim Rijen() As String
@@ -631,18 +636,6 @@ WijImps2 = TemplateSheet.Cells(19, 21).Value
 ZijImps2 = TemplateSheet.Cells(20, 21).Value
 
 
-If AparteExcel Then
-
-TemplateSheet.Name = ScoreSheetName
-TemplateBook.SaveAs ScoresheetExcelfile
-TemplateBook.Close
-
-Else
-
-Set TemplateSheet = Nothing
-
-End If
-
 
 'Vul in de kruistabel
 Set MySheet = StartBook.Sheets("Kruistabel")
@@ -704,6 +697,21 @@ If wedstrijd2 And tegenst2 <> 16 Then
         MySheet.Cells(rijteller, 8).Value = ZijImps2
         MySheet.Cells(rijteller, 9).Value = WijScore2
         MySheet.Cells(rijteller, 10).Value = ZijScore2
+End If
+
+
+
+
+If AparteExcel Then
+
+TemplateSheet.Name = ScoreSheetName
+TemplateBook.SaveAs ScoresheetExcelfile
+TemplateBook.Close
+
+Else
+
+Set TemplateSheet = Nothing
+
 End If
 
 Set MySheet = Nothing
