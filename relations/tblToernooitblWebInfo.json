@@ -1,0 +1,19 @@
+{
+  "Info": {
+    "Class": "clsDbRelation",
+    "Description": "Database relationship",
+    "VCS Version": "3.2.2"
+  },
+  "Items": {
+    "Name": "tblToernooitblWebInfo",
+    "Attributes": 0,
+    "Table": "tblToernooi",
+    "ForeignTable": "tblWebInfo",
+    "Fields": [
+      {
+        "Name": "ID",
+        "ForeignName": "ToernooiID"
+      }
+    ]
+  }
+}

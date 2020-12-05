@@ -1,0 +1,173 @@
+-------------------------------------
+Beginning Export of all Source
+InterneViertallen.accdb
+VCS Version 3.2.2
+Using Fast Save
+5-12-2020 12:08:58
+-------------------------------------
+-------------------------------------
+Exporting themes...           
+  Kantoorthema
+[1]
+-------------------------------------
+Exporting VB project...       
+  InterneViertallen
+[1]
+-------------------------------------
+Exporting vbe references...   
+  stdole
+[5]
+-------------------------------------
+No vbe forms found in this database.
+-------------------------------------
+Exporting proj properties...  
+  Current Project Properties (Access)
+[1]
+-------------------------------------
+No saved specs found in this database.
+-------------------------------------
+No shared images found in this database.
+-------------------------------------
+No imex specs found in this database.
+-------------------------------------
+Exporting db properties...    
+  Database Properties (DAO)
+[33]
+-------------------------------------
+Exporting tables...           
+  imps
+  imps (SQL)
+  tblconstanten
+  tblconstanten (SQL)
+  tblFolders
+  tblFolders (SQL)
+  tblGroepen
+  tblGroepen (SQL)
+  tblIndeling
+  tblIndeling (SQL)
+  tblOpstelling
+  tblOpstelling (SQL)
+  tblSessie
+  tblSessie (SQL)
+  tblTeams
+  tblTeams (SQL)
+  tblToernooi
+  tblToernooi (SQL)
+  tblWebInfo
+  tblWebInfo (SQL)
+  tblWedstrijd
+  tblWedstrijd (SQL)
+  vps
+  vps (SQL)
+[12]
+-------------------------------------
+Exporting queries...          
+  qryTeams
+    Sanitized in 0,00 seconds.
+  qryTeams (SQL)
+  qryTeams_per_Toernooi
+    Sanitized in 0,00 seconds.
+  qryTeams_per_Toernooi (SQL)
+  Query1
+    Sanitized in 0,00 seconds.
+  Query1 (SQL)
+[3]
+-------------------------------------
+Exporting forms...            
+  Toernooigegevens
+    Sanitized in 0,01 seconds.
+  frmFolders
+    Sanitized in 0,00 seconds.
+  Start_VT
+    Sanitized in 0,00 seconds.
+  frmWebInfo
+    Sanitized in 0,00 seconds.
+  frmOpstelling
+    Sanitized in 0,01 seconds.
+  frmStepID
+    Sanitized in 0,00 seconds.
+  Sessiegegevens
+    Sanitized in 0,02 seconds.
+  frmProcess
+    Sanitized in 0,01 seconds.
+  frmCopy
+    Sanitized in 0,00 seconds.
+[9]
+-------------------------------------
+Exporting macros...           
+  autoexec
+    Sanitized in 0,00 seconds.
+[1]
+-------------------------------------
+Exporting modules...          
+  modExportSchema
+  modOutlook
+  modHTML
+  modInit
+  modWeb
+  modWebExtract
+  modExcelTemplates
+[7]
+-------------------------------------
+No reports found in this database.
+-------------------------------------
+No table data found in this database.
+-------------------------------------
+No table data macros found in this database.
+-------------------------------------
+Exporting relations...        
+  tblToernooitblOpstelling
+  tblToernooitblSessie
+  tblToernooitblTeams
+  tblToernooitblWebInfo
+[4]
+-------------------------------------
+Exporting doc properties...   
+  Database Documents
+[2]
+-------------------------------------
+Exporting nav pane groups...  
+  Groups
+[1]
+-------------------------------------
+Done. (2,43 seconds)
+
+-------------------------------------
+        PERFORMANCE REPORTS
+-------------------------------------
+Object Type         Count     Seconds
+-------------------------------------
+themes              1         0,02
+VB project          1         0,02
+vbe references      5         0,03
+proj properties     1         0,02
+db properties       33        0,10
+tables              12        0,30
+queries             3         0,14
+forms               9         0,81
+macros              1         0,11
+modules             7         0,52
+relations           4         0,09
+doc properties      2         0,03
+nav pane groups     1         0,02
+-------------------------------------
+TOTALS:             80        2,20
+
+-------------------------------------
+Operations          Count     Seconds
+-------------------------------------
+Console Updates     3         0,11
+Extract Theme       1         0,00
+Unicode Check       38        0,05
+Write to Disk       38        0,06
+App.ExportXML()     12        0,20
+Save Table SQL      12        0,04
+App.SaveAsText()    20        0,77
+Read File           13        0,02
+Sanitize File       13        0,07
+Delete File         13        0,01
+Save Query SQL      3         0,00
+Increment Progress  1         0,05
+Other Operations              1,05
+
+

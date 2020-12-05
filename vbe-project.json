@@ -1,0 +1,17 @@
+{
+  "Info": {
+    "Class": "clsDbVbeProject",
+    "Description": "VBE Project",
+    "VCS Version": "3.2.2"
+  },
+  "Items": {
+    "Name": "InterneViertallen",
+    "Description": "",
+    "FileName": "rel:InterneViertallen.accdb",
+    "HelpFile": "",
+    "HelpContextId": 0,
+    "Mode": 0,
+    "Protection": 0,
+    "Type": 100
+  }
+}

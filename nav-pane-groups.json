@@ -1,0 +1,18 @@
+{
+  "Info": {
+    "Class": "clsDbNavPaneGroup",
+    "Description": "Navigation Pane Custom Groups",
+    "VCS Version": "3.2.2"
+  },
+  "Items": {
+    "Groups": [
+      {
+        "Name": "Aangepaste groep 1",
+        "Flags": 0,
+        "Position": 2,
+        "Objects": [
+        ]
+      }
+    ]
+  }
+}
