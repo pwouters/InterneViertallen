@@ -48,6 +48,35 @@ Begin Form
             GridlineThemeColorIndex =1
             GridlineShade =65.0
         End
+        Begin CommandButton
+            Width =1701
+            Height =283
+            FontSize =11
+            FontWeight =400
+            FontName ="Calibri"
+            ForeThemeColorIndex =0
+            ForeTint =75.0
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+            UseTheme =1
+            Shape =1
+            Gradient =12
+            BackThemeColorIndex =4
+            BackTint =60.0
+            BorderLineStyle =0
+            BorderColor =16777215
+            BorderThemeColorIndex =4
+            BorderTint =60.0
+            ThemeFontIndex =1
+            HoverThemeColorIndex =4
+            HoverTint =40.0
+            PressedThemeColorIndex =4
+            PressedShade =75.0
+            HoverForeThemeColorIndex =0
+            HoverForeTint =75.0
+            PressedForeThemeColorIndex =0
+            PressedForeTint =75.0
+        End
         Begin TextBox
             AddColon = NotDefault
             FELineBreak = NotDefault
@@ -85,7 +114,7 @@ Begin Form
             GridlineShade =65.0
         End
         Begin FormHeader
-            Height =1077
+            Height =1086
             BackColor =15064278
             Name ="Formulierkoptekst"
             AlternateBackThemeColorIndex =1
@@ -340,4 +369,12 @@ Private Sub ActivityID_AfterUpdate()
 'fris sessie tabel op
 
 
+End Sub
+
+Private Sub btnSluiten_Click()
+    If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
+        DoCmd.Close
+    Else
+        DoCmd.BrowseTo acBrowseToForm, "frmProcess"
+   End If
 End Sub

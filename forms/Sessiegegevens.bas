@@ -15,10 +15,10 @@ Begin Form
     Width =11521
     DatasheetFontHeight =11
     ItemSuffix =42
-    Right =13995
-    Bottom =10470
+    Right =18735
+    Bottom =12240
     DatasheetGridlinesColor =15132391
-    Filter ="[ToernooiD]=3"
+    Filter ="[ToernooiD]=1 and [id] = 3"
     RecSrcDt = Begin
         0x3ee22f0eb090e540
     End
@@ -176,6 +176,7 @@ Begin Form
                     LayoutCachedHeight =1026
                 End
                 Begin ComboBox
+                    Visible = NotDefault
                     OverlapFlags =85
                     IMESentenceMode =3
                     ColumnCount =3
@@ -190,8 +191,7 @@ Begin Form
                     Name ="cboKiesSessie"
                     RowSourceType ="Table/Query"
                     RowSource ="SELECT tblSessie.id, tblSessie.Sessienaam, tblSessie.Sessienr FROM tblSessie WHE"
-                        "RE (((tblSessie.ToernooID)=lngToernooiID())) ORDER BY tblSessie.id, tblSessie.Se"
-                        "ssienr; "
+                        "RE [ToernooiD] = 1 ORDER BY tblSessie.id, tblSessie.Sessienr; "
                     ColumnWidths ="0;2835;567"
                     AfterUpdate ="[Event Procedure]"
                     GridlineColor =10921638
@@ -305,9 +305,9 @@ Begin Form
                     ScrollBars =2
                     OverlapFlags =85
                     IMESentenceMode =3
-                    Left =2482
-                    Top =566
-                    Width =3693
+                    Left =2552
+                    Top =510
+                    Width =3686
                     Height =600
                     ColumnWidth =3000
                     TabIndex =2
@@ -317,15 +317,15 @@ Begin Form
                     ControlSource ="Sessienaam"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =2482
-                    LayoutCachedTop =566
-                    LayoutCachedWidth =6175
-                    LayoutCachedHeight =1166
+                    LayoutCachedLeft =2552
+                    LayoutCachedTop =510
+                    LayoutCachedWidth =6238
+                    LayoutCachedHeight =1110
                     Begin
                         Begin Label
                             OverlapFlags =85
-                            Left =283
-                            Top =566
+                            Left =345
+                            Top =510
                             Width =2109
                             Height =330
                             BorderColor =8355711
@@ -333,17 +333,17 @@ Begin Form
                             Name ="Sessienaam_Bijschrift"
                             Caption ="Sessienaam"
                             GridlineColor =10921638
-                            LayoutCachedLeft =283
-                            LayoutCachedTop =566
-                            LayoutCachedWidth =2392
-                            LayoutCachedHeight =896
+                            LayoutCachedLeft =345
+                            LayoutCachedTop =510
+                            LayoutCachedWidth =2454
+                            LayoutCachedHeight =840
                         End
                     End
                 End
                 Begin TextBox
                     OverlapFlags =85
                     IMESentenceMode =3
-                    Left =2482
+                    Left =2552
                     Top =1250
                     Width =1050
                     Height =330
@@ -355,9 +355,9 @@ Begin Form
                     ControlSource ="Sessienr"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =2482
+                    LayoutCachedLeft =2552
                     LayoutCachedTop =1250
-                    LayoutCachedWidth =3532
+                    LayoutCachedWidth =3602
                     LayoutCachedHeight =1580
                     Begin
                         Begin Label
@@ -421,9 +421,9 @@ Begin Form
                     ScrollBars =2
                     OverlapFlags =87
                     IMESentenceMode =3
-                    Left =2484
-                    Top =2622
-                    Width =3558
+                    Left =2552
+                    Top =2566
+                    Width =3686
                     Height =600
                     ColumnWidth =3000
                     TabIndex =5
@@ -434,15 +434,15 @@ Begin Form
                     StatusBarText ="tekst links"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =2484
-                    LayoutCachedTop =2622
-                    LayoutCachedWidth =6042
-                    LayoutCachedHeight =3222
+                    LayoutCachedLeft =2552
+                    LayoutCachedTop =2566
+                    LayoutCachedWidth =6238
+                    LayoutCachedHeight =3166
                     Begin
                         Begin Label
                             OverlapFlags =93
-                            Left =285
-                            Top =2622
+                            Left =347
+                            Top =2566
                             Width =2205
                             Height =315
                             BorderColor =8355711
@@ -450,10 +450,10 @@ Begin Form
                             Name ="Prefixkopjesscorestaat_Bijschrift"
                             Caption ="Scorestaat links"
                             GridlineColor =10921638
-                            LayoutCachedLeft =285
-                            LayoutCachedTop =2622
-                            LayoutCachedWidth =2490
-                            LayoutCachedHeight =2937
+                            LayoutCachedLeft =347
+                            LayoutCachedTop =2566
+                            LayoutCachedWidth =2552
+                            LayoutCachedHeight =2881
                         End
                     End
                 End
@@ -462,9 +462,9 @@ Begin Form
                     ScrollBars =2
                     OverlapFlags =85
                     IMESentenceMode =3
-                    Left =2482
-                    Top =3286
-                    Width =3558
+                    Left =2552
+                    Top =3230
+                    Width =3686
                     Height =600
                     ColumnWidth =3000
                     TabIndex =6
@@ -475,15 +475,15 @@ Begin Form
                     StatusBarText ="tekst links"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =2482
-                    LayoutCachedTop =3286
-                    LayoutCachedWidth =6040
-                    LayoutCachedHeight =3886
+                    LayoutCachedLeft =2552
+                    LayoutCachedTop =3230
+                    LayoutCachedWidth =6238
+                    LayoutCachedHeight =3830
                     Begin
                         Begin Label
                             OverlapFlags =85
-                            Left =283
-                            Top =3286
+                            Left =345
+                            Top =3230
                             Width =2115
                             Height =315
                             BorderColor =8355711
@@ -491,10 +491,10 @@ Begin Form
                             Name ="PrefixKopjeuitslagen_Bijschrift"
                             Caption ="Uitslagen links"
                             GridlineColor =10921638
-                            LayoutCachedLeft =283
-                            LayoutCachedTop =3286
-                            LayoutCachedWidth =2398
-                            LayoutCachedHeight =3601
+                            LayoutCachedLeft =345
+                            LayoutCachedTop =3230
+                            LayoutCachedWidth =2460
+                            LayoutCachedHeight =3545
                         End
                     End
                 End
@@ -503,9 +503,9 @@ Begin Form
                     ScrollBars =2
                     OverlapFlags =85
                     IMESentenceMode =3
-                    Left =2538
-                    Top =3966
-                    Width =3558
+                    Left =2552
+                    Top =3910
+                    Width =3686
                     Height =600
                     ColumnWidth =3000
                     TabIndex =7
@@ -516,15 +516,15 @@ Begin Form
                     StatusBarText ="tekst rechts"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =2538
-                    LayoutCachedTop =3966
-                    LayoutCachedWidth =6096
-                    LayoutCachedHeight =4566
+                    LayoutCachedLeft =2552
+                    LayoutCachedTop =3910
+                    LayoutCachedWidth =6238
+                    LayoutCachedHeight =4510
                     Begin
                         Begin Label
                             OverlapFlags =85
-                            Left =339
-                            Top =3966
+                            Left =401
+                            Top =3910
                             Width =2109
                             Height =330
                             BorderColor =8355711
@@ -532,10 +532,10 @@ Begin Form
                             Name ="Suffixkopjesscorestaat_Bijschrift"
                             Caption ="Scorestaat rechts"
                             GridlineColor =10921638
-                            LayoutCachedLeft =339
-                            LayoutCachedTop =3966
-                            LayoutCachedWidth =2448
-                            LayoutCachedHeight =4296
+                            LayoutCachedLeft =401
+                            LayoutCachedTop =3910
+                            LayoutCachedWidth =2510
+                            LayoutCachedHeight =4240
                         End
                     End
                 End
@@ -544,9 +544,9 @@ Begin Form
                     ScrollBars =2
                     OverlapFlags =85
                     IMESentenceMode =3
-                    Left =2484
-                    Top =4674
-                    Width =3558
+                    Left =2552
+                    Top =4618
+                    Width =3686
                     Height =600
                     ColumnWidth =3000
                     TabIndex =8
@@ -557,15 +557,15 @@ Begin Form
                     StatusBarText ="tekst rechts"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =2484
-                    LayoutCachedTop =4674
-                    LayoutCachedWidth =6042
-                    LayoutCachedHeight =5274
+                    LayoutCachedLeft =2552
+                    LayoutCachedTop =4618
+                    LayoutCachedWidth =6238
+                    LayoutCachedHeight =5218
                     Begin
                         Begin Label
                             OverlapFlags =85
-                            Left =285
-                            Top =4674
+                            Left =347
+                            Top =4618
                             Width =2109
                             Height =330
                             BorderColor =8355711
@@ -573,10 +573,10 @@ Begin Form
                             Name ="SuffixKopjeuitslagen_Bijschrift"
                             Caption ="Uitslagen rechts"
                             GridlineColor =10921638
-                            LayoutCachedLeft =285
-                            LayoutCachedTop =4674
-                            LayoutCachedWidth =2394
-                            LayoutCachedHeight =5004
+                            LayoutCachedLeft =347
+                            LayoutCachedTop =4618
+                            LayoutCachedWidth =2456
+                            LayoutCachedHeight =4948
                         End
                     End
                 End
@@ -585,9 +585,9 @@ Begin Form
                     ScrollBars =2
                     OverlapFlags =85
                     IMESentenceMode =3
-                    Left =2484
-                    Top =5358
-                    Width =3558
+                    Left =2552
+                    Top =5302
+                    Width =3686
                     Height =600
                     ColumnWidth =3000
                     TabIndex =9
@@ -597,15 +597,15 @@ Begin Form
                     ControlSource ="Voettekst"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =2484
-                    LayoutCachedTop =5358
-                    LayoutCachedWidth =6042
-                    LayoutCachedHeight =5958
+                    LayoutCachedLeft =2552
+                    LayoutCachedTop =5302
+                    LayoutCachedWidth =6238
+                    LayoutCachedHeight =5902
                     Begin
                         Begin Label
                             OverlapFlags =85
-                            Left =285
-                            Top =5358
+                            Left =347
+                            Top =5302
                             Width =2109
                             Height =330
                             BorderColor =8355711
@@ -613,10 +613,10 @@ Begin Form
                             Name ="Voettekst_Bijschrift"
                             Caption ="Voettekst"
                             GridlineColor =10921638
-                            LayoutCachedLeft =285
-                            LayoutCachedTop =5358
-                            LayoutCachedWidth =2394
-                            LayoutCachedHeight =5688
+                            LayoutCachedLeft =347
+                            LayoutCachedTop =5302
+                            LayoutCachedWidth =2456
+                            LayoutCachedHeight =5632
                         End
                     End
                 End
@@ -625,9 +625,9 @@ Begin Form
                     ScrollBars =2
                     OverlapFlags =85
                     IMESentenceMode =3
-                    Left =2484
-                    Top =6042
-                    Width =3558
+                    Left =2552
+                    Top =5986
+                    Width =3686
                     Height =600
                     ColumnWidth =3000
                     TabIndex =10
@@ -637,15 +637,15 @@ Begin Form
                     ControlSource ="Voetlink"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =2484
-                    LayoutCachedTop =6042
-                    LayoutCachedWidth =6042
-                    LayoutCachedHeight =6642
+                    LayoutCachedLeft =2552
+                    LayoutCachedTop =5986
+                    LayoutCachedWidth =6238
+                    LayoutCachedHeight =6586
                     Begin
                         Begin Label
                             OverlapFlags =85
-                            Left =285
-                            Top =6042
+                            Left =347
+                            Top =5986
                             Width =2109
                             Height =330
                             BorderColor =8355711
@@ -653,10 +653,10 @@ Begin Form
                             Name ="Voetlink_Bijschrift"
                             Caption ="Voetlink"
                             GridlineColor =10921638
-                            LayoutCachedLeft =285
-                            LayoutCachedTop =6042
-                            LayoutCachedWidth =2394
-                            LayoutCachedHeight =6372
+                            LayoutCachedLeft =347
+                            LayoutCachedTop =5986
+                            LayoutCachedWidth =2456
+                            LayoutCachedHeight =6316
                         End
                     End
                 End
@@ -1144,6 +1144,7 @@ Begin Form
                 End
                 Begin CommandButton
                     Visible = NotDefault
+                    Enabled = NotDefault
                     OverlapFlags =93
                     TextFontCharSet =177
                     Left =7937
@@ -1406,11 +1407,11 @@ Private Sub Form_Current()
     Me.btnUndo.Enabled = False
     Me.btnUndo.Visible = False
     
-    If Me.NewRecord = False Then
-        lngPK = Me.Id
-        lngSessie = Me.Id
-        lngToernooi = Me.ToernooID
-    End If
+  If Me.NewRecord = False Then
+      lngPK = Me.Id
+      lngSessie = Me.Id
+      lngToernooi = Me.ToernooID
+  End If
 End Sub
 
 Private Sub Form_Dirty(Cancel As Integer)
@@ -1430,32 +1431,48 @@ MyKey = "id"
 MyKeyIs = MyKey & " = "
 
 If CurrentProject.AllForms("Start_VT").IsLoaded = True Then
-    Me.Filter = "[ToernooiD]=" & lngToernooi
+    Me.Filter = "[ToernooiD]=" & lngToernooi & " and [id] = " & lngSessie
     Me.FilterOn = True
     sql = "SELECT tblSessie.id, tblSessie.Sessienaam, tblSessie.Sessienr From tblSessie Where [ToernooiD] = " & lngToernooi & " ORDER BY tblSessie.id, tblSessie.Sessienr;"
     Me.cboKiesSessie.RowSource = sql
     Me.cboKiesSessie.Requery
+Else
+    If CurrentProject.AllForms("Toernooigegevens").IsLoaded = True Then
+        Me.Filter = "[ToernooiD]=" & lngToernooi
+        Me.FilterOn = True
+        sql = "SELECT tblSessie.id, tblSessie.Sessienaam, tblSessie.Sessienr From tblSessie Where [ToernooiD] = " & lngToernooi & " ORDER BY tblSessie.id, tblSessie.Sessienr;"
+        Me.cboKiesSessie.RowSource = sql
+        Me.cboKiesSessie.Requery
+    End If
 End If
 
 
 End Sub
 
 Private Sub Form_Open(Cancel As Integer)
+MyKey = "id"
+MyKeyIs = MyKey & " = "
+Dim criterium As String
+
 Dim sql As String
+Dim rs As Recordset
 sql = "SELECT tblSessie.id, tblSessie.Sessienaam, tblSessie.Sessienr From tblSessie "
 
 If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
+        Me.cboKiesSessie.Visible = True
+        Me.cboKiesSessie.Enabled = True
     If CurrentProject.AllForms("Toernooigegevens").IsLoaded = False Then
+        'je opent alleen de sessieform
         lngToernooi = 0
+        sql = "SELECT tblSessie.id, tblSessie.Sessienaam, tblSessie.Sessienr From tblSessie ORDER BY tblSessie.id, tblSessie.Sessienr;"
+        Me.cboKiesSessie.RowSource = sql
+        Me.cboKiesSessie.Requery
+
+        Me.Filter = ""
+        Me.FilterOn = False
     End If
-End If
-If lngToernooi = 0 Then
-    sql = "SELECT tblSessie.id, tblSessie.Sessienaam, tblSessie.Sessienr From tblSessie ORDER BY tblSessie.id, tblSessie.Sessienr;"
-    Me.cboKiesSessie.RowSource = sql
-    Me.cboKiesSessie.Requery
-    Me.Filter = ""
-    Me.FilterOn = False
-End If
+ End If
+
 
 End Sub
 Sub MeControlEnabled(JaNee As Integer)

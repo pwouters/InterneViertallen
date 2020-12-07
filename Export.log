@@ -3,7 +3,7 @@ Beginning Export of all Source
 InterneViertallen.accdb
 VCS Version 3.2.2
 Using Fast Save
-5-12-2020 12:08:58
+7-12-2020 13:45:20
 -------------------------------------
 -------------------------------------
 Exporting themes...           
@@ -35,68 +35,48 @@ Exporting db properties...
 [33]
 -------------------------------------
 Exporting tables...           
-  imps
-  imps (SQL)
-  tblconstanten
-  tblconstanten (SQL)
-  tblFolders
-  tblFolders (SQL)
-  tblGroepen
-  tblGroepen (SQL)
-  tblIndeling
-  tblIndeling (SQL)
-  tblOpstelling
-  tblOpstelling (SQL)
-  tblSessie
-  tblSessie (SQL)
-  tblTeams
-  tblTeams (SQL)
-  tblToernooi
-  tblToernooi (SQL)
-  tblWebInfo
-  tblWebInfo (SQL)
-  tblWedstrijd
-  tblWedstrijd (SQL)
-  vps
-  vps (SQL)
+  (Skipping 'imps')
+  (Skipping 'tblconstanten')
+  (Skipping 'tblFolders')
+  (Skipping 'tblGroepen')
+  (Skipping 'tblIndeling')
+  (Skipping 'tblOpstelling')
+  (Skipping 'tblSessie')
+  (Skipping 'tblTeams')
+  (Skipping 'tblToernooi')
+  (Skipping 'tblWebInfo')
+  (Skipping 'tblWedstrijd')
+  (Skipping 'vps')
 [12]
 -------------------------------------
 Exporting queries...          
-  qryTeams
-    Sanitized in 0,00 seconds.
-  qryTeams (SQL)
+  (Skipping 'qryTeams')
   qryTeams_per_Toernooi
     Sanitized in 0,00 seconds.
   qryTeams_per_Toernooi (SQL)
-  Query1
-    Sanitized in 0,00 seconds.
-  Query1 (SQL)
+  (Skipping 'Query1')
 [3]
 -------------------------------------
 Exporting forms...            
   Toernooigegevens
     Sanitized in 0,01 seconds.
-  frmFolders
-    Sanitized in 0,00 seconds.
+  (Skipping 'frmFolders')
   Start_VT
-    Sanitized in 0,00 seconds.
+    Sanitized in 0,01 seconds.
   frmWebInfo
     Sanitized in 0,00 seconds.
-  frmOpstelling
-    Sanitized in 0,01 seconds.
+  (Skipping 'frmOpstelling')
   frmStepID
     Sanitized in 0,00 seconds.
   Sessiegegevens
-    Sanitized in 0,02 seconds.
+    Sanitized in 0,01 seconds.
   frmProcess
     Sanitized in 0,01 seconds.
-  frmCopy
-    Sanitized in 0,00 seconds.
+  (Skipping 'frmCopy')
 [9]
 -------------------------------------
 Exporting macros...           
-  autoexec
-    Sanitized in 0,00 seconds.
+  (Skipping 'autoexec')
 [1]
 -------------------------------------
 Exporting modules...          
@@ -130,7 +110,7 @@ Exporting nav pane groups...
   Groups
 [1]
 -------------------------------------
-Done. (2,43 seconds)
+Done. (2,49 seconds)
 
 -------------------------------------
         PERFORMANCE REPORTS
@@ -138,36 +118,35 @@ Done. (2,43 seconds)
 Object Type         Count     Seconds
 -------------------------------------
 themes              1         0,02
-VB project          1         0,02
-vbe references      5         0,03
-proj properties     1         0,02
-db properties       33        0,10
-tables              12        0,30
-queries             3         0,14
-forms               9         0,81
-macros              1         0,11
-modules             7         0,52
-relations           4         0,09
-doc properties      2         0,03
-nav pane groups     1         0,02
+VB project          1         0,03
+vbe references      5         0,05
+proj properties     1         0,03
+db properties       33        0,20
+tables              12        0,02
+queries             3         0,18
+forms               9         0,66
+macros              1         0,00
+modules             7         0,60
+relations           4         0,17
+doc properties      2         0,05
+nav pane groups     1         0,04
 -------------------------------------
-TOTALS:             80        2,20
+TOTALS:             80        2,05
 
 -------------------------------------
 Operations          Count     Seconds
 -------------------------------------
-Console Updates     3         0,11
+Console Updates     3         0,10
 Extract Theme       1         0,00
-Unicode Check       38        0,05
-Write to Disk       38        0,06
-App.ExportXML()     12        0,20
-Save Table SQL      12        0,04
-App.SaveAsText()    20        0,77
-Read File           13        0,02
-Sanitize File       13        0,07
-Delete File         13        0,01
-Save Query SQL      3         0,00
-Increment Progress  1         0,05
-Other Operations              1,05
+Clear Orphaned      6         0,18
+App.SaveAsText()    14        0,81
+Delete File         21        0,01
+Read File           7         0,01
+Sanitize File       7         0,05
+Unicode Check       8         0,04
+Write to Disk       8         0,02
+Save Query SQL      1         0,00
+Increment Progress  1         0,07
+Other Operations              1,22
 
 

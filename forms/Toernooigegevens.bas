@@ -14,8 +14,10 @@ Begin Form
     Width =14229
     DatasheetFontHeight =11
     ItemSuffix =48
-    Right =18735
-    Bottom =12240
+    Left =2520
+    Top =1125
+    Right =17445
+    Bottom =11250
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
         0x9b1f09e7d98fe540
@@ -1080,8 +1082,9 @@ Private Sub btnSessiegegevens_Click()
         rs.Close
         db.Close
     Else
-        
-        lngSessie = rs!Id
+        If lngSessie = 0 Then
+            lngSessie = rs!Id
+        End If
         rs.Close
         db.Close
     End If
@@ -1100,7 +1103,11 @@ Private Sub btnSluiten_Click()
    If Me.Dirty Then
        X = fnSaveRecords
     End If
-    DoCmd.Close
+    If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
+        DoCmd.Close
+    Else
+        DoCmd.BrowseTo acBrowseToForm, "frmProcess"
+   End If
 End Sub
 
 Private Sub cboKiesToernooi_AfterUpdate()
@@ -1128,6 +1135,7 @@ End Sub
 
 
 Private Sub Form_Open(Cancel As Integer)
+
 Dim rs As Recordset
 Dim criterium
 
@@ -1149,7 +1157,8 @@ If lngToernooi = 0 Then
       Call InitAll(lngToernooi, lngSessie)
 End If
 
-Set rs = Recordset
+
+Set rs = Me.RecordsetClone
    
 criterium = MyKeyIs & cboKiesToernooi
 rs.FindFirst criterium
@@ -1161,6 +1170,8 @@ Else
 Me.Bookmark = rs.Bookmark
 cboKiesToernooi = ""
 End If
+rs.Close
+
 strExcel_Folder = Me.WORKFOLDER
 strHTML_Folder = Me.LOCALHTML
 strTemplate_File = Me.WORKTEMPLATE

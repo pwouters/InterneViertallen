@@ -34,7 +34,8 @@ Global lngToernooi As Long
 Global lngSessie As Long
 Global lngToernooiOld As Long
 Global lngSessieOld As Long
-
+Global intUitvoerNaarHTML As Integer
+Global intExcelZichtbaar As Integer
 
 Global ActivityID As Integer
 Global Sessienaam As String
@@ -148,8 +149,9 @@ Public Sub InitAll(ToernooiID As Variant, SessieID As Variant)
         PREFIX = rs.Fields("PREFIX")
         lngToernooi = rs!Id
         lngToernooiOld = lngToernooi
+        rs.Close
    End If
-   
+   If SessieID <> lngSessieOld Then
     Set rs = db.OpenRecordset("select * from tblSessie where id =" & SessieID)
     
         rs.MoveFirst
@@ -200,7 +202,8 @@ Public Sub InitAll(ToernooiID As Variant, SessieID As Variant)
         Sessienr = rs.Fields("Sessienr")
         lngSessie = SessieID
         lngSessieOld = lngSessie
-    rs.Close
+        rs.Close
+    End If
     db.Close
 
 End Sub
@@ -286,37 +289,61 @@ Public Function GetFileName(strExcel_Folder) As String
 End With
 End Function
 
-Sub ChooseFile(InitialFile As Variant)
+Sub KiesModelExcelBestandEnCopieer(InitialFile As Variant)
 Dim source, destination As String
 
 Dim fd As Office.FileDialog
 Set fd = Application.FileDialog(msoFileDialogFilePicker)
 'get the number of the button chosen
 fd.InitialFileName = InitialFile
+
 Dim FileChosen As Integer
 FileChosen = fd.Show
-If FileChosen <> -1 Then
-'didn't choose anything (clicked on CANCEL)
-MsgBox "You chose cancel"
-Else
-'display name and path of file chosen
-        'file copy
+If FileChosen = -1 Then
         source = fd.SelectedItems(1)
-        destination = InputBox("Kies Naam Werkbestand", "Werkbestand", "Nieuw_Toernooi.xlsx")
-        FileCopy source, destination
+        destination = InputBox("Kies nieuw naam Werkbestand ", "Werkbestand", "Nieuw_Toernooi.xlsx")
         
+        
+        'Moet de copie indezelfde folder komen ?
+        
+        'indien nee
+        
+        'folder dialoog
+        
+        'strFolder
+        
+        
+        
+        destination = FolderFromPath(source) & destination
+        FileCopy source, destination
+    
 End If
 
 End Sub
 
 
+
+
+
+Function fnFolderExists(fldr As Variant) As Integer
+   Dim fso
+   Set fso = CreateObject("Scripting.FileSystemObject")
+   If (fso.FolderExists(fldr)) Then
+      fnFolderExists = True
+   Else
+      fnFolderExists = False
+   End If
+  Set fso = Nothing
+End Function
+
+
 Public Function GetDesktopfolder() As String
 GetDesktopfolder = Environ("USERPROFILE") & "\Desktop"
 End Function
-Public Function FileNameFromPath(strFullPath As String) As String
+Public Function FileNameFromPath(strFullPath As Variant) As String
     FileNameFromPath = Right(strFullPath, Len(strFullPath) - InStrRev(strFullPath, "\"))
 End Function
 
-Public Function FolderFromPath(strFullPath As String) As String
+Public Function FolderFromPath(strFullPath As Variant) As String
     FolderFromPath = Left(strFullPath, InStrRev(strFullPath, "\"))
 End Function
