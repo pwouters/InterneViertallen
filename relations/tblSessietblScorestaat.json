@@ -1,0 +1,19 @@
+{
+  "Info": {
+    "Class": "clsDbRelation",
+    "Description": "Database relationship",
+    "VCS Version": "3.2.2"
+  },
+  "Items": {
+    "Name": "tblSessietblScorestaat",
+    "Attributes": 0,
+    "Table": "tblSessie",
+    "ForeignTable": "tblScorestaat",
+    "Fields": [
+      {
+        "Name": "id",
+        "ForeignName": "SessieID"
+      }
+    ]
+  }
+}

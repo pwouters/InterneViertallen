@@ -17,5 +17,7 @@ CREATE TABLE [tblOpstelling] (
   [Wedstrijd8] SHORT ,
   [Wedstrijd9] SHORT ,
   [Wedstrijd10] SHORT ,
-  [Wedstrijd11] SHORT 
+  [Wedstrijd11] SHORT ,
+  [SessieID] LONG ,
+  [TeamID] LONG 
 )

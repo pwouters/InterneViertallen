@@ -14,10 +14,8 @@ Begin Form
     Width =14229
     DatasheetFontHeight =11
     ItemSuffix =48
-    Left =2520
-    Top =1125
-    Right =17445
-    Bottom =11250
+    Right =13995
+    Bottom =10470
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
         0x9b1f09e7d98fe540
@@ -166,6 +164,7 @@ Begin Form
                     LayoutCachedHeight =1026
                 End
                 Begin ComboBox
+                    Visible = NotDefault
                     OverlapFlags =85
                     IMESentenceMode =3
                     ColumnCount =2
@@ -1099,28 +1098,28 @@ Private Sub btnSessiegegevens_Click()
 End Sub
 
 Private Sub btnSluiten_Click()
-   Dim X
+   Dim x
    If Me.Dirty Then
-       X = fnSaveRecords
+       x = fnSaveRecords
     End If
     If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
         DoCmd.Close
     Else
-        DoCmd.BrowseTo acBrowseToForm, "frmProcess"
+        DoCmd.BrowseTo acBrowseToForm, "frmBegin"
    End If
 End Sub
 
 Private Sub cboKiesToernooi_AfterUpdate()
 Dim rs As Recordset
-    Dim X
-   Dim criterium As String
+    Dim x
+   Dim Criterium As String
    If Me.Dirty Then
-      X = fnSaveRecords
+      x = fnSaveRecords
     End If
     Set rs = Recordset
    
-    criterium = MyKeyIs & cboKiesToernooi
-    rs.FindFirst criterium
+    Criterium = MyKeyIs & cboKiesToernooi
+    rs.FindFirst Criterium
     
     If rs.NoMatch Then
     MsgBox "Geen lijst bekend in de database"
@@ -1129,6 +1128,9 @@ Dim rs As Recordset
     Me.Bookmark = rs.Bookmark
     cboKiesToernooi = ""
     End If
+    lngToernooi = Me.Id
+    lngSessie = DLookup("id", "tblSessie", "Sessienr=" & 1 & " and ToernooiD = " & lngToernooi)
+    Call InitAll(lngToernooi, lngSessie)
 End Sub
 
 
@@ -1137,12 +1139,16 @@ End Sub
 Private Sub Form_Open(Cancel As Integer)
 
 Dim rs As Recordset
-Dim criterium
+Dim Criterium
 
 MyKey = "ID"
 MyKeyIs = MyKey & " = "
 Me.cboKiesToernooi = ""
 
+If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
+    Me.cboKiesToernooi.Visible = True
+    Me.cboKiesToernooi.Enabled = True
+End If
 
 
 If lngToernooi = 0 Then
@@ -1160,8 +1166,8 @@ End If
 
 Set rs = Me.RecordsetClone
    
-criterium = MyKeyIs & cboKiesToernooi
-rs.FindFirst criterium
+Criterium = MyKeyIs & cboKiesToernooi
+rs.FindFirst Criterium
 
 If rs.NoMatch Then
 MsgBox "Geen lijst bekend in de database"
@@ -1209,7 +1215,7 @@ End Sub
 
 Private Sub btnNieuw_Click()
  If Me.Dirty Then
-       X = fnSaveRecords
+       x = fnSaveRecords
  End If
  
  DoCmd.RunCommand acCmdRecordsGoToNew
@@ -1231,9 +1237,9 @@ Private Sub btnNieuw_Click()
 End Sub
 
 Private Sub btnOpslaan_Click()
- Dim X
+ Dim x
  If Me.Dirty Then
-       X = fnSaveRecords
+       x = fnSaveRecords
  End If
  Me.cboKiesToernooi.Enabled = True
  Me.cboKiesToernooi.Visible = True
@@ -1326,7 +1332,7 @@ Sub MeControlVisible(JaNee As Integer)
  'Me.btnDelete.Enabled = JaNee
 End Sub
 
-Private Sub LOCALHTML_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub LOCALHTML_MouseDown(Button As Integer, Shift As Integer, x As Single, Y As Single)
  'If right-button clicked
     If Button = 1 Then
             Dim strFolder As String
@@ -1337,7 +1343,7 @@ Private Sub LOCALHTML_MouseDown(Button As Integer, Shift As Integer, X As Single
     End If
 End Sub
 
-Private Sub WORKFILE_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub WORKFILE_MouseDown(Button As Integer, Shift As Integer, x As Single, Y As Single)
 ' If right-button clicked
     If Button = 1 Then
             Dim strFile As String
@@ -1350,7 +1356,7 @@ Private Sub WORKFILE_MouseDown(Button As Integer, Shift As Integer, X As Single,
     End If
 End Sub
 
-Private Sub WORKFOLDER_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub WORKFOLDER_MouseDown(Button As Integer, Shift As Integer, x As Single, Y As Single)
   If Button = 1 Then
             Dim strFolder As String
             strFolder = GetFolderName(strExcel_Folder)
@@ -1361,7 +1367,7 @@ Private Sub WORKFOLDER_MouseDown(Button As Integer, Shift As Integer, X As Singl
     End If
 End Sub
 
-Private Sub WORKTEMPLATE_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub WORKTEMPLATE_MouseDown(Button As Integer, Shift As Integer, x As Single, Y As Single)
 ' If right-button clicked
     If Button = 1 Then
             Dim strFile As String

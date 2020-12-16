@@ -2,8 +2,11 @@ Version =20
 VersionRequired =20
 Begin Form
     AutoCenter = NotDefault
+    AllowDeletions = NotDefault
     DividingLines = NotDefault
+    AllowAdditions = NotDefault
     OrderByOn = NotDefault
+    AllowEdits = NotDefault
     AllowDesignChanges = NotDefault
     DefaultView =2
     PictureAlignment =2
@@ -11,17 +14,19 @@ Begin Form
     GridY =10
     Width =10209
     DatasheetFontHeight =11
-    ItemSuffix =36
-    Right =19935
-    Bottom =10470
+    ItemSuffix =39
+    Left =2520
+    Top =1200
+    Right =17445
+    Bottom =11070
     DatasheetGridlinesColor =15132391
-    Filter ="[ToernooiID]=1 and [SessieID] = 11"
-    OrderBy ="[tblOpstelling].[ToernooiID], [tblOpstelling].[Sessie], [tblOpstelling].[Teamnr]"
+    OrderBy ="[qryWedstrijden_Kruistabel].[Totaal VPS] DESC, [qryWedstrijden_Kruistabel].[Team"
+        "nr]"
     RecSrcDt = Begin
-        0x7168df213190e540
+        0x00211c2f1392e540
     End
-    RecordSource ="tblOpstelling"
-    Caption ="frmOpstelling"
+    RecordSource ="qryWedstrijden_Kruistabel"
+    Caption ="Stand"
     OnOpen ="[Event Procedure]"
     DatasheetFontName ="Calibri"
     FilterOnLoad =0
@@ -68,24 +73,6 @@ Begin Form
             GridlineThemeColorIndex =1
             GridlineShade =65.0
         End
-        Begin ComboBox
-            AddColon = NotDefault
-            BorderLineStyle =0
-            Width =1701
-            LabelX =-1701
-            FontSize =11
-            FontName ="Calibri"
-            AllowValueListEdits =1
-            InheritValueList =1
-            ThemeFontIndex =1
-            BackThemeColorIndex =1
-            BorderThemeColorIndex =1
-            BorderShade =65.0
-            ForeThemeColorIndex =2
-            ForeShade =50.0
-            GridlineThemeColorIndex =1
-            GridlineShade =65.0
-        End
         Begin FormHeader
             Height =1026
             BackColor =15064278
@@ -100,49 +87,47 @@ Begin Form
                     OverlapFlags =85
                     Left =57
                     Top =57
-                    Width =2772
+                    Width =5328
                     Height =969
                     FontSize =20
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="Bijschrift32"
-                    Caption ="frmOpstelling"
+                    Name ="Bijschrift24"
+                    Caption ="Stand "
                     GridlineColor =10921638
                     LayoutCachedLeft =57
                     LayoutCachedTop =57
-                    LayoutCachedWidth =2829
+                    LayoutCachedWidth =5385
                     LayoutCachedHeight =1026
                 End
             End
         End
         Begin Section
-            Height =7911
+            Height =8900
             Name ="Details"
-            AutoHeight =1
             AlternateBackColor =15921906
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
             BackThemeColorIndex =1
             Begin
                 Begin TextBox
-                    ColumnHidden = NotDefault
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =2892
                     Top =342
-                    Height =315
-                    ColumnWidth =1701
-                    ColumnOrder =0
+                    Width =1050
+                    Height =330
+                    ColumnWidth =1050
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="id"
-                    ControlSource ="id"
+                    Name ="Teamnr"
+                    ControlSource ="Teamnr"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =2892
                     LayoutCachedTop =342
-                    LayoutCachedWidth =4593
-                    LayoutCachedHeight =657
+                    LayoutCachedWidth =3942
+                    LayoutCachedHeight =672
                     Begin
                         Begin Label
                             OverlapFlags =85
@@ -152,8 +137,8 @@ Begin Form
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="id_Bijschrift"
-                            Caption ="id"
+                            Name ="Teamnr_Bijschrift"
+                            Caption ="Teamnr"
                             GridlineColor =10921638
                             LayoutCachedLeft =342
                             LayoutCachedTop =342
@@ -163,25 +148,26 @@ Begin Form
                     End
                 End
                 Begin TextBox
+                    EnterKeyBehavior = NotDefault
+                    ScrollBars =2
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =2892
                     Top =741
-                    Width =1530
-                    Height =330
-                    ColumnWidth =975
-                    ColumnOrder =1
+                    Width =7260
+                    Height =600
+                    ColumnWidth =2925
                     TabIndex =1
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="ToernooiID"
-                    ControlSource ="ToernooiID"
+                    Name ="TeamNaam"
+                    ControlSource ="TeamNaam"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =2892
                     LayoutCachedTop =741
-                    LayoutCachedWidth =4422
-                    LayoutCachedHeight =1071
+                    LayoutCachedWidth =10152
+                    LayoutCachedHeight =1341
                     Begin
                         Begin Label
                             OverlapFlags =85
@@ -191,8 +177,8 @@ Begin Form
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="ToernooiID_Bijschrift"
-                            Caption ="ToernooiID"
+                            Name ="TeamNaam_Bijschrift"
+                            Caption ="TeamNaam"
                             GridlineColor =10921638
                             LayoutCachedLeft =342
                             LayoutCachedTop =741
@@ -202,146 +188,151 @@ Begin Form
                     End
                 End
                 Begin TextBox
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =2892
-                    Top =1140
-                    Width =960
+                    Top =1425
+                    Width =3660
                     Height =330
-                    ColumnWidth =1005
-                    ColumnOrder =2
+                    ColumnWidth =1380
                     TabIndex =2
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Sessie"
-                    ControlSource ="Sessie"
+                    Name ="Totaal VPS"
+                    ControlSource ="Totaal VPS"
+                    Format ="#,#00"
+                    EventProcPrefix ="Totaal_VPS"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =2892
-                    LayoutCachedTop =1140
-                    LayoutCachedWidth =3852
-                    LayoutCachedHeight =1470
+                    LayoutCachedTop =1425
+                    LayoutCachedWidth =6552
+                    LayoutCachedHeight =1755
                     Begin
                         Begin Label
                             OverlapFlags =85
                             Left =342
-                            Top =1140
+                            Top =1425
                             Width =2460
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Sessie_Bijschrift"
-                            Caption ="Sessie"
+                            Name ="Totaal VPS_Bijschrift"
+                            Caption ="Totaal VPS"
+                            EventProcPrefix ="Totaal_VPS_Bijschrift"
                             GridlineColor =10921638
                             LayoutCachedLeft =342
-                            LayoutCachedTop =1140
+                            LayoutCachedTop =1425
                             LayoutCachedWidth =2802
-                            LayoutCachedHeight =1470
+                            LayoutCachedHeight =1755
                         End
                     End
                 End
                 Begin TextBox
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =2892
-                    Top =1539
-                    Width =1050
+                    Top =1824
+                    Width =3660
                     Height =330
-                    ColumnWidth =540
-                    ColumnOrder =3
+                    ColumnWidth =1020
                     TabIndex =3
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Teamnr"
-                    ControlSource ="Teamnr"
+                    Name ="GemVanVPS"
+                    ControlSource ="GemVanVPS"
+                    Format ="#,#00"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =2892
-                    LayoutCachedTop =1539
-                    LayoutCachedWidth =3942
-                    LayoutCachedHeight =1869
+                    LayoutCachedTop =1824
+                    LayoutCachedWidth =6552
+                    LayoutCachedHeight =2154
                     Begin
                         Begin Label
                             OverlapFlags =85
                             Left =342
-                            Top =1539
+                            Top =1824
                             Width =2460
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Teamnr_Bijschrift"
-                            Caption ="Teamnr"
+                            Name ="GemVanVPS_Bijschrift"
+                            Caption ="GemVanVPS"
                             GridlineColor =10921638
                             LayoutCachedLeft =342
-                            LayoutCachedTop =1539
+                            LayoutCachedTop =1824
                             LayoutCachedWidth =2802
-                            LayoutCachedHeight =1869
+                            LayoutCachedHeight =2154
                         End
                     End
                 End
                 Begin TextBox
-                    EnterKeyBehavior = NotDefault
-                    ScrollBars =2
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =2892
-                    Top =1938
-                    Width =7260
-                    Height =600
-                    ColumnWidth =1365
-                    ColumnOrder =5
+                    Top =2223
+                    Width =3660
+                    Height =330
+                    ColumnWidth =885
                     TabIndex =4
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Speler1"
-                    ControlSource ="Speler1"
+                    Name ="1_txt"
+                    ControlSource ="1"
+                    Format ="Standard"
+                    EventProcPrefix ="Ctl1_txt"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =2892
-                    LayoutCachedTop =1938
-                    LayoutCachedWidth =10152
-                    LayoutCachedHeight =2538
+                    LayoutCachedTop =2223
+                    LayoutCachedWidth =6552
+                    LayoutCachedHeight =2553
                     Begin
                         Begin Label
                             OverlapFlags =85
                             Left =342
-                            Top =1938
+                            Top =2223
                             Width =2460
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Speler1_Bijschrift"
-                            Caption ="Speler1"
+                            Name ="1_Bijschrift"
+                            Caption ="1"
+                            EventProcPrefix ="Ctl1_Bijschrift"
                             GridlineColor =10921638
                             LayoutCachedLeft =342
-                            LayoutCachedTop =1938
+                            LayoutCachedTop =2223
                             LayoutCachedWidth =2802
-                            LayoutCachedHeight =2268
+                            LayoutCachedHeight =2553
                         End
                     End
                 End
                 Begin TextBox
-                    EnterKeyBehavior = NotDefault
-                    ScrollBars =2
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =2892
                     Top =2622
-                    Width =7260
-                    Height =600
-                    ColumnWidth =1440
-                    ColumnOrder =6
+                    Width =3660
+                    Height =330
+                    ColumnWidth =915
                     TabIndex =5
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Speler2"
-                    ControlSource ="Speler2"
+                    Name ="2_txt"
+                    ControlSource ="2"
+                    Format ="Standard"
+                    EventProcPrefix ="Ctl2_txt"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =2892
                     LayoutCachedTop =2622
-                    LayoutCachedWidth =10152
-                    LayoutCachedHeight =3222
+                    LayoutCachedWidth =6552
+                    LayoutCachedHeight =2952
                     Begin
                         Begin Label
                             OverlapFlags =85
@@ -351,8 +342,9 @@ Begin Form
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Speler2_Bijschrift"
-                            Caption ="Speler2"
+                            Name ="2_Bijschrift"
+                            Caption ="2"
+                            EventProcPrefix ="Ctl2_Bijschrift"
                             GridlineColor =10921638
                             LayoutCachedLeft =342
                             LayoutCachedTop =2622
@@ -362,517 +354,550 @@ Begin Form
                     End
                 End
                 Begin TextBox
-                    EnterKeyBehavior = NotDefault
-                    ScrollBars =2
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =2892
-                    Top =3306
-                    Width =7260
-                    Height =600
-                    ColumnWidth =1230
-                    ColumnOrder =7
+                    Top =3021
+                    Width =3660
+                    Height =330
+                    ColumnWidth =885
                     TabIndex =6
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Speler3"
-                    ControlSource ="Speler3"
+                    Name ="3_txt"
+                    ControlSource ="3"
+                    Format ="Standard"
+                    EventProcPrefix ="Ctl3_txt"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =2892
-                    LayoutCachedTop =3306
-                    LayoutCachedWidth =10152
-                    LayoutCachedHeight =3906
+                    LayoutCachedTop =3021
+                    LayoutCachedWidth =6552
+                    LayoutCachedHeight =3351
                     Begin
                         Begin Label
                             OverlapFlags =85
                             Left =342
-                            Top =3306
+                            Top =3021
                             Width =2460
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Speler3_Bijschrift"
-                            Caption ="Speler3"
+                            Name ="3_Bijschrift"
+                            Caption ="3"
+                            EventProcPrefix ="Ctl3_Bijschrift"
                             GridlineColor =10921638
                             LayoutCachedLeft =342
-                            LayoutCachedTop =3306
+                            LayoutCachedTop =3021
                             LayoutCachedWidth =2802
-                            LayoutCachedHeight =3636
+                            LayoutCachedHeight =3351
                         End
                     End
                 End
                 Begin TextBox
-                    EnterKeyBehavior = NotDefault
-                    ScrollBars =2
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =2892
-                    Top =3990
-                    Width =7260
-                    Height =600
-                    ColumnWidth =1500
-                    ColumnOrder =8
+                    Top =3420
+                    Width =3660
+                    Height =330
+                    ColumnWidth =915
                     TabIndex =7
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Speler4"
-                    ControlSource ="Speler4"
+                    Name ="4_txt"
+                    ControlSource ="4"
+                    Format ="Standard"
+                    EventProcPrefix ="Ctl4_txt"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =2892
-                    LayoutCachedTop =3990
-                    LayoutCachedWidth =10152
-                    LayoutCachedHeight =4590
+                    LayoutCachedTop =3420
+                    LayoutCachedWidth =6552
+                    LayoutCachedHeight =3750
                     Begin
                         Begin Label
                             OverlapFlags =85
                             Left =342
-                            Top =3990
+                            Top =3420
                             Width =2460
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Speler4_Bijschrift"
-                            Caption ="Speler4"
+                            Name ="4_Bijschrift"
+                            Caption ="4"
+                            EventProcPrefix ="Ctl4_Bijschrift"
                             GridlineColor =10921638
                             LayoutCachedLeft =342
-                            LayoutCachedTop =3990
+                            LayoutCachedTop =3420
                             LayoutCachedWidth =2802
-                            LayoutCachedHeight =4320
+                            LayoutCachedHeight =3750
                         End
                     End
                 End
                 Begin TextBox
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =2892
-                    Top =4674
-                    Width =1050
+                    Top =3819
+                    Width =3660
                     Height =330
-                    ColumnWidth =765
-                    ColumnOrder =9
+                    ColumnWidth =870
                     TabIndex =8
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Wedstrijd1"
-                    ControlSource ="Wedstrijd1"
+                    Name ="5_txt"
+                    ControlSource ="5"
+                    Format ="Standard"
+                    EventProcPrefix ="Ctl5_txt"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =2892
-                    LayoutCachedTop =4674
-                    LayoutCachedWidth =3942
-                    LayoutCachedHeight =5004
+                    LayoutCachedTop =3819
+                    LayoutCachedWidth =6552
+                    LayoutCachedHeight =4149
                     Begin
                         Begin Label
                             OverlapFlags =85
                             Left =342
-                            Top =4674
+                            Top =3819
                             Width =2460
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Wedstrijd1_Bijschrift"
-                            Caption ="Wedstrijd1"
+                            Name ="5_Bijschrift"
+                            Caption ="5"
+                            EventProcPrefix ="Ctl5_Bijschrift"
                             GridlineColor =10921638
                             LayoutCachedLeft =342
-                            LayoutCachedTop =4674
+                            LayoutCachedTop =3819
                             LayoutCachedWidth =2802
-                            LayoutCachedHeight =5004
+                            LayoutCachedHeight =4149
                         End
                     End
                 End
                 Begin TextBox
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =2892
-                    Top =5073
-                    Width =1050
+                    Top =4218
+                    Width =3660
                     Height =330
-                    ColumnWidth =765
-                    ColumnOrder =10
+                    ColumnWidth =900
                     TabIndex =9
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Wedstrijd2"
-                    ControlSource ="Wedstrijd2"
+                    Name ="6_txt"
+                    ControlSource ="6"
+                    Format ="Standard"
+                    EventProcPrefix ="Ctl6_txt"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =2892
-                    LayoutCachedTop =5073
-                    LayoutCachedWidth =3942
-                    LayoutCachedHeight =5403
+                    LayoutCachedTop =4218
+                    LayoutCachedWidth =6552
+                    LayoutCachedHeight =4548
                     Begin
                         Begin Label
                             OverlapFlags =85
                             Left =342
-                            Top =5073
+                            Top =4218
                             Width =2460
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Wedstrijd2_Bijschrift"
-                            Caption ="Wedstrijd2"
+                            Name ="6_Bijschrift"
+                            Caption ="6"
+                            EventProcPrefix ="Ctl6_Bijschrift"
                             GridlineColor =10921638
                             LayoutCachedLeft =342
-                            LayoutCachedTop =5073
+                            LayoutCachedTop =4218
                             LayoutCachedWidth =2802
-                            LayoutCachedHeight =5403
+                            LayoutCachedHeight =4548
                         End
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =2892
-                    Top =5472
-                    Width =1050
+                    Top =4617
+                    Width =3660
                     Height =330
-                    ColumnWidth =645
-                    ColumnOrder =11
+                    ColumnWidth =990
                     TabIndex =10
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Wedstrijd3"
-                    ControlSource ="Wedstrijd3"
+                    Name ="7_txt"
+                    ControlSource ="7"
+                    Format ="Standard"
+                    EventProcPrefix ="Ctl7_txt"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =2892
-                    LayoutCachedTop =5472
-                    LayoutCachedWidth =3942
-                    LayoutCachedHeight =5802
+                    LayoutCachedTop =4617
+                    LayoutCachedWidth =6552
+                    LayoutCachedHeight =4947
                     Begin
                         Begin Label
                             OverlapFlags =85
                             Left =342
-                            Top =5472
+                            Top =4617
                             Width =2460
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Wedstrijd3_Bijschrift"
-                            Caption ="Wedstrijd3"
+                            Name ="7_Bijschrift"
+                            Caption ="7"
+                            EventProcPrefix ="Ctl7_Bijschrift"
                             GridlineColor =10921638
                             LayoutCachedLeft =342
-                            LayoutCachedTop =5472
+                            LayoutCachedTop =4617
                             LayoutCachedWidth =2802
-                            LayoutCachedHeight =5802
+                            LayoutCachedHeight =4947
                         End
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =2892
-                    Top =5871
-                    Width =1050
+                    Top =5016
+                    Width =3660
                     Height =330
-                    ColumnWidth =465
-                    ColumnOrder =12
+                    ColumnWidth =975
                     TabIndex =11
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Wedstrijd4"
-                    ControlSource ="Wedstrijd4"
+                    Name ="8_txt"
+                    ControlSource ="8"
+                    Format ="Standard"
+                    EventProcPrefix ="Ctl8_txt"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =2892
-                    LayoutCachedTop =5871
-                    LayoutCachedWidth =3942
-                    LayoutCachedHeight =6201
+                    LayoutCachedTop =5016
+                    LayoutCachedWidth =6552
+                    LayoutCachedHeight =5346
                     Begin
                         Begin Label
                             OverlapFlags =85
                             Left =342
-                            Top =5871
+                            Top =5016
                             Width =2460
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Wedstrijd4_Bijschrift"
-                            Caption ="Wedstrijd4"
+                            Name ="8_Bijschrift"
+                            Caption ="8"
+                            EventProcPrefix ="Ctl8_Bijschrift"
                             GridlineColor =10921638
                             LayoutCachedLeft =342
-                            LayoutCachedTop =5871
+                            LayoutCachedTop =5016
                             LayoutCachedWidth =2802
-                            LayoutCachedHeight =6201
+                            LayoutCachedHeight =5346
                         End
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =2892
-                    Top =6270
-                    Width =1050
+                    Top =5466
+                    Width =3660
                     Height =330
-                    ColumnWidth =450
-                    ColumnOrder =13
                     TabIndex =12
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Wedstrijd5"
-                    ControlSource ="Wedstrijd5"
+                    Name ="9_txt"
+                    Format ="Standard"
+                    EventProcPrefix ="Ctl9_txt"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =2892
-                    LayoutCachedTop =6270
-                    LayoutCachedWidth =3942
-                    LayoutCachedHeight =6600
+                    LayoutCachedTop =5466
+                    LayoutCachedWidth =6552
+                    LayoutCachedHeight =5796
                     Begin
                         Begin Label
+                            Visible = NotDefault
                             OverlapFlags =85
                             Left =342
-                            Top =6270
+                            Top =5466
                             Width =2460
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Wedstrijd5_Bijschrift"
-                            Caption ="Wedstrijd5"
+                            Name ="9_Bijschrift"
+                            Caption ="9"
+                            EventProcPrefix ="Ctl9_Bijschrift"
                             GridlineColor =10921638
                             LayoutCachedLeft =342
-                            LayoutCachedTop =6270
+                            LayoutCachedTop =5466
                             LayoutCachedWidth =2802
-                            LayoutCachedHeight =6600
+                            LayoutCachedHeight =5796
                         End
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
-                    Left =2892
-                    Top =6669
-                    Width =1050
+                    Left =2946
+                    Top =5952
+                    Width =3660
                     Height =330
-                    ColumnWidth =390
-                    ColumnOrder =14
                     TabIndex =13
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Wedstrijd6"
-                    ControlSource ="Wedstrijd6"
+                    Name ="10_txt"
+                    Format ="Standard"
+                    EventProcPrefix ="Ctl10_txt"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =2892
-                    LayoutCachedTop =6669
-                    LayoutCachedWidth =3942
-                    LayoutCachedHeight =6999
+                    LayoutCachedLeft =2946
+                    LayoutCachedTop =5952
+                    LayoutCachedWidth =6606
+                    LayoutCachedHeight =6282
                     Begin
                         Begin Label
+                            Visible = NotDefault
                             OverlapFlags =85
-                            Left =342
-                            Top =6669
-                            Width =2460
+                            Left =336
+                            Top =5952
+                            Width =2520
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Wedstrijd6_Bijschrift"
-                            Caption ="Wedstrijd6"
+                            Name ="10_Bijschrift"
+                            Caption ="10"
+                            EventProcPrefix ="Ctl10_Bijschrift"
                             GridlineColor =10921638
-                            LayoutCachedLeft =342
-                            LayoutCachedTop =6669
-                            LayoutCachedWidth =2802
-                            LayoutCachedHeight =6999
+                            LayoutCachedLeft =336
+                            LayoutCachedTop =5952
+                            LayoutCachedWidth =2856
+                            LayoutCachedHeight =6282
                         End
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =2892
-                    Top =7068
-                    Width =1050
+                    Top =6402
+                    Width =3660
                     Height =330
-                    ColumnWidth =450
-                    ColumnOrder =15
                     TabIndex =14
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Wedstrijd7"
-                    ControlSource ="Wedstrijd7"
+                    Name ="11_txt"
+                    Format ="Standard"
+                    EventProcPrefix ="Ctl11_txt"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =2892
-                    LayoutCachedTop =7068
-                    LayoutCachedWidth =3942
-                    LayoutCachedHeight =7398
+                    LayoutCachedTop =6402
+                    LayoutCachedWidth =6552
+                    LayoutCachedHeight =6732
                     Begin
                         Begin Label
+                            Visible = NotDefault
                             OverlapFlags =85
                             Left =342
-                            Top =7068
+                            Top =6402
                             Width =2460
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Wedstrijd7_Bijschrift"
-                            Caption ="Wedstrijd7"
+                            Name ="11_Bijschrijft"
+                            Caption ="11"
+                            EventProcPrefix ="Ctl11_Bijschrijft"
                             GridlineColor =10921638
                             LayoutCachedLeft =342
-                            LayoutCachedTop =7068
+                            LayoutCachedTop =6402
                             LayoutCachedWidth =2802
-                            LayoutCachedHeight =7398
+                            LayoutCachedHeight =6732
                         End
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
-                    Left =2892
-                    Top =7467
-                    Width =1050
+                    Left =2946
+                    Top =6888
+                    Width =3660
                     Height =330
-                    ColumnWidth =360
-                    ColumnOrder =16
                     TabIndex =15
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Wedstrijd8"
-                    ControlSource ="Wedstrijd8"
+                    Name ="12_txt"
+                    Format ="Standard"
+                    EventProcPrefix ="Ctl12_txt"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =2892
-                    LayoutCachedTop =7467
-                    LayoutCachedWidth =3942
-                    LayoutCachedHeight =7797
+                    LayoutCachedLeft =2946
+                    LayoutCachedTop =6888
+                    LayoutCachedWidth =6606
+                    LayoutCachedHeight =7218
                     Begin
                         Begin Label
+                            Visible = NotDefault
                             OverlapFlags =85
-                            Left =342
-                            Top =7467
+                            Left =396
+                            Top =6888
                             Width =2460
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Wedstrijd8_Bijschrift"
-                            Caption ="Wedstrijd8"
+                            Name ="12_Bijschrijft"
+                            Caption ="12"
+                            EventProcPrefix ="Ctl12_Bijschrijft"
                             GridlineColor =10921638
-                            LayoutCachedLeft =342
-                            LayoutCachedTop =7467
-                            LayoutCachedWidth =2802
-                            LayoutCachedHeight =7797
+                            LayoutCachedLeft =396
+                            LayoutCachedTop =6888
+                            LayoutCachedWidth =2856
+                            LayoutCachedHeight =7218
                         End
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
-                    Left =7653
-                    Top =5102
-                    Height =315
-                    ColumnWidth =285
-                    ColumnOrder =17
+                    Left =2892
+                    Top =7338
+                    Width =3660
+                    Height =330
                     TabIndex =16
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Wedstrijd9"
-                    ControlSource ="Wedstrijd9"
+                    Name ="13_txt"
+                    Format ="Standard"
+                    EventProcPrefix ="Ctl13_txt"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =7653
-                    LayoutCachedTop =5102
-                    LayoutCachedWidth =9354
-                    LayoutCachedHeight =5417
+                    LayoutCachedLeft =2892
+                    LayoutCachedTop =7338
+                    LayoutCachedWidth =6552
+                    LayoutCachedHeight =7668
                     Begin
                         Begin Label
+                            Visible = NotDefault
                             OverlapFlags =85
-                            Left =5952
-                            Top =5102
-                            Width =1095
-                            Height =315
+                            Left =342
+                            Top =7338
+                            Width =2460
+                            Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Bijschrift33"
-                            Caption ="Wedstrijd9"
+                            Name ="13_Bijschrift"
+                            Caption ="13"
+                            EventProcPrefix ="Ctl13_Bijschrift"
                             GridlineColor =10921638
-                            LayoutCachedLeft =5952
-                            LayoutCachedTop =5102
-                            LayoutCachedWidth =7047
-                            LayoutCachedHeight =5417
+                            LayoutCachedLeft =342
+                            LayoutCachedTop =7338
+                            LayoutCachedWidth =2802
+                            LayoutCachedHeight =7668
                         End
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
-                    Left =7143
-                    Top =5725
-                    Height =315
-                    ColumnWidth =480
-                    ColumnOrder =18
+                    Left =2946
+                    Top =7824
+                    Width =3660
+                    Height =330
                     TabIndex =17
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="Wedstrijd10"
-                    ControlSource ="Wedstrijd10"
+                    Name ="14_txt"
+                    Format ="Standard"
+                    EventProcPrefix ="Ctl14_txt"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =7143
-                    LayoutCachedTop =5725
-                    LayoutCachedWidth =8844
-                    LayoutCachedHeight =6040
+                    LayoutCachedLeft =2946
+                    LayoutCachedTop =7824
+                    LayoutCachedWidth =6606
+                    LayoutCachedHeight =8154
                     Begin
                         Begin Label
+                            Visible = NotDefault
                             OverlapFlags =85
-                            Left =5442
-                            Top =5725
-                            Width =1200
-                            Height =315
+                            Left =396
+                            Top =7824
+                            Width =2460
+                            Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Bijschrift34"
-                            Caption ="Wedstrijd10"
+                            Name ="14_Bijschrift"
+                            Caption ="14"
+                            EventProcPrefix ="Ctl14_Bijschrift"
                             GridlineColor =10921638
-                            LayoutCachedLeft =5442
-                            LayoutCachedTop =5725
-                            LayoutCachedWidth =6642
-                            LayoutCachedHeight =6040
+                            LayoutCachedLeft =396
+                            LayoutCachedTop =7824
+                            LayoutCachedWidth =2856
+                            LayoutCachedHeight =8154
                         End
                     End
                 End
-                Begin ComboBox
-                    LimitToList = NotDefault
+                Begin TextBox
+                    ColumnHidden = NotDefault
+                    DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
-                    ColumnCount =2
-                    Left =7029
-                    Top =1190
-                    Height =315
-                    ColumnWidth =2160
-                    ColumnOrder =4
+                    Left =2946
+                    Top =8274
+                    Width =3660
+                    Height =330
                     TabIndex =18
                     BorderColor =10921638
-                    ForeColor =3484194
-                    ColumnInfo ="\"\";\"\";\"\";\"\";\"10\";\"510\""
-                    Name ="TeamID"
-                    ControlSource ="TeamID"
-                    RowSourceType ="Table/Query"
-                    RowSource ="SELECT tblTeams.id, tblTeams.TeamNaam FROM tblTeams; "
-                    ColumnWidths ="0;2835"
+                    ForeColor =4210752
+                    Name ="15_txt"
+                    Format ="Standard"
+                    EventProcPrefix ="Ctl15_txt"
                     GridlineColor =10921638
-                    AllowValueListEdits =0
 
-                    LayoutCachedLeft =7029
-                    LayoutCachedTop =1190
-                    LayoutCachedWidth =8730
-                    LayoutCachedHeight =1505
+                    LayoutCachedLeft =2946
+                    LayoutCachedTop =8274
+                    LayoutCachedWidth =6606
+                    LayoutCachedHeight =8604
                     Begin
                         Begin Label
+                            Visible = NotDefault
                             OverlapFlags =85
-                            Left =5442
-                            Top =1247
-                            Width =780
-                            Height =315
+                            Left =396
+                            Top =8274
+                            Width =2460
+                            Height =330
                             BorderColor =8355711
                             ForeColor =8355711
-                            Name ="Bijschrift35"
-                            Caption ="TeamID"
+                            Name ="15_Bijschrift"
+                            Caption ="15"
+                            EventProcPrefix ="Ctl15_Bijschrift"
                             GridlineColor =10921638
-                            LayoutCachedLeft =5442
-                            LayoutCachedTop =1247
-                            LayoutCachedWidth =6222
-                            LayoutCachedHeight =1562
+                            LayoutCachedLeft =396
+                            LayoutCachedTop =8274
+                            LayoutCachedWidth =2856
+                            LayoutCachedHeight =8604
                         End
                     End
                 End
@@ -896,9 +921,26 @@ Attribute VB_Exposed = False
 Option Compare Database
 
 Private Sub Form_Open(Cancel As Integer)
-If CurrentProject.AllForms("Start_VT").IsLoaded = True Then
-    Me.Filter = "[ToernooiID]=" & lngToernooi & " and [SessieID] = " & lngSessie
-    Me.FilterOn = True
+Dim db As Database
+Dim rs As Recordset
+Dim fld As Field
+Dim intKolommen, i As Integer
+
+Set db = CurrentDb
+Set rs = Me.Recordset
+intKolommen = 0
+For Each fld In rs.Fields
+If Val(fld.name) > 0 Then
+    intKolommen = intKolommen + 1
 End If
+Next
+'nu verberg de kolommen
+
+For i = intKolommen + 1 To 14
+    Me.Controls(i & "_txt").ColumnHidden = True
+Next
+
+
+
 
 End Sub

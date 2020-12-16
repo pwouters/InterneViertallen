@@ -1,23 +1,20 @@
 Version =20
 VersionRequired =20
 Begin Form
-    NavigationButtons = NotDefault
-    CloseButton = NotDefault
     DividingLines = NotDefault
     AllowDesignChanges = NotDefault
     DefaultView =0
-    ScrollBars =0
     PictureAlignment =2
     DatasheetGridlinesBehavior =3
     GridY =10
-    Width =8163
+    Width =7371
     DatasheetFontHeight =11
-    ItemSuffix =47
-    Right =19140
-    Bottom =12240
+    ItemSuffix =6
+    Right =11010
+    Bottom =11685
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
-        0x6f1d1de43490e540
+        0x7c0eb60c8192e540
     End
     RecordSource ="SELECT tblToernooi.ID, tblToernooi.ToernooiNaam FROM tblToernooi; "
     OnOpen ="[Event Procedure]"
@@ -46,6 +43,13 @@ Begin Form
             BorderTint =50.0
             ForeThemeColorIndex =0
             ForeTint =50.0
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+        End
+        Begin Line
+            BorderLineStyle =0
+            Width =1701
+            BorderThemeColorIndex =0
             GridlineThemeColorIndex =1
             GridlineShade =65.0
         End
@@ -116,24 +120,6 @@ Begin Form
             GridlineThemeColorIndex =1
             GridlineShade =65.0
         End
-        Begin ListBox
-            BorderLineStyle =0
-            Width =1701
-            Height =1417
-            LabelX =-1701
-            FontSize =11
-            FontName ="Calibri"
-            AllowValueListEdits =1
-            InheritValueList =1
-            ThemeFontIndex =1
-            BackThemeColorIndex =1
-            BorderThemeColorIndex =1
-            BorderShade =65.0
-            ForeThemeColorIndex =0
-            ForeTint =75.0
-            GridlineThemeColorIndex =1
-            GridlineShade =65.0
-        End
         Begin ComboBox
             AddColon = NotDefault
             BorderLineStyle =0
@@ -152,14 +138,8 @@ Begin Form
             GridlineThemeColorIndex =1
             GridlineShade =65.0
         End
-        Begin EmptyCell
-            Height =240
-            GridlineColor =12632256
-            GridlineThemeColorIndex =1
-            GridlineShade =65.0
-        End
         Begin FormHeader
-            Height =969
+            Height =793
             BackColor =15064278
             Name ="Formulierkoptekst"
             AlternateBackThemeColorIndex =1
@@ -169,21 +149,24 @@ Begin Form
             Begin
                 Begin Label
                     OverlapFlags =85
-                    Width =3120
-                    Height =969
-                    FontSize =20
+                    Width =3360
+                    Height =570
+                    FontSize =15
+                    FontWeight =500
                     BorderColor =8355711
-                    ForeColor =8355711
-                    Name ="Bijschrift32"
-                    Caption ="Process Viertallen"
+                    ForeColor =-2147483617
+                    Name ="lblBerekenScorekaarten"
+                    Caption ="Berekening Scorestaten"
                     GridlineColor =10921638
-                    LayoutCachedWidth =3120
-                    LayoutCachedHeight =969
+                    LayoutCachedWidth =3360
+                    LayoutCachedHeight =570
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
                 End
             End
         End
         Begin Section
-            Height =5116
+            Height =5117
             Name ="Details"
             AlternateBackColor =15921906
             AlternateBackThemeColorIndex =1
@@ -192,12 +175,11 @@ Begin Form
             Begin
                 Begin TextBox
                     Visible = NotDefault
-                    OverlapFlags =85
+                    OverlapFlags =93
                     IMESentenceMode =3
                     Left =6066
                     Width =336
                     Height =315
-                    ColumnOrder =0
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="ID"
@@ -210,7 +192,7 @@ Begin Form
                     Begin
                         Begin Label
                             Visible = NotDefault
-                            OverlapFlags =85
+                            OverlapFlags =93
                             Left =5612
                             Width =270
                             Height =315
@@ -226,9 +208,10 @@ Begin Form
                     End
                 End
                 Begin CommandButton
-                    OverlapFlags =93
-                    Top =2267
-                    Width =2091
+                    OverlapFlags =85
+                    Left =56
+                    Top =2552
+                    Width =2268
                     Height =568
                     TabIndex =1
                     ForeColor =4210752
@@ -237,9 +220,10 @@ Begin Form
                     OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedTop =2267
-                    LayoutCachedWidth =2091
-                    LayoutCachedHeight =2835
+                    LayoutCachedLeft =56
+                    LayoutCachedTop =2552
+                    LayoutCachedWidth =2324
+                    LayoutCachedHeight =3120
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -254,8 +238,9 @@ Begin Form
                 End
                 Begin CommandButton
                     OverlapFlags =93
-                    Top =3685
-                    Width =2091
+                    Left =56
+                    Top =3799
+                    Width =2268
                     Height =568
                     TabIndex =2
                     ForeColor =4210752
@@ -264,9 +249,11 @@ Begin Form
                     OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedTop =3685
-                    LayoutCachedWidth =2091
-                    LayoutCachedHeight =4253
+                    LayoutCachedLeft =56
+                    LayoutCachedTop =3799
+                    LayoutCachedWidth =2324
+                    LayoutCachedHeight =4367
+                    Alignment =1
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -280,9 +267,10 @@ Begin Form
                     Overlaps =1
                 End
                 Begin CommandButton
-                    OverlapFlags =215
-                    Top =4252
-                    Width =2076
+                    OverlapFlags =87
+                    Left =56
+                    Top =4366
+                    Width =2268
                     Height =568
                     TabIndex =3
                     ForeColor =4210752
@@ -291,9 +279,11 @@ Begin Form
                     OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedTop =4252
-                    LayoutCachedWidth =2076
-                    LayoutCachedHeight =4820
+                    LayoutCachedLeft =56
+                    LayoutCachedTop =4366
+                    LayoutCachedWidth =2324
+                    LayoutCachedHeight =4934
+                    Alignment =1
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -307,49 +297,49 @@ Begin Form
                     Overlaps =1
                 End
                 Begin OptionButton
-                    OverlapFlags =93
-                    Left =3005
-                    Top =1756
-                    ColumnOrder =1
+                    OverlapFlags =85
+                    Left =3056
+                    Top =1870
                     TabIndex =4
                     BorderColor =10921638
                     Name ="optAlle"
-                    AfterUpdate ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =3005
-                    LayoutCachedTop =1756
-                    LayoutCachedWidth =3265
-                    LayoutCachedHeight =1996
+                    LayoutCachedLeft =3056
+                    LayoutCachedTop =1870
+                    LayoutCachedWidth =3316
+                    LayoutCachedHeight =2110
                     Begin
                         Begin Label
-                            OverlapFlags =93
+                            OverlapFlags =85
                             TextAlign =1
-                            Left =5
-                            Top =1700
-                            Width =2660
+                            Left =56
+                            Top =1814
+                            Width =2268
                             Height =284
+                            FontWeight =700
                             BorderColor =8355711
-                            ForeColor =8355711
+                            ForeColor =-2147483617
                             Name ="lblAlle"
-                            Caption ="process alle scorekaarten"
+                            Caption ="Bereken alle staten"
                             GridlineColor =10921638
-                            LayoutCachedLeft =5
-                            LayoutCachedTop =1700
-                            LayoutCachedWidth =2665
-                            LayoutCachedHeight =1984
+                            LayoutCachedLeft =56
+                            LayoutCachedTop =1814
+                            LayoutCachedWidth =2324
+                            LayoutCachedHeight =2098
+                            ForeThemeColorIndex =-1
+                            ForeTint =100.0
                         End
                     End
                 End
                 Begin ComboBox
-                    OverlapFlags =119
+                    OverlapFlags =85
                     IMESentenceMode =3
                     ColumnCount =2
-                    Left =3004
-                    Top =1983
+                    Left =3055
+                    Top =2211
                     Width =3981
                     Height =315
-                    ColumnOrder =2
                     TabIndex =5
                     BorderColor =10921638
                     ForeColor =3484194
@@ -359,38 +349,40 @@ Begin Form
                     RowSource ="SELECT qryTeams_per_Toernooi.Teamnr, qryTeams_per_Toernooi.TeamNaam FROM qryTeam"
                         "s_per_Toernooi WHERE (((qryTeams_per_Toernooi.ID)=lngToernooiID())) ORDER BY qry"
                         "Teams_per_Toernooi.Teamnr; "
-                    ColumnWidths ="454;2835"
-                    AfterUpdate ="[Event Procedure]"
+                    ColumnWidths ="455;2835"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =3004
-                    LayoutCachedTop =1983
-                    LayoutCachedWidth =6985
-                    LayoutCachedHeight =2298
+                    LayoutCachedLeft =3055
+                    LayoutCachedTop =2211
+                    LayoutCachedWidth =7036
+                    LayoutCachedHeight =2526
                     Begin
                         Begin Label
-                            OverlapFlags =87
+                            OverlapFlags =85
                             TextAlign =1
-                            Left =5
-                            Top =1983
-                            Width =2660
+                            Left =56
+                            Top =2211
+                            Width =2268
                             Height =284
+                            FontWeight =700
                             BorderColor =8355711
-                            ForeColor =8355711
+                            ForeColor =-2147483617
                             Name ="lblKiesTeam"
-                            Caption ="process alleen team"
+                            Caption ="of kies een team"
                             GridlineColor =10921638
-                            LayoutCachedLeft =5
-                            LayoutCachedTop =1983
-                            LayoutCachedWidth =2665
-                            LayoutCachedHeight =2267
+                            LayoutCachedLeft =56
+                            LayoutCachedTop =2211
+                            LayoutCachedWidth =2324
+                            LayoutCachedHeight =2495
+                            ForeThemeColorIndex =-1
+                            ForeTint =100.0
                         End
                     End
                 End
                 Begin CommandButton
                     OverlapFlags =85
                     TextFontCharSet =177
-                    Left =6803
+                    Left =6236
                     Top =3968
                     Width =576
                     Height =576
@@ -398,7 +390,6 @@ Begin Form
                     ForeColor =-2147483630
                     Name ="btnSluiten"
                     Caption ="Knop84"
-                    OnClick ="[Event Procedure]"
                     ControlTipText ="Formulier sluiten"
                     GridlineColor =10921638
                     ImageData = Begin
@@ -438,9 +429,9 @@ Begin Form
                         0x0000000000000000
                     End
 
-                    LayoutCachedLeft =6803
+                    LayoutCachedLeft =6236
                     LayoutCachedTop =3968
-                    LayoutCachedWidth =7379
+                    LayoutCachedWidth =6812
                     LayoutCachedHeight =4544
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
@@ -466,35 +457,37 @@ Begin Form
                 Begin OptionButton
                     OverlapFlags =85
                     Left =6803
-                    Top =3175
-                    ColumnOrder =3
+                    Top =1020
                     TabIndex =7
                     BorderColor =10921638
                     Name ="optHTML"
-                    OnClick ="[Event Procedure]"
+                    AfterUpdate ="[Event Procedure]"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =6803
-                    LayoutCachedTop =3175
+                    LayoutCachedTop =1020
                     LayoutCachedWidth =7063
-                    LayoutCachedHeight =3415
+                    LayoutCachedHeight =1260
                     Begin
                         Begin Label
                             OverlapFlags =85
                             TextAlign =1
                             Left =3968
-                            Top =3118
+                            Top =963
                             Width =2495
                             Height =284
+                            FontWeight =700
                             BorderColor =8355711
-                            ForeColor =8355711
+                            ForeColor =-2147483617
                             Name ="lblHTML"
                             Caption ="Uitvoer naar HTML"
                             GridlineColor =10921638
                             LayoutCachedLeft =3968
-                            LayoutCachedTop =3118
+                            LayoutCachedTop =963
                             LayoutCachedWidth =6463
-                            LayoutCachedHeight =3402
+                            LayoutCachedHeight =1247
+                            ForeThemeColorIndex =-1
+                            ForeTint =100.0
                         End
                     End
                 End
@@ -502,11 +495,9 @@ Begin Form
                     OverlapFlags =85
                     Left =6803
                     Top =623
-                    ColumnOrder =4
                     TabIndex =8
                     BorderColor =10921638
                     Name ="optExcelZichtbaar"
-                    OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =6803
@@ -521,8 +512,9 @@ Begin Form
                             Top =566
                             Width =2495
                             Height =284
+                            FontWeight =700
                             BorderColor =8355711
-                            ForeColor =8355711
+                            ForeColor =-2147483617
                             Name ="lblExcelZichtbaar"
                             Caption ="Excelblad zichtbaar "
                             GridlineColor =10921638
@@ -530,62 +522,70 @@ Begin Form
                             LayoutCachedTop =566
                             LayoutCachedWidth =6463
                             LayoutCachedHeight =850
+                            ForeThemeColorIndex =-1
+                            ForeTint =100.0
                         End
                     End
                 End
                 Begin OptionGroup
                     SpecialEffect =0
-                    OverlapFlags =215
-                    Top =453
+                    OverlapFlags =85
+                    Left =56
+                    Top =113
                     Width =3236
                     Height =1273
                     TabIndex =9
                     BorderColor =10921638
                     Name ="grpUitvoernaar"
+                    AfterUpdate ="[Event Procedure]"
                     DefaultValue ="1"
                     GridlineColor =10921638
 
-                    LayoutCachedTop =453
-                    LayoutCachedWidth =3236
-                    LayoutCachedHeight =1726
+                    LayoutCachedLeft =56
+                    LayoutCachedTop =113
+                    LayoutCachedWidth =3292
+                    LayoutCachedHeight =1386
                     Begin
                         Begin Label
                             BackStyle =1
                             OverlapFlags =215
-                            Left =11
-                            Top =453
+                            Left =67
+                            Top =113
                             Width =1245
                             Height =315
+                            FontWeight =700
                             BorderColor =8355711
-                            ForeColor =8355711
+                            ForeColor =-2147483617
                             Name ="lblUitvoerNaar"
                             Caption ="Uitvoer Naar"
                             GridlineColor =10921638
-                            LayoutCachedLeft =11
-                            LayoutCachedTop =453
-                            LayoutCachedWidth =1256
-                            LayoutCachedHeight =768
+                            LayoutCachedLeft =67
+                            LayoutCachedTop =113
+                            LayoutCachedWidth =1312
+                            LayoutCachedHeight =428
                             BackThemeColorIndex =-1
+                            ForeThemeColorIndex =-1
+                            ForeTint =100.0
                         End
                         Begin OptionButton
                             SpecialEffect =2
                             OverlapFlags =87
-                            Left =2976
-                            Top =691
+                            Left =3032
+                            Top =351
                             OptionValue =1
                             BorderColor =10921638
                             Name ="optExcel"
                             GridlineColor =10921638
 
-                            LayoutCachedLeft =2976
-                            LayoutCachedTop =691
-                            LayoutCachedWidth =3236
-                            LayoutCachedHeight =931
+                            LayoutCachedLeft =3032
+                            LayoutCachedTop =351
+                            LayoutCachedWidth =3292
+                            LayoutCachedHeight =591
                             Begin
                                 Begin Label
                                     OverlapFlags =87
-                                    Left =1361
-                                    Top =663
+                                    Left =1417
+                                    Top =323
                                     Width =1134
                                     Height =315
                                     BorderColor =8355711
@@ -593,67 +593,67 @@ Begin Form
                                     Name ="Bijschrift39"
                                     Caption ="Excel"
                                     GridlineColor =10921638
-                                    LayoutCachedLeft =1361
-                                    LayoutCachedTop =663
-                                    LayoutCachedWidth =2495
-                                    LayoutCachedHeight =978
+                                    LayoutCachedLeft =1417
+                                    LayoutCachedTop =323
+                                    LayoutCachedWidth =2551
+                                    LayoutCachedHeight =638
                                 End
                             End
                         End
                         Begin OptionButton
                             SpecialEffect =2
                             OverlapFlags =87
-                            Left =2976
-                            Top =1021
+                            Left =3032
+                            Top =681
                             TabIndex =1
                             OptionValue =2
                             BorderColor =10921638
                             Name ="optAccess"
                             GridlineColor =10921638
 
-                            LayoutCachedLeft =2976
-                            LayoutCachedTop =1021
-                            LayoutCachedWidth =3236
-                            LayoutCachedHeight =1261
+                            LayoutCachedLeft =3032
+                            LayoutCachedTop =681
+                            LayoutCachedWidth =3292
+                            LayoutCachedHeight =921
                             Begin
                                 Begin Label
                                     OverlapFlags =95
-                                    Left =1361
-                                    Top =993
+                                    Left =1417
+                                    Top =653
                                     Width =1134
                                     Height =315
                                     BorderColor =8355711
                                     ForeColor =8355711
                                     Name ="Bijschrift41"
-                                    Caption ="Access"
+                                    Caption ="Intern"
                                     GridlineColor =10921638
-                                    LayoutCachedLeft =1361
-                                    LayoutCachedTop =993
-                                    LayoutCachedWidth =2495
-                                    LayoutCachedHeight =1308
+                                    LayoutCachedLeft =1417
+                                    LayoutCachedTop =653
+                                    LayoutCachedWidth =2551
+                                    LayoutCachedHeight =968
                                 End
                             End
                         End
                         Begin OptionButton
                             SpecialEffect =2
                             OverlapFlags =87
-                            Left =2976
-                            Top =1351
+                            Left =3032
+                            Top =1011
                             TabIndex =2
                             OptionValue =3
                             BorderColor =10921638
                             Name ="OptBeiden"
                             GridlineColor =10921638
 
-                            LayoutCachedLeft =2976
-                            LayoutCachedTop =1351
-                            LayoutCachedWidth =3236
-                            LayoutCachedHeight =1591
+                            LayoutCachedLeft =3032
+                            LayoutCachedTop =1011
+                            LayoutCachedWidth =3292
+                            LayoutCachedHeight =1251
                             Begin
                                 Begin Label
-                                    OverlapFlags =87
-                                    Left =1361
-                                    Top =1304
+                                    OverlapFlags =215
+                                    Left =1417
+                                    Top =964
                                     Width =1134
                                     Height =315
                                     BorderColor =8355711
@@ -661,55 +661,122 @@ Begin Form
                                     Name ="Bijschrift43"
                                     Caption ="Beiden"
                                     GridlineColor =10921638
-                                    LayoutCachedLeft =1361
-                                    LayoutCachedTop =1304
-                                    LayoutCachedWidth =2495
-                                    LayoutCachedHeight =1619
+                                    LayoutCachedLeft =1417
+                                    LayoutCachedTop =964
+                                    LayoutCachedWidth =2551
+                                    LayoutCachedHeight =1279
                                 End
                             End
                         End
                     End
                 End
                 Begin Label
-                    OverlapFlags =85
-                    Width =2400
-                    Height =315
+                    OverlapFlags =87
+                    Left =56
+                    Top =3459
+                    Width =2268
+                    Height =340
+                    FontWeight =700
                     BorderColor =8355711
-                    ForeColor =8355711
-                    Name ="lblBerekenScorekaarten"
-                    Caption ="Berekening Scorekaarten"
+                    ForeColor =-2147483617
+                    Name ="lblExtraHTML"
+                    Caption ="Extra html pagina's"
                     GridlineColor =10921638
-                    LayoutCachedWidth =2400
-                    LayoutCachedHeight =315
-                End
-                Begin Label
-                    OverlapFlags =85
-                    Top =3118
-                    Width =1740
-                    Height =315
-                    BorderColor =8355711
-                    ForeColor =8355711
-                    Name ="Bijschrift45"
-                    Caption ="Extra html uitvoer"
-                    GridlineColor =10921638
-                    LayoutCachedTop =3118
-                    LayoutCachedWidth =1740
-                    LayoutCachedHeight =3433
+                    LayoutCachedLeft =56
+                    LayoutCachedTop =3459
+                    LayoutCachedWidth =2324
+                    LayoutCachedHeight =3799
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
                 End
                 Begin Label
                     OverlapFlags =85
                     Left =2993
-                    Top =2381
-                    Width =4995
+                    Top =2664
+                    Width =4320
                     Height =315
                     BorderColor =8355711
                     ForeColor =8355711
                     Name ="lbGekozenTeam"
                     GridlineColor =10921638
                     LayoutCachedLeft =2993
-                    LayoutCachedTop =2381
-                    LayoutCachedWidth =7988
-                    LayoutCachedHeight =2696
+                    LayoutCachedTop =2664
+                    LayoutCachedWidth =7313
+                    LayoutCachedHeight =2979
+                End
+                Begin Line
+                    BorderWidth =1
+                    OverlapFlags =93
+                    Top =1530
+                    Width =7371
+                    BorderColor =-2147483617
+                    Name ="Lijn0"
+                    GridlineColor =10921638
+                    LayoutCachedTop =1530
+                    LayoutCachedWidth =7371
+                    LayoutCachedHeight =1530
+                    BorderThemeColorIndex =-1
+                End
+                Begin Line
+                    BorderWidth =1
+                    OverlapFlags =95
+                    Width =7371
+                    BorderColor =-2147483617
+                    Name ="Lijn1"
+                    GridlineColor =10921638
+                    LayoutCachedWidth =7371
+                    BorderThemeColorIndex =-1
+                End
+                Begin Line
+                    BorderWidth =1
+                    OverlapFlags =93
+                    Top =3175
+                    Width =7371
+                    BorderColor =-2147483617
+                    Name ="Lijn2"
+                    GridlineColor =10921638
+                    LayoutCachedTop =3175
+                    LayoutCachedWidth =7371
+                    LayoutCachedHeight =3175
+                    BorderThemeColorIndex =-1
+                End
+                Begin Line
+                    BorderWidth =1
+                    OverlapFlags =93
+                    Top =5102
+                    Width =7371
+                    BorderColor =-2147483617
+                    Name ="Lijn3"
+                    GridlineColor =10921638
+                    LayoutCachedTop =5102
+                    LayoutCachedWidth =7371
+                    LayoutCachedHeight =5102
+                    BorderThemeColorIndex =-1
+                End
+                Begin Line
+                    BorderWidth =1
+                    OverlapFlags =87
+                    Left =7370
+                    Width =0
+                    Height =5102
+                    BorderColor =-2147483617
+                    Name ="Lijn4"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =7370
+                    LayoutCachedWidth =7370
+                    LayoutCachedHeight =5102
+                    BorderThemeColorIndex =-1
+                End
+                Begin Line
+                    BorderWidth =1
+                    OverlapFlags =87
+                    Width =0
+                    Height =5102
+                    BorderColor =-2147483617
+                    Name ="Lijn5"
+                    GridlineColor =10921638
+                    LayoutCachedHeight =5102
+                    BorderThemeColorIndex =-1
                 End
             End
         End
@@ -728,6 +795,7 @@ Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Compare Database
+
 Dim GekozenTeam  As String
 Private Sub btnHTMLUItslagen_Click()
 Call HTMLViertalUitslagenIn(Sessienr, lngToernooi, lngSessie)
@@ -746,15 +814,29 @@ Dim WijID As Long
 
     If (Me.optAlle = False Or IsNull(Me.optAlle)) And (Not IsNull(Me.cboKiesTeam)) Then
         WijID = DLookup("id", "tblTeams", "[Teamnr] = " & Me.cboKiesTeam & " and [ToernooiID] =" & lngToernooi)
-        x = VulScoreKaartInSheet(CInt(Me.cboKiesTeam), Sessienr, 2, lngToernooi, True, False)
-        DoCmd.OpenForm "frmScorestaat", acNormal, , "[ToernooiID] = " & lngToernooi & " and [id] = " & WijID
+        BerekenAlleStaten = False
+        x = VulScoreKaartInSheet(CInt(Me.cboKiesTeam), Sessienr, 2, lngToernooi, ScorestaatIntern, ScorestaatExcel)
+        
+        If ScorestaatIntern Then
+                DoCmd.OpenForm "frmScorestaat", acNormal, , "[ToernooiID] = " & lngToernooi & " and [id] = " & WijID
+        Else
+            Set xlApp = CreateObject("Excel.Application")
+            xlApp.Application.Visible = True
+            xlApp.Application.DisplayAlerts = False
+
+            Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
+            Set MySheet = StartBook.Worksheets(Trim(strSheetName))
+            'test workfile
+             'Me.cboKiesTabblad.Clear
+            MySheet.Activate
+        End If
     Else
         If Me.optAlle = True Then
+            BerekenAlleStaten = True
             Call AlleScoreStaten_RESULTS(Sessienr, lngToernooi, lngSessie)
         End If
     End If
-
-
+    BerekenAlleStaten = False
 End Sub
 
 
@@ -809,11 +891,29 @@ Private Sub Form_Open(Cancel As Integer)
      Me.btnHTMLUItslagen.Enabled = True
      Me.btnKruisTabel.Enabled = True
      intUitvoerNaarHTML = True
-
+     ScorestaatIntern = False
+     ScorestaatExcel = True
 
 End Sub
 
 
+
+Private Sub grpUitvoernaar_AfterUpdate()
+    Select Case Me.grpUitvoernaar.Value
+    Case 1
+    ScorestaatIntern = False
+    ScorestaatExcel = True
+    Case 2
+    ScorestaatIntern = True
+    ScorestaatExcel = False
+    Case 3
+    ScorestaatIntern = True
+    ScorestaatExcel = True
+    Case Else
+    ScorestaatIntern = False
+    ScorestaatExcel = False
+    End Select
+End Sub
 
 Private Sub optAlle_AfterUpdate()
 If Me.optAlle = True Then
@@ -837,6 +937,25 @@ Private Sub optExcelZichtbaar_Click()
     
 End Sub
 
+Private Sub optHTML_AfterUpdate()
+If Me.optHTML = True Then
+     Me.btnHTMLUItslagen.Visible = True
+     Me.btnKruisTabel.Visible = True
+     Me.btnHTMLUItslagen.Enabled = True
+     Me.btnKruisTabel.Enabled = True
+     Me.lblExtraHTML.Visible = True
+     intUitvoerNaarHTML = True
+   Else
+     Me.btnHTMLUItslagen.Visible = False
+     Me.btnKruisTabel.Visible = False
+     Me.btnHTMLUItslagen.Enabled = False
+     Me.btnKruisTabel.Enabled = False
+     Me.lblExtraHTML.Visible = False
+     intUitvoerNaarHTML = False
+End If
+
+End Sub
+
 Private Sub optHTML_Click()
 ' indien niet, naar uitslag en kruistabel niet zichtbaar
 If Me.optHTML = True Then
@@ -844,12 +963,14 @@ If Me.optHTML = True Then
      Me.btnKruisTabel.Visible = True
      Me.btnHTMLUItslagen.Enabled = True
      Me.btnKruisTabel.Enabled = True
+     Me.lblExtraHTML.Visible = True
      intUitvoerNaarHTML = True
    Else
      Me.btnHTMLUItslagen.Visible = False
      Me.btnKruisTabel.Visible = False
      Me.btnHTMLUItslagen.Enabled = False
      Me.btnKruisTabel.Enabled = False
+     Me.lblExtraHTML.Visible = False
      intUitvoerNaarHTML = False
 End If
 

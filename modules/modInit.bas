@@ -4,6 +4,9 @@ Public CtrlVisible As Integer
 Public recordteller As Long
 Public lngPK As Long
 
+Global Const STEP_RESULTS = "https://results.stepbridge.nl/tournament/events/show/"
+Global Const STEP_DATA = "http://admin.stepbridge.nl/show.php?page=tournamentinfo&activityid="
+Global Const LOCAL_SITE = "https://www.pwobridge.nl/Step/"
 
 
 Global WORKFOLDER As String
@@ -13,7 +16,7 @@ Global STEPRESULTS As String
 Global STEPDATA As String
 Global LOCALSITE As String
 Global LOCALHTML   As String
-
+Global ToernooiNaam   As String
 ' weergave in de tabbladen, Kan avond zijn meerdere wedstrijden etc
 Global PREFIX As String
 'Aantal wedstrijden per avond, per dag van hoeveel krijg ik de uitslagen tegelijk binnen.
@@ -32,11 +35,15 @@ Global Voettekst As String
 Global Voetlink As String
 Global lngToernooi As Long
 Global lngSessie As Long
+Global lngTeam As Long
 Global lngToernooiOld As Long
 Global lngSessieOld As Long
 Global intUitvoerNaarHTML As Integer
 Global intExcelZichtbaar As Integer
-
+Global ScorestaatIntern As Integer
+Global ScorestaatExcel As Integer
+Global BerekenAlleStaten As Integer
+Global strSheetName As String
 Global ActivityID As Integer
 Global Sessienaam As String
 Global Sessienr As Integer
@@ -53,6 +60,7 @@ Public Sub InitToernooi(Id As Variant)
         Set db = CurrentDb
         Set rs = db.OpenRecordset("select * from tblToernooi where id =" & Id)
             rs.MoveFirst
+            ToernooiNaam = rs.Fields("ToernooiNaam")
             WORKID = rs.Fields("ID")
             WORKFOLDER = rs.Fields("WORKFOLDER")
             WORKFILE = rs.Fields("WORKFILE")
@@ -140,6 +148,7 @@ Public Sub InitAll(ToernooiID As Variant, SessieID As Variant)
         Set rs = db.OpenRecordset("select * from tblToernooi where id =" & ToernooiID)
         rs.MoveFirst
         WORKID = rs.Fields("ID")
+        ToernooiNaam = rs.Fields("ToernooiNaam")
         WORKFOLDER = rs.Fields("WORKFOLDER")
         WORKFILE = rs.Fields("WORKFILE")
         STEPRESULTS = rs.Fields("STEPRESULTS")
@@ -205,7 +214,12 @@ Public Sub InitAll(ToernooiID As Variant, SessieID As Variant)
         rs.Close
     End If
     db.Close
-
+    If CurrentProject.AllForms("Start_VT").IsLoaded = True Then
+    
+        Forms("Start_VT").lblHuidigToernooi.Caption = ToernooiNaam
+        Forms("Start_VT").lblHuidigeSessie.Caption = "Sessie " & Sessienr
+    End If
+     
 End Sub
 
 Public Function lngToernooiID() As Long
@@ -289,19 +303,22 @@ Public Function GetFileName(strExcel_Folder) As String
 End With
 End Function
 
-Sub KiesModelExcelBestandEnCopieer(InitialFile As Variant)
+Function KiesModelExcelBestandEnCopieer() As Integer
 Dim source, destination As String
 
 Dim fd As Office.FileDialog
+KiesModelExcelBestandEnCopieer = True
 Set fd = Application.FileDialog(msoFileDialogFilePicker)
 'get the number of the button chosen
-fd.InitialFileName = InitialFile
+fd.InitialFileName = LaatsteLocatieModelfile
+fd.AllowMultiSelect = False
+fd.Title = "Kies Excel model bestand"
 
 Dim FileChosen As Integer
 FileChosen = fd.Show
 If FileChosen = -1 Then
         source = fd.SelectedItems(1)
-        destination = InputBox("Kies nieuw naam Werkbestand ", "Werkbestand", "Nieuw_Toernooi.xlsx")
+        destination = InputBox("Toernooinaam: (zal tevens de naam van het werkbestand worden) ", "Werkbestand", "Nieuw_Toernooi")
         
         
         'Moet de copie indezelfde folder komen ?
@@ -313,15 +330,40 @@ If FileChosen = -1 Then
         'strFolder
         
         
+        If destination = "" Then
+            KiesModelExcelBestandEnCopieer = False
+            Exit Function
+        End If
+        ToernooiNaam = destination
+        destination = destination & ".xlsx"
         
+        WORKFILE = destination
         destination = FolderFromPath(source) & destination
         FileCopy source, destination
-    
+
+        WORKFOLDER = FolderFromPath(source)
+        If Right(WORKFOLDER, 1) <> "\" Then WORKFOLDER = WORKFOLDER & "\"
+        
+
+Else
+            KiesModelExcelBestandEnCopieer = False
+            Exit Function
 End If
 
-End Sub
+End Function
 
+Public Function LaatsteLocatieModelfile() As String
+Dim db As Database
+Dim rs As Recordset
 
+Set db = CurrentDb
+Set rs = db.OpenRecordset("tblToernooi")
+rs.MoveLast
+LaatsteLocatieModelfile = rs!WORKTEMPLATE
+rs.Close
+db.Close
+
+End Function
 
 
 

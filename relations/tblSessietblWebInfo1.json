@@ -5,14 +5,14 @@
     "VCS Version": "3.2.2"
   },
   "Items": {
-    "Name": "tblToernooitblOpstelling",
+    "Name": "tblSessietblWebInfo1",
     "Attributes": 2,
-    "Table": "tblToernooi",
-    "ForeignTable": "tblOpstelling",
+    "Table": "tblSessie",
+    "ForeignTable": "tblWebInfo",
     "Fields": [
       {
-        "Name": "ID",
-        "ForeignName": "ToernooiID"
+        "Name": "id",
+        "ForeignName": "SessieID"
       }
     ]
   }

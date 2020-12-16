@@ -13,7 +13,9 @@
 <xsd:appinfo>
 <od:index index-name="id" index-key="id " primary="no" unique="no" clustered="no" order="asc"/>
 <od:index index-name="PrimaryKey" index-key="id " primary="yes" unique="yes" clustered="no" order="asc"/>
-<od:index index-name="tblToernooitblOpstelling" index-key="ToernooiID " primary="no" unique="no" clustered="no" order="asc"/>
+<od:index index-name="SessieID" index-key="SessieID " primary="no" unique="no" clustered="no" order="asc"/>
+<od:index index-name="tblSessietblOpstelling" index-key="SessieID " primary="no" unique="no" clustered="no" order="asc"/>
+<od:index index-name="TeamID" index-key="TeamID " primary="no" unique="no" clustered="no" order="asc"/>
 <od:index index-name="ToernooiID" index-key="ToernooiID " primary="no" unique="no" clustered="no" order="asc"/>
 </xsd:appinfo>
 </xsd:annotation>
@@ -62,6 +64,8 @@
 <xsd:element name="Wedstrijd9" minOccurs="0" od:jetType="integer" od:sqlSType="smallint" type="xsd:short"/>
 <xsd:element name="Wedstrijd10" minOccurs="0" od:jetType="integer" od:sqlSType="smallint" type="xsd:short"/>
 <xsd:element name="Wedstrijd11" minOccurs="0" od:jetType="integer" od:sqlSType="smallint" type="xsd:short"/>
+<xsd:element name="SessieID" minOccurs="0" od:jetType="longinteger" od:sqlSType="int" type="xsd:int"/>
+<xsd:element name="TeamID" minOccurs="0" od:jetType="longinteger" od:sqlSType="int" type="xsd:int"/>
 </xsd:sequence>
 </xsd:complexType>
 </xsd:element>

@@ -5,10 +5,10 @@
     "VCS Version": "3.2.2"
   },
   "Items": {
-    "Name": "tblToernooitblOpstelling",
+    "Name": "tblToernooitblScorestaat",
     "Attributes": 2,
     "Table": "tblToernooi",
-    "ForeignTable": "tblOpstelling",
+    "ForeignTable": "tblScorestaat",
     "Fields": [
       {
         "Name": "ID",

@@ -3,7 +3,7 @@ Beginning Export of all Source
 InterneViertallen.accdb
 VCS Version 3.2.2
 Using Fast Save
-7-12-2020 13:45:20
+16-12-2020 19:08:07
 -------------------------------------
 -------------------------------------
 Exporting themes...           
@@ -32,48 +32,105 @@ No imex specs found in this database.
 -------------------------------------
 Exporting db properties...    
   Database Properties (DAO)
-[33]
+[53]
 -------------------------------------
 Exporting tables...           
   (Skipping 'imps')
   (Skipping 'tblconstanten')
   (Skipping 'tblFolders')
   (Skipping 'tblGroepen')
-  (Skipping 'tblIndeling')
-  (Skipping 'tblOpstelling')
-  (Skipping 'tblSessie')
-  (Skipping 'tblTeams')
-  (Skipping 'tblToernooi')
-  (Skipping 'tblWebInfo')
+  tblIndeling
+  tblIndeling (SQL)
+  tblOpstelling
+  tblOpstelling (SQL)
+  tblSchema
+  tblSchema (SQL)
+  tblScorestaat
+  tblScorestaat (SQL)
+  tblSessie
+  tblSessie (SQL)
+  tblTeams
+  tblTeams (SQL)
+  tblToernooi
+  tblToernooi (SQL)
+  tblToernooiSchema
+  tblToernooiSchema (SQL)
+  tblUitslagen
+  tblUitslagen (SQL)
+  tblWebInfo
+  tblWebInfo (SQL)
   (Skipping 'tblWedstrijd')
   (Skipping 'vps')
-[12]
+[16]
 -------------------------------------
 Exporting queries...          
   (Skipping 'qryTeams')
   qryTeams_per_Toernooi
     Sanitized in 0,00 seconds.
   qryTeams_per_Toernooi (SQL)
+  qryThuiswedstrijden
+    Sanitized in 0,00 seconds.
+  qryThuiswedstrijden (SQL)
+  qryUitwedstrijden
+    Sanitized in 0,00 seconds.
+  qryUitwedstrijden (SQL)
+  qryWedstrijden
+    Sanitized in 0,00 seconds.
+  qryWedstrijden (SQL)
+  qryWedstrijden_Kruistabel
+    Sanitized in 0,00 seconds.
+  qryWedstrijden_Kruistabel (SQL)
+  qryZittingen
+    Sanitized in 0,00 seconds.
+  qryZittingen (SQL)
   (Skipping 'Query1')
-[3]
+  UpdateTeamIDtblOpstelling
+    Sanitized in 0,00 seconds.
+  UpdateTeamIDtblOpstelling (SQL)
+[9]
 -------------------------------------
 Exporting forms...            
   Toernooigegevens
-    Sanitized in 0,01 seconds.
-  (Skipping 'frmFolders')
+    Sanitized in 0,02 seconds.
+  frmFolders
+    Sanitized in 0,00 seconds.
   Start_VT
     Sanitized in 0,01 seconds.
-  frmWebInfo
-    Sanitized in 0,00 seconds.
-  (Skipping 'frmOpstelling')
+  (Skipping 'frmWebInfo')
+  frmOpstelling
+    Sanitized in 0,01 seconds.
   frmStepID
-    Sanitized in 0,00 seconds.
+    Sanitized in 0,01 seconds.
   Sessiegegevens
     Sanitized in 0,01 seconds.
+  tblScorestaat
+    Sanitized in 0,00 seconds.
   frmProcess
     Sanitized in 0,01 seconds.
+  frmScorestaat
+    Sanitized in 0,01 seconds.
   (Skipping 'frmCopy')
-[9]
+  frmTeamUitslagen
+    Sanitized in 0,01 seconds.
+  frmOverzichZittingen
+    Sanitized in 0,00 seconds.
+  frmDisplay
+    Sanitized in 0,01 seconds.
+  frmStand
+    Sanitized in 0,01 seconds.
+  frmImportExport
+    Sanitized in 0,01 seconds.
+  frmBegin
+    Sanitized in 0,00 seconds.
+  frmBereken
+    Sanitized in 0,01 seconds.
+  frmTeams
+    Sanitized in 0,00 seconds.
+  frmSchema
+    Sanitized in 0,00 seconds.
+  frmSchemaVerwerking
+    Sanitized in 0,00 seconds.
+[21]
 -------------------------------------
 Exporting macros...           
   (Skipping 'autoexec')
@@ -96,11 +153,21 @@ No table data found in this database.
 No table data macros found in this database.
 -------------------------------------
 Exporting relations...        
+  tblSessietblIndeling
+  tblSessietblOpstelling
+  tblSessietblScorestaat
+  tblSessietblUitslagen
+  tblSessietblWebInfo1
+  tblTeamstblScorestaat1
+  tblTeamstblUitslagen
+  tblTeamstblUitslagen1
   tblToernooitblOpstelling
+  tblToernooitblScorestaat
   tblToernooitblSessie
   tblToernooitblTeams
+  tblToernooitblUitslagen
   tblToernooitblWebInfo
-[4]
+[14]
 -------------------------------------
 Exporting doc properties...   
   Database Documents
@@ -110,43 +177,45 @@ Exporting nav pane groups...
   Groups
 [1]
 -------------------------------------
-Done. (2,49 seconds)
+Done. (4,34 seconds)
 
 -------------------------------------
         PERFORMANCE REPORTS
 -------------------------------------
 Object Type         Count     Seconds
 -------------------------------------
-themes              1         0,02
+themes              1         0,01
 VB project          1         0,03
 vbe references      5         0,05
-proj properties     1         0,03
-db properties       33        0,20
-tables              12        0,02
-queries             3         0,18
-forms               9         0,66
+proj properties     1         0,02
+db properties       53        0,20
+tables              16        0,31
+queries             9         0,59
+forms               21        1,35
 macros              1         0,00
-modules             7         0,60
-relations           4         0,17
+modules             7         0,69
+relations           14        0,58
 doc properties      2         0,05
-nav pane groups     1         0,04
+nav pane groups     1         0,03
 -------------------------------------
-TOTALS:             80        2,05
+TOTALS:             132       3,91
 
 -------------------------------------
 Operations          Count     Seconds
 -------------------------------------
-Console Updates     3         0,10
+Console Updates     5         0,18
 Extract Theme       1         0,00
-Clear Orphaned      6         0,18
-App.SaveAsText()    14        0,81
-Delete File         21        0,01
-Read File           7         0,01
-Sanitize File       7         0,05
-Unicode Check       8         0,04
-Write to Disk       8         0,02
-Save Query SQL      1         0,00
-Increment Progress  1         0,07
-Other Operations              1,22
+Unicode Check       55        0,11
+Write to Disk       55        0,11
+Clear Orphaned      6         0,16
+Delete File         47        0,02
+App.ExportXML()     10        0,19
+Save Table SQL      10        0,05
+App.SaveAsText()    33        1,26
+Read File           26        0,02
+Sanitize File       26        0,14
+Save Query SQL      7         0,02
+Increment Progress  3         0,12
+Other Operations              1,98
 
 

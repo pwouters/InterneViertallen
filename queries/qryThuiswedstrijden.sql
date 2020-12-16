@@ -1,0 +1,3 @@
+SELECT tblTeams.ToernooiID, tblTeams.Teamnr, tblTeams.TeamNaam, tblSessie.Sessienr, tblUitslagen.Wedstrijdnr, tblTeams.id, tblUitslagen.SessieID, tblUitslagen.VpsThuis AS VPS, tblUitslagen.TeamIDUit AS TegenTeam, "Thuis" AS Gespeeld, tblTeams_1.Teamnr AS TegenTeamNr, tblTeams_1.Teamnaam AS TegenTeamNaam, tblUitslagen.Wedstrijdnr AS ZittingNr
+FROM tblSessie INNER JOIN ((tblTeams INNER JOIN tblUitslagen ON tblTeams.id = tblUitslagen.TeamIDThuis) INNER JOIN tblTeams AS tblTeams_1 ON tblUitslagen.TeamIDUit = tblTeams_1.id) ON (tblSessie.id = tblUitslagen.SessieID) AND (tblSessie.id = tblUitslagen.SessieID) AND (tblSessie.id = tblUitslagen.SessieID)
+ORDER BY tblTeams.ToernooiID, tblTeams.Teamnr, tblSessie.Sessienr, tblUitslagen.Wedstrijdnr;

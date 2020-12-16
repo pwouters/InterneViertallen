@@ -4,6 +4,7 @@ Begin Form
     RecordSelectors = NotDefault
     AutoCenter = NotDefault
     NavigationButtons = NotDefault
+    CloseButton = NotDefault
     DividingLines = NotDefault
     FilterOn = NotDefault
     AllowDesignChanges = NotDefault
@@ -18,7 +19,7 @@ Begin Form
     Right =18735
     Bottom =12240
     DatasheetGridlinesColor =15132391
-    Filter ="[ToernooiD]=1 and [id] = 3"
+    Filter ="[ToernooiD]=1 and [id] = 11"
     RecSrcDt = Begin
         0x3ee22f0eb090e540
     End
@@ -995,6 +996,8 @@ Begin Form
                     LayoutCachedHeight =2240
                 End
                 Begin CommandButton
+                    Visible = NotDefault
+                    Enabled = NotDefault
                     OverlapFlags =223
                     TextFontCharSet =177
                     Left =9637
@@ -1305,15 +1308,15 @@ End Sub
 
 Private Sub cboKiesSessie_AfterUpdate()
  Dim rs As Recordset
-    Dim X
-   Dim criterium As String
+    Dim x
+   Dim Criterium As String
    If Me.Dirty Then
-       X = fnSaveRecords
+       x = fnSaveRecords
     End If
     Set rs = Recordset
    
-    criterium = MyKeyIs & cboKiesSessie
-    rs.FindFirst criterium
+    Criterium = MyKeyIs & cboKiesSessie
+    rs.FindFirst Criterium
     
     If rs.NoMatch Then
     MsgBox "Geen Sessie bekend in de database"
@@ -1355,7 +1358,7 @@ Private Sub btnNieuw_Click()
 
 
  If Me.Dirty Then
-       X = fnSaveRecords
+       x = fnSaveRecords
  End If
     DoCmd.RunCommand acCmdRecordsGoToNew
     Me.ToernooID = lngToernooi
@@ -1367,18 +1370,20 @@ Private Sub btnNieuw_Click()
 End Sub
 
 Private Sub btnOpslaan_Click()
- Dim X
+ Dim x
  If Me.Dirty Then
-       X = fnSaveRecords
+       x = fnSaveRecords
  End If
-  Me.cboKiesSessie.SetFocus
+  Me.Sessienaam.SetFocus
     Me.btnOpslaan.Visible = False
     Me.btnUndo.Visible = False
     Me.btnOpslaan.Enabled = False
     Me.btnUndo.Enabled = False
      lngSessie = Me.Id
  'Call MeControlEnabled(True)
- Me.cboKiesSessie.Enabled = True
+    If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
+       Me.cboKiesSessie.Enabled = True
+    End If
 End Sub
 
 Private Sub btnUndo_Click()
@@ -1386,13 +1391,15 @@ On Error Resume Next
 If Me.NewRecord Then
      DoCmd.RunCommand acCmdUndo
     ' Call MeControlEnabled(True)
-     Me.cboKiesSessie.Enabled = True
+    If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
+       Me.cboKiesSessie.Enabled = True
+    End If
      Call GotoLastCurrentRecord(Me.Form.name, MyKey, lngPK)
      'DoCmd.GoToRecord , , acGoTo, recordteller
     Else
      DoCmd.RunCommand acCmdUndo
 End If
-    Me.cboKiesSessie.SetFocus
+    Me.Sessienaam.SetFocus
     Me.btnOpslaan.Visible = False
     Me.btnUndo.Visible = False
     Me.btnOpslaan.Enabled = False
@@ -1452,7 +1459,7 @@ End Sub
 Private Sub Form_Open(Cancel As Integer)
 MyKey = "id"
 MyKeyIs = MyKey & " = "
-Dim criterium As String
+Dim Criterium As String
 
 Dim sql As String
 Dim rs As Recordset

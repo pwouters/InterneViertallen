@@ -433,11 +433,11 @@ Option Compare Database
 
 ' End Sub
 
-Private Sub bstFolder_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub bstFolder_MouseDown(Button As Integer, Shift As Integer, x As Single, Y As Single)
     ' If right-button clicked
     If Button = 1 Then
             Dim strFolder As String
-            strFolder = GetFolderName(strExcel_Folder)
+            strFolder = GetFolderName(bstFolder)
             If Not strFolder = "" Then
                 Me.bstFolder = strFolder
                 strExcel_Folder = strFolder
@@ -446,12 +446,12 @@ Private Sub bstFolder_MouseDown(Button As Integer, Shift As Integer, X As Single
 
 End Sub
 
-Private Sub bstFolderHTML_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub bstFolderHTML_MouseDown(Button As Integer, Shift As Integer, x As Single, Y As Single)
 
     ' If right-button clicked
     If Button = 1 Then
             Dim strFolder As String
-            strFolder = GetFolderName(strHTML_Folder, "html")
+            strFolder = GetFolderName(bstFolderHTML, "html")
             If Not strFolder = "" Then
                 Me.bstFolderHTML = strFolder
                 strHTML_Folder = strFolder
@@ -459,11 +459,13 @@ Private Sub bstFolderHTML_MouseDown(Button As Integer, Shift As Integer, X As Si
     End If
 End Sub
 
-Private Sub bstTemplateFolder_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub bstTemplateFolder_MouseDown(Button As Integer, Shift As Integer, x As Single, Y As Single)
    ' If right-button clicked
+    
+    
     If Button = 1 Then
             Dim strFolder As String
-            strFolder = GetFolderName(strTemplate_Folder)
+            strFolder = GetFolderName(Me.bstTemplateFolder)
             If Not strFolder = "" Then
                 Me.bstTemplateFolder = strFolder
                 strTemplate_Folder = strFolder
@@ -489,7 +491,7 @@ End If
 
 End Sub
 
-Private Sub TemplateFile_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub TemplateFile_MouseDown(Button As Integer, Shift As Integer, x As Single, Y As Single)
    If Button = 1 Then
             Dim strFile As String
             strFile = GetFileName(strTemplate_Folder)

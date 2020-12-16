@@ -2,25 +2,20 @@ Version =20
 VersionRequired =20
 Begin Form
     DividingLines = NotDefault
-    FilterOn = NotDefault
     AllowDesignChanges = NotDefault
     DefaultView =0
     PictureAlignment =2
     DatasheetGridlinesBehavior =3
     GridY =10
-    Width =11508
+    Width =11344
     DatasheetFontHeight =11
-    ItemSuffix =11
-    Left =2520
-    Top =1200
-    Right =17445
-    Bottom =11070
+    ItemSuffix =3
+    Right =13995
+    Bottom =10470
     DatasheetGridlinesColor =15132391
-    Filter ="[id]=1"
     RecSrcDt = Begin
-        0x8832de423290e540
+        0xbea296b81192e540
     End
-    RecordSource ="SELECT tblToernooi.ID, tblToernooi.ToernooiNaam FROM tblToernooi; "
     OnOpen ="[Event Procedure]"
     DatasheetFontName ="Calibri"
     AllowDatasheetView =0
@@ -97,177 +92,43 @@ Begin Form
             GridlineThemeColorIndex =1
             GridlineShade =65.0
         End
-        Begin ComboBox
-            AddColon = NotDefault
-            BorderLineStyle =0
-            Width =1701
-            LabelX =-1701
-            FontSize =11
-            FontName ="Calibri"
-            AllowValueListEdits =1
-            InheritValueList =1
-            ThemeFontIndex =1
-            BackThemeColorIndex =1
-            BorderThemeColorIndex =1
-            BorderShade =65.0
-            ForeThemeColorIndex =2
-            ForeShade =50.0
-            GridlineThemeColorIndex =1
-            GridlineShade =65.0
-        End
-        Begin Subform
-            BorderLineStyle =0
-            Width =1701
-            Height =1701
-            BorderThemeColorIndex =1
-            GridlineThemeColorIndex =1
-            GridlineShade =65.0
-            BorderShade =65.0
-            ShowPageHeaderAndPageFooter =1
-        End
-        Begin EmptyCell
-            Height =240
-            GridlineColor =12632256
-            GridlineThemeColorIndex =1
-            GridlineShade =65.0
-        End
         Begin Section
-            CanGrow = NotDefault
-            Height =7483
+            Height =9864
             Name ="Details"
             AlternateBackColor =15921906
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
             BackThemeColorIndex =1
             Begin
-                Begin ComboBox
-                    Visible = NotDefault
-                    OverlapFlags =85
-                    IMESentenceMode =3
-                    ColumnCount =2
-                    ListWidth =1440
-                    Left =2441
-                    Top =566
-                    Width =5106
-                    Height =315
-                    BorderColor =10921638
-                    ForeColor =3484194
-                    ColumnInfo ="\"\";\"\";\"\";\"\";\"10\";\"510\""
-                    Name ="cboKeuzelijst"
-                    RowSourceType ="Table/Query"
-                    RowSource ="SELECT [tblToernooi].[ID], [tblToernooi].[ToernooiNaam] FROM tblToernooi ORDER B"
-                        "Y [ToernooiNaam]; "
-                    ColumnWidths ="0;1440"
-                    AfterUpdate ="[Event Procedure]"
-                    GridlineColor =10921638
-
-                    LayoutCachedLeft =2441
-                    LayoutCachedTop =566
-                    LayoutCachedWidth =7547
-                    LayoutCachedHeight =881
-                    Begin
-                        Begin Label
-                            OverlapFlags =85
-                            Left =170
-                            Top =566
-                            Width =1995
-                            Height =320
-                            BorderColor =8355711
-                            ForeColor =8355711
-                            Name ="Kies Toernooi_Etiket"
-                            Caption ="Kies Toernooi"
-                            EventProcPrefix ="Kies_Toernooi_Etiket"
-                            GridlineColor =10921638
-                            LayoutCachedLeft =170
-                            LayoutCachedTop =566
-                            LayoutCachedWidth =2165
-                            LayoutCachedHeight =886
-                        End
-                    End
-                End
-                Begin Subform
-                    OverlapFlags =215
-                    Left =625
-                    Top =2834
-                    Width =10140
-                    Height =3270
-                    TabIndex =1
-                    BorderColor =10921638
-                    Name ="frmWebInfo"
-                    SourceObject ="Form.frmWebInfo"
-                    LinkChildFields ="ToernooiID"
-                    LinkMasterFields ="ID"
-                    GridlineColor =10921638
-
-                    LayoutCachedLeft =625
-                    LayoutCachedTop =2834
-                    LayoutCachedWidth =10765
-                    LayoutCachedHeight =6104
-                    Begin
-                        Begin Label
-                            OverlapFlags =93
-                            Left =1870
-                            Top =2594
-                            Width =1215
-                            Height =315
-                            BorderColor =8355711
-                            ForeColor =8355711
-                            Name ="Bijschrift9"
-                            Caption ="frmWebInfo"
-                            GridlineColor =10921638
-                            LayoutCachedLeft =1870
-                            LayoutCachedTop =2594
-                            LayoutCachedWidth =3085
-                            LayoutCachedHeight =2909
-                        End
-                    End
-                End
                 Begin TextBox
-                    Visible = NotDefault
-                    OverlapFlags =215
+                    EnterKeyBehavior = NotDefault
+                    ScrollBars =2
+                    OverlapFlags =85
+                    TextFontFamily =49
                     IMESentenceMode =3
-                    Left =9929
-                    Top =623
-                    Width =501
-                    Height =510
-                    TabIndex =2
+                    Top =1146
+                    Width =11344
+                    Height =7590
+                    FontSize =10
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="ID"
-                    ControlSource ="ID"
+                    Name ="txtDisplayStep"
+                    FontName ="Courier New"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =9929
-                    LayoutCachedTop =623
-                    LayoutCachedWidth =10430
-                    LayoutCachedHeight =1133
-                    Begin
-                        Begin Label
-                            OverlapFlags =93
-                            Left =9589
-                            Top =623
-                            Width =375
-                            Height =510
-                            BorderColor =8355711
-                            ForeColor =8355711
-                            Name ="Bijschrift10"
-                            Caption ="ID"
-                            GridlineColor =10921638
-                            LayoutCachedLeft =9589
-                            LayoutCachedTop =623
-                            LayoutCachedWidth =9964
-                            LayoutCachedHeight =1133
-                        End
-                    End
+                    LayoutCachedTop =1146
+                    LayoutCachedWidth =11344
+                    LayoutCachedHeight =8736
+                    ThemeFontIndex =-1
                 End
                 Begin CommandButton
                     OverlapFlags =85
                     TextFontCharSet =177
-                    Left =10771
-                    Top =6803
+                    Left =10204
+                    Top =9070
                     Width =576
                     Height =576
-                    TabIndex =3
+                    TabIndex =1
                     ForeColor =-2147483630
                     Name ="btnSluiten"
                     Caption ="Knop84"
@@ -311,10 +172,10 @@ Begin Form
                         0x0000000000000000
                     End
 
-                    LayoutCachedLeft =10771
-                    LayoutCachedTop =6803
-                    LayoutCachedWidth =11347
-                    LayoutCachedHeight =7379
+                    LayoutCachedLeft =10204
+                    LayoutCachedTop =9070
+                    LayoutCachedWidth =10780
+                    LayoutCachedHeight =9646
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Gradient =0
@@ -336,6 +197,22 @@ Begin Form
                     WebImagePaddingRight =1
                     WebImagePaddingBottom =1
                 End
+                Begin Label
+                    OverlapFlags =85
+                    Left =566
+                    Top =226
+                    Width =1755
+                    Height =315
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="Bijschrift2"
+                    Caption ="Indeling voor step"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =566
+                    LayoutCachedTop =226
+                    LayoutCachedWidth =2321
+                    LayoutCachedHeight =541
+                End
             End
         End
     End
@@ -346,13 +223,12 @@ Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Compare Database
-Public MyKey As String
-Public MyKeyIs  As String
-
-
 
 Private Sub btnSluiten_Click()
-    
+   Dim x
+  ' If Me.Dirty Then
+  '     x = fnSaveRecords
+   ' End If
     If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
         DoCmd.Close
     Else
@@ -360,45 +236,6 @@ Private Sub btnSluiten_Click()
    End If
 End Sub
 
-Private Sub cboKeuzelijst_AfterUpdate()
-Dim rs As Recordset
-    Dim x
-   Dim Criterium As String
-   If Me.Dirty Then
-      ' x = fnSaveRecords
-    End If
-    Set rs = Recordset
-   
-    Criterium = MyKeyIs & cboKeuzelijst
-    rs.FindFirst Criterium
-    
-    If rs.NoMatch Then
-    MsgBox "Geen lijst bekend in de database"
-    cboKeuzelijst = ""
-    Else
-    Me.Bookmark = rs.Bookmark
-    cboKeuzelijst = ""
-    End If
-End Sub
-
-
-
 Private Sub Form_Open(Cancel As Integer)
-MyKey = "ID"
-MyKeyIs = MyKey & " = "
-Me.cboKeuzelijst = ""
-'indien geen navigatie dan zichtbaar anders verbergen en filter
-
-
-If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
-        Me.cboKeuzelijst.Visible = True
-        Me.cboKeuzelijst.Enabled = True
-        Else
-        Me.Filter = "[id]=" & lngToernooi
-        Me.FilterOn = True
-End If
-
-
-
-
+  Me.txtDisplayStep.Value = ExportStepSchema(Sessienr)
 End Sub
