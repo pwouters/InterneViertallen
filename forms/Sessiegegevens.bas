@@ -16,7 +16,7 @@ Begin Form
     Width =11521
     DatasheetFontHeight =11
     ItemSuffix =42
-    Right =18735
+    Right =18885
     Bottom =12240
     DatasheetGridlinesColor =15132391
     Filter ="[ToernooiD]=1 and [id] = 11"
@@ -1303,7 +1303,17 @@ Option Compare Database
 Dim MyKey, MyKeyIs As String
 
 Private Sub btnSluiten_Click()
-DoCmd.Close
+
+   Dim x
+   If Me.Dirty Then
+       x = fnSaveRecords
+    End If
+    If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
+        DoCmd.Close
+    Else
+        DoCmd.BrowseTo acBrowseToForm, "frmBegin"
+   End If
+
 End Sub
 
 Private Sub cboKiesSessie_AfterUpdate()
@@ -1478,6 +1488,14 @@ If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
         Me.Filter = ""
         Me.FilterOn = False
     End If
+ Else
+ 
+    Me.Filter = "[ToernooiD]=" & lngToernooi & " and [id] = " & lngSessie
+    Me.FilterOn = True
+
+ 
+ 
+ 
  End If
 
 

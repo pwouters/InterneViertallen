@@ -10,7 +10,7 @@ Begin Form
     Width =11153
     DatasheetFontHeight =11
     ItemSuffix =9
-    Right =24930
+    Right =24420
     Bottom =12240
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
@@ -479,14 +479,14 @@ End Sub
 
 Private Sub Form_Open(Cancel As Integer)
 If strExcel_Folder = "" Then
-    strExcel_Folder = Environ("USERPROFILE") & "\Desktop"
+    strExcel_Folder = Environ("USERPROFILE") & "\Documents"
 End If
 If strHTML_Folder = "" Then
-    strHTML_Folder = Environ("USERPROFILE") & "\Desktop"
+    strHTML_Folder = Environ("USERPROFILE") & "\Documents"
 End If
 
 If strTemplate_Folder = "" Then
-    strTemplate_Folder = Environ("USERPROFILE") & "\Desktop"
+    strTemplate_Folder = Environ("USERPROFILE") & "\Documents"
 End If
 
 End Sub

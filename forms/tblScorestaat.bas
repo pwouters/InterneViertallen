@@ -429,14 +429,13 @@ Begin Form
                     End
                 End
                 Begin TextBox
-                    ColumnHidden = NotDefault
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =2892
                     Top =4959
                     Width =1050
                     Height =330
-                    ColumnWidth =0
+                    ColumnWidth =1417
                     TabIndex =8
                     BorderColor =10921638
                     ForeColor =4210752

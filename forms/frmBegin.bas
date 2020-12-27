@@ -13,8 +13,10 @@ Begin Form
     Width =10780
     DatasheetFontHeight =11
     ItemSuffix =33
-    Right =19140
-    Bottom =12240
+    Left =2520
+    Top =1200
+    Right =17445
+    Bottom =11325
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
         0x6f1d1de43490e540
@@ -470,61 +472,7 @@ Call HTMLViertalKruistabel(CInt(Me.cboKiesToernooi))
 End Sub
 
 Private Sub btnNewToernooi_Click()
-' Kies worktemplate
-If Not KiesModelExcelBestandEnCopieer Then
-    MsgBox ("Process nieuw toernooi is afgebroken")
-    Exit Sub
-End If
-Dim db As Database
-Dim rs As Recordset
-    Set db = CurrentDb
-    Set rs = db.OpenRecordset("tblToernooi")
-    rs.AddNew
-    rs!ToernooiNaam = ToernooiNaam
-    rs!WORKFOLDER = WORKFOLDER
-    rs!WORKFILE = WORKFILE
-    rs!STEPDATA = STEP_DATA
-    rs!STEPRESULTS = STEP_RESULTS
-    rs!AANTALSESSIES = 1
-    rs!WEDSTRIJDENPERSESSIE = 1
-    rs!WORKTEMPLATE = WORKFOLDER
-    rs!LOCALHTML = LOCALHTML
-    rs!LOCALHTML = LOCALSITE
-    rs!PREFIX = "Wedstrijd_"
-    rs.Update
-    rs.Bookmark = rs.LastModified
-    lngToernooi = rs!Id
-    rs.Close
-    
-    'nu add sessie aan
-    Set rs = db.OpenRecordset("tblSessie")
-    
-    rs.AddNew
-    rs!ToernooID = lngToernooi
-    rs!Sessienaam = "Eerste Sessie"
-    rs!Sessienr = 1
-    rs!Aantalspellen = 8
-    rs!Competitie = 1  'halve
-    rs!Prefixkopjesscorestaat = "Scorekaart van sessie 1 "
-    rs!PrefixKopjeuitslagen = "Uitslag van sessie 1"
-    rs!Suffixkopjesscorestaat = ""
-    rs!SuffixKopjeuitslagen = ""
-    rs!Voettekst = "@Bridge"
-    rs!Voetlink = "#"
-    rs!wedstrijdvormID = 0
-    rs!ActivityID = 0
-    rs!AANTALTEAMS = 16
-    rs!ByeTeam = False
-    rs!AantalWedstrijdenPerSessie = 1
-    rs.Update
-    rs.Bookmark = rs.LastModified
-    lngSessie = rs!Id
-    
-rs.Close
-db.Close
-
-    Call InitAll(lngToernooi, lngSessie)
-     
+DoCmd.OpenForm "frmNieuwToernooi", acNormal
      Me.cboKiesToernooi.Requery
      Me.cboKiesToernooi = lngToernooi
      Me.cboKiesSessie.Requery
@@ -561,16 +509,15 @@ Set rs = db.OpenRecordset("tblSessie")
   rs.AddNew
     rs!ToernooID = lngToernooi
     rs!Sessienaam = Sessienaam
-    
     rs!Sessienr = intSessie
     rs!Aantalspellen = AANTALSPELLENPERWEDSTRIJD
     rs!Competitie = WEDSTRIJD
-    rs!Prefixkopjesscorestaat = Prefixkopjesscorestaat
-    rs!PrefixKopjeuitslagen = PrefixKopjeuitslagen
+    rs!Prefixkopjesscorestaat = "Scorestaat van " & Replace(PREFIX, "_", " ") & intSessie
+    rs!PrefixKopjeuitslagen = "Uitslag van " & Replace(PREFIX, "_", " ") & intSessie
     rs!Suffixkopjesscorestaat = Suffixkopjesscorestaat
     rs!SuffixKopjeuitslagen = SuffixKopjeuitslagen
-    rs!Voettekst = Voettekst
-    rs!Voetlink = Voetlink
+    rs!Voettekst = "@Bridge"
+    rs!Voetlink = "#"
     rs!wedstrijdvormID = COMPETITIEVORM
     rs!ActivityID = 0
     rs!AANTALTEAMS = AANTALTEAMS
@@ -631,7 +578,22 @@ Private Sub Form_Open(Cancel As Integer)
              lngToernooi = 1
              lngSessie = 1
              intSessienr = 1
+        Else
+        
+            If lngSessie = 0 Then
+                If Not IsNull(DLookup("id", "tblSessie", "[ToernooiD] = " & lngToernooi & " and [Sessienr] = 1")) Then
+                    lngSessie = DLookup("id", "tblSessie", "[ToernooiD] = " & lngToernooi & " and [Sessienr] = 1")
+                Else
+                 lngToernooi = 1
+                 lngSessie = 1
+                 intSessienr = 1
+                End If
+            End If
         End If
+
+
+
+
 
          Set db = CurrentDb
          Set rs = db.OpenRecordset("select * from tblSessie where [ToernooiD] = " & lngToernooi & " and  [id]= " & lngSessie & " Order by Sessienr")

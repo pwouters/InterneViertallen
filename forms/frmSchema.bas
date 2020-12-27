@@ -14,6 +14,9 @@ Begin Form
     Right =15030
     Bottom =11685
     DatasheetGridlinesColor =15132391
+    RecSrcDt = Begin
+        0x491cda3ff492e540
+    End
     RecordSource ="SELECT tblSchema.*, tblTeams.TeamNaam AS TeamnaamThuis, tblTeams_1.TeamNaam AS T"
         "eamNaamUit FROM (tblSchema INNER JOIN tblTeams ON (tblSchema.TeamThuis = tblTeam"
         "s.Teamnr) AND (tblSchema.ToernooiID = tblTeams.ToernooiID)) INNER JOIN tblTeams "

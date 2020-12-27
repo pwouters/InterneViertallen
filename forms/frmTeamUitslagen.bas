@@ -2,7 +2,10 @@ Version =20
 VersionRequired =20
 Begin Form
     AutoCenter = NotDefault
+    AllowDeletions = NotDefault
     DividingLines = NotDefault
+    AllowAdditions = NotDefault
+    AllowEdits = NotDefault
     AllowDesignChanges = NotDefault
     DefaultView =2
     PictureAlignment =2
@@ -11,8 +14,8 @@ Begin Form
     Width =10209
     DatasheetFontHeight =11
     ItemSuffix =21
-    Right =11010
-    Bottom =11685
+    Right =12300
+    Bottom =10245
     DatasheetGridlinesColor =15132391
     Filter ="[ToernooiID]=1 and [SessieID] = 10"
     RecSrcDt = Begin

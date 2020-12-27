@@ -3,6 +3,7 @@ VersionRequired =20
 Begin Form
     AutoCenter = NotDefault
     DividingLines = NotDefault
+    FilterOn = NotDefault
     OrderByOn = NotDefault
     AllowDesignChanges = NotDefault
     DefaultView =2
@@ -12,8 +13,10 @@ Begin Form
     Width =10209
     DatasheetFontHeight =11
     ItemSuffix =36
-    Right =19935
-    Bottom =10470
+    Left =2520
+    Top =1200
+    Right =17445
+    Bottom =11070
     DatasheetGridlinesColor =15132391
     Filter ="[ToernooiID]=1 and [SessieID] = 11"
     OrderBy ="[tblOpstelling].[ToernooiID], [tblOpstelling].[Sessie], [tblOpstelling].[Teamnr]"

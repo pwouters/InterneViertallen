@@ -7,13 +7,11 @@ Begin Form
     PictureAlignment =2
     DatasheetGridlinesBehavior =3
     GridY =10
-    Width =12018
+    Width =11914
     DatasheetFontHeight =11
-    ItemSuffix =24
-    Left =2520
-    Top =1200
-    Right =17445
-    Bottom =11070
+    ItemSuffix =27
+    Right =18885
+    Bottom =12240
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
         0xada97b1eb092e540
@@ -145,6 +143,7 @@ Begin Form
             ShowPageHeaderAndPageFooter =1
         End
         Begin FormHeader
+            CanGrow = NotDefault
             Height =1134
             BackColor =15064278
             Name ="Formulierkoptekst"
@@ -227,32 +226,16 @@ Begin Form
             AlternateBackShade =95.0
             BackThemeColorIndex =1
             Begin
-                Begin Subform
-                    OverlapFlags =85
-                    Left =56
-                    Width =11850
-                    Height =5445
-                    BorderColor =10921638
-                    Name ="subSchema"
-                    SourceObject ="Form.frmSchema"
-                    LinkChildFields ="ToernooiID"
-                    LinkMasterFields ="ID"
-                    GridlineColor =10921638
-
-                    LayoutCachedLeft =56
-                    LayoutCachedWidth =11906
-                    LayoutCachedHeight =5445
-                End
                 Begin CommandButton
                     OverlapFlags =93
                     Left =5669
                     Top =6236
                     Width =2271
                     Height =568
-                    TabIndex =1
                     ForeColor =4210752
                     Name ="btnSchemaNaarUitslag"
                     Caption ="Schema --> Uitslag"
+                    OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =5669
@@ -277,7 +260,7 @@ Begin Form
                     Top =6242
                     Width =1247
                     Height =943
-                    TabIndex =2
+                    TabIndex =1
                     BorderColor =10921638
                     Name ="grpUitvoerNaar"
                     DefaultValue ="1"
@@ -387,7 +370,7 @@ Begin Form
                     Top =6808
                     Width =2271
                     Height =568
-                    TabIndex =3
+                    TabIndex =2
                     ForeColor =4210752
                     Name ="btnSchemaNaarOpstelling"
                     Caption ="Schema --> Opstelling"
@@ -411,12 +394,14 @@ Begin Form
                     Overlaps =1
                 End
                 Begin CommandButton
+                    Visible = NotDefault
+                    Enabled = NotDefault
                     OverlapFlags =85
                     Left =1133
                     Top =6292
                     Width =2271
                     Height =568
-                    TabIndex =4
+                    TabIndex =3
                     ForeColor =4210752
                     Name ="Knop18"
                     Caption ="Nieuwe ronde indelen"
@@ -447,12 +432,120 @@ Begin Form
                     BorderColor =8355711
                     ForeColor =8355711
                     Name ="lblSessie"
-                    Caption ="Sessie"
+                    Caption ="Sessie 11"
                     GridlineColor =10921638
                     LayoutCachedLeft =6009
                     LayoutCachedTop =5839
                     LayoutCachedWidth =7809
                     LayoutCachedHeight =6154
+                End
+                Begin Label
+                    OverlapFlags =85
+                    Left =566
+                    Top =5669
+                    Width =4455
+                    Height =585
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="Bijschrift24"
+                    Caption ="Alle acties hebben als basis het interne schema\015\012dat is gedownload van het"
+                        " werkbestand"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =566
+                    LayoutCachedTop =5669
+                    LayoutCachedWidth =5021
+                    LayoutCachedHeight =6254
+                End
+                Begin CommandButton
+                    OverlapFlags =93
+                    TextFontCharSet =177
+                    Left =11338
+                    Top =6236
+                    Width =576
+                    Height =576
+                    TabIndex =4
+                    ForeColor =-2147483630
+                    Name ="btnSluiten"
+                    Caption ="Knop84"
+                    OnClick ="[Event Procedure]"
+                    ControlTipText ="Formulier sluiten"
+                    GridlineColor =10921638
+                    ImageData = Begin
+                        0x2800000010000000100000000100200000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000030b0200030a080 ,
+                        0x1030a0d01030a0f01028a0f01028a0d01028a0801028a0200000000000000000 ,
+                        0x00000000000000000000000000000000000000000030b0600030b0f00038c0ff ,
+                        0x0038c0ff0040d0ff0040c0ff0038c0ff0038b0ff1028a0f01028a06000000000 ,
+                        0x0000000000000000000000000038b0000030b0b00038c0ff0040d0ff0040d0ff ,
+                        0x0040d0ff0040d0ff0040d0ff0040d0ff0040c0ff0038c0ff0030b0ff1028a0b0 ,
+                        0x1028a00000000000000000000038b0900038c0ff0040e0ff0040e0ff0040d0ff ,
+                        0x0040d0ff0040d0ff0040d0ff0040d0ff0040d0ff0040c0ff0040c0ff0030b0ff ,
+                        0x1028a090000000000038c0200038c0ff0040e0ff0040e0ff3068e0ffc0d0f0ff ,
+                        0x2050e0ff0040d0ff0040d0ff2050d0ffd0d8f0ff3060d0ff0040c0ff0040c0ff ,
+                        0x1028a0ff1028a0200038c0800040d0ff0040e0ff0040e0ffc0d0f0fff0f8f0ff ,
+                        0xc0d0f0ff2050e0ff2050d0ffc0d0f0fff0f8f0ffc0d0f0ff0040d0ff0040c0ff ,
+                        0x0038b0ff1028a0800038c0d00040e0ff0040e0ff0040e0ff2050e0ffc0d0f0ff ,
+                        0xf0f8f0ffc0d0f0ffc0d0f0fff0f8f0ffc0d0f0ff2050d0ff0040d0ff0040d0ff ,
+                        0x0038c0ff1028a0e00038c0ff0048f0ff0048e0ff0040e0ff0040e0ff2050e0ff ,
+                        0xc0d0f0fff0f8f0fff0f8f0ffc0d0f0ff2050d0ff0040d0ff0040d0ff0040d0ff ,
+                        0x0040d0ff1028a0ff0038c0ff0048f0ff0048f0ff0048e0ff0040e0ff2050e0ff ,
+                        0xc0d0f0fff0f8f0fff0f8f0ffc0d0f0ff2050e0ff0040d0ff0040d0ff0040d0ff ,
+                        0x0040d0ff1030a0f00038c0e00048e0ff0048f0ff0048f0ff2058f0ffc0d0f0ff ,
+                        0xf0f8f0ffc0d0f0ffc0d0f0fff0f8f0ffc0d0f0ff2050e0ff0040d0ff0040d0ff ,
+                        0x0040c0ff1030a0d00040c0900040e0ff0048f0ff0048f0ffc0d0f0fff0f8f0ff ,
+                        0xc0d0f0ff2050e0ff2050e0ffc0d0f0fff0f8f0ffc0d0f0ff0040d0ff0040d0ff ,
+                        0x0038c0ff0030a0900040c0300040c0ff0048f0ff0048f0ff3068f0ffc0d0f0ff ,
+                        0x2058f0ff0040e0ff0040e0ff2050e0ffc0d0f0ff3068e0ff0040e0ff0040d0ff ,
+                        0x0030b0ff0030b030000000000040c0a00040d0ff0048f0ff0048f0ff0048f0ff ,
+                        0x0048f0ff0048e0ff0040e0ff0040e0ff0040e0ff0040e0ff0040e0ff0038c0ff ,
+                        0x0030b09000000000000000000040d0000040c0c00040d0ff0048f0ff0048f0ff ,
+                        0x0048f0ff0048f0ff0048e0ff0040e0ff0040e0ff0040e0ff0038c0ff0030b0c0 ,
+                        0x0030b0000000000000000000000000000040d0000040c0900040d0ff0040e0ff ,
+                        0x0048e0ff0048f0ff0048f0ff0040e0ff0040d0ff0038c0ff0038b0900030b000 ,
+                        0x0000000000000000000000000000000000000000000000000040c0300040c090 ,
+                        0x0038c0e00038c0ff0038c0ff0038c0e00038c0900038c0300000000000000000 ,
+                        0x0000000000000000
+                    End
+
+                    LayoutCachedLeft =11338
+                    LayoutCachedTop =6236
+                    LayoutCachedWidth =11914
+                    LayoutCachedHeight =6812
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
+                    Gradient =0
+                    BackColor =-2147483612
+                    BackThemeColorIndex =-1
+                    BackTint =100.0
+                    BorderThemeColorIndex =-1
+                    BorderTint =100.0
+                    HoverThemeColorIndex =-1
+                    HoverTint =100.0
+                    PressedThemeColorIndex =-1
+                    PressedShade =100.0
+                    HoverForeThemeColorIndex =-1
+                    HoverForeTint =100.0
+                    PressedForeThemeColorIndex =-1
+                    PressedForeTint =100.0
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
+                End
+                Begin Subform
+                    OverlapFlags =85
+                    Width =11850
+                    Height =5445
+                    TabIndex =5
+                    BorderColor =10921638
+                    Name ="subSchema"
+                    SourceObject ="Form.frmSchema"
+                    LinkChildFields ="ToernooiID"
+                    LinkMasterFields ="ID"
+                    GridlineColor =10921638
+
+                    LayoutCachedWidth =11850
+                    LayoutCachedHeight =5445
                 End
             End
         End
@@ -480,7 +573,7 @@ Dim db As Database
 Dim rs As Recordset
 Dim MySheet As Worksheet
 Dim StartBook As Workbook
-Dim strWorkFile As String
+Dim strWorkfile As String
 Dim question As Integer
 Dim intSessienr As Integer
 Dim intTeamnr As Integer
@@ -488,14 +581,14 @@ Dim sessieaanwezig As Integer
 Dim rijteller, beginTel As Integer
 Dim TestExcel As Integer
 Dim TeamTegenstanders() As Long
-Dim i, j, k, thuis, uit As Integer
+Dim i, j, K, thuis, uit As Integer
 Dim sql As String
 Set db = CurrentDb
 
 'test of er een werkbestand is
-strWorkFile = WORKFOLDER & WORKFILE
+strWorkfile = WORKFOLDER & WORKFILE
 
-If Not fnExists(strWorkFile) Then
+If Not fnExists(strWorkfile) Then
      MsgBox ("Er is nog geen excel bestand aangemaakt")
      Exit Sub
 End If
@@ -535,6 +628,10 @@ Case 1
         Set xlApp = Nothing
         Exit Sub
     End If
+
+
+
+
 Case 2
 'test of opstelling intern is aanwezig
 Set rs = db.OpenRecordset("select * from tblOpstelling where [ToernooiID] = " & lngToernooi & " and [Sessie] = " & CInt(intSessienr))
@@ -613,6 +710,24 @@ End Select
 
 End Sub
 
+Private Sub btnSchemaNaarUitslag_Click()
+Select Case Me.grpUitvoernaar
+Case 1
+Call AddExcelTeamUitslagen_Schema(lngToernooi, lngSessie)
+Case 2
+Call AddInternTeamUitslagen_Schema(lngToernooi, lngSessie)
+End Select
+
+End Sub
+
+Private Sub btnSluiten_Click()
+    If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
+        DoCmd.Close
+    Else
+        DoCmd.BrowseTo acBrowseToForm, "frmBegin"
+   End If
+End Sub
+
 Private Sub cboKiesRonde_AfterUpdate()
 ' filter subformulier
 Dim sCriteria As String
@@ -631,5 +746,5 @@ End Sub
 
 
 Private Sub Form_Open(Cancel As Integer)
-    Me.lblSessie.Caption = "Sessie " & lngSessie
+    Me.lblSessie.Caption = "Sessie " & Sessienr
 End Sub

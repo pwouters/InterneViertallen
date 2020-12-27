@@ -20,8 +20,8 @@ Begin Form
     Right =17445
     Bottom =11070
     DatasheetGridlinesColor =15132391
-    OrderBy ="[qryWedstrijden_Kruistabel].[Totaal VPS] DESC, [qryWedstrijden_Kruistabel].[Team"
-        "nr]"
+    OrderBy ="[qryWedstrijden_Kruistabel].[Teamnr], [qryWedstrijden_Kruistabel].[Totaal VPS] D"
+        "ESC"
     RecSrcDt = Begin
         0x00211c2f1392e540
     End
@@ -156,7 +156,7 @@ Begin Form
                     Top =741
                     Width =7260
                     Height =600
-                    ColumnWidth =2925
+                    ColumnWidth =1770
                     TabIndex =1
                     BorderColor =10921638
                     ForeColor =4210752
@@ -522,7 +522,6 @@ Begin Form
                     End
                 End
                 Begin TextBox
-                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -530,7 +529,7 @@ Begin Form
                     Top =4617
                     Width =3660
                     Height =330
-                    ColumnWidth =990
+                    ColumnWidth =825
                     TabIndex =10
                     BorderColor =10921638
                     ForeColor =4210752
@@ -565,7 +564,6 @@ Begin Form
                     End
                 End
                 Begin TextBox
-                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -608,7 +606,6 @@ Begin Form
                     End
                 End
                 Begin TextBox
-                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -616,10 +613,12 @@ Begin Form
                     Top =5466
                     Width =3660
                     Height =330
+                    ColumnWidth =840
                     TabIndex =12
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="9_txt"
+                    ControlSource ="9"
                     Format ="Standard"
                     EventProcPrefix ="Ctl9_txt"
                     GridlineColor =10921638
@@ -650,7 +649,6 @@ Begin Form
                     End
                 End
                 Begin TextBox
-                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -658,10 +656,12 @@ Begin Form
                     Top =5952
                     Width =3660
                     Height =330
+                    ColumnWidth =1020
                     TabIndex =13
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="10_txt"
+                    ControlSource ="10"
                     Format ="Standard"
                     EventProcPrefix ="Ctl10_txt"
                     GridlineColor =10921638
@@ -692,7 +692,6 @@ Begin Form
                     End
                 End
                 Begin TextBox
-                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -700,6 +699,7 @@ Begin Form
                     Top =6402
                     Width =3660
                     Height =330
+                    ColumnWidth =1417
                     TabIndex =14
                     BorderColor =10921638
                     ForeColor =4210752
@@ -734,7 +734,6 @@ Begin Form
                     End
                 End
                 Begin TextBox
-                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -742,6 +741,7 @@ Begin Form
                     Top =6888
                     Width =3660
                     Height =330
+                    ColumnWidth =1417
                     TabIndex =15
                     BorderColor =10921638
                     ForeColor =4210752
@@ -776,7 +776,6 @@ Begin Form
                     End
                 End
                 Begin TextBox
-                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -784,6 +783,7 @@ Begin Form
                     Top =7338
                     Width =3660
                     Height =330
+                    ColumnWidth =1417
                     TabIndex =16
                     BorderColor =10921638
                     ForeColor =4210752
@@ -818,7 +818,6 @@ Begin Form
                     End
                 End
                 Begin TextBox
-                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -826,6 +825,7 @@ Begin Form
                     Top =7824
                     Width =3660
                     Height =330
+                    ColumnWidth =1417
                     TabIndex =17
                     BorderColor =10921638
                     ForeColor =4210752
@@ -860,7 +860,6 @@ Begin Form
                     End
                 End
                 Begin TextBox
-                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -868,6 +867,7 @@ Begin Form
                     Top =8274
                     Width =3660
                     Height =330
+                    ColumnWidth =1417
                     TabIndex =18
                     BorderColor =10921638
                     ForeColor =4210752
@@ -932,9 +932,13 @@ intKolommen = 0
 For Each fld In rs.Fields
 If Val(fld.name) > 0 Then
     intKolommen = intKolommen + 1
+     Me.Controls(fld.name & "_txt").ControlSource = fld.name
 End If
 Next
 'nu verberg de kolommen
+For i = 1 To intKolommen
+    Me.Controls(i & "_txt").ColumnHidden = False
+Next
 
 For i = intKolommen + 1 To 14
     Me.Controls(i & "_txt").ColumnHidden = True

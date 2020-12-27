@@ -8,6 +8,8 @@ Global Const STEP_RESULTS = "https://results.stepbridge.nl/tournament/events/sho
 Global Const STEP_DATA = "http://admin.stepbridge.nl/show.php?page=tournamentinfo&activityid="
 Global Const LOCAL_SITE = "https://www.pwobridge.nl/Step/"
 
+Global Const GEKOPPELDINACCESS = "Teams;Schema;Uitslagen;Opstelling;WebInfo"
+Global Const EXCELTABNAMEN = "Teams;Schema;TeamUitslagen;Import_Opstelling;WebInfo;Team_template;Kruistabel;VPSchaal;Imptabel"
 
 Global WORKFOLDER As String
 Global WORKID As Long
@@ -27,6 +29,7 @@ Global TEAMBYE  As Integer
 Global WEDSTRIJD  As Integer
 Global WEDSTRIJDENPERSESSIE  As Integer
 Global COMPETITIEVORM  As Integer
+Global AANTALSESSIES  As Integer
 Global Prefixkopjesscorestaat As String
 Global PrefixKopjeuitslagen As String
 Global Suffixkopjesscorestaat As String
@@ -52,6 +55,73 @@ Global strHTML_Folder As String
 Global strTemplate_Folder As String
 Global strTemplate_File As String
 
+'Leesbaar maken van de code
+'
+
+Public Enum Opstelling
+    'sessie Teamnr Speler1 Speler2 Speler3 Speler4  Wedstrijd1  Wedstrijd2 etc
+    Sessie_ = 1
+    Team_nr = 2
+    Speler_1 = 3
+    Speler_2 = 4
+    Speler_3 = 5
+    Speler_4 = 6
+    Wedstrijd_1 = 7
+    Wedstrijd_2 = 8
+    Wedstrijd_3 = 9
+    Wedstrijd_4 = 10
+    wedstrijd_5 = 11
+    Wedstrijd_6 = 12
+    Wedstrijd_7 = 13
+    Wedstrijd_8 = 14
+    Wedstrijd_9 = 15
+    Wedstrijd_10 = 16
+End Enum
+
+Public Enum Team
+    Team_nr = 1
+    Team_Naam = 2
+    Speler_1 = 3
+    Speler_2 = 4
+    Speler_3 = 5
+    Speler_4 = 6
+    Speler_5 = 7
+    Speler_6 = 8
+    Speler_7 = 9
+    Speler_8 = 10
+End Enum
+
+
+Public Enum Uitslag
+    Sessie_nr = 1
+    Wedstrijd_nr = 2
+    Thuis_nr = 3
+    Uit_nr = 4
+    Thuis_Naam = 5
+    Uit_Naam = 6
+    Thuis_Imps = 7
+    Uit_Imps = 8
+    Thuis_VPs = 9
+    Uit_VPs = 10
+End Enum
+
+Public Enum Scorestaat
+    spel_1 = 1
+    Contract_1 = 2
+    Resultaat_1 = 3
+    Door_1 = 4
+    score_1 = 5
+    Spel_2 = 6
+    Resultaat_2 = 7
+    Door_2 = 8
+    score_2 = 9
+    saldo_ = 10
+    imps_ = 11
+    Imps_Wij = 12
+    Imps_Zij = 13
+End Enum
+
+
 Public Sub InitToernooi(Id As Variant)
     Dim db As Database
     Dim rs As Recordset
@@ -68,6 +138,7 @@ Public Sub InitToernooi(Id As Variant)
             STEPDATA = rs.Fields("STEPDATA")
             LOCALSITE = rs.Fields("LOCALSITE")
             LOCALHTML = rs.Fields("LOCALHTML")
+            AANTALSESSIES = rs.Fields("AANTALSESSIES")
             PREFIX = rs.Fields("PREFIX")
             lngToernooi = Id
             lngToernooiOld = lngToernooi
@@ -155,6 +226,7 @@ Public Sub InitAll(ToernooiID As Variant, SessieID As Variant)
         STEPDATA = rs.Fields("STEPDATA")
         LOCALSITE = rs.Fields("LOCALSITE")
         LOCALHTML = rs.Fields("LOCALHTML")
+        AANTALSESSIES = rs.Fields("AANTALSESSIES")
         PREFIX = rs.Fields("PREFIX")
         lngToernooi = rs!Id
         lngToernooiOld = lngToernooi
@@ -304,7 +376,7 @@ End With
 End Function
 
 Function KiesModelExcelBestandEnCopieer() As Integer
-Dim source, destination As String
+Dim source, destination, src, dest As String
 
 Dim fd As Office.FileDialog
 KiesModelExcelBestandEnCopieer = True
@@ -312,13 +384,14 @@ Set fd = Application.FileDialog(msoFileDialogFilePicker)
 'get the number of the button chosen
 fd.InitialFileName = LaatsteLocatieModelfile
 fd.AllowMultiSelect = False
-fd.Title = "Kies Excel model bestand"
+fd.Title = "Kies Excel model bestand of maak zelf een excelfile aan"
 
 Dim FileChosen As Integer
 FileChosen = fd.Show
 If FileChosen = -1 Then
         source = fd.SelectedItems(1)
-        destination = InputBox("Toernooinaam: (zal tevens de naam van het werkbestand worden) ", "Werkbestand", "Nieuw_Toernooi")
+        
+        destination = InputBox("Toernooinaam: (zal dan tevens de naam van het werkbestand worden) ", "Werkbestand", "Nieuw_Toernooi")
         
         
         'Moet de copie indezelfde folder komen ?
@@ -334,17 +407,22 @@ If FileChosen = -1 Then
             KiesModelExcelBestandEnCopieer = False
             Exit Function
         End If
+        'test of bron en bestemming niet hetzelfde zijn
+          
         ToernooiNaam = destination
+        
         destination = destination & ".xlsx"
         
         WORKFILE = destination
         destination = FolderFromPath(source) & destination
-        FileCopy source, destination
-
+        
+        If source <> destination Then
+            FileCopy source, destination
+        End If
+        
         WORKFOLDER = FolderFromPath(source)
         If Right(WORKFOLDER, 1) <> "\" Then WORKFOLDER = WORKFOLDER & "\"
-        
-
+ 
 Else
             KiesModelExcelBestandEnCopieer = False
             Exit Function
@@ -382,10 +460,90 @@ End Function
 Public Function GetDesktopfolder() As String
 GetDesktopfolder = Environ("USERPROFILE") & "\Desktop"
 End Function
+
+Public Function GetDocumentsfolder() As String
+GetDocumentsfolder = Environ("USERPROFILE") & "\Documents"
+End Function
+
 Public Function FileNameFromPath(strFullPath As Variant) As String
     FileNameFromPath = Right(strFullPath, Len(strFullPath) - InStrRev(strFullPath, "\"))
 End Function
 
 Public Function FolderFromPath(strFullPath As Variant) As String
     FolderFromPath = Left(strFullPath, InStrRev(strFullPath, "\"))
+End Function
+
+
+
+
+
+
+Public Function BerekenKolom(varGetal As Variant) As String
+Dim Getal As Integer
+Dim rest As Integer
+Dim strKolom As String
+
+
+Getal = varGetal
+Do While Getal > 26
+    rest = Getal Mod 26
+    If rest = 0 Then
+        rest = 26
+        Getal = Getal - 26
+    End If
+    strKolom = Chr(64 + rest) & strKolom
+    Getal = Getal \ 26
+Loop
+ rest = Getal Mod 26
+ If rest = 0 Then rest = 26
+ strKolom = Chr(64 + rest) & strKolom
+ BerekenKolom = strKolom
+
+End Function
+
+
+Public Function AccessTableExists(TableName As String) As Boolean
+    On Error Resume Next
+    AccessTableExists = CurrentDb.TableDefs(TableName).name = TableName
+End Function
+
+Public Sub CreateAllExcelLinks(varToernooi As Variant, strWorkfile As Variant)
+Dim excelLinks() As String
+Dim accessLinks() As String
+
+Dim i As Integer
+excelLinks = Split(EXCELTABNAMEN, ";")
+accessLinks = Split(GEKOPPELDINACCESS, ";")
+Call DeleteAllExcelLinks(varToernooi)
+For i = 0 To UBound(accessLinks)
+    DoCmd.TransferSpreadsheet acImport, acSpreadsheetTypeExcel12, "tbl_" & varToernooi & "_" & accessLinks(i), strWorkfile, True, excelLinks(i) & "!"
+Next
+End Sub
+
+
+
+Public Function DeleteAllExcelLinks(varToernooi As Variant)
+Dim strTable As String
+Dim tbl As TableDef
+strTable = "tbl_" & varToernooi & "_*"
+    For Each tbl In CurrentDb.TableDefs
+        If tbl.name Like strTable Then
+            DoCmd.DeleteObject acTable, tbl.name
+        End If
+   Next
+End Function
+Function ValidFileName(FileName As String) As Boolean
+  Const sBadChar As String = "\/:*?<>|[]"""
+  Dim i As Long
+
+  ' assume valid unless it isn't
+  ValidFileName = True
+
+  For i = 1 To Len(sBadChar)
+    If InStr(FileName, Mid$(sBadChar, i, 1)) > 0 Then
+      ' invalid
+      ValidFileName = False
+      Exit For
+    End If
+  Next
 End Function

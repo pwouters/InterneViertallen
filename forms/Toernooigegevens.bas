@@ -14,8 +14,8 @@ Begin Form
     Width =14229
     DatasheetFontHeight =11
     ItemSuffix =48
-    Right =13995
-    Bottom =10470
+    Right =18885
+    Bottom =12240
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
         0x9b1f09e7d98fe540
@@ -582,6 +582,8 @@ Begin Form
                     End
                 End
                 Begin CommandButton
+                    Visible = NotDefault
+                    Enabled = NotDefault
                     OverlapFlags =85
                     Left =566
                     Top =5102
@@ -1214,13 +1216,13 @@ End Sub
 
 
 Private Sub btnNieuw_Click()
- If Me.Dirty Then
-       x = fnSaveRecords
- End If
+' If Me.Dirty Then
+'       x = fnSaveRecords
+ 'End If
  
- DoCmd.RunCommand acCmdRecordsGoToNew
- Call MeControlEnabled(True)
- Me.cboKiesToernooi.Enabled = False
+ 'DoCmd.RunCommand acCmdRecordsGoToNew
+ 'Call MeControlEnabled(True)
+ 'Me.cboKiesToernooi.Enabled = False
 
 ' saveas model
 
@@ -1316,7 +1318,7 @@ Private Sub Form_Dirty(Cancel As Integer)
 End Sub
 Sub MeControlEnabled(JaNee As Integer)
 ' Me.btnVolgende.Enabled = JaNee
- Me.btnNieuw.Enabled = JaNee
+ 'Me.btnNieuw.Enabled = JaNee
  'Me.btnVorige.Enabled = JaNee
  'Me.btnEerste.Enabled = JaNee
 ' Me.btnLaatste.Enabled = JaNee
@@ -1325,7 +1327,7 @@ End Sub
 
 Sub MeControlVisible(JaNee As Integer)
 ' Me.btnVolgende.Visible = JaNee
- Me.btnNieuw.Visible = JaNee
+' Me.btnNieuw.Visible = JaNee
 ' Me.btnVorige.Visible = JaNee
 'Me.btnEerste.Visible = JaNee
 ' Me.btnLaatste.Visible = JaNee

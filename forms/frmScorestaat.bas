@@ -2,6 +2,7 @@ Version =20
 VersionRequired =20
 Begin Form
     DividingLines = NotDefault
+    FilterOn = NotDefault
     AllowDesignChanges = NotDefault
     DefaultView =0
     PictureAlignment =2
@@ -10,10 +11,10 @@ Begin Form
     Width =17291
     DatasheetFontHeight =11
     ItemSuffix =12
-    Right =24930
-    Bottom =12240
+    Right =18090
+    Bottom =10245
     DatasheetGridlinesColor =15132391
-    Filter ="[ToernooiID] = 1 and [id] = 2"
+    Filter ="[ToernooiID] = 1 and [id] = 13"
     RecSrcDt = Begin
         0x9436a4437a92e540
     End
@@ -104,6 +105,8 @@ Begin Form
             BackTint =20.0
             Begin
                 Begin ComboBox
+                    Visible = NotDefault
+                    Enabled = NotDefault
                     OverlapFlags =85
                     IMESentenceMode =3
                     ColumnCount =3
@@ -180,6 +183,8 @@ Begin Form
                     End
                 End
                 Begin ComboBox
+                    Visible = NotDefault
+                    Enabled = NotDefault
                     OverlapFlags =85
                     IMESentenceMode =3
                     ColumnCount =2

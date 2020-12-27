@@ -399,6 +399,15 @@ Begin
         dbText "Name" ="TeamNaam"
         dbLong "AggregateType" ="-1"
     End
+    Begin
+        dbText "Name" ="9"
+    End
+    Begin
+        dbText "Name" ="14"
+    End
+    Begin
+        dbText "Name" ="15"
+    End
 End
 Begin
     State =0

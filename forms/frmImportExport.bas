@@ -9,8 +9,8 @@ Begin Form
     GridY =10
     Width =12132
     DatasheetFontHeight =11
-    ItemSuffix =7
-    Right =19140
+    ItemSuffix =12
+    Right =18885
     Bottom =12240
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
@@ -137,6 +137,7 @@ Begin Form
         Begin Section
             Height =4195
             Name ="Details"
+            OnClick ="[Event Procedure]"
             AlternateBackColor =15921906
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
@@ -145,7 +146,7 @@ Begin Form
                 Begin CommandButton
                     OverlapFlags =93
                     Left =566
-                    Top =963
+                    Top =1133
                     Width =2091
                     Height =568
                     ForeColor =4210752
@@ -155,9 +156,9 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =566
-                    LayoutCachedTop =963
+                    LayoutCachedTop =1133
                     LayoutCachedWidth =2657
-                    LayoutCachedHeight =1531
+                    LayoutCachedHeight =1701
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -173,7 +174,7 @@ Begin Form
                 Begin CommandButton
                     OverlapFlags =95
                     Left =566
-                    Top =1530
+                    Top =1700
                     Width =2091
                     Height =568
                     TabIndex =1
@@ -184,9 +185,9 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =566
-                    LayoutCachedTop =1530
+                    LayoutCachedTop =1700
                     LayoutCachedWidth =2657
-                    LayoutCachedHeight =2098
+                    LayoutCachedHeight =2268
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -200,9 +201,9 @@ Begin Form
                     Overlaps =1
                 End
                 Begin CommandButton
-                    OverlapFlags =87
+                    OverlapFlags =95
                     Left =566
-                    Top =2097
+                    Top =2267
                     Width =2091
                     Height =568
                     TabIndex =2
@@ -213,9 +214,9 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =566
-                    LayoutCachedTop =2097
+                    LayoutCachedTop =2267
                     LayoutCachedWidth =2657
-                    LayoutCachedHeight =2665
+                    LayoutCachedHeight =2835
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -231,8 +232,8 @@ Begin Form
                 Begin CommandButton
                     Visible = NotDefault
                     OverlapFlags =93
-                    Left =3401
-                    Top =963
+                    Left =9411
+                    Top =170
                     Width =2091
                     Height =568
                     TabIndex =3
@@ -241,10 +242,10 @@ Begin Form
                     Caption ="Export Teams"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =3401
-                    LayoutCachedTop =963
-                    LayoutCachedWidth =5492
-                    LayoutCachedHeight =1531
+                    LayoutCachedLeft =9411
+                    LayoutCachedTop =170
+                    LayoutCachedWidth =11502
+                    LayoutCachedHeight =738
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -260,8 +261,8 @@ Begin Form
                 Begin CommandButton
                     Visible = NotDefault
                     OverlapFlags =95
-                    Left =3401
-                    Top =1530
+                    Left =9411
+                    Top =737
                     Width =2091
                     Height =568
                     TabIndex =4
@@ -270,10 +271,10 @@ Begin Form
                     Caption ="Export Opstelling"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =3401
-                    LayoutCachedTop =1530
-                    LayoutCachedWidth =5492
-                    LayoutCachedHeight =2098
+                    LayoutCachedLeft =9411
+                    LayoutCachedTop =737
+                    LayoutCachedWidth =11502
+                    LayoutCachedHeight =1305
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -289,8 +290,8 @@ Begin Form
                 Begin CommandButton
                     Visible = NotDefault
                     OverlapFlags =87
-                    Left =3401
-                    Top =2097
+                    Left =9411
+                    Top =1304
                     Width =2091
                     Height =568
                     TabIndex =5
@@ -299,10 +300,10 @@ Begin Form
                     Caption ="Export Indeling"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =3401
-                    LayoutCachedTop =2097
-                    LayoutCachedWidth =5492
-                    LayoutCachedHeight =2665
+                    LayoutCachedLeft =9411
+                    LayoutCachedTop =1304
+                    LayoutCachedWidth =11502
+                    LayoutCachedHeight =1872
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -318,8 +319,8 @@ Begin Form
                 Begin CommandButton
                     OverlapFlags =85
                     TextFontCharSet =177
-                    Left =4535
-                    Top =3231
+                    Left =9184
+                    Top =2211
                     Width =576
                     Height =576
                     TabIndex =6
@@ -366,10 +367,10 @@ Begin Form
                         0x0000000000000000
                     End
 
-                    LayoutCachedLeft =4535
-                    LayoutCachedTop =3231
-                    LayoutCachedWidth =5111
-                    LayoutCachedHeight =3807
+                    LayoutCachedLeft =9184
+                    LayoutCachedTop =2211
+                    LayoutCachedWidth =9760
+                    LayoutCachedHeight =2787
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Gradient =0
@@ -407,18 +408,18 @@ Begin Form
                     RowSource ="Team_template;WebInfo;Teams;Schema;SchemaZwitsers;Kruistabel;TeamUitslagen;Impor"
                         "t_Opstelling;Import_Uitslag;VPSchaal;Imptabel;Avond_1_Teamnr_4;Avond_1_Teamnr_5;"
                         "Avond_1_Teamnr_6;Avond_1_Teamnr_7;Avond_1_Teamnr_8;Avond_1_Teamnr_9;Avond_1_Team"
-                        "nr_10;Avond_1_Teamnr_11;Avond_1_Teamnr_12;Avond_1_Teamnr_14;Avond_1_Teamnr_15;Av"
-                        "ond_2_Teamnr_2;Avond_2_Teamnr_3;Avond_2_Teamnr_5;Avond_2_Teamnr_7;Avond_2_Teamnr"
-                        "_8;Avond_2_Teamnr_10;Avond_2_Teamnr_11;Avond_2_Teamnr_12;Avond_2_Teamnr_13;Avond"
-                        "_2_Teamnr_14;Avond_2_Teamnr_15;Avond_2_Teamnr_6;Avond_2_Teamnr_9;Avond_1_Teamnr_"
-                        "13;Avond_3_Teamnr_1;Avond_3_Teamnr_2;Avond_3_Teamnr_3;Avond_3_Teamnr_5;Avond_3_T"
-                        "eamnr_6;Avond_3_Teamnr_7;Avond_3_Teamnr_8;Avond_3_Teamnr_9;Avond_3_Teamnr_10;Avo"
-                        "nd_3_Teamnr_11;Avond_3_Teamnr_12;Avond_3_Teamnr_13;Avond_3_Teamnr_14;Avond_3_Tea"
-                        "mnr_15;Avond_2_Teamnr_4;Avond_3_Teamnr_4;Avond_4_Teamnr_2;Avond_4_Teamnr_3;Avond"
-                        "_4_Teamnr_4;Avond_4_Teamnr_5;Avond_4_Teamnr_6;Avond_4_Teamnr_7;Avond_4_Teamnr_8;"
-                        "Avond_4_Teamnr_9;Avond_4_Teamnr_10;Avond_4_Teamnr_11;Avond_4_Teamnr_12;Avond_4_T"
-                        "eamnr_13;Avond_4_Teamnr_14;Avond_4_Teamnr_15;Avond_4_Teamnr_1;Avond_2_Teamnr_1;A"
-                        "vond_1_Teamnr_1;Avond_1_Teamnr_2;Avond_1_Teamnr_3"
+                        "nr_10;Avond_1_Teamnr_12;Avond_1_Teamnr_14;Avond_1_Teamnr_15;Avond_2_Teamnr_2;Avo"
+                        "nd_2_Teamnr_3;Avond_2_Teamnr_5;Avond_2_Teamnr_7;Avond_2_Teamnr_8;Avond_2_Teamnr_"
+                        "10;Avond_2_Teamnr_11;Avond_2_Teamnr_12;Avond_2_Teamnr_13;Avond_2_Teamnr_14;Avond"
+                        "_2_Teamnr_15;Avond_2_Teamnr_6;Avond_2_Teamnr_9;Avond_1_Teamnr_13;Avond_3_Teamnr_"
+                        "1;Avond_3_Teamnr_2;Avond_3_Teamnr_3;Avond_3_Teamnr_5;Avond_3_Teamnr_6;Avond_3_Te"
+                        "amnr_7;Avond_3_Teamnr_8;Avond_3_Teamnr_9;Avond_3_Teamnr_10;Avond_3_Teamnr_11;Avo"
+                        "nd_3_Teamnr_12;Avond_3_Teamnr_13;Avond_3_Teamnr_14;Avond_3_Teamnr_15;Avond_2_Tea"
+                        "mnr_4;Avond_3_Teamnr_4;Avond_4_Teamnr_2;Avond_4_Teamnr_3;Avond_4_Teamnr_4;Avond_"
+                        "4_Teamnr_5;Avond_4_Teamnr_6;Avond_4_Teamnr_8;Avond_4_Teamnr_9;Avond_4_Teamnr_10;"
+                        "Avond_4_Teamnr_11;Avond_4_Teamnr_13;Avond_4_Teamnr_14;Avond_4_Teamnr_15;Avond_4_"
+                        "Teamnr_1;Avond_2_Teamnr_1;Avond_1_Teamnr_1;Avond_1_Teamnr_2;Avond_1_Teamnr_3;Avo"
+                        "nd_4_Teamnr_7;Avond_4_Teamnr_12;Avond_1_Teamnr_11"
                     AfterUpdate ="[Event Procedure]"
                     GridlineColor =10921638
 
@@ -448,7 +449,7 @@ Begin Form
                 Begin CommandButton
                     OverlapFlags =93
                     Left =6236
-                    Top =1530
+                    Top =1700
                     Width =2085
                     Height =570
                     TabIndex =8
@@ -459,9 +460,9 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =6236
-                    LayoutCachedTop =1530
+                    LayoutCachedTop =1700
                     LayoutCachedWidth =8321
-                    LayoutCachedHeight =2100
+                    LayoutCachedHeight =2270
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -477,7 +478,7 @@ Begin Form
                 Begin CommandButton
                     OverlapFlags =87
                     Left =6236
-                    Top =2097
+                    Top =2267
                     Width =2085
                     Height =570
                     TabIndex =9
@@ -488,9 +489,38 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =6236
-                    LayoutCachedTop =2097
+                    LayoutCachedTop =2267
                     LayoutCachedWidth =8321
-                    LayoutCachedHeight =2667
+                    LayoutCachedHeight =2837
+                    BackColor =14461583
+                    BorderColor =14461583
+                    HoverColor =15189940
+                    PressedColor =9917743
+                    HoverForeColor =4210752
+                    PressedForeColor =4210752
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
+                    Overlaps =1
+                End
+                Begin CommandButton
+                    OverlapFlags =215
+                    Left =6236
+                    Top =1133
+                    Width =2085
+                    Height =570
+                    TabIndex =10
+                    ForeColor =4210752
+                    Name ="btnInternTeams"
+                    Caption ="Teams Intern"
+                    OnClick ="[Event Procedure]"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =6236
+                    LayoutCachedTop =1133
+                    LayoutCachedWidth =8321
+                    LayoutCachedHeight =1703
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -505,21 +535,124 @@ Begin Form
                 End
                 Begin CommandButton
                     OverlapFlags =87
-                    Left =6236
-                    Top =963
-                    Width =2085
-                    Height =570
-                    TabIndex =10
+                    Left =566
+                    Top =2834
+                    Width =2092
+                    Height =568
+                    TabIndex =11
                     ForeColor =4210752
-                    Name ="btnInternTeams"
-                    Caption ="Teams Intern"
+                    Name ="btnImportSchema"
+                    Caption ="Import Schema"
                     OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =6236
-                    LayoutCachedTop =963
-                    LayoutCachedWidth =8321
-                    LayoutCachedHeight =1533
+                    LayoutCachedLeft =566
+                    LayoutCachedTop =2834
+                    LayoutCachedWidth =2658
+                    LayoutCachedHeight =3402
+                    BackColor =14461583
+                    BorderColor =14461583
+                    HoverColor =15189940
+                    PressedColor =9917743
+                    HoverForeColor =4210752
+                    PressedForeColor =4210752
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
+                    Overlaps =1
+                End
+                Begin CommandButton
+                    OverlapFlags =93
+                    Left =3401
+                    Top =1700
+                    Width =2271
+                    Height =568
+                    TabIndex =12
+                    ForeColor =4210752
+                    Name ="btnKruisTabel"
+                    Caption ="KruisTabel"
+                    OnClick ="[Event Procedure]"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =3401
+                    LayoutCachedTop =1700
+                    LayoutCachedWidth =5672
+                    LayoutCachedHeight =2268
+                    BackColor =14461583
+                    BorderColor =14461583
+                    HoverColor =15189940
+                    PressedColor =9917743
+                    HoverForeColor =4210752
+                    PressedForeColor =4210752
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
+                    Overlaps =1
+                End
+                Begin Label
+                    OverlapFlags =93
+                    Left =3401
+                    Top =566
+                    Width =2580
+                    Height =585
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="Bijschrift9"
+                    Caption ="Creeer tabbladen in werkbestand"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =3401
+                    LayoutCachedTop =566
+                    LayoutCachedWidth =5981
+                    LayoutCachedHeight =1151
+                End
+                Begin CommandButton
+                    OverlapFlags =215
+                    Left =3401
+                    Top =1133
+                    Width =2271
+                    Height =568
+                    TabIndex =13
+                    ForeColor =4210752
+                    Name ="btnCreeerTeamNamen"
+                    Caption ="Team Namen standaard"
+                    OnClick ="[Event Procedure]"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =3401
+                    LayoutCachedTop =1133
+                    LayoutCachedWidth =5672
+                    LayoutCachedHeight =1701
+                    BackColor =14461583
+                    BorderColor =14461583
+                    HoverColor =15189940
+                    PressedColor =9917743
+                    HoverForeColor =4210752
+                    PressedForeColor =4210752
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
+                    Overlaps =1
+                End
+                Begin CommandButton
+                    OverlapFlags =87
+                    Left =3401
+                    Top =2267
+                    Width =2271
+                    Height =568
+                    TabIndex =14
+                    ForeColor =4210752
+                    Name ="btnScorestaat"
+                    Caption ="Template Scorestaat"
+                    OnClick ="[Event Procedure]"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =3401
+                    LayoutCachedTop =2267
+                    LayoutCachedWidth =5672
+                    LayoutCachedHeight =2835
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -550,123 +683,43 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Compare Database
 
-Private Sub btnImportIndeling_Click()
-Dim db As Database
-Dim rs As Recordset
+Private Sub btnCreeerTeamNamen_Click()
+' standaard  , nrs 1 tm N en naam Team1 tm TeamN
+
+Dim xlApp As Object
+Dim sheetname As String
+sheetname = "Teams"
+
+Me.cboKiesTabblad = ""
 Dim MySheet As Worksheet
 Dim StartBook As Workbook
-Dim strWorkFile As String
-Dim question As Integer
-Dim TeamsID() As Long
-ReDim TeamsID(AANTALTEAMS)
-
-Set db = CurrentDb
-Set rs = db.OpenRecordset("select * from tblTeams where [ToernooiID] = " & lngToernooi)
-If rs.BOF And rs.EOF Then
-    MsgBox ("er zijn nog geen teams geimporteerd van dit toernooi")
-    rs.Close
-    db.Close
-    Exit Sub
-End If
-
-rs.MoveFirst
-Do While Not rs.EOF
-    TeamsID(rs!Teamnr) = rs!Id
-    rs.MoveNext
-Loop
-rs.Close
 
 
-Set rs = db.OpenRecordset("select * from tblUitslagen where [ToernooiID] = " & lngToernooi & " and SessieID = " & lngSessie)
-
-If Not (rs.BOF And rs.EOF) Then
-  MsgBox ("Indeling is al geimporteerd")
-    rs.Close
-    db.Close
-    Exit Sub
-End If
+Call CreateTeamsSheet(AANTALTEAMS, WORKFOLDER, WORKFILE)
 
 
-'test of er een werkbestand is
-strWorkFile = WORKFOLDER & WORKFILE
-
-If Not fnExists(strWorkFile) Then
-     MsgBox ("Er is nog geen excel bestand aangemaakt")
-     Exit Sub
-End If
-
-     
 Set xlApp = CreateObject("Excel.Application")
-xlApp.Application.Visible = intExcelZichtbaar
+
+xlApp.Application.Visible = True
 xlApp.Application.DisplayAlerts = False
+
 Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
-Set MySheet = StartBook.Worksheets("Teamuitslagen")
-
-If MySheet.Cells(2, 1) = "" Then
-    question = MsgBox("Er zijn geen teams aanwezig")
-    Set MySheet = Nothing
-    Set StartBook = Nothing
-    xlApp.Application.DisplayAlerts = True
-    xlApp.Application.Quit
-    Set xlApp = Nothing
-    Exit Sub
-End If
-    
- rijteller = 2
+Set MySheet = StartBook.Worksheets(sheetname)
+'test workfile
+    'Me.cboKiesTabblad.Clear
+ MySheet.Activate
  
- Do While MySheet.Cells(rijteller, 1) <> "" And MySheet.Cells(rijteller, 1) <> Sessienr
-    rijteller = rijteller + 1
- Loop
-    If MySheet.Cells(rijteller, 1) = "" Then
-       MsgBox ("De indeling is nog niet ingevoerd")
-        Exit Sub
-    End If
-    
-Set rs = db.OpenRecordset("select * from tblUitslagen where [ToernooiID] = " & lngToernooi & " and SessieID = " & lngSessie)
-If Not (rs.BOF And rs.EOF) Then
-    MsgBox ("De indeling is reeds geimporteerd")
-    'Controleren of er verschillen zijn
-    'Verwijderen en opnieuw laden
-    
-    
-    Exit Sub
-End If
+
+'test of de tabel al ingevuld is
 
 
-Set rs = db.OpenRecordset("tblUitslagen")
+End Sub
 
- Do While MySheet.Cells(rijteller, 1) = Sessienr
-    rs.AddNew
-    rs!ToernooiID = lngToernooi
-    rs!SessieID = lngSessie
-    rs!Wedstrijdnr = MySheet.Cells(rijteller, 2).Value
-    rs!TeamIDThuis = TeamsID(MySheet.Cells(rijteller, 3).Value)
-    rs!TeamIDUit = TeamsID(MySheet.Cells(rijteller, 4).Value)
-    If MySheet.Cells(rijteller, 7).Value <> "" Then
-        rs!ImpsThuis = MySheet.Cells(rijteller, 7).Value
-    End If
-    If MySheet.Cells(rijteller, 8).Value <> "" Then
-        rs!ImpsUit = MySheet.Cells(rijteller, 8).Value
-    End If
-    If MySheet.Cells(rijteller, 9).Value <> "" Then
-        rs!VpsThuis = MySheet.Cells(rijteller, 9).Value
-    End If
-    If MySheet.Cells(rijteller, 10).Value <> "" Then
-        rs!VpsUit = MySheet.Cells(rijteller, 10).Value
-    End If
-    rs.Update
-    rijteller = rijteller + 1
- Loop
-    
- rs.Close
- db.Close
- 
-    Set MySheet = Nothing
-    Set StartBook = Nothing
-    xlApp.Application.DisplayAlerts = True
-    xlApp.Application.Quit
-    Set xlApp = Nothing
- 
+Private Sub btnImportIndeling_Click()
+
+
+Call ImportUitslagen(lngToernooi, lngSessie)
+
 End Sub
 
 
@@ -676,7 +729,7 @@ Dim db As Database
 Dim rs As Recordset
 Dim MySheet As Worksheet
 Dim StartBook As Workbook
-Dim strWorkFile As String
+Dim strWorkfile As String
 Dim question As Integer
 Dim intSessienr As Integer
 Dim intTeamnr As Integer
@@ -713,9 +766,9 @@ If Not (rs.BOF And rs.EOF) Then
 End If
 
 'test of er een werkbestand is
-strWorkFile = WORKFOLDER & WORKFILE
+strWorkfile = WORKFOLDER & WORKFILE
 
-If Not fnExists(strWorkFile) Then
+If Not fnExists(strWorkfile) Then
      MsgBox ("Er is nog geen excel bestand aangemaakt")
      Exit Sub
 End If
@@ -777,80 +830,27 @@ End If
     End If
  End Sub
 
+Private Sub btnImportSchema_Click()
+ Dim old_Sessie, old_Toernooi As Long
+ 
+ ' hier ga ik er vanuit dat je dit doet in de eerste ronde
+ 
+ old_Sessie = lngSessie
+ old_Toernooi = lngToernooi
+ 
+ Call ImportSchema(lngToernooi)
+ 
+ lngSessie = old_Sessie
+ lngToernooi = old_Toernooi
+ Call InitAll(lngToernooi, lngSessie)
+ 
+ 
+End Sub
+
 Private Sub btnImportTeams_Click()
-  'kijk eerst op er al teams opgenomen zijn
-Dim xlApp As Object
-Dim TestExcel As Integer
 
-Dim db As Database
-Dim rs As Recordset
-Dim MySheet As Worksheet
-Dim StartBook As Workbook
-Dim strWorkFile As String
-Dim question As Integer
-Set db = CurrentDb
-Set rs = db.OpenRecordset("select * from tblTeams where [ToernooiID] = " & lngToernooi)
+Call ImportTeams(lngToernooi)
 
-If Not (rs.BOF And rs.EOF) Then
-    MsgBox ("Er zijn reeds teams geladen of aanwezig")
-    rs.Close
-    db.Close
-    
-    Exit Sub
-End If
-
-'test of er een werkbestand is
-strWorkFile = WORKFOLDER & WORKFILE
-
-If Not fnExists(strWorkFile) Then
-     MsgBox ("Er is nog geen excel bestand aangemaakt")
-     Exit Sub
-End If
-
-     
-Set xlApp = CreateObject("Excel.Application")
-xlApp.Application.Visible = intExcelZichtbaar
-xlApp.Application.DisplayAlerts = False
-Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
-Set MySheet = StartBook.Worksheets("Teams")
-
-If MySheet.Cells(2, 1) = "" Then
-    question = MsgBox("Er zijn geen teams aanwezig")
-    Set MySheet = Nothing
-    Set StartBook = Nothing
-    xlApp.Application.DisplayAlerts = True
-    xlApp.Application.Quit
-    Set xlApp = Nothing
-    Exit Sub
-End If
-    
- rijteller = 2
- TestExcel = False
- Do While MySheet.Cells(rijteller, 1) <> ""
-    rs.AddNew
-    rs!ToernooiID = lngToernooi
-    rs!Teamnr = MySheet.Cells(rijteller, 1).Value
-    rs!TeamNaam = MySheet.Cells(rijteller, 2).Value
-    'niet meer dan 8 spelers
-    Kolom = 3
-    speler = 1
-    Do While MySheet.Cells(rijteller, Kolom).Value <> "" And speler < 9
-       rs.Fields("speler" & speler) = MySheet.Cells(rijteller, Kolom).Value
-       Kolom = Kolom + 1
-       speler = speler + 1
-    Loop
-    rs.Update
-    rijteller = rijteller + 1
- Loop
- rs.Close
- db.Close
- 
-    Set MySheet = Nothing
-    Set StartBook = Nothing
-    xlApp.Application.DisplayAlerts = True
-    xlApp.Application.Quit
-    Set xlApp = Nothing
- 
 End Sub
 
 Private Sub btnInternOpstelling_Click()
@@ -863,6 +863,52 @@ End Sub
 
 Private Sub btnInternUitslagen_Click()
 DoCmd.OpenForm "frmTeamUitslagen", acFormDS
+End Sub
+
+Private Sub btnKruisTabel_Click()
+Dim xlApp As Object
+Dim sheetname As String
+sheetname = "Kruistabel"
+
+Dim MySheet As Worksheet
+Dim StartBook As Workbook
+
+Call CreateKruisTabelSheet(AANTALTEAMS, WORKFOLDER, WORKFILE, TEAMBYE)
+
+Set xlApp = CreateObject("Excel.Application")
+
+xlApp.Application.Visible = True
+xlApp.Application.DisplayAlerts = False
+'SetForegroundWindow xlApp.Application.Hwnd
+Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
+Set MySheet = StartBook.Worksheets(sheetname)
+ AppActivate xlApp.Application.Caption
+'test workfile
+    'Me.cboKiesTabblad.Clear
+ MySheet.Activate
+
+End Sub
+
+Private Sub btnScorestaat_Click()
+Dim xlApp As Object
+Dim sheetname As String
+
+Dim MySheet As Worksheet
+Dim StartBook As Workbook
+ Call CreateScoreTemplateSheet(WEDSTRIJDENPERSESSIE, AANTALSPELLENPERWEDSTRIJD, WORKFOLDER, WORKFILE)
+ 
+Set xlApp = CreateObject("Excel.Application")
+
+xlApp.Application.Visible = True
+xlApp.Application.DisplayAlerts = False
+
+Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
+Set MySheet = StartBook.Worksheets(sheetname)
+'test workfile
+    'Me.cboKiesTabblad.Clear
+ AppActivate xlApp.Application.Caption
+ MySheet.Activate
+ 
 End Sub
 
 Private Sub btnSluiten_Click()
@@ -890,6 +936,7 @@ Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
 Set MySheet = StartBook.Worksheets(sheetname)
 'test workfile
     'Me.cboKiesTabblad.Clear
+ AppActivate xlApp.Application.Caption
  MySheet.Activate
  
     
@@ -904,7 +951,7 @@ Private Sub Form_Open(Cancel As Integer)
 Dim StartBook As Object
 Dim MySheets As Object
 Dim lijst As String
-Dim fCount As Integer
+Dim fcount As Integer
 If Not fnExists(WORKFOLDER & WORKFILE) Then
     MsgBox ("applicatie kan " & WORKFOLDER & WORKFILE & "niet vinden ")
     Exit Sub
@@ -914,6 +961,9 @@ End If
 Me.lblImport.Caption = " Werkbestand = " & WORKFILE
 'test op opstelling
 
+
+
+SysCmd acSysCmdInitMeter, "laad tabblad namen van het werkbestand...", fcount
 
 Set xlApp = CreateObject("Excel.Application")
 
@@ -927,12 +977,12 @@ Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
     
     Dim strWs As String
     Dim i As Integer
-    fCount = StartBook.Sheets.Count
+    fcount = StartBook.Sheets.Count
     
-     SysCmd acSysCmdInitMeter, "laad tabblad namen van het werkbestand...", fCount
+     
  
-    For i = 1 To fCount
-    SysCmd acSysCmdUpdateMeter, fCount
+    For i = 1 To fcount
+    SysCmd acSysCmdUpdateMeter, fcount
         lijst = lijst & StartBook.Sheets(i).name
         If i <> StartBook.Sheets.Count Then
          lijst = lijst & ";"
@@ -945,5 +995,6 @@ Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
     xlApp.Application.DisplayAlerts = True
     xlApp.Application.Quit
     Set xlApp = Nothing
-    SysCmd acSysCmdRemoveMeter
+    
+SysCmd acSysCmdRemoveMeter
 End Sub

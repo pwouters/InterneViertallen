@@ -1,0 +1,19 @@
+{
+  "Info": {
+    "Class": "clsDbRelation",
+    "Description": "Database relationship",
+    "VCS Version": "3.2.2"
+  },
+  "Items": {
+    "Name": "tblClubTeamstblTeams",
+    "Attributes": 33554434,
+    "Table": "tblClubTeams",
+    "ForeignTable": "tblTeams",
+    "Fields": [
+      {
+        "Name": "id",
+        "ForeignName": "ClubTeamsID"
+      }
+    ]
+  }
+}
