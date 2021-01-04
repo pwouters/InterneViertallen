@@ -140,25 +140,17 @@ Begin
         dbText "Name" ="ZittingNr"
         dbLong "AggregateType" ="-1"
     End
-    Begin
-        dbText "Name" ="tblTeams_1.TeamNaam"
-        dbLong "AggregateType" ="-1"
-    End
-    Begin
-        dbText "Name" ="tblTeams_1.Teamnr"
-        dbLong "AggregateType" ="-1"
-    End
 End
 Begin
     State =0
     Left =0
     Top =0
-    Right =950
-    Bottom =715
+    Right =1075
+    Bottom =833
     Left =-1
     Top =-1
-    Right =934
-    Bottom =368
+    Right =1059
+    Bottom =351
     Left =0
     Top =0
     ColumnsShown =539

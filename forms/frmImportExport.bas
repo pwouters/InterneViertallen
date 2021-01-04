@@ -10,7 +10,7 @@ Begin Form
     Width =12132
     DatasheetFontHeight =11
     ItemSuffix =12
-    Right =18885
+    Right =24420
     Bottom =12240
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
@@ -686,14 +686,14 @@ Option Compare Database
 Private Sub btnCreeerTeamNamen_Click()
 ' standaard  , nrs 1 tm N en naam Team1 tm TeamN
 
-Dim xlApp As Object
-Dim sheetname As String
+Dim xlApp           As Object
+Dim sheetname       As String
+
+Dim MySheet         As Worksheet
+Dim StartBook       As Workbook
+
 sheetname = "Teams"
-
 Me.cboKiesTabblad = ""
-Dim MySheet As Worksheet
-Dim StartBook As Workbook
-
 
 Call CreateTeamsSheet(AANTALTEAMS, WORKFOLDER, WORKFILE)
 
@@ -707,7 +707,7 @@ Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
 Set MySheet = StartBook.Worksheets(sheetname)
 'test workfile
     'Me.cboKiesTabblad.Clear
- MySheet.Activate
+MySheet.Activate
  
 
 'test of de tabel al ingevuld is
@@ -716,119 +716,13 @@ Set MySheet = StartBook.Worksheets(sheetname)
 End Sub
 
 Private Sub btnImportIndeling_Click()
-
-
-Call ImportUitslagen(lngToernooi, lngSessie)
-
+    Call ImportUitslagen(lngToernooi, lngSessie)
 End Sub
 
 
 Private Sub btnImportOpstelling_Click()
-Dim rijteller As Integer
-Dim db As Database
-Dim rs As Recordset
-Dim MySheet As Worksheet
-Dim StartBook As Workbook
-Dim strWorkfile As String
-Dim question As Integer
-Dim intSessienr As Integer
-Dim intTeamnr As Integer
-Dim sessieaanwezig As Integer
-Dim TestExcel As Integer
-Dim TeamsID() As Long
-ReDim TeamsID(AANTALTEAMS)
-
-Set db = CurrentDb
-Set rs = db.OpenRecordset("select * from tblTeams where [ToernooiID] = " & lngToernooi)
-If rs.BOF And rs.EOF Then
-    MsgBox ("er zijn nog geen teams geimporteerd van dit toernooi")
-    rs.Close
-    db.Close
-    Exit Sub
-End If
-
-rs.MoveFirst
-Do While Not rs.EOF
-    TeamsID(rs!Teamnr) = rs!Id
-    rs.MoveNext
-Loop
-rs.Close
-
-intSessienr = Sessienr
-
-
-Set rs = db.OpenRecordset("select * from tblOpstelling where [ToernooiID] = " & lngToernooi & " and [Sessie] = " & CInt(intSessienr))
-If Not (rs.BOF And rs.EOF) Then
-    MsgBox ("Er is  reeds opstelling geladen of aanwezig")
-    rs.Close
-    db.Close
-    Exit Sub
-End If
-
-'test of er een werkbestand is
-strWorkfile = WORKFOLDER & WORKFILE
-
-If Not fnExists(strWorkfile) Then
-     MsgBox ("Er is nog geen excel bestand aangemaakt")
-     Exit Sub
-End If
-
-     
-Set xlApp = CreateObject("Excel.Application")
-xlApp.Application.Visible = intExcelZichtbaar
-xlApp.Application.DisplayAlerts = False
-Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
-Set MySheet = StartBook.Worksheets("Import_Opstelling")
-
-If MySheet.Cells(2, 1) = "" Then
-    question = MsgBox("Er zijn geen opstelling aanwezig")
-    Set MySheet = Nothing
-    Set StartBook = Nothing
-    xlApp.Application.DisplayAlerts = True
-    xlApp.Application.Quit
-    Set xlApp = Nothing
-    Exit Sub
-End If
-    sessieaanwezig = False
- rijteller = 2
-  Do While MySheet.Cells(rijteller, 1) <> ""
-    If MySheet.Cells(rijteller, 1).Value = intSessienr Then
-            If Not sessieaanwezig Then sessieaanwezig = True
-            rs.AddNew
-            rs!ToernooiID = lngToernooi
-            rs!SessieID = lngSessie
-            rs!Sessie = MySheet.Cells(rijteller, 1).Value
-            intTeamnr = MySheet.Cells(rijteller, 2).Value
-            rs!Teamnr = intTeamnr
-            rs!TeamID = TeamsID(intTeamnr)
-            rs!Speler1 = MySheet.Cells(rijteller, 3).Value
-            rs!Speler2 = MySheet.Cells(rijteller, 4).Value
-            rs!Speler3 = MySheet.Cells(rijteller, 5).Value
-            rs!Speler4 = MySheet.Cells(rijteller, 6).Value
-            Kolom = 7
-            intWedstrijd = 1
-             Do While MySheet.Cells(rijteller, Kolom).Value <> "" And intWedstrijd < 12
-                rs.Fields("wedstrijd" & intWedstrijd) = MySheet.Cells(rijteller, Kolom).Value
-                Kolom = Kolom + 1
-                intWedstrijd = intWedstrijd + 1
-             Loop
-            rs.Update
-     End If
-    rijteller = rijteller + 1
-   Loop
-    
-    rs.Close
-    db.Close
-  
-    Set MySheet = Nothing
-    Set StartBook = Nothing
-    xlApp.Application.DisplayAlerts = True
-    xlApp.Application.Quit
-    Set xlApp = Nothing
-    If Not sessieaanwezig Then
-        question = MsgBox("Er is geen opstelling aanwezig in de excel file")
-    End If
- End Sub
+    Call ImportOpstelling
+End Sub
 
 Private Sub btnImportSchema_Click()
  Dim old_Sessie, old_Toernooi As Long
@@ -848,9 +742,7 @@ Private Sub btnImportSchema_Click()
 End Sub
 
 Private Sub btnImportTeams_Click()
-
-Call ImportTeams(lngToernooi)
-
+    Call ImportTeams(lngToernooi)
 End Sub
 
 Private Sub btnInternOpstelling_Click()
@@ -862,7 +754,7 @@ Private Sub btnInternTeams_Click()
 End Sub
 
 Private Sub btnInternUitslagen_Click()
-DoCmd.OpenForm "frmTeamUitslagen", acFormDS
+    DoCmd.OpenForm "frmTeamUitslagen", acFormDS
 End Sub
 
 Private Sub btnKruisTabel_Click()
@@ -912,11 +804,11 @@ Set MySheet = StartBook.Worksheets(sheetname)
 End Sub
 
 Private Sub btnSluiten_Click()
-     If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
-        DoCmd.Close
-    Else
-        DoCmd.BrowseTo acBrowseToForm, "frmBegin"
-   End If
+If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
+    DoCmd.Close
+Else
+    DoCmd.BrowseTo acBrowseToForm, "frmBegin"
+End If
 End Sub
 
 Private Sub cboKiesTabblad_AfterUpdate()
@@ -934,16 +826,10 @@ xlApp.Application.DisplayAlerts = False
 
 Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
 Set MySheet = StartBook.Worksheets(sheetname)
-'test workfile
-    'Me.cboKiesTabblad.Clear
- AppActivate xlApp.Application.Caption
- MySheet.Activate
- 
-    
-    'Set StartBook = Nothing
-  '  xlApp.Application.DisplayAlerts = True
-   ' xlApp.Application.Quit
-    'Set xlApp = Nothing
+
+AppActivate xlApp.Application.Caption
+MySheet.Activate
+
 End Sub
 
 Private Sub Form_Open(Cancel As Integer)
@@ -975,26 +861,24 @@ Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
 'test workfile
     'Me.cboKiesTabblad.Clear
     
-    Dim strWs As String
-    Dim i As Integer
-    fcount = StartBook.Sheets.Count
-    
-     
+Dim strWs As String
+Dim i As Integer
+fcount = StartBook.Sheets.Count
  
-    For i = 1 To fcount
+For i = 1 To fcount
     SysCmd acSysCmdUpdateMeter, fcount
-        lijst = lijst & StartBook.Sheets(i).name
-        If i <> StartBook.Sheets.Count Then
-         lijst = lijst & ";"
-        End If
-    Next
+    lijst = lijst & StartBook.Sheets(i).name
+    If i <> StartBook.Sheets.Count Then
+        lijst = lijst & ";"
+    End If
+Next
+
+Me.cboKiesTabblad.RowSource = lijst
  
-    Me.cboKiesTabblad.RowSource = lijst
-     
-    Set StartBook = Nothing
-    xlApp.Application.DisplayAlerts = True
-    xlApp.Application.Quit
-    Set xlApp = Nothing
+Set StartBook = Nothing
+xlApp.Application.DisplayAlerts = True
+xlApp.Application.Quit
+Set xlApp = Nothing
     
 SysCmd acSysCmdRemoveMeter
 End Sub

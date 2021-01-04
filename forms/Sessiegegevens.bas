@@ -13,10 +13,10 @@ Begin Form
     PictureAlignment =2
     DatasheetGridlinesBehavior =3
     GridY =10
-    Width =11521
+    Width =11528
     DatasheetFontHeight =11
-    ItemSuffix =42
-    Right =18885
+    ItemSuffix =43
+    Right =15870
     Bottom =12240
     DatasheetGridlinesColor =15132391
     Filter ="[ToernooiD]=1 and [id] = 11"
@@ -1282,6 +1282,23 @@ Begin Form
                     WebImagePaddingBottom =1
                     Overlaps =1
                 End
+                Begin Label
+                    OverlapFlags =85
+                    Left =6803
+                    Top =3798
+                    Width =4725
+                    Height =585
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="Bijschrift42"
+                    Caption ="Nieuw indeling maak je onder schemaverwerking.\015\012 Dit is alleen de basisvor"
+                        "m"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =6803
+                    LayoutCachedTop =3798
+                    LayoutCachedWidth =11528
+                    LayoutCachedHeight =4383
+                End
             End
         End
         Begin FormFooter
@@ -1389,7 +1406,7 @@ Private Sub btnOpslaan_Click()
     Me.btnUndo.Visible = False
     Me.btnOpslaan.Enabled = False
     Me.btnUndo.Enabled = False
-     lngSessie = Me.Id
+     lngSessie = Me.id
  'Call MeControlEnabled(True)
     If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
        Me.cboKiesSessie.Enabled = True
@@ -1425,8 +1442,8 @@ Private Sub Form_Current()
     Me.btnUndo.Visible = False
     
   If Me.NewRecord = False Then
-      lngPK = Me.Id
-      lngSessie = Me.Id
+      lngPK = Me.id
+      lngSessie = Me.id
       lngToernooi = Me.ToernooID
   End If
 End Sub
@@ -1475,6 +1492,9 @@ Dim sql As String
 Dim rs As Recordset
 sql = "SELECT tblSessie.id, tblSessie.Sessienaam, tblSessie.Sessienr From tblSessie "
 
+'vul wedstrijd vorm
+
+
 If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
         Me.cboKiesSessie.Visible = True
         Me.cboKiesSessie.Enabled = True
@@ -1517,3 +1537,22 @@ Sub MeControlVisible(JaNee As Integer)
 ' Me.btnLaatste.Visible = JaNee
  'Me.btnDelete.Enabled = JaNee
 End Sub
+
+'indelen
+
+
+'INDELINGSROUTINE:
+'GEEF INDELINGSCRIPT OK ?
+'2   = 1 - 2
+'3   = 1 - 3
+'4   = 1 - 4
+'S   = SWISS
+'S:3 = SWISS VANAF RONDE 3
+'A:3:1 = DRIEHOEK OVER EEN RONDE
+'A:3:2 = DRIEHOEK OVER TWEE RONDE
+'A:4 = SPLITSING EERSTE 4 MET DE REST EERSTE 4 DEENS REST SWISS
+'A:H = SPLITSING MET DE HAND DAARNA INDELING BOVENSTE DEENS REST SWISS
+'A:??:4 = DEENS + SWISS VANAF RONDE 4
+'B:  = SPLITSING SWISS + SWISS
+' VANAFRONDE=1
+' VANAFVIERT=1

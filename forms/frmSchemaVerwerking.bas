@@ -9,9 +9,11 @@ Begin Form
     GridY =10
     Width =11914
     DatasheetFontHeight =11
-    ItemSuffix =27
-    Right =18885
-    Bottom =12240
+    ItemSuffix =28
+    Left =2520
+    Top =1200
+    Right =17190
+    Bottom =11070
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
         0xada97b1eb092e540
@@ -219,7 +221,7 @@ Begin Form
         End
         Begin Section
             CanGrow = NotDefault
-            Height =7937
+            Height =8787
             Name ="Details"
             AlternateBackColor =15921906
             AlternateBackThemeColorIndex =1
@@ -228,8 +230,8 @@ Begin Form
             Begin
                 Begin CommandButton
                     OverlapFlags =93
-                    Left =5669
-                    Top =6236
+                    Left =6293
+                    Top =6860
                     Width =2271
                     Height =568
                     ForeColor =4210752
@@ -238,10 +240,10 @@ Begin Form
                     OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =5669
-                    LayoutCachedTop =6236
-                    LayoutCachedWidth =7940
-                    LayoutCachedHeight =6804
+                    LayoutCachedLeft =6293
+                    LayoutCachedTop =6860
+                    LayoutCachedWidth =8564
+                    LayoutCachedHeight =7428
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -256,8 +258,8 @@ Begin Form
                 End
                 Begin OptionGroup
                     OverlapFlags =85
-                    Left =9127
-                    Top =6242
+                    Left =9184
+                    Top =6866
                     Width =1247
                     Height =943
                     TabIndex =1
@@ -266,16 +268,16 @@ Begin Form
                     DefaultValue ="1"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =9127
-                    LayoutCachedTop =6242
-                    LayoutCachedWidth =10374
-                    LayoutCachedHeight =7185
+                    LayoutCachedLeft =9184
+                    LayoutCachedTop =6866
+                    LayoutCachedWidth =10431
+                    LayoutCachedHeight =7809
                     Begin
                         Begin Label
                             BackStyle =1
                             OverlapFlags =215
-                            Left =9247
-                            Top =6122
+                            Left =9304
+                            Top =6746
                             Width =510
                             Height =315
                             BorderColor =8355711
@@ -283,10 +285,10 @@ Begin Form
                             Name ="Bijschrift11"
                             Caption ="Naar"
                             GridlineColor =10921638
-                            LayoutCachedLeft =9247
-                            LayoutCachedTop =6122
-                            LayoutCachedWidth =9757
-                            LayoutCachedHeight =6437
+                            LayoutCachedLeft =9304
+                            LayoutCachedTop =6746
+                            LayoutCachedWidth =9814
+                            LayoutCachedHeight =7061
                             BackThemeColorIndex =-1
                             ForeThemeColorIndex =-1
                             ForeTint =100.0
@@ -294,22 +296,22 @@ Begin Form
                         Begin OptionButton
                             SpecialEffect =2
                             OverlapFlags =87
-                            Left =9313
-                            Top =6480
+                            Left =9370
+                            Top =7104
                             OptionValue =1
                             BorderColor =10921638
                             Name ="Keuzerondje13"
                             GridlineColor =10921638
 
-                            LayoutCachedLeft =9313
-                            LayoutCachedTop =6480
-                            LayoutCachedWidth =9573
-                            LayoutCachedHeight =6720
+                            LayoutCachedLeft =9370
+                            LayoutCachedTop =7104
+                            LayoutCachedWidth =9630
+                            LayoutCachedHeight =7344
                             Begin
                                 Begin Label
                                     OverlapFlags =247
-                                    Left =9543
-                                    Top =6452
+                                    Left =9600
+                                    Top =7076
                                     Width =555
                                     Height =315
                                     BorderColor =8355711
@@ -317,10 +319,10 @@ Begin Form
                                     Name ="Bijschrift14"
                                     Caption ="Excel"
                                     GridlineColor =10921638
-                                    LayoutCachedLeft =9543
-                                    LayoutCachedTop =6452
-                                    LayoutCachedWidth =10098
-                                    LayoutCachedHeight =6767
+                                    LayoutCachedLeft =9600
+                                    LayoutCachedTop =7076
+                                    LayoutCachedWidth =10155
+                                    LayoutCachedHeight =7391
                                     ForeThemeColorIndex =-1
                                     ForeTint =100.0
                                 End
@@ -329,23 +331,23 @@ Begin Form
                         Begin OptionButton
                             SpecialEffect =2
                             OverlapFlags =87
-                            Left =9313
-                            Top =6810
+                            Left =9370
+                            Top =7434
                             TabIndex =1
                             OptionValue =2
                             BorderColor =10921638
                             Name ="Keuzerondje15"
                             GridlineColor =10921638
 
-                            LayoutCachedLeft =9313
-                            LayoutCachedTop =6810
-                            LayoutCachedWidth =9573
-                            LayoutCachedHeight =7050
+                            LayoutCachedLeft =9370
+                            LayoutCachedTop =7434
+                            LayoutCachedWidth =9630
+                            LayoutCachedHeight =7674
                             Begin
                                 Begin Label
                                     OverlapFlags =247
-                                    Left =9543
-                                    Top =6782
+                                    Left =9600
+                                    Top =7406
                                     Width =645
                                     Height =315
                                     BorderColor =8355711
@@ -353,10 +355,10 @@ Begin Form
                                     Name ="Bijschrift16"
                                     Caption ="Intern"
                                     GridlineColor =10921638
-                                    LayoutCachedLeft =9543
-                                    LayoutCachedTop =6782
-                                    LayoutCachedWidth =10188
-                                    LayoutCachedHeight =7097
+                                    LayoutCachedLeft =9600
+                                    LayoutCachedTop =7406
+                                    LayoutCachedWidth =10245
+                                    LayoutCachedHeight =7721
                                     ForeThemeColorIndex =-1
                                     ForeTint =100.0
                                 End
@@ -366,8 +368,8 @@ Begin Form
                 End
                 Begin CommandButton
                     OverlapFlags =87
-                    Left =5669
-                    Top =6808
+                    Left =6293
+                    Top =7432
                     Width =2271
                     Height =568
                     TabIndex =2
@@ -377,10 +379,10 @@ Begin Form
                     OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =5669
-                    LayoutCachedTop =6808
-                    LayoutCachedWidth =7940
-                    LayoutCachedHeight =7376
+                    LayoutCachedLeft =6293
+                    LayoutCachedTop =7432
+                    LayoutCachedWidth =8564
+                    LayoutCachedHeight =8000
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -396,21 +398,22 @@ Begin Form
                 Begin CommandButton
                     Visible = NotDefault
                     Enabled = NotDefault
-                    OverlapFlags =85
-                    Left =1133
-                    Top =6292
+                    OverlapFlags =93
+                    Left =566
+                    Top =7370
                     Width =2271
                     Height =568
                     TabIndex =3
                     ForeColor =4210752
-                    Name ="Knop18"
-                    Caption ="Nieuwe ronde indelen"
+                    Name ="btnCreeerNieuweRonde"
+                    Caption ="Wedstrijd indelen"
+                    OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =1133
-                    LayoutCachedTop =6292
-                    LayoutCachedWidth =3404
-                    LayoutCachedHeight =6860
+                    LayoutCachedLeft =566
+                    LayoutCachedTop =7370
+                    LayoutCachedWidth =2837
+                    LayoutCachedHeight =7938
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -421,12 +424,13 @@ Begin Form
                     WebImagePaddingTop =2
                     WebImagePaddingRight =1
                     WebImagePaddingBottom =1
+                    Overlaps =1
                 End
                 Begin Label
                     OverlapFlags =85
                     TextAlign =2
-                    Left =6009
-                    Top =5839
+                    Left =6462
+                    Top =6406
                     Width =1800
                     Height =315
                     BorderColor =8355711
@@ -434,30 +438,31 @@ Begin Form
                     Name ="lblSessie"
                     Caption ="Sessie 11"
                     GridlineColor =10921638
-                    LayoutCachedLeft =6009
-                    LayoutCachedTop =5839
-                    LayoutCachedWidth =7809
-                    LayoutCachedHeight =6154
+                    LayoutCachedLeft =6462
+                    LayoutCachedTop =6406
+                    LayoutCachedWidth =8262
+                    LayoutCachedHeight =6721
                 End
                 Begin Label
                     OverlapFlags =85
                     Left =566
                     Top =5669
-                    Width =4455
-                    Height =585
+                    Width =4530
+                    Height =1125
                     BorderColor =8355711
                     ForeColor =8355711
                     Name ="Bijschrift24"
-                    Caption ="Alle acties hebben als basis het interne schema\015\012dat is gedownload van het"
-                        " werkbestand"
+                    Caption ="Het geheel is een wisselwerking tussen excel werkbestand en interne bestanden, j"
+                        "e kunt intern een nieuwe indeling maken en daarna verwerken in het excel werkbes"
+                        "tand"
                     GridlineColor =10921638
                     LayoutCachedLeft =566
                     LayoutCachedTop =5669
-                    LayoutCachedWidth =5021
-                    LayoutCachedHeight =6254
+                    LayoutCachedWidth =5096
+                    LayoutCachedHeight =6794
                 End
                 Begin CommandButton
-                    OverlapFlags =93
+                    OverlapFlags =85
                     TextFontCharSet =177
                     Left =11338
                     Top =6236
@@ -547,6 +552,35 @@ Begin Form
                     LayoutCachedWidth =11850
                     LayoutCachedHeight =5445
                 End
+                Begin CommandButton
+                    OverlapFlags =87
+                    Left =566
+                    Top =6803
+                    Width =2271
+                    Height =568
+                    TabIndex =6
+                    ForeColor =4210752
+                    Name ="btnOpnieuwIndelen"
+                    Caption ="Opnieuw Indelen"
+                    OnClick ="[Event Procedure]"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =566
+                    LayoutCachedTop =6803
+                    LayoutCachedWidth =2837
+                    LayoutCachedHeight =7371
+                    BackColor =14461583
+                    BorderColor =14461583
+                    HoverColor =15189940
+                    PressedColor =9917743
+                    HoverForeColor =4210752
+                    PressedForeColor =4210752
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
+                    Overlaps =1
+                End
             End
         End
         Begin FormFooter
@@ -566,9 +600,17 @@ Attribute VB_Exposed = False
 Option Compare Database
 
 
+Private Sub btnCreeerNieuweRonde_Click()
+DoCmd.OpenForm "frmIndelingmaken", acNormal
+End Sub
+
+Private Sub btnOpnieuwIndelen_Click()
+DoCmd.OpenForm "frmIndelingmaken", acNormal
+End Sub
+
 Private Sub btnSchemaNaarOpstelling_Click()
 'opfrissing per sessie
-Dim Naar, van, tot As Integer
+Dim Naar, van, Tot As Integer
 Dim db As Database
 Dim rs As Recordset
 Dim MySheet As Worksheet
@@ -581,7 +623,7 @@ Dim sessieaanwezig As Integer
 Dim rijteller, beginTel As Integer
 Dim TestExcel As Integer
 Dim TeamTegenstanders() As Long
-Dim i, j, K, thuis, uit As Integer
+Dim i, j, k, Thuis, Uit As Integer
 Dim sql As String
 Set db = CurrentDb
 
@@ -665,10 +707,10 @@ rs.MoveFirst
 i = rs!Wedstrijdronde
 j = 1
 Do While Not rs.EOF
-    thuis = rs!TeamThuis
-    uit = rs!TeamUit
-    TeamTegenstanders(thuis, j) = uit
-    TeamTegenstanders(uit, j) = thuis
+    Thuis = rs!TeamThuis
+    Uit = rs!TeamUit
+    TeamTegenstanders(Thuis, j) = Uit
+    TeamTegenstanders(Uit, j) = Thuis
     rs.MoveNext
     If rs.EOF Then Exit Do
     If i <> rs!Wedstrijdronde Then
@@ -732,19 +774,56 @@ Private Sub cboKiesRonde_AfterUpdate()
 ' filter subformulier
 Dim sCriteria As String
  If Me.cboKiesRonde <> "Alle" Then
+    intWedstrijdronde = Int(cboKiesRonde)
     sCriteria = "[WedstrijdRonde] = " & Me.cboKiesRonde
     [subSchema].Form.Filter = sCriteria
    
     [subSchema].Form.FilterOn = True
  Else
+    
     [subSchema].Form.Filter = ""
     [subSchema].Form.FilterOn = False
  End If
-
+ Call IndelenKnoppenZichtbaar
 End Sub
 
 
 
 Private Sub Form_Open(Cancel As Integer)
     Me.lblSessie.Caption = "Sessie " & Sessienr
+    Me.cboKiesRonde = "Alle"
+    
+    Call IndelenKnoppenZichtbaar
+End Sub
+
+
+
+Private Sub IndelenKnoppenZichtbaar()
+If Me.cboKiesRonde = "Alle" Then
+    Me.btnOpnieuwIndelen.Visible = False
+Else
+    ' Uitslag is nog niet berekenend
+    '
+    'link tabel
+    Call ImportTempTeamUitslagenTabel(WORKFOLDER & WORKFILE)
+    Dim db As Database
+    Dim rs As Recordset
+    Dim sql As String
+    Set db = CurrentDb
+    sql = "Select * from tbl_temp_Uitslagen where [Wedstrijd] = " & Me.cboKiesRonde & " and Not isnull([ImpsThuis])"
+    Set rs = db.OpenRecordset(sql)
+    If rs.BOF And rs.EOF Then
+        Me.btnOpnieuwIndelen.Visible = True
+    Else
+        Me.btnOpnieuwIndelen.Visible = False
+    
+    End If
+    rs.Close
+    db.Close
+End If
+
+
+
+
+
 End Sub

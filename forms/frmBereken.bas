@@ -10,8 +10,8 @@ Begin Form
     Width =7371
     DatasheetFontHeight =11
     ItemSuffix =6
-    Right =11010
-    Bottom =11685
+    Right =15870
+    Bottom =12240
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
         0x7c0eb60c8192e540
@@ -390,6 +390,7 @@ Begin Form
                     ForeColor =-2147483630
                     Name ="btnSluiten"
                     Caption ="Knop84"
+                    OnClick ="[Event Procedure]"
                     ControlTipText ="Formulier sluiten"
                     GridlineColor =10921638
                     ImageData = Begin
@@ -867,7 +868,7 @@ Private Sub Form_Open(Cancel As Integer)
 
          Set db = CurrentDb
          Set rs = db.OpenRecordset("select * from tblSessie where [ToernooiD] = " & lngToernooi & " and  [id]= " & lngSessie & " Order by Sessienr")
-         lngSessie = rs!Id
+         lngSessie = rs!id
          intSessienr = rs!Sessienr
          rs.Close
          db.Close

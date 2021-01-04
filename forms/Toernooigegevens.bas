@@ -13,9 +13,11 @@ Begin Form
     GridY =10
     Width =14229
     DatasheetFontHeight =11
-    ItemSuffix =48
-    Right =18885
-    Bottom =12240
+    ItemSuffix =50
+    Left =2865
+    Top =2085
+    Right =17535
+    Bottom =11955
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
         0x9b1f09e7d98fe540
@@ -211,7 +213,7 @@ Begin Form
             End
         End
         Begin Section
-            Height =6746
+            Height =6009
             Name ="Details"
             AlternateBackColor =15921906
             AlternateBackThemeColorIndex =1
@@ -222,8 +224,8 @@ Begin Form
                     Visible = NotDefault
                     OverlapFlags =85
                     IMESentenceMode =3
-                    Left =1857
-                    Top =342
+                    Left =13209
+                    Width =156
                     Height =315
                     ColumnWidth =1701
                     BorderColor =10921638
@@ -232,37 +234,17 @@ Begin Form
                     ControlSource ="ID"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =1857
-                    LayoutCachedTop =342
-                    LayoutCachedWidth =3558
-                    LayoutCachedHeight =657
-                    Begin
-                        Begin Label
-                            Visible = NotDefault
-                            OverlapFlags =85
-                            Left =57
-                            Top =342
-                            Width =1710
-                            Height =330
-                            BorderColor =8355711
-                            ForeColor =8355711
-                            Name ="ID_Bijschrift"
-                            Caption ="ID"
-                            GridlineColor =10921638
-                            LayoutCachedLeft =57
-                            LayoutCachedTop =342
-                            LayoutCachedWidth =1767
-                            LayoutCachedHeight =672
-                        End
-                    End
+                    LayoutCachedLeft =13209
+                    LayoutCachedWidth =13365
+                    LayoutCachedHeight =315
                 End
                 Begin TextBox
                     EnterKeyBehavior = NotDefault
                     ScrollBars =2
                     OverlapFlags =85
                     IMESentenceMode =3
-                    Left =1857
-                    Top =741
+                    Left =1928
+                    Top =4
                     Width =4710
                     Height =600
                     ColumnWidth =3000
@@ -273,26 +255,24 @@ Begin Form
                     ControlSource ="ToernooiNaam"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =1857
-                    LayoutCachedTop =741
-                    LayoutCachedWidth =6567
-                    LayoutCachedHeight =1341
+                    LayoutCachedLeft =1928
+                    LayoutCachedTop =4
+                    LayoutCachedWidth =6638
+                    LayoutCachedHeight =604
                     Begin
                         Begin Label
                             OverlapFlags =85
-                            Left =57
-                            Top =741
-                            Width =1710
+                            Top =4
+                            Width =1701
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
                             Name ="ToernooiNaam_Bijschrift"
                             Caption ="ToernooiNaam"
                             GridlineColor =10921638
-                            LayoutCachedLeft =57
-                            LayoutCachedTop =741
-                            LayoutCachedWidth =1767
-                            LayoutCachedHeight =1071
+                            LayoutCachedTop =4
+                            LayoutCachedWidth =1701
+                            LayoutCachedHeight =334
                         End
                     End
                 End
@@ -300,9 +280,10 @@ Begin Form
                     EnterKeyBehavior = NotDefault
                     ScrollBars =2
                     OverlapFlags =85
+                    TextAlign =1
                     IMESentenceMode =3
-                    Left =1857
-                    Top =1425
+                    Left =1928
+                    Top =2721
                     Width =4710
                     Height =1140
                     ColumnWidth =3000
@@ -314,26 +295,24 @@ Begin Form
                     OnMouseDown ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =1857
-                    LayoutCachedTop =1425
-                    LayoutCachedWidth =6567
-                    LayoutCachedHeight =2565
+                    LayoutCachedLeft =1928
+                    LayoutCachedTop =2721
+                    LayoutCachedWidth =6638
+                    LayoutCachedHeight =3861
                     Begin
                         Begin Label
                             OverlapFlags =85
-                            Left =57
-                            Top =1425
-                            Width =1710
+                            Top =2721
+                            Width =1701
                             Height =330
                             BorderColor =8355711
                             ForeColor =8355711
                             Name ="WORKFOLDER_Bijschrift"
                             Caption ="Werkfolder"
                             GridlineColor =10921638
-                            LayoutCachedLeft =57
-                            LayoutCachedTop =1425
-                            LayoutCachedWidth =1767
-                            LayoutCachedHeight =1755
+                            LayoutCachedTop =2721
+                            LayoutCachedWidth =1701
+                            LayoutCachedHeight =3051
                         End
                     End
                 End
@@ -341,9 +320,10 @@ Begin Form
                     EnterKeyBehavior = NotDefault
                     ScrollBars =2
                     OverlapFlags =85
+                    TextAlign =1
                     IMESentenceMode =3
-                    Left =1812
-                    Top =2679
+                    Left =1928
+                    Top =3975
                     Width =4755
                     Height =600
                     ColumnWidth =3000
@@ -355,26 +335,24 @@ Begin Form
                     OnMouseDown ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =1812
-                    LayoutCachedTop =2679
-                    LayoutCachedWidth =6567
-                    LayoutCachedHeight =3279
+                    LayoutCachedLeft =1928
+                    LayoutCachedTop =3975
+                    LayoutCachedWidth =6683
+                    LayoutCachedHeight =4575
                     Begin
                         Begin Label
                             OverlapFlags =85
-                            Left =57
-                            Top =2679
-                            Width =1635
+                            Top =3975
+                            Width =1701
                             Height =315
                             BorderColor =8355711
                             ForeColor =8355711
                             Name ="WORKFILE_Bijschrift"
                             Caption ="Werkbestand"
                             GridlineColor =10921638
-                            LayoutCachedLeft =57
-                            LayoutCachedTop =2679
-                            LayoutCachedWidth =1692
-                            LayoutCachedHeight =2994
+                            LayoutCachedTop =3975
+                            LayoutCachedWidth =1701
+                            LayoutCachedHeight =4290
                         End
                     End
                 End
@@ -382,9 +360,9 @@ Begin Form
                     EnterKeyBehavior = NotDefault
                     ScrollBars =2
                     OverlapFlags =85
+                    TextAlign =1
                     IMESentenceMode =3
                     Left =8318
-                    Top =737
                     Width =4710
                     Height =1140
                     ColumnWidth =3000
@@ -396,14 +374,12 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =8318
-                    LayoutCachedTop =737
                     LayoutCachedWidth =13028
-                    LayoutCachedHeight =1877
+                    LayoutCachedHeight =1140
                     Begin
                         Begin Label
                             OverlapFlags =85
                             Left =6803
-                            Top =737
                             Width =1425
                             Height =330
                             BorderColor =8355711
@@ -412,9 +388,8 @@ Begin Form
                             Caption ="Step admin"
                             GridlineColor =10921638
                             LayoutCachedLeft =6803
-                            LayoutCachedTop =737
                             LayoutCachedWidth =8228
-                            LayoutCachedHeight =1067
+                            LayoutCachedHeight =330
                         End
                     End
                 End
@@ -422,9 +397,10 @@ Begin Form
                     EnterKeyBehavior = NotDefault
                     ScrollBars =2
                     OverlapFlags =85
+                    TextAlign =1
                     IMESentenceMode =3
                     Left =8318
-                    Top =1991
+                    Top =1254
                     Width =4710
                     Height =1140
                     ColumnWidth =3000
@@ -436,14 +412,14 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =8318
-                    LayoutCachedTop =1991
+                    LayoutCachedTop =1254
                     LayoutCachedWidth =13028
-                    LayoutCachedHeight =3131
+                    LayoutCachedHeight =2394
                     Begin
                         Begin Label
                             OverlapFlags =85
                             Left =6803
-                            Top =1991
+                            Top =1254
                             Width =1425
                             Height =330
                             BorderColor =8355711
@@ -452,9 +428,9 @@ Begin Form
                             Caption ="Step Results"
                             GridlineColor =10921638
                             LayoutCachedLeft =6803
-                            LayoutCachedTop =1991
+                            LayoutCachedTop =1254
                             LayoutCachedWidth =8228
-                            LayoutCachedHeight =2321
+                            LayoutCachedHeight =1584
                         End
                     End
                 End
@@ -462,9 +438,10 @@ Begin Form
                     EnterKeyBehavior = NotDefault
                     ScrollBars =2
                     OverlapFlags =85
+                    TextAlign =1
                     IMESentenceMode =3
                     Left =8318
-                    Top =3458
+                    Top =2721
                     Width =4710
                     Height =600
                     ColumnWidth =3000
@@ -476,14 +453,14 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =8318
-                    LayoutCachedTop =3458
+                    LayoutCachedTop =2721
                     LayoutCachedWidth =13028
-                    LayoutCachedHeight =4058
+                    LayoutCachedHeight =3321
                     Begin
                         Begin Label
                             OverlapFlags =85
                             Left =6803
-                            Top =3458
+                            Top =2721
                             Width =1425
                             Height =330
                             BorderColor =8355711
@@ -492,9 +469,9 @@ Begin Form
                             Caption ="Lokale site"
                             GridlineColor =10921638
                             LayoutCachedLeft =6803
-                            LayoutCachedTop =3458
+                            LayoutCachedTop =2721
                             LayoutCachedWidth =8228
-                            LayoutCachedHeight =3788
+                            LayoutCachedHeight =3051
                         End
                     End
                 End
@@ -502,9 +479,10 @@ Begin Form
                     EnterKeyBehavior = NotDefault
                     ScrollBars =2
                     OverlapFlags =85
+                    TextAlign =1
                     IMESentenceMode =3
                     Left =8318
-                    Top =4142
+                    Top =3405
                     Width =4710
                     Height =600
                     ColumnWidth =3000
@@ -517,14 +495,14 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =8318
-                    LayoutCachedTop =4142
+                    LayoutCachedTop =3405
                     LayoutCachedWidth =13028
-                    LayoutCachedHeight =4742
+                    LayoutCachedHeight =4005
                     Begin
                         Begin Label
                             OverlapFlags =85
                             Left =6803
-                            Top =4142
+                            Top =3405
                             Width =1425
                             Height =330
                             BorderColor =8355711
@@ -533,9 +511,9 @@ Begin Form
                             Caption ="Opslag HTML"
                             GridlineColor =10921638
                             LayoutCachedLeft =6803
-                            LayoutCachedTop =4142
+                            LayoutCachedTop =3405
                             LayoutCachedWidth =8228
-                            LayoutCachedHeight =4472
+                            LayoutCachedHeight =3735
                         End
                     End
                 End
@@ -543,9 +521,10 @@ Begin Form
                     EnterKeyBehavior = NotDefault
                     ScrollBars =2
                     OverlapFlags =85
+                    TextAlign =1
                     IMESentenceMode =3
-                    Left =1814
-                    Top =3514
+                    Left =1928
+                    Top =4810
                     Width =4776
                     Height =600
                     ColumnWidth =3000
@@ -558,26 +537,24 @@ Begin Form
                     OnMouseDown ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =1814
-                    LayoutCachedTop =3514
-                    LayoutCachedWidth =6590
-                    LayoutCachedHeight =4114
+                    LayoutCachedLeft =1928
+                    LayoutCachedTop =4810
+                    LayoutCachedWidth =6704
+                    LayoutCachedHeight =5410
                     Begin
                         Begin Label
                             OverlapFlags =85
-                            Left =111
-                            Top =3515
-                            Width =1582
+                            Top =4811
+                            Width =1701
                             Height =317
                             BorderColor =8355711
                             ForeColor =8355711
                             Name ="WORKTEMPLATE_Bijschrift"
                             Caption ="Modelbestand"
                             GridlineColor =10921638
-                            LayoutCachedLeft =111
-                            LayoutCachedTop =3515
-                            LayoutCachedWidth =1693
-                            LayoutCachedHeight =3832
+                            LayoutCachedTop =4811
+                            LayoutCachedWidth =1701
+                            LayoutCachedHeight =5128
                         End
                     End
                 End
@@ -585,8 +562,8 @@ Begin Form
                     Visible = NotDefault
                     Enabled = NotDefault
                     OverlapFlags =85
-                    Left =566
-                    Top =5102
+                    Left =11905
+                    Top =4932
                     Width =2265
                     Height =570
                     TabIndex =9
@@ -596,10 +573,10 @@ Begin Form
                     OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =566
-                    LayoutCachedTop =5102
-                    LayoutCachedWidth =2831
-                    LayoutCachedHeight =5672
+                    LayoutCachedLeft =11905
+                    LayoutCachedTop =4932
+                    LayoutCachedWidth =14170
+                    LayoutCachedHeight =5502
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -616,7 +593,7 @@ Begin Form
                     OverlapFlags =93
                     TextFontCharSet =177
                     Left =10204
-                    Top =5669
+                    Top =4932
                     Width =576
                     Height =576
                     TabIndex =10
@@ -664,9 +641,9 @@ Begin Form
                     End
 
                     LayoutCachedLeft =10204
-                    LayoutCachedTop =5669
+                    LayoutCachedTop =4932
                     LayoutCachedWidth =10780
-                    LayoutCachedHeight =6245
+                    LayoutCachedHeight =5508
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Gradient =0
@@ -693,7 +670,7 @@ Begin Form
                     OverlapFlags =215
                     TextFontCharSet =177
                     Left =10771
-                    Top =5669
+                    Top =4932
                     Width =576
                     Height =576
                     TabIndex =11
@@ -741,9 +718,9 @@ Begin Form
                     End
 
                     LayoutCachedLeft =10771
-                    LayoutCachedTop =5669
+                    LayoutCachedTop =4932
                     LayoutCachedWidth =11347
-                    LayoutCachedHeight =6245
+                    LayoutCachedHeight =5508
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Gradient =0
@@ -771,7 +748,7 @@ Begin Form
                     OverlapFlags =223
                     TextFontCharSet =177
                     Left =9636
-                    Top =5669
+                    Top =4932
                     Width =576
                     Height =576
                     TabIndex =12
@@ -819,9 +796,9 @@ Begin Form
                     End
 
                     LayoutCachedLeft =9636
-                    LayoutCachedTop =5669
+                    LayoutCachedTop =4932
                     LayoutCachedWidth =10212
-                    LayoutCachedHeight =6245
+                    LayoutCachedHeight =5508
                     Gradient =0
                     BackColor =-2147483612
                     BackThemeColorIndex =-1
@@ -842,7 +819,7 @@ Begin Form
                     OverlapFlags =93
                     TextFontCharSet =177
                     Left =8503
-                    Top =5669
+                    Top =4932
                     Width =576
                     Height =576
                     TabIndex =13
@@ -890,9 +867,9 @@ Begin Form
                     End
 
                     LayoutCachedLeft =8503
-                    LayoutCachedTop =5669
+                    LayoutCachedTop =4932
                     LayoutCachedWidth =9079
-                    LayoutCachedHeight =6245
+                    LayoutCachedHeight =5508
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -910,7 +887,7 @@ Begin Form
                     OverlapFlags =215
                     TextFontCharSet =177
                     Left =9069
-                    Top =5669
+                    Top =4932
                     Width =576
                     Height =576
                     TabIndex =14
@@ -958,9 +935,9 @@ Begin Form
                     End
 
                     LayoutCachedLeft =9069
-                    LayoutCachedTop =5669
+                    LayoutCachedTop =4932
                     LayoutCachedWidth =9645
-                    LayoutCachedHeight =6245
+                    LayoutCachedHeight =5508
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -975,9 +952,10 @@ Begin Form
                 End
                 Begin TextBox
                     OverlapFlags =85
+                    TextAlign =1
                     IMESentenceMode =3
                     Left =8320
-                    Top =4989
+                    Top =4252
                     Width =3531
                     Height =315
                     TabIndex =15
@@ -988,14 +966,14 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =8320
-                    LayoutCachedTop =4989
+                    LayoutCachedTop =4252
                     LayoutCachedWidth =11851
-                    LayoutCachedHeight =5304
+                    LayoutCachedHeight =4567
                     Begin
                         Begin Label
                             OverlapFlags =85
                             Left =6816
-                            Top =4988
+                            Top =4251
                             Width =1395
                             Height =315
                             BorderColor =8355711
@@ -1004,18 +982,19 @@ Begin Form
                             Caption ="Prefix  files"
                             GridlineColor =10921638
                             LayoutCachedLeft =6816
-                            LayoutCachedTop =4988
+                            LayoutCachedTop =4251
                             LayoutCachedWidth =8211
-                            LayoutCachedHeight =5303
+                            LayoutCachedHeight =4566
                         End
                     End
                 End
                 Begin TextBox
-                    OverlapFlags =85
+                    OverlapFlags =93
+                    TextAlign =1
                     IMESentenceMode =3
-                    Left =1814
-                    Top =4308
-                    Height =315
+                    Left =1928
+                    Top =1247
+                    Height =340
                     TabIndex =16
                     BorderColor =10921638
                     ForeColor =4210752
@@ -1024,26 +1003,100 @@ Begin Form
                     StatusBarText ="Aantal zittingen van tig rondes"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =1814
-                    LayoutCachedTop =4308
-                    LayoutCachedWidth =3515
-                    LayoutCachedHeight =4623
+                    LayoutCachedLeft =1928
+                    LayoutCachedTop =1247
+                    LayoutCachedWidth =3629
+                    LayoutCachedHeight =1587
                     Begin
                         Begin Label
-                            OverlapFlags =85
-                            Left =56
-                            Top =4308
-                            Width =1515
-                            Height =315
+                            OverlapFlags =93
+                            Top =1247
+                            Width =1701
+                            Height =340
                             BorderColor =8355711
                             ForeColor =8355711
                             Name ="Bijschrift47"
                             Caption ="AANTALSESSIES"
                             GridlineColor =10921638
-                            LayoutCachedLeft =56
-                            LayoutCachedTop =4308
-                            LayoutCachedWidth =1571
-                            LayoutCachedHeight =4623
+                            LayoutCachedTop =1247
+                            LayoutCachedWidth =1701
+                            LayoutCachedHeight =1587
+                        End
+                    End
+                End
+                Begin ComboBox
+                    LimitToList = NotDefault
+                    RowSourceTypeInt =1
+                    OverlapFlags =87
+                    TextAlign =1
+                    IMESentenceMode =3
+                    ColumnCount =2
+                    Left =1928
+                    Top =1587
+                    Width =2601
+                    Height =340
+                    TabIndex =17
+                    BorderColor =10921638
+                    ForeColor =3484194
+                    Name ="UITREKENVORM"
+                    ControlSource ="UITREKENVORM"
+                    RowSourceType ="Value List"
+                    RowSource ="0;\"VPs\";1;\"Imps\";\"Patton\""
+                    ColumnWidths ="0;1701"
+                    StatusBarText ="VPs = Viertallen, Imps = Beker, Patton in voorbereiding"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =1928
+                    LayoutCachedTop =1587
+                    LayoutCachedWidth =4529
+                    LayoutCachedHeight =1927
+                    Begin
+                        Begin Label
+                            OverlapFlags =95
+                            Top =1587
+                            Width =1701
+                            Height =340
+                            BorderColor =8355711
+                            ForeColor =8355711
+                            Name ="Bijschrift48"
+                            Caption ="UITREKENVORM"
+                            GridlineColor =10921638
+                            LayoutCachedTop =1587
+                            LayoutCachedWidth =1701
+                            LayoutCachedHeight =1927
+                        End
+                    End
+                End
+                Begin CheckBox
+                    OverlapFlags =85
+                    Left =1927
+                    Top =1983
+                    Height =340
+                    TabIndex =18
+                    BorderColor =10921638
+                    Name ="BEKERWEDSTRIJD"
+                    ControlSource ="BEKERWEDSTRIJD"
+                    TopPadding =31
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =1927
+                    LayoutCachedTop =1983
+                    LayoutCachedWidth =2187
+                    LayoutCachedHeight =2323
+                    Begin
+                        Begin Label
+                            OverlapFlags =87
+                            Top =1927
+                            Width =1701
+                            Height =340
+                            BorderColor =8355711
+                            ForeColor =8355711
+                            Name ="lblBekerwedstrijd"
+                            Caption ="BEKERWEDSTRIJD"
+                            GridlineColor =10921638
+                            LayoutCachedTop =1927
+                            LayoutCachedWidth =1701
+                            LayoutCachedHeight =2267
                         End
                     End
                 End
@@ -1071,12 +1124,12 @@ Private Sub btnSessiegegevens_Click()
     Dim rs As Recordset
     
     Set db = CurrentDb
-    Set rs = db.OpenRecordset("Select * from tblSessie where ToernooiD = " & Me.Id)
+    Set rs = db.OpenRecordset("Select * from tblSessie where ToernooiD = " & Me.id)
     If rs.BOF And rs.EOF Then
     
         ' voeg een nieuw sessie record
         rs.AddNew
-        rs!ToernooID = Me.Id
+        rs!ToernooID = Me.id
         rs!Sessienr = 1
         rs!Sessienaam = Me.ToernooiNaam
         rs.Update
@@ -1084,14 +1137,14 @@ Private Sub btnSessiegegevens_Click()
         db.Close
     Else
         If lngSessie = 0 Then
-            lngSessie = rs!Id
+            lngSessie = rs!id
         End If
         rs.Close
         db.Close
     End If
     
     
-    lngToernooi = Me.Id
+    lngToernooi = Me.id
     
     'test even of al een sessie is anders maak een nieuwe sessie aan
     
@@ -1130,7 +1183,7 @@ Dim rs As Recordset
     Me.Bookmark = rs.Bookmark
     cboKiesToernooi = ""
     End If
-    lngToernooi = Me.Id
+    lngToernooi = Me.id
     lngSessie = DLookup("id", "tblSessie", "Sessienr=" & 1 & " and ToernooiD = " & lngToernooi)
     Call InitAll(lngToernooi, lngSessie)
 End Sub
@@ -1250,7 +1303,9 @@ Private Sub btnOpslaan_Click()
     Me.btnUndo.Visible = False
     Me.btnOpslaan.Enabled = False
     Me.btnUndo.Enabled = False
-      
+    Call InitAll(lngToernooi, lngSessie)
+    Forms!Start_VT!navClub.Visible = BEKERWEDSTRIJD
+    Forms!Start_VT!navClub.Enabled = BEKERWEDSTRIJD
  
  'Call MeControlEnabled(True)
  Me.cboKiesToernooi.Enabled = True
@@ -1281,12 +1336,12 @@ End Sub
 Private Sub Form_Current()
     Me.btnUndo.Enabled = False
     Me.btnUndo.Visible = False
-    If Not IsNull(Me.Id) Then
-        lngToernooi = Me.Id
+    If Not IsNull(Me.id) Then
+        lngToernooi = Me.id
     End If
     If Me.NewRecord = False Then
-        lngToernooi = Me.Id
-        lngPK = Me.Id
+        lngToernooi = Me.id
+        lngPK = Me.id
     End If
 End Sub
 

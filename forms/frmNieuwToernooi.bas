@@ -9,7 +9,7 @@ Begin Form
     GridY =10
     Width =12347
     DatasheetFontHeight =11
-    ItemSuffix =29
+    ItemSuffix =33
     Right =15870
     Bottom =12240
     DatasheetGridlinesColor =15132391
@@ -128,6 +128,24 @@ Begin Form
             GridlineThemeColorIndex =1
             GridlineShade =65.0
         End
+        Begin ComboBox
+            AddColon = NotDefault
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =11
+            FontName ="Calibri"
+            AllowValueListEdits =1
+            InheritValueList =1
+            ThemeFontIndex =1
+            BackThemeColorIndex =1
+            BorderThemeColorIndex =1
+            BorderShade =65.0
+            ForeThemeColorIndex =2
+            ForeShade =50.0
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+        End
         Begin UnboundObjectFrame
             SpecialEffect =2
             OldBorderStyle =1
@@ -175,7 +193,7 @@ Begin Form
             End
         End
         Begin Section
-            Height =5952
+            Height =6311
             Name ="Details"
             AlternateBackColor =15921906
             AlternateBackThemeColorIndex =1
@@ -185,8 +203,7 @@ Begin Form
                 Begin TextBox
                     OverlapFlags =93
                     IMESentenceMode =3
-                    Left =3402
-                    Top =566
+                    Left =3401
                     Width =3969
                     Height =454
                     TopMargin =57
@@ -196,17 +213,15 @@ Begin Form
                     AfterUpdate ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =3402
-                    LayoutCachedTop =566
-                    LayoutCachedWidth =7371
-                    LayoutCachedHeight =1020
+                    LayoutCachedLeft =3401
+                    LayoutCachedWidth =7370
+                    LayoutCachedHeight =454
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Begin
                         Begin Label
                             OverlapFlags =93
-                            Left =567
-                            Top =566
+                            Left =566
                             Width =2268
                             Height =454
                             TopMargin =57
@@ -215,10 +230,9 @@ Begin Form
                             Name ="lblNieuwToernooi"
                             Caption ="Nieuw Toernooi"
                             GridlineColor =10921638
-                            LayoutCachedLeft =567
-                            LayoutCachedTop =566
-                            LayoutCachedWidth =2835
-                            LayoutCachedHeight =1020
+                            LayoutCachedLeft =566
+                            LayoutCachedWidth =2834
+                            LayoutCachedHeight =454
                             ForeThemeColorIndex =-1
                             ForeTint =100.0
                         End
@@ -227,8 +241,8 @@ Begin Form
                 Begin TextBox
                     OverlapFlags =95
                     IMESentenceMode =3
-                    Left =3402
-                    Top =1021
+                    Left =3401
+                    Top =455
                     Width =3969
                     Height =454
                     TabIndex =1
@@ -242,17 +256,17 @@ Begin Form
                     DefaultValue ="16"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =3402
-                    LayoutCachedTop =1021
-                    LayoutCachedWidth =7371
-                    LayoutCachedHeight =1475
+                    LayoutCachedLeft =3401
+                    LayoutCachedTop =455
+                    LayoutCachedWidth =7370
+                    LayoutCachedHeight =909
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Begin
                         Begin Label
                             OverlapFlags =95
-                            Left =567
-                            Top =1021
+                            Left =566
+                            Top =455
                             Width =2268
                             Height =454
                             TopMargin =57
@@ -261,10 +275,10 @@ Begin Form
                             Name ="lblAantalViertallen"
                             Caption ="Aantal Viertallen"
                             GridlineColor =10921638
-                            LayoutCachedLeft =567
-                            LayoutCachedTop =1021
-                            LayoutCachedWidth =2835
-                            LayoutCachedHeight =1475
+                            LayoutCachedLeft =566
+                            LayoutCachedTop =455
+                            LayoutCachedWidth =2834
+                            LayoutCachedHeight =909
                             ForeThemeColorIndex =-1
                             ForeTint =100.0
                         End
@@ -273,8 +287,8 @@ Begin Form
                 Begin TextBox
                     OverlapFlags =95
                     IMESentenceMode =3
-                    Left =3402
-                    Top =1474
+                    Left =3401
+                    Top =908
                     Width =3969
                     Height =454
                     TabIndex =2
@@ -288,17 +302,17 @@ Begin Form
                     DefaultValue ="1"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =3402
-                    LayoutCachedTop =1474
-                    LayoutCachedWidth =7371
-                    LayoutCachedHeight =1928
+                    LayoutCachedLeft =3401
+                    LayoutCachedTop =908
+                    LayoutCachedWidth =7370
+                    LayoutCachedHeight =1362
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Begin
                         Begin Label
                             OverlapFlags =95
-                            Left =567
-                            Top =1474
+                            Left =566
+                            Top =908
                             Width =2268
                             Height =454
                             TopMargin =57
@@ -307,10 +321,10 @@ Begin Form
                             Name ="Bijschrift6"
                             Caption ="Aantal sessies/avonden"
                             GridlineColor =10921638
-                            LayoutCachedLeft =567
-                            LayoutCachedTop =1474
-                            LayoutCachedWidth =2835
-                            LayoutCachedHeight =1928
+                            LayoutCachedLeft =566
+                            LayoutCachedTop =908
+                            LayoutCachedWidth =2834
+                            LayoutCachedHeight =1362
                             ForeThemeColorIndex =-1
                             ForeTint =100.0
                         End
@@ -319,8 +333,8 @@ Begin Form
                 Begin TextBox
                     OverlapFlags =95
                     IMESentenceMode =3
-                    Left =3402
-                    Top =1928
+                    Left =3401
+                    Top =1362
                     Width =3969
                     Height =454
                     TabIndex =3
@@ -334,17 +348,17 @@ Begin Form
                     DefaultValue ="1"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =3402
-                    LayoutCachedTop =1928
-                    LayoutCachedWidth =7371
-                    LayoutCachedHeight =2382
+                    LayoutCachedLeft =3401
+                    LayoutCachedTop =1362
+                    LayoutCachedWidth =7370
+                    LayoutCachedHeight =1816
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Begin
                         Begin Label
                             OverlapFlags =95
-                            Left =567
-                            Top =1928
+                            Left =566
+                            Top =1362
                             Width =2268
                             Height =454
                             TopMargin =57
@@ -353,10 +367,10 @@ Begin Form
                             Name ="lblWedstrijdenPerSessie"
                             Caption ="Wedstrijden per Sessie"
                             GridlineColor =10921638
-                            LayoutCachedLeft =567
-                            LayoutCachedTop =1928
-                            LayoutCachedWidth =2835
-                            LayoutCachedHeight =2382
+                            LayoutCachedLeft =566
+                            LayoutCachedTop =1362
+                            LayoutCachedWidth =2834
+                            LayoutCachedHeight =1816
                             ForeThemeColorIndex =-1
                             ForeTint =100.0
                         End
@@ -367,7 +381,7 @@ Begin Form
                     BackStyle =1
                     SizeMode =0
                     Left =566
-                    Top =3968
+                    Top =4421
                     Width =2280
                     Height =1890
                     BorderColor =10921638
@@ -2704,16 +2718,16 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =566
-                    LayoutCachedTop =3968
+                    LayoutCachedTop =4421
                     LayoutCachedWidth =2846
-                    LayoutCachedHeight =5858
-                    TabIndex =9
+                    LayoutCachedHeight =6311
+                    TabIndex =11
                 End
                 Begin TextBox
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =3402
-                    Top =4535
+                    Top =4988
                     Width =4539
                     Height =907
                     TabIndex =4
@@ -2724,14 +2738,14 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =3402
-                    LayoutCachedTop =4535
+                    LayoutCachedTop =4988
                     LayoutCachedWidth =7941
-                    LayoutCachedHeight =5442
+                    LayoutCachedHeight =5895
                 End
                 Begin Label
                     OverlapFlags =85
                     Left =566
-                    Top =2948
+                    Top =3401
                     Width =2265
                     Height =454
                     TopMargin =57
@@ -2741,15 +2755,15 @@ Begin Form
                     Caption ="Kies Toernooifolder "
                     GridlineColor =10921638
                     LayoutCachedLeft =566
-                    LayoutCachedTop =2948
+                    LayoutCachedTop =3401
                     LayoutCachedWidth =2831
-                    LayoutCachedHeight =3402
+                    LayoutCachedHeight =3855
                 End
                 Begin OptionGroup
                     SpecialEffect =0
                     OverlapFlags =85
                     Left =3401
-                    Top =2948
+                    Top =3401
                     Width =1607
                     Height =943
                     TabIndex =5
@@ -2759,29 +2773,29 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =3401
-                    LayoutCachedTop =2948
+                    LayoutCachedTop =3401
                     LayoutCachedWidth =5008
-                    LayoutCachedHeight =3891
+                    LayoutCachedHeight =4344
                     Begin
                         Begin OptionButton
                             SpecialEffect =2
                             OverlapFlags =87
                             Left =3587
-                            Top =3186
+                            Top =3639
                             OptionValue =1
                             BorderColor =10921638
                             Name ="Keuzerondje20"
                             GridlineColor =10921638
 
                             LayoutCachedLeft =3587
-                            LayoutCachedTop =3186
+                            LayoutCachedTop =3639
                             LayoutCachedWidth =3847
-                            LayoutCachedHeight =3426
+                            LayoutCachedHeight =3879
                             Begin
                                 Begin Label
                                     OverlapFlags =247
                                     Left =3817
-                                    Top =3158
+                                    Top =3611
                                     Width =1005
                                     Height =315
                                     BorderColor =8355711
@@ -2790,9 +2804,9 @@ Begin Form
                                     Caption ="Standaard"
                                     GridlineColor =10921638
                                     LayoutCachedLeft =3817
-                                    LayoutCachedTop =3158
+                                    LayoutCachedTop =3611
                                     LayoutCachedWidth =4822
-                                    LayoutCachedHeight =3473
+                                    LayoutCachedHeight =3926
                                     ForeThemeColorIndex =-1
                                     ForeTint =100.0
                                 End
@@ -2802,21 +2816,21 @@ Begin Form
                             SpecialEffect =2
                             OverlapFlags =87
                             Left =3587
-                            Top =3516
+                            Top =3969
                             OptionValue =2
                             BorderColor =10921638
                             Name ="Keuzerondje22"
                             GridlineColor =10921638
 
                             LayoutCachedLeft =3587
-                            LayoutCachedTop =3516
+                            LayoutCachedTop =3969
                             LayoutCachedWidth =3847
-                            LayoutCachedHeight =3756
+                            LayoutCachedHeight =4209
                             Begin
                                 Begin Label
                                     OverlapFlags =247
                                     Left =3817
-                                    Top =3488
+                                    Top =3941
                                     Width =585
                                     Height =315
                                     BorderColor =8355711
@@ -2825,9 +2839,9 @@ Begin Form
                                     Caption ="Eigen"
                                     GridlineColor =10921638
                                     LayoutCachedLeft =3817
-                                    LayoutCachedTop =3488
+                                    LayoutCachedTop =3941
                                     LayoutCachedWidth =4402
-                                    LayoutCachedHeight =3803
+                                    LayoutCachedHeight =4256
                                     ForeThemeColorIndex =-1
                                     ForeTint =100.0
                                 End
@@ -2866,7 +2880,7 @@ Begin Form
                 Begin CommandButton
                     OverlapFlags =85
                     Left =8503
-                    Top =5102
+                    Top =5555
                     Height =568
                     TabIndex =7
                     ForeColor =4210752
@@ -2876,9 +2890,9 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =8503
-                    LayoutCachedTop =5102
+                    LayoutCachedTop =5555
                     LayoutCachedWidth =10204
-                    LayoutCachedHeight =5670
+                    LayoutCachedHeight =6123
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -2894,7 +2908,7 @@ Begin Form
                     OldBorderStyle =1
                     OverlapFlags =85
                     Left =7370
-                    Top =3004
+                    Top =3457
                     Width =4485
                     Height =1125
                     BorderColor =10921638
@@ -2905,18 +2919,18 @@ Begin Form
                         "ens"
                     GridlineColor =10921638
                     LayoutCachedLeft =7370
-                    LayoutCachedTop =3004
+                    LayoutCachedTop =3457
                     LayoutCachedWidth =11855
-                    LayoutCachedHeight =4129
+                    LayoutCachedHeight =4582
                     BorderThemeColorIndex =1
                     BorderTint =100.0
                     BorderShade =65.0
                 End
                 Begin TextBox
-                    OverlapFlags =87
+                    OverlapFlags =95
                     IMESentenceMode =3
-                    Left =3402
-                    Top =2381
+                    Left =3401
+                    Top =1815
                     Width =3969
                     Height =454
                     TabIndex =8
@@ -2929,17 +2943,17 @@ Begin Form
                     DefaultValue ="7"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =3402
-                    LayoutCachedTop =2381
-                    LayoutCachedWidth =7371
-                    LayoutCachedHeight =2835
+                    LayoutCachedLeft =3401
+                    LayoutCachedTop =1815
+                    LayoutCachedWidth =7370
+                    LayoutCachedHeight =2269
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Begin
                         Begin Label
-                            OverlapFlags =87
-                            Left =567
-                            Top =2381
+                            OverlapFlags =95
+                            Left =566
+                            Top =1815
                             Width =2268
                             Height =454
                             TopMargin =57
@@ -2948,10 +2962,93 @@ Begin Form
                             Name ="lblSpellenPerWedstrijd"
                             Caption ="Spellen per wedstrijd"
                             GridlineColor =10921638
+                            LayoutCachedLeft =566
+                            LayoutCachedTop =1815
+                            LayoutCachedWidth =2834
+                            LayoutCachedHeight =2269
+                            ForeThemeColorIndex =-1
+                            ForeTint =100.0
+                        End
+                    End
+                End
+                Begin ComboBox
+                    RowSourceTypeInt =1
+                    OverlapFlags =87
+                    IMESentenceMode =3
+                    ColumnCount =2
+                    Left =3401
+                    Top =2268
+                    Width =3966
+                    Height =454
+                    TabIndex =9
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="txtRekenvorm"
+                    RowSourceType ="Value List"
+                    RowSource ="0;VPs;1;Imps;2;Patton"
+                    ColumnWidths ="0;1701"
+                    StatusBarText ="Standaard VPs,  Imps = Bekerwedstrijd , Patton = in voorbereiding"
+                    DefaultValue ="0"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =3401
+                    LayoutCachedTop =2268
+                    LayoutCachedWidth =7367
+                    LayoutCachedHeight =2722
+                    ForeThemeColorIndex =0
+                    ForeTint =75.0
+                    ForeShade =100.0
+                    Begin
+                        Begin Label
+                            OverlapFlags =95
+                            Left =575
+                            Top =2268
+                            Width =2265
+                            Height =454
+                            BorderColor =8355711
+                            ForeColor =-2147483617
+                            Name ="lblRekenvorm"
+                            Caption ="Rekenvorm"
+                            GridlineColor =10921638
+                            LayoutCachedLeft =575
+                            LayoutCachedTop =2268
+                            LayoutCachedWidth =2840
+                            LayoutCachedHeight =2722
+                            ForeThemeColorIndex =-1
+                            ForeTint =100.0
+                        End
+                    End
+                End
+                Begin OptionButton
+                    OverlapFlags =85
+                    Left =3401
+                    Top =2891
+                    TabIndex =10
+                    BorderColor =10921638
+                    Name ="optBekerwedstrijd"
+                    DefaultValue ="No"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =3401
+                    LayoutCachedTop =2891
+                    LayoutCachedWidth =3661
+                    LayoutCachedHeight =3131
+                    Begin
+                        Begin Label
+                            OverlapFlags =87
+                            Left =567
+                            Top =2722
+                            Width =2268
+                            Height =454
+                            BorderColor =8355711
+                            ForeColor =-2147483617
+                            Name ="lblBekerwedstrijd"
+                            Caption ="Bekerwedstrijd"
+                            GridlineColor =10921638
                             LayoutCachedLeft =567
-                            LayoutCachedTop =2381
+                            LayoutCachedTop =2722
                             LayoutCachedWidth =2835
-                            LayoutCachedHeight =2835
+                            LayoutCachedHeight =3176
                             ForeThemeColorIndex =-1
                             ForeTint =100.0
                         End
@@ -2985,7 +3082,8 @@ Private Sub btnCreeer_Click()
     AANTALSESSIES = Me.txtMaxSessies
     WEDSTRIJDENPERSESSIE = Me.txtWedstrijdenPerSessie
     AANTALSPELLENPERWEDSTRIJD = Me.txtSpellenPerWedstrijd
-    
+    BEKERWEDSTRIJD = Me.optBekerwedstrijd
+    UITREKENVORM = Me.txtRekenvorm
     WORKFOLDER = FileNameFromPath(Me.txtToernooifolder)
     WORKFILE = FolderFromPath(Me.txtToernooifolder)
     Call NieuwToernooi

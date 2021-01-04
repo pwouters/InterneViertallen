@@ -83,6 +83,8 @@
 </xsd:restriction>
 </xsd:simpleType>
 </xsd:element>
+<xsd:element name="BEKERWEDSTRIJD" minOccurs="1" od:jetType="yesno" od:sqlSType="bit" od:nonNullable="yes" type="xsd:boolean"/>
+<xsd:element name="UITREKENVORM" minOccurs="0" od:jetType="integer" od:sqlSType="smallint" type="xsd:short"/>
 </xsd:sequence>
 </xsd:complexType>
 </xsd:element>

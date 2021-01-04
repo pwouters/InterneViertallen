@@ -13,10 +13,10 @@ Begin Form
     Width =10780
     DatasheetFontHeight =11
     ItemSuffix =33
-    Left =2520
-    Top =1200
-    Right =17445
-    Bottom =11325
+    Left =2865
+    Top =2085
+    Right =17535
+    Bottom =11955
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
         0x6f1d1de43490e540
@@ -529,13 +529,13 @@ Set rs = db.OpenRecordset("tblSessie")
     rs!AantalWedstrijdenPerSessie = WEDSTRIJDENPERSESSIE
     rs.Update
     rs.Bookmark = rs.LastModified
-    lngSessie = rs!Id
+    lngSessie = rs!id
     
 rs.Close
 db.Close
 
     Call InitAll(lngToernooi, lngSessie)
-    
+   
      Me.cboKiesToernooi.Requery
      Me.cboKiesToernooi = lngToernooi
      Me.cboKiesSessie.Requery
@@ -564,7 +564,8 @@ Private Sub cboKiesToernooi_AfterUpdate()
      lngSessie = DLookup("id", "tblSessie", "Sessienr=" & 1 & " and ToernooiD = " & lngToernooi)
     
      Call InitAll(lngToernooi, lngSessie)
-    
+  '  Forms!Start_VT!navClub.Visible = BEKERWEDSTRIJD
+    Forms!Start_VT!navClub.Enabled = BEKERWEDSTRIJD
      Me.cboKiesSessie.Requery
      Me.cboKiesSessie = Sessienr
    
@@ -597,14 +598,15 @@ Private Sub Form_Open(Cancel As Integer)
 
          Set db = CurrentDb
          Set rs = db.OpenRecordset("select * from tblSessie where [ToernooiD] = " & lngToernooi & " and  [id]= " & lngSessie & " Order by Sessienr")
-         lngSessie = rs!Id
+         lngSessie = rs!id
          intSessienr = rs!Sessienr
          rs.Close
          db.Close
     
    
    Call InitAll(lngToernooi, lngSessie)
-   
+  ' Forms!Start_VT!navClub.Visible = BEKERWEDSTRIJD
+   Forms!Start_VT!navClub.Enabled = BEKERWEDSTRIJD
    Me.cboKiesSessie.Requery
    Me.cboKiesSessie.Value = Sessienr
    Me.cboKiesToernooi.Value = lngToernooi
