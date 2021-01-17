@@ -3,6 +3,7 @@ VersionRequired =20
 Begin Form
     AutoCenter = NotDefault
     DividingLines = NotDefault
+    OrderByOn = NotDefault
     AllowDesignChanges = NotDefault
     DefaultView =2
     PictureAlignment =2
@@ -13,9 +14,10 @@ Begin Form
     ItemSuffix =30
     Left =570
     Top =1290
-    Right =16995
+    Right =16740
     Bottom =9315
     DatasheetGridlinesColor =15132391
+    OrderBy ="[_tblScorestaat].[Spelnr]"
     RecSrcDt = Begin
         0xe10fa2fe7892e540
     End

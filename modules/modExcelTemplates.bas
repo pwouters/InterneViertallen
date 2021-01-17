@@ -7,6 +7,7 @@ Option Compare Database
 Public Sub NieuwToernooi()
     Dim db          As Database
     Dim rs          As Recordset
+    WORKTEMPLATE = WORKFOLDER & "Model_Viertallen.xlsx"
     Set db = CurrentDb
     Set rs = db.OpenRecordset("tblToernooi")
     rs.AddNew
@@ -17,15 +18,15 @@ Public Sub NieuwToernooi()
     rs!STEPRESULTS = STEP_RESULTS
     rs!AANTALSESSIES = AANTALSESSIES
     rs!WEDSTRIJDENPERSESSIE = WEDSTRIJDENPERSESSIE
-    rs!WORKTEMPLATE = WORKFOLDER
+    rs!WORKTEMPLATE = WORKTEMPLATE
     rs!LOCALHTML = LOCALHTML
-    rs!LOCALHTML = LOCALSITE
+    rs!LOCALSITE = LOCALSITE
     rs!PREFIX = "Wedstrijd_"
     rs!BEKERWEDSTRIJD = BEKERWEDSTRIJD
     rs!UITREKENVORM = UITREKENVORM
     rs.Update
     rs.Bookmark = rs.LastModified
-    lngToernooi = rs!id
+    lngToernooi = rs!Id
     rs.Close
     
     'nu add sessie aan
@@ -36,21 +37,21 @@ Public Sub NieuwToernooi()
     rs!Sessienaam = "Eerste Sessie"
     rs!Sessienr = 1
     rs!Aantalspellen = AANTALSPELLENPERWEDSTRIJD
-    rs!Competitie = 1        'halve
+    rs!Competitie = WEDSTRIJD
     rs!Prefixkopjesscorestaat = "Scorekaart van sessie 1 "
     rs!PrefixKopjeuitslagen = "Uitslag van sessie 1"
     rs!Suffixkopjesscorestaat = ""
     rs!SuffixKopjeuitslagen = ""
     rs!Voettekst = "@Bridge"
     rs!Voetlink = "#"
-    rs!wedstrijdvormID = 0
+    rs!wedstrijdvormID = WEDSTRIJD
     rs!ActivityID = 0
     rs!AANTALTEAMS = AANTALTEAMS
     rs!ByeTeam = False
-    rs!AantalWedstrijdenPerSessie = 1
+    rs!AantalWedstrijdenPerSessie = WEDSTRIJDENPERSESSIE
     rs.Update
     rs.Bookmark = rs.LastModified
-    lngSessie = rs!id
+    lngSessie = rs!Id
     
     rs.Close
     db.Close
@@ -88,6 +89,8 @@ Public Sub NieuwToernooi()
     Call CreateScoreTemplateSheet(WEDSTRIJDENPERSESSIE, AANTALSPELLENPERWEDSTRIJD, WORKFOLDER, WORKFILE)
     Call CreateTeamUitslagenSheet(AANTALTEAMS, WORKFOLDER, WORKFILE)
     Call CreateKruisTabelSheet(AANTALTEAMS, WORKFOLDER, WORKFILE, TEAMBYE)
+    Call CreateTeamWijzingenSheet(WORKFOLDER, WORKFILE)
+    
     If BEKERWEDSTRIJD Then
        ' Call CreateClubTeamsSheet(WORKFOLDER, WORKFILE)
        ' Call CreateClubUitslagenSheet(WORKFOLDER, WORKFILE)
@@ -202,7 +205,11 @@ Public Sub CreateScoreTemplateSheet(varWedstrijdenPerSessie As Variant, varAanta
             intVPKolom = VP_10
         Case 11, 12
             intVPKolom = VP_12
-    End Select
+        Case 13, 14
+            intVPKolom = VP_14
+        Case 15, 16
+            intVPKolom = VP_16
+     End Select
     
     'box
     
@@ -215,7 +222,10 @@ Public Sub CreateScoreTemplateSheet(varWedstrijdenPerSessie As Variant, varAanta
         rijteller = 3 + (i - 1) * varAantalSpellenPerWedstrijd
         MySheet.Cells(rijteller, Uitslag_Team).Value = "Wedstrijd " & i
         MySheet.Cells(rijteller, Uitslag_Imps).Value = "Imps"
-        MySheet.Cells(rijteller, Uitslag_VPs).Value = "VPs"
+        If UITREKENVORM = VPs_u Then
+            MySheet.Cells(rijteller, Uitslag_VPs).Value = "VPs"
+        End If
+        
         
         MySheet.Cells(rijteller + 2, Wij_Zij).Value = "Wij"
         MySheet.Cells(rijteller + 3, Wij_Zij).Value = "Zij"
@@ -223,8 +233,11 @@ Public Sub CreateScoreTemplateSheet(varWedstrijdenPerSessie As Variant, varAanta
         MySheet.Cells(rijteller + 3, Uitslag_Imps).Formula = "=SUM(R" & start & ":R" & einde & ")"
         MySheet.Cells(rijteller + 2, Uitslag_Verschil).Formula = "=U" & rijteller + 2 & " - U" & rijteller + 3
         MySheet.Cells(rijteller + 3, Uitslag_Verschil).Formula = "=U" & rijteller + 3 & " - U" & rijteller + 2
-        MySheet.Cells(rijteller + 2, Uitslag_VPs).Formula = "=IF(V" & rijteller + 2 & ">0,VLOOKUP(V" & rijteller + 2 & ",VPSchaal," & intVPKolom & "),20-VLOOKUP(V" & rijteller + 3 & ",VPSchaal," & intVPKolom & "))"
-        MySheet.Cells(rijteller + 3, Uitslag_VPs).Formula = "=IF(V" & rijteller + 3 & ">0,VLOOKUP(V" & rijteller + 3 & ",VPSchaal," & intVPKolom & "),20-VLOOKUP(V" & rijteller + 2 & ",VPSchaal," & intVPKolom & "))"
+        
+        If UITREKENVORM = VPs_u Then
+            MySheet.Cells(rijteller + 2, Uitslag_VPs).Formula = "=IF(V" & rijteller + 2 & ">0,VLOOKUP(V" & rijteller + 2 & ",VPSchaal," & intVPKolom & "),20-VLOOKUP(V" & rijteller + 3 & ",VPSchaal," & intVPKolom & "))"
+            MySheet.Cells(rijteller + 3, Uitslag_VPs).Formula = "=IF(V" & rijteller + 3 & ">0,VLOOKUP(V" & rijteller + 3 & ",VPSchaal," & intVPKolom & "),20-VLOOKUP(V" & rijteller + 2 & ",VPSchaal," & intVPKolom & "))"
+        End If
         
         Set rng = MySheet.Range(MySheet.Cells(start, 19), MySheet.Cells(start, 23))
         With rng.Borders
@@ -373,6 +386,8 @@ Public Sub CreateVPsSheet(wrkFolder As Variant, wrkFile As Variant)
         MySheet.Cells(i, VP_8).Value = rs!vps_8
         MySheet.Cells(i, VP_9).Value = rs!vps_9
         MySheet.Cells(i, VP_10).Value = rs!vps_10
+        MySheet.Cells(i, 8).Value = rs!vps_14
+        MySheet.Cells(i, 9).Value = rs!vps_16
         i = i + 1
         rs.MoveNext
     Loop
@@ -380,7 +395,7 @@ Public Sub CreateVPsSheet(wrkFolder As Variant, wrkFile As Variant)
     db.Close
     
     'creeer rangename
-    Set rng = MySheet.Range(MySheet.Cells(1, VP_Imps), MySheet.Cells(i - 1, VP_10))
+    Set rng = MySheet.Range(MySheet.Cells(1, VP_Imps), MySheet.Cells(i - 1, 9))
     'specify defined name
     MyRangeName = "VPSchaal"
     
@@ -456,7 +471,7 @@ Public Sub CreateTeamsSheet(varTeams As Variant, wrkFolder As Variant, wrkFile A
     Dim MySheet     As Worksheet
     Dim StartBook   As Workbook
     Dim strWorkfile As String
-    Dim question    As Integer
+    Dim Question    As Integer
     Dim fcount, i, j As Integer
     Dim strWs       As String
     Dim rng         As Range
@@ -531,13 +546,71 @@ Public Sub CreateTeamsSheet(varTeams As Variant, wrkFolder As Variant, wrkFile A
     
 End Sub
 
+Public Sub CreateTeamWijzingenSheet(wrkFolder, wrkFile)
+    Dim xlApp       As Object
+    Dim TestExcel   As Integer
+    Dim MySheet     As Worksheet
+    Dim StartBook   As Workbook
+    Dim strWorkfile As String
+    Dim Question    As Integer
+    Dim fcount, i, j As Integer
+    Dim strWs       As String
+    Dim rng         As Range
+    TestExcel = False
+    strWorkfile = wrkFolder & wrkFile
+    
+    If Not fnExists(strWorkfile) Then
+        MsgBox ("Er Is nog geen excel bestand aangemaakt")
+        Exit Sub
+    End If
+    
+    Set xlApp = CreateObject("Excel.Application")
+    xlApp.Application.Visible = intExcelZichtbaar
+    xlApp.Application.DisplayAlerts = False
+    Set StartBook = xlApp.Workbooks.Open(strWorkfile)
+    
+    If Not SheetExists("TeamWijzingen", StartBook) Then
+        Set MySheet = StartBook.Sheets.Add
+        MySheet.name = "TeamWijzingen"
+        Else
+        Set MySheet = StartBook.Sheets("TeamWijzigingen")
+        MySheet.Cells.Clear
+     End If
+        
+    'Sessie  Teamnr  Spelnr  Speler1 Speler2 Speler3 Speler4 Tafel1  Tafel2
+    MySheet.Cells(1, 1).Value = "Sessie"
+    MySheet.Cells(1, 2).Value = "Teamnr"
+    MySheet.Cells(1, 3).Value = "Spelnr"
+    MySheet.Cells(1, 4).Value = "Speler1"
+    MySheet.Cells(1, 5).Value = "Speler2"
+    MySheet.Cells(1, 6).Value = "Speler3"
+    MySheet.Cells(1, 7).Value = "Speler4"
+    MySheet.Cells(1, 8).Value = "Tafel1"
+    MySheet.Cells(1, 9).Value = "Tafel2"
+
+    Set rng = MySheet.Range(MySheet.Cells(1, 1), MySheet.Cells(2, 9))
+    'specify defined name
+    MyTableName = "TeamWijzigingen"
+    MySheet.ListObjects.Add(xlSrcRange, rng, , xlYes).name = MyTableName
+    StartBook.Save
+
+    Set rng = Nothing
+    Set MySheet = Nothing
+    Set StartBook = Nothing
+    xlApp.Application.DisplayAlerts = True
+    xlApp.Application.Quit
+    Set xlApp = Nothing
+    
+    
+End Sub
+
 Public Sub CreateKruisTabelSheet(varTeams, wrkFolder, wrkFile, Bye As Variant)
     Dim xlApp       As Object
     Dim TestExcel   As Integer
     Dim MySheet     As Worksheet
     Dim StartBook   As Workbook
     Dim strWorkfile As String
-    Dim question    As Integer
+    Dim Question    As Integer
     Dim fcount, i, j As Integer
     Dim strWs       As String
     Dim strGemKolom As String
@@ -699,10 +772,10 @@ Public Sub CreateOpstellingSheet(varAantalTeams As Variant, varWedstrijdenPerSes
         Set MySheet = StartBook.Sheets.Add
         MySheet.name = "Import_Opstelling"
     Else
-        MsgBox ("Reeds aanwezig")
-        Exit Sub
+        Set MySheet = StartBook.Sheets("Import_Opstelling")
     End If
     
+    MySheet.Cells.Clear
     'sessie Teamnr Speler1 Speler2 Speler3 Speler4  Wedstrijd1  Wedstrijd2
     
     MySheet.Cells(1, 1).Value = "Sessie"
@@ -764,17 +837,10 @@ Public Sub CreateTeamUitslagenSheet(varAantalTeams As Variant, wrkFolder As Vari
         Set MySheet = StartBook.Sheets.Add
         MySheet.name = "TeamUitslagen"
     Else
-        Set rng = Nothing
-        Set MySheet = Nothing
-        Set StartBook = Nothing
-        xlApp.Application.DisplayAlerts = True
-        xlApp.Application.Quit
-        Set xlApp = Nothing
-        
-        MsgBox ("Reeds aanwezig")
-        Exit Sub
+         Set MySheet = StartBook.Sheets("TeamUitslagen")
     End If
-    
+ 
+     MySheet.Cells.Clear
     'Avond/Sessie   Wedstrijd   Teamnr_thuis    Teamnr_Uit  TeamThuis   TeamUit ImpsThuis   ImpsUit VPThuis Vpuit
     
     MySheet.Cells(1, Sessie_nr).Value = "Avond"
@@ -800,7 +866,7 @@ Public Sub CreateTeamUitslagenSheet(varAantalTeams As Variant, wrkFolder As Vari
     '=ALS.FOUT(VERT.ZOEKEN(C2;Teams_Leden;2);"")
     
     'creeer rangename
-    Set rng = MySheet.Range(MySheet.Cells(1, Uit_nr), MySheet.Cells(1 + varAantalTeams \ 2, Uit_VPs))
+    Set rng = MySheet.Range(MySheet.Cells(1, 1), MySheet.Cells(1 + varAantalTeams \ 2, Uit_VPs))
     'specify defined name
     MyTableName = "TeamUitslagen"
     
@@ -826,36 +892,35 @@ Public Sub ImportUitslagen(varToernooi As Variant, varSessieID As Variant)
     Dim MySheet     As Worksheet
     Dim StartBook   As Workbook
     Dim strWorkfile As String
-    Dim question    As Integer
+    Dim Question    As Integer
     Dim TeamsID()   As Long
     Dim strTableName   As String
     Dim sql         As String
     Dim MethodeXls  As Integer
     Dim qd          As QueryDef
-    
+    Dim MaxTeams    As Integer
     Call InitAll(varToernooi, varSessieID)
-    ReDim TeamsID(AANTALTEAMS)
-    
+   
+    MaxTeams = DCount("id", "tblTeams", "ToernooiID =" & lngToernooi)
+    If MaxTeams = 0 Then
+       MsgBox ("er zijn nog geen teams geimporteerd van dit toernooi ")
+       Exit Sub
+    End If
+    ReDim TeamsID(MaxTeams + 10)
     Set db = CurrentDb
     Set rs = db.OpenRecordset("select * from tblTeams where [ToernooiID] = " & lngToernooi)
-    If rs.BOF And rs.EOF Then
-        MsgBox ("er zijn nog geen teams geimporteerd van dit toernooi")
-        rs.Close
-        db.Close
-        Exit Sub
-    End If
-    
+    ReDim TeamsID(MaxTeams + 10)
     rs.MoveFirst
     Do While Not rs.EOF
-        TeamsID(rs!Teamnr) = rs!id
+        TeamsID(rs!Teamnr) = rs!Id
         rs.MoveNext
     Loop
     rs.Close
     
     Set rs = db.OpenRecordset("select * from tblUitslagen where [ToernooiID] = " & lngToernooi & " And SessieID = " & lngSessie)
     If Not (rs.BOF And rs.EOF) Then
-        question = MsgBox("De indeling Is reeds geimporteerd, overschrijven (J/N)", vbYesNo)
-        If question = vbNo Then
+        Question = MsgBox("De indeling Is reeds geimporteerd, overschrijven (J/N)", vbYesNo)
+        If Question = vbNo Then
             db.Close
             Exit Sub
         End If
@@ -884,7 +949,7 @@ Public Sub ImportUitslagen(varToernooi As Variant, varSessieID As Variant)
         Set MySheet = StartBook.Worksheets("Teamuitslagen")
         
         If MySheet.Cells(2, 1) = "" Then
-            question = MsgBox("Er zijn geen teamuitslagen aanwezig")
+            Question = MsgBox("Er zijn geen teamuitslagen aanwezig")
             Set MySheet = Nothing
             Set StartBook = Nothing
             xlApp.Application.DisplayAlerts = True
@@ -1010,7 +1075,7 @@ End Sub
 Public Sub ImportTeams(varToernooi As Variant)
     'kijk eerst op er al teams opgenomen zijn
     Dim xlApp       As Object
-    Dim TestExcel, question As Integer
+    Dim TestExcel, Question As Integer
     Dim db          As Database
     Dim rs          As Recordset
     Dim MySheet     As Worksheet
@@ -1028,8 +1093,8 @@ Public Sub ImportTeams(varToernooi As Variant)
     Set rs = db.OpenRecordset("select * from tblTeams where [ToernooiID] = " & varToernooi)
     
     If Not (rs.BOF And rs.EOF) Then
-        question = MsgBox("Er zijn reeds teams geladen of aanwezig, doorgaan J/N ", vbYesNo)
-        If question = vbNo Then
+        Question = MsgBox("Er zijn reeds teams geladen of aanwezig, doorgaan J/N ", vbYesNo)
+        If Question = vbNo Then
             rs.Close
             db.Close
             Exit Sub
@@ -1053,9 +1118,9 @@ Public Sub ImportTeams(varToernooi As Variant)
     
     'test of er een tabel is
     
-    If TableExists("Teams", MySheet) Or TableExists("Teams", StartBook) Then
+    If TableExists("Teams_Leden", MySheet) Or TableExists("Teams_Leden", StartBook) Then
         
-        Set tbl = MySheet.ListObjects("Teams")
+        Set tbl = MySheet.ListObjects("Teams_Leden")
         IntTeamNummer = 1
         For Each rw In tbl.ListRows
             i = 1
@@ -1069,7 +1134,7 @@ Public Sub ImportTeams(varToernooi As Variant)
                             rs.MoveFirst
                             gevonden = False
                             Do While Not rs.EOF
-                                If rs!TeamNummer = IntTeamNummer Then
+                                If rs!Teamnr = IntTeamNummer Then
                                     gevonden = True
                                     Exit Do
                                 End If
@@ -1118,14 +1183,14 @@ Public Sub ImportTeams(varToernooi As Variant)
         
     Else
         
-        teller = 1
+        Teller = 2
         gevonden = False
-        Do While MySheet.Cells(teller, 1) <> "" And teller < 9
-            teller = teller + 1
+        Do While MySheet.Cells(Teller, 1) = "" And Teller < 9
+            Teller = Teller + 1
         Loop
         
-        If teller > 9 Then
-            question = MsgBox("Er zijn geen teams aanwezig")
+        If Teller > 9 Then
+            Question = MsgBox("Er zijn geen teams aanwezig")
             Set MySheet = Nothing
             Set StartBook = Nothing
             xlApp.Application.DisplayAlerts = True
@@ -1134,7 +1199,7 @@ Public Sub ImportTeams(varToernooi As Variant)
             Exit Sub
         End If
         
-        rijteller = rijteller + 1
+        rijteller = 2
         TestExcel = False
         Do While MySheet.Cells(rijteller, 1) <> ""
             
@@ -1145,7 +1210,7 @@ Public Sub ImportTeams(varToernooi As Variant)
                 rs.MoveFirst
                 gevonden = False
                 Do While Not rs.EOF
-                    If rs!TeamNummer = IntTeamNummer Then
+                    If rs!Teamnr = IntTeamNummer Then
                         gevonden = True
                         Exit Do
                     End If
@@ -1182,46 +1247,148 @@ Public Sub ImportTeams(varToernooi As Variant)
     Set xlApp = Nothing
     
 End Sub
+Public Sub ImportTeamWijzigingen(ToernooiID As Variant, SessieID As Variant)
+    Dim db              As Database
+    Dim rs              As Recordset
+    Dim qd              As QueryDef
+    Dim sql             As String
+    Dim Question        As Integer
+    Dim MySheet         As Worksheet
+    Dim StartBook       As Workbook
+    Dim strWorkfile     As String
+    Dim TeamsID()       As Long
+    Dim MaxTeams        As Integer
+    Dim intTeamnr       As Integer
+    Dim intSessienr     As Integer
+    
+    lngToernooi = ToernooiID
+    lngSessie = SessieID
+    Call InitAll(lngToernooi, lngSessie)
+    
+    intSessienr = Sessienr
+    Set db = CurrentDb
+    Set rs = db.OpenRecordset("select * from tblTeams where [ToernooiID] = " & ToernooiID)
+    If rs.BOF And rs.EOF Then
+        MsgBox ("er zijn nog geen teams aanwezig van dit toernooi")
+        rs.Close
+        db.Close
+        Exit Sub
+        Else
+         rs.MoveLast
+        MaxTeams = rs.RecordCount
+    End If
+    ReDim TeamsID(MaxTeams)
+    rs.MoveFirst
+    Do While Not rs.EOF
+        TeamsID(rs!Teamnr) = rs!Id
+        rs.MoveNext
+    Loop
+    rs.Close
+    
+    
+    Set rs = db.OpenRecordset("select * from tblTeamWijzingen where [ToernooiID] = " & ToernooiID & " And [SessieID] = " & SessieID)
+    
+   If Not (rs.BOF And rs.EOF) Then
+        Question = MsgBox("Er zijn reeds wijzigingen ingevoerd, Overschrijven J/N", vbYesNo)
+        If Question = vbNo Then
+            rs.Close
+            db.Close
+            Exit Sub
+        Else
+            rs.MoveFirst
+            Do While Not rs.EOF
+                rs.Delete
+                rs.MoveNext
+            Loop
+       End If
+    End If
+    
+    strWorkfile = WORKFOLDER & WORKFILE
+    
+    If Not fnExists(strWorkfile) Then
+        MsgBox ("Er Is nog geen excel bestand aangemaakt")
+        Exit Sub
+    End If
+    
+    Set xlApp = CreateObject("Excel.Application")
+    xlApp.Application.Visible = intExcelZichtbaar
+    xlApp.Application.DisplayAlerts = False
+    Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
+    Set MySheet = StartBook.Worksheets("TeamWijzigingen")
+    rijteller = 2
+    Do While MySheet.Cells(rijteller, 1) <> "" And MySheet.Cells(rijteller, 1).Value = intSessienr
+            rs.AddNew
+            rs!ToernooiID = ToernooiID
+            rs!SessieID = SessieID
+            intTeamnr = MySheet.Cells(rijteller, 2).Value
+            rs!TeamID = TeamsID(intTeamnr)
+            rs!Spelnr = MySheet.Cells(rijteller, 3).Value
+            rs!Speler1 = MySheet.Cells(rijteller, 4).Value
+            rs!Speler2 = MySheet.Cells(rijteller, 5).Value
+            rs!Speler3 = MySheet.Cells(rijteller, 6).Value
+            rs!Speler4 = MySheet.Cells(rijteller, 7).Value
+            rs.Update
+            rijteller = rijteller + 1
+    Loop
+    
+    rs.Close
+    db.Close
+    
+    
+    Set MySheet = Nothing
+    Set StartBook = Nothing
+    xlApp.Application.DisplayAlerts = True
+    xlApp.Application.Quit
+    Set xlApp = Nothing
 
+End Sub
 Public Sub ImportOpstelling()
 Dim rijteller       As Integer
 Dim db              As Database
 Dim rs              As Recordset
+Dim qd              As QueryDef
+Dim sql             As String
 Dim MySheet         As Worksheet
 Dim StartBook       As Workbook
 Dim strWorkfile     As String
-Dim question        As Integer
+Dim Question        As Integer
 Dim intSessienr     As Integer
 Dim intTeamnr       As Integer
 Dim sessieaanwezig  As Integer
 Dim TestExcel       As Integer
 Dim TeamsID()       As Long
-ReDim TeamsID(AANTALTEAMS)
+Dim MaxTeams        As Integer
 
-Set db = CurrentDb
-Set rs = db.OpenRecordset("select * from tblTeams where [ToernooiID] = " & lngToernooi)
-If rs.BOF And rs.EOF Then
-    MsgBox ("er zijn nog geen teams geimporteerd van dit toernooi")
-    rs.Close
-    db.Close
+MaxTeams = DCount("id", "tblTeams", "ToernooiID =" & lngToernooi)
+If MaxTeams = 0 Then
+    MsgBox ("er zijn nog geen teams geimporteerd van dit toernooi ")
     Exit Sub
 End If
+ReDim TeamsID(MaxTeams + 10)
+Set db = CurrentDb
+Set rs = db.OpenRecordset("select * from tblTeams where [ToernooiID] = " & lngToernooi)
 
 rs.MoveFirst
 Do While Not rs.EOF
-    TeamsID(rs!Teamnr) = rs!id
+    TeamsID(rs!Teamnr) = rs!Id
     rs.MoveNext
 Loop
 rs.Close
 
 intSessienr = Sessienr
 
-Set rs = db.OpenRecordset("select * from tblOpstelling where [ToernooiID] = " & lngToernooi & " And [Sessie] = " & CInt(intSessienr))
+Set rs = db.OpenRecordset("select * from tblOpstelling where [ToernooiID] = " & lngToernooi & " And [SessieID] = " & lngSessie)
 If Not (rs.BOF And rs.EOF) Then
-    MsgBox ("Er Is  reeds opstelling geladen of aanwezig")
+    Question = MsgBox("Er Is  reeds opstelling geladen of aanwezig, overschrijden J/N", vbYesNo)
+    If Question = vbNo Then
     rs.Close
     db.Close
     Exit Sub
+    End If
+    sql = "Delete from tblOpstelling where [ToernooiID] = " & lngToernooi & " And [SessieID] = " & lngSessie
+    Set qd = db.CreateQueryDef("", sql)
+    qd.Execute
+    Set qd = Nothing
 End If
 
 'test of er een werkbestand is
@@ -1239,7 +1406,7 @@ Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
 Set MySheet = StartBook.Worksheets("Import_Opstelling")
 
 If MySheet.Cells(2, 1) = "" Then
-    question = MsgBox("Er zijn geen opstelling aanwezig")
+    Question = MsgBox("Er zijn geen opstelling aanwezig")
     Set MySheet = Nothing
     Set StartBook = Nothing
     xlApp.Application.DisplayAlerts = True
@@ -1284,6 +1451,70 @@ xlApp.Application.DisplayAlerts = True
 xlApp.Application.Quit
 Set xlApp = Nothing
 If Not sessieaanwezig Then
-    question = MsgBox("Er Is geen opstelling aanwezig in de excel file")
+    Question = MsgBox("Er Is geen opstelling aanwezig in de excel file")
 End If
+End Sub
+Public Sub CreateSchemaSheet(varAantalTeams As Variant, wrkFolder As Variant, wrkFile As Variant)
+    Dim xlApp       As Object
+    Dim MySheet     As Worksheet
+    Dim StartBook   As Workbook
+    Dim strWorkfile, MyTableName As String
+    
+    Dim i, j        As Integer
+    
+    Dim rng         As Range
+    Dim strRange    As String
+    
+    strWorkfile = wrkFolder & wrkFile
+    
+    If Not fnExists(strWorkfile) Then
+        'Creer een nieuwe
+        MsgBox ("Er Is nog geen excel bestand aangemaakt")
+        Exit Sub
+    End If
+    
+    Set xlApp = CreateObject("Excel.Application")
+    xlApp.Application.Visible = intExcelZichtbaar
+    xlApp.Application.DisplayAlerts = False
+    Set StartBook = xlApp.Workbooks.Open(wrkFolder & wrkFile)
+    
+    If Not SheetExists("Schema", StartBook) Then
+        Set MySheet = StartBook.Sheets.Add
+        MySheet.name = "Schema"
+    Else
+         Set MySheet = StartBook.Sheets("Schema")
+    End If
+ 
+     MySheet.Cells.Clear
+    'Avond/Sessie   Wedstrijd   Teamnr_thuis    Teamnr_Uit  TeamThuis   TeamUit ImpsThuis   ImpsUit VPThuis Vpuit
+  'wedstrijd   Thuis1  Uit1    Thuis2  Uit2    Thuis3  Uit3    Thuis4  Uit4    Thuis5  Uit5    Thuis6  Uit6    Thuis7  Uit7    Thuis8  Uit8    Thuis9  Uit9    Thuis10 Uit10   Thuis11 Uit11   Thuis12 Uit12   Thuis13 Uit13   Thuis14 Uit14   Thuis15 Uit15   Thuis16 Uit16   Thuis17 Uit17   Thuis18 Uit18   Thuis19 Uit19   Thuis20 Uit20
+  
+    MySheet.Cells(2, Sessie_nr).Value = "wedstrijd"
+    For i = 1 To AANTALTEAMS \ 2
+        
+        MySheet.Cells(2, i * 2).Value = "Thuis" & i
+        MySheet.Cells(2, i * 2 + 1).Value = "Uit" & i
+   
+    Next
+    
+    'ingevuld wordt de eerste sessie de eerste wedstrijd
+ 
+    
+    '=ALS.FOUT(VERT.ZOEKEN(C2;Teams_Leden;2);"")
+    
+    'creeer rangename
+    Set rng = MySheet.Range(MySheet.Cells(2, 1), MySheet.Cells(3, varAantalTeams + 1))
+    'specify defined name
+    MyTableName = "Schema"
+    
+    MySheet.ListObjects.Add(xlSrcRange, rng, , xlYes).name = MyTableName
+     
+    StartBook.Save
+    Set rng = Nothing
+    Set MySheet = Nothing
+    Set StartBook = Nothing
+    xlApp.Application.DisplayAlerts = True
+    xlApp.Application.Quit
+    Set xlApp = Nothing
+    
 End Sub

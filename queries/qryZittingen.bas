@@ -15,17 +15,17 @@ Begin Joins
     RightTable ="tblUitslagen"
     Expression ="tblToernooi.ID = tblUitslagen.ToernooiID"
     Flag =1
-    LeftTable ="tblSessie"
-    RightTable ="tblUitslagen"
-    Expression ="tblSessie.id = tblUitslagen.SessieID"
+    LeftTable ="tblUitslagen"
+    RightTable ="tblSessie"
+    Expression ="tblUitslagen.SessieID = tblSessie.id"
     Flag =1
     LeftTable ="tblToernooi"
     RightTable ="tblSessie"
     Expression ="tblToernooi.ID = tblSessie.ToernooID"
     Flag =1
-    LeftTable ="tblUitslagen"
-    RightTable ="tblSessie"
-    Expression ="tblUitslagen.SessieID = tblSessie.id"
+    LeftTable ="tblSessie"
+    RightTable ="tblUitslagen"
+    Expression ="tblSessie.id = tblUitslagen.SessieID"
     Flag =1
 End
 Begin OrderBy
@@ -63,12 +63,12 @@ Begin
     State =0
     Left =0
     Top =0
-    Right =1076
-    Bottom =715
+    Right =800
+    Bottom =929
     Left =-1
     Top =-1
-    Right =1060
-    Bottom =470
+    Right =784
+    Bottom =453
     Left =0
     Top =0
     ColumnsShown =539

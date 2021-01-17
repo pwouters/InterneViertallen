@@ -9,9 +9,9 @@ Begin Form
     GridY =10
     Width =7371
     DatasheetFontHeight =11
-    ItemSuffix =6
-    Right =15870
-    Bottom =12240
+    ItemSuffix =7
+    Right =15795
+    Bottom =13680
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
         0x7c0eb60c8192e540
@@ -346,9 +346,9 @@ Begin Form
                     ColumnInfo ="\"\";\"\";\"\";\"\";\"3\";\"2\""
                     Name ="cboKiesTeam"
                     RowSourceType ="Table/Query"
-                    RowSource ="SELECT qryTeams_per_Toernooi.Teamnr, qryTeams_per_Toernooi.TeamNaam FROM qryTeam"
-                        "s_per_Toernooi WHERE (((qryTeams_per_Toernooi.ID)=lngToernooiID())) ORDER BY qry"
-                        "Teams_per_Toernooi.Teamnr; "
+                    RowSource ="SELECT qrOpstellingTeams.Teamnr, qrOpstellingTeams.TeamNaam FROM qrOpstellingTea"
+                        "ms WHERE (((qrOpstellingTeams.SessieID)=lngSessieID())) ORDER BY qrOpstellingTea"
+                        "ms.Teamnr; "
                     ColumnWidths ="455;2835"
                     GridlineColor =10921638
 
@@ -779,6 +779,26 @@ Begin Form
                     LayoutCachedHeight =5102
                     BorderThemeColorIndex =-1
                 End
+                Begin Label
+                    OverlapFlags =85
+                    TextAlign =2
+                    Left =3969
+                    Top =1814
+                    Width =2495
+                    Height =315
+                    FontWeight =700
+                    BorderColor =8355711
+                    ForeColor =-2147483617
+                    Name ="lblTeamNr"
+                    Caption ="Team"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =3969
+                    LayoutCachedTop =1814
+                    LayoutCachedWidth =6464
+                    LayoutCachedHeight =2129
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
+                End
             End
         End
         Begin FormFooter
@@ -816,6 +836,8 @@ Dim WijID As Long
     If (Me.optAlle = False Or IsNull(Me.optAlle)) And (Not IsNull(Me.cboKiesTeam)) Then
         WijID = DLookup("id", "tblTeams", "[Teamnr] = " & Me.cboKiesTeam & " and [ToernooiID] =" & lngToernooi)
         BerekenAlleStaten = False
+        Forms("Start_VT").[subProcess].Form.lblTeamNr.Visible = True
+        Forms("Start_VT").[subProcess].Form.lblTeamNr.Caption = "--- " & Me.cboKiesTeam & " ---"
         x = VulScoreKaartInSheet(CInt(Me.cboKiesTeam), Sessienr, 2, lngToernooi, ScorestaatIntern, ScorestaatExcel)
         
         If ScorestaatIntern Then
@@ -831,6 +853,7 @@ Dim WijID As Long
              'Me.cboKiesTabblad.Clear
             MySheet.Activate
         End If
+        Forms("Start_VT").[subProcess].Form.lblTeamNr.Visible = False
     Else
         If Me.optAlle = True Then
             BerekenAlleStaten = True
@@ -868,7 +891,7 @@ Private Sub Form_Open(Cancel As Integer)
 
          Set db = CurrentDb
          Set rs = db.OpenRecordset("select * from tblSessie where [ToernooiD] = " & lngToernooi & " and  [id]= " & lngSessie & " Order by Sessienr")
-         lngSessie = rs!id
+         lngSessie = rs!Id
          intSessienr = rs!Sessienr
          rs.Close
          db.Close
@@ -894,7 +917,8 @@ Private Sub Form_Open(Cancel As Integer)
      intUitvoerNaarHTML = True
      ScorestaatIntern = False
      ScorestaatExcel = True
-
+     Forms("Start_VT").[subProcess].Form.lblTeamNr.Visible = False
+     
 End Sub
 
 

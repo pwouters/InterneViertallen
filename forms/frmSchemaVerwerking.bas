@@ -436,7 +436,7 @@ Begin Form
                     BorderColor =8355711
                     ForeColor =8355711
                     Name ="lblSessie"
-                    Caption ="Sessie 11"
+                    Caption ="Sessie 7"
                     GridlineColor =10921638
                     LayoutCachedLeft =6462
                     LayoutCachedTop =6406
@@ -616,7 +616,7 @@ Dim rs As Recordset
 Dim MySheet As Worksheet
 Dim StartBook As Workbook
 Dim strWorkfile As String
-Dim question As Integer
+Dim Question As Integer
 Dim intSessienr As Integer
 Dim intTeamnr As Integer
 Dim sessieaanwezig As Integer
@@ -635,7 +635,7 @@ If Not fnExists(strWorkfile) Then
      Exit Sub
 End If
 
-ReDim TeamTegenstanders(AANTALTEAMS, WEDSTRIJDENPERSESSIE)
+ReDim TeamTegenstanders(AANTALTEAMS * 2, WEDSTRIJDENPERSESSIE)
 
 'bepaal welke rondes
 
@@ -662,7 +662,7 @@ Case 1
     rijteller = rijteller + 1
   Loop
    If Not sessieaanwezig Then
-        question = MsgBox("Er is nog geen opstelling aanwezig in de excel file")
+        Question = MsgBox("Er is nog geen opstelling aanwezig in de excel file")
         Set MySheet = Nothing
         Set StartBook = Nothing
         xlApp.Application.DisplayAlerts = True

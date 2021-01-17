@@ -21,6 +21,7 @@ Global STEPRESULTS  As String
 Global STEPDATA     As String
 Global LOCALSITE    As String
 Global LOCALHTML    As String
+Global WORKTEMPLATE As String
 Global ToernooiNaam   As String
 ' weergave in de tabbladen, Kan avond zijn meerdere wedstrijden etc
 Global PREFIX       As String
@@ -60,6 +61,14 @@ Global strExcel_Folder As String
 Global strHTML_Folder As String
 Global strTemplate_Folder As String
 Global strTemplate_File As String
+Global g_SpellenGespeeld As Integer
+
+Global g_MySheet As Worksheet
+Global g_TemplateBook As Workbook
+Global g_StartBook As Workbook
+Global g_TemplateSheet As Worksheet
+Global g_xlApp As Object
+
 
 'Leesbaar maken van de code
 '
@@ -164,13 +173,13 @@ Public Enum VPsTabel
 End Enum
 
 
-Public Sub InitToernooi(id As Variant)
+Public Sub InitToernooi(Id As Variant)
     Dim db          As Database
     Dim rs          As Recordset
     
-    If id <> lngToernooiOld Then
+    If Id <> lngToernooiOld Then
         Set db = CurrentDb
-        Set rs = db.OpenRecordset("select * from tblToernooi where id =" & id)
+        Set rs = db.OpenRecordset("select * from tblToernooi where id =" & Id)
         rs.MoveFirst
         ToernooiNaam = rs.Fields("ToernooiNaam")
         WORKID = rs.Fields("ID")
@@ -186,7 +195,7 @@ Public Sub InitToernooi(id As Variant)
         UITREKENVORM = rs.Fields("UITREKENVORM")
         
         
-        lngToernooi = id
+        lngToernooi = Id
         lngToernooiOld = lngToernooi
         rs.Close
         db.Close
@@ -194,12 +203,12 @@ Public Sub InitToernooi(id As Variant)
     
 End Sub
 
-Public Sub InitSessie(id As Variant)
+Public Sub InitSessie(Id As Variant)
     Dim db          As Database
     Dim rs          As Recordset
     Set db = CurrentDb
-    If id <> lngSessieOld Then
-        Set rs = db.OpenRecordset("select * from tblSessie where id =" & id)
+    If Id <> lngSessieOld Then
+        Set rs = db.OpenRecordset("select * from tblSessie where id =" & Id)
         rs.MoveFirst
         AANTALTEAMS = rs.Fields("AantalTeams")
         AANTALSPELLENPERWEDSTRIJD = rs.Fields("Aantalspellen")
@@ -246,7 +255,7 @@ Public Sub InitSessie(id As Variant)
         ActivityID = rs.Fields("ActivityID")
         Sessienaam = rs.Fields("Sessienaam")
         Sessienr = rs.Fields("Sessienr")
-        lngSessie = id
+        lngSessie = Id
         lngSessieOld = lngSessie
         rs.Close
         db.Close
@@ -275,8 +284,8 @@ Public Sub InitAll(ToernooiID As Variant, SessieID As Variant)
         PREFIX = rs.Fields("PREFIX")
         BEKERWEDSTRIJD = rs.Fields("BEKERWEDSTRIJD")
         UITREKENVORM = rs.Fields("UITREKENVORM")
-
-        lngToernooi = rs!id
+        WORKTEMPLATE = rs.Fields("WORKTEMPLATE")
+        lngToernooi = rs!Id
         lngToernooiOld = lngToernooi
         rs.Close
     End If
@@ -335,9 +344,10 @@ Public Sub InitAll(ToernooiID As Variant, SessieID As Variant)
     End If
     db.Close
     If CurrentProject.AllForms("Start_VT").IsLoaded = True Then
-        
         Forms("Start_VT").lblHuidigToernooi.Caption = ToernooiNaam
         Forms("Start_VT").lblHuidigeSessie.Caption = "Sessie " & Sessienr
+        Forms("Start_VT").lblWerkfolder.Caption = WORKFOLDER
+        Forms("Start_VT").lblWerkbestand.Caption = WORKFILE
     End If
     
 End Sub
@@ -418,7 +428,23 @@ Public Function GetFileName(strExcel_Folder) As String
         End If
     End With
 End Function
-
+Public Function GetAccessFileName(strAccess_Folder) As String
+    Dim lCount      As Long
+    Dim FileChosen  As Integer
+    GetAccessFileName = vbNullString
+    With Application.FileDialog(msoFileDialogFilePicker)
+        .AllowMultiSelect = False
+        .Title = "Kies Access bestand"
+        .Filters.Clear
+        .Filters.Add "Access Files", "*.accdb"
+        .InitialFileName = strAccess_Folder
+        '.Show
+        FileChosen = .Show
+        If FileChosen Then
+            GetAccessFileName = .SelectedItems(1)
+        End If
+    End With
+End Function
 Function KiesModelExcelBestandEnCopieer() As Integer
     Dim source, destination, src, dest As String
     
@@ -668,3 +694,162 @@ End Function
 Public Function fn_Gespeeld() As Integer
 fn_Gespeeld = GespeeldeRondes
 End Function
+Public Sub NonRecursiveMethod()
+    Dim fso, oFolder, oSubfolder, oFile, queue As Collection
+
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set queue = New Collection
+    queue.Add fso.GetFolder(GetDocumentsfolder)  'obviously replace
+
+    Do While queue.Count > 0
+        Set oFolder = queue(1)
+        queue.Remove 1 'dequeue
+        '...insert any folder processing code here...
+        For Each oSubfolder In oFolder.SubFolders
+            On Error GoTo ErrNext
+            queue.Add oSubfolder 'enqueue
+            If oSubfolder.name = "Stepviertallen" Then
+                Debug.Print oFolder.name
+                Exit Do
+            End If
+        Next oSubfolder
+'        For Each oFile In oFolder.Files
+'            Debug.Print oFile.name
+'            '...insert any file processing code here...
+'        Next oFile
+ErrNext:
+    Resume Next
+ 
+    Loop
+
+End Sub
+
+Public Sub FolderStructure()
+' standaard moet de applicatie komen onder user\...\Documents\stepviertallen\
+' Kijk even waar access onder gezet is
+
+    Dim strSpecialFolder As String
+    Dim SpecialFolder As String
+    Dim db As Database
+    Dim rs As Recordset
+    Dim ts As Recordset
+    Dim dbPath As String
+    Dim dbName As String
+    Dim tbl As TableDef
+    Dim strConnection As String
+    Dim Teller As Integer
+    Dim User As String
+    
+    dbPath = CurrentProject.Path & "\"
+    Set db = CurrentDb
+    User = Environ("username")
+    Set rs = db.OpenRecordset("tblUser")
+    Set ts = db.OpenRecordset("tblLinkTables")
+    dbName = ts!DataBaseName
+    
+    If rs!User <> User Then
+        If Not fnExists(dbPath & dbName) Then
+            dbPath = GetAccessFileName(dbPath)
+            If dbPath = "" Then
+                MsgBox "geen database gekozen, formulier wordt gesloten"
+                Exit Sub
+            End If
+            dbName = FileNameFromPath(dbPath)
+            dbPath = FolderFromPath(dbPath)
+            strConnection = "MS Access;DATABASE=" & dbPath & dbName
+            Set tbl = db.TableDefs(ts!TableName)
+            Err = 0
+            On Error Resume Next
+            tbl.Connect = strConnection
+            tbl.RefreshLink
+            If Err <> 0 Then
+                RefreshLinks = False
+                MsgBox "database gekozen is niet juist, formulier wordt gesloten"
+                Exit Sub
+            End If
+            On Error GoTo 0
+            ts.MoveFirst
+            Do While Not ts.EOF
+                ts.Edit
+                ts!DataBaseName = dbName
+                ts.Update
+                ts.MoveNext
+            Loop
+        End If
+        strConnection = "MS Access;DATABASE=" & dbPath & dbName
+        ts.MoveFirst
+        Do While Not ts.EOF
+            Set tbl = db.TableDefs(ts!TableName)
+            tbl.Connect = strConnection
+            tbl.RefreshLink         ' Relink the table.
+            ts.MoveNext
+        Loop
+        ts.Close
+        rs.Edit
+        rs!User = User
+        rs.Update
+        rs.Close
+   End If
+   
+   
+  
+   
+    
+    
+    
+    
+    
+    Set rs = db.OpenRecordset("tblFolders")
+    rs.MoveFirst
+    
+    SpecialFolder = "Documents"
+    strSpecialFolder = GetDocumentsfolder
+    
+    If rs!Documents <> strSpecialFolder Then
+        'vervang alle paden
+        rs.Edit
+        rs!Documents = strSpecialFolder
+        Teller = InStr(rs!ExcelFolder, SpecialFolder)
+        If Teller > 0 Then
+            rs!ExcelFolder = strSpecialFolder & Mid(rs!ExcelFolder, Teller + Len(SpecialFolder))
+        End If
+        Teller = InStr(rs!HTMLFolder, SpecialFolder)
+        If Teller > 0 Then
+            rs!HTMLFolder = strSpecialFolder & Mid(rs!HTMLFolder, Teller + Len(SpecialFolder))
+        End If
+        Teller = InStr(rs!TemplateFolder, SpecialFolder)
+        If Teller > 0 Then
+            rs!TemplateFolder = strSpecialFolder & Mid(rs!TemplateFolder, Teller + Len(SpecialFolder))
+        End If
+        rs.Update
+    
+
+    Set rs = db.OpenRecordset("tblToernooi")
+    rs.MoveFirst
+    
+    Do While Not rs.EOF
+        rs.Edit
+        Teller = InStr(rs!WORKFOLDER, SpecialFolder)
+        If Teller > 0 Then
+            rs!WORKFOLDER = strSpecialFolder & Mid(rs!WORKFOLDER, Teller + Len(SpecialFolder))
+        End If
+        Teller = InStr(rs!LOCALHTML, SpecialFolder)
+        If Teller > 0 Then
+            rs!LOCALHTML = strSpecialFolder & Mid(rs!LOCALHTML, Teller + Len(SpecialFolder))
+        End If
+        Teller = InStr(rs!WORKTEMPLATE, SpecialFolder)
+        If Teller > 0 Then
+            rs!WORKTEMPLATE = strSpecialFolder & Mid(rs!WORKTEMPLATE, Teller + Len(SpecialFolder))
+        End If
+        rs.Update
+        rs.MoveNext
+    Loop
+    
+   End If
+    rs.Close
+    db.Close
+    
+
+' ga er vanuit dat hij komt te staan of onder downloads of onder documents
+
+End Sub

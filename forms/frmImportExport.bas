@@ -9,9 +9,11 @@ Begin Form
     GridY =10
     Width =12132
     DatasheetFontHeight =11
-    ItemSuffix =12
-    Right =24420
-    Bottom =12240
+    ItemSuffix =16
+    Left =2520
+    Top =1200
+    Right =17445
+    Bottom =11070
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
         0xee32c2fe4f92e540
@@ -74,6 +76,24 @@ Begin Form
             PressedForeThemeColorIndex =0
             PressedForeTint =75.0
         End
+        Begin TextBox
+            AddColon = NotDefault
+            FELineBreak = NotDefault
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =11
+            FontName ="Calibri"
+            AsianLineBreak =1
+            BackThemeColorIndex =1
+            BorderThemeColorIndex =1
+            BorderShade =65.0
+            ThemeFontIndex =1
+            ForeThemeColorIndex =0
+            ForeTint =75.0
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+        End
         Begin ComboBox
             AddColon = NotDefault
             BorderLineStyle =0
@@ -135,7 +155,7 @@ Begin Form
             End
         End
         Begin Section
-            Height =4195
+            Height =4251
             Name ="Details"
             OnClick ="[Event Procedure]"
             AlternateBackColor =15921906
@@ -534,7 +554,7 @@ Begin Form
                     Overlaps =1
                 End
                 Begin CommandButton
-                    OverlapFlags =87
+                    OverlapFlags =95
                     Left =566
                     Top =2834
                     Width =2092
@@ -637,7 +657,7 @@ Begin Form
                     Overlaps =1
                 End
                 Begin CommandButton
-                    OverlapFlags =87
+                    OverlapFlags =95
                     Left =3401
                     Top =2267
                     Width =2271
@@ -653,6 +673,93 @@ Begin Form
                     LayoutCachedTop =2267
                     LayoutCachedWidth =5672
                     LayoutCachedHeight =2835
+                    BackColor =14461583
+                    BorderColor =14461583
+                    HoverColor =15189940
+                    PressedColor =9917743
+                    HoverForeColor =4210752
+                    PressedForeColor =4210752
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
+                    Overlaps =1
+                End
+                Begin CommandButton
+                    OverlapFlags =87
+                    Left =566
+                    Top =3401
+                    Width =2092
+                    Height =568
+                    TabIndex =15
+                    ForeColor =4210752
+                    Name ="btnTeamWijzingen"
+                    Caption ="Import TeamWijzigingen"
+                    OnClick ="[Event Procedure]"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =566
+                    LayoutCachedTop =3401
+                    LayoutCachedWidth =2658
+                    LayoutCachedHeight =3969
+                    BackColor =14461583
+                    BorderColor =14461583
+                    HoverColor =15189940
+                    PressedColor =9917743
+                    HoverForeColor =4210752
+                    PressedForeColor =4210752
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
+                    Overlaps =1
+                End
+                Begin CommandButton
+                    OverlapFlags =93
+                    Left =3401
+                    Top =3401
+                    Width =2271
+                    Height =568
+                    TabIndex =16
+                    ForeColor =4210752
+                    Name ="btnTransferUitslagenNaarSchema"
+                    Caption ="Excel Uitslagen --> Schema"
+                    OnClick ="[Event Procedure]"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =3401
+                    LayoutCachedTop =3401
+                    LayoutCachedWidth =5672
+                    LayoutCachedHeight =3969
+                    BackColor =14461583
+                    BorderColor =14461583
+                    HoverColor =15189940
+                    PressedColor =9917743
+                    HoverForeColor =4210752
+                    PressedForeColor =4210752
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
+                    Overlaps =1
+                End
+                Begin CommandButton
+                    OverlapFlags =87
+                    Left =3401
+                    Top =2834
+                    Width =2271
+                    Height =568
+                    TabIndex =17
+                    ForeColor =4210752
+                    Name ="btnCreeerSchema"
+                    Caption ="Schema"
+                    OnClick ="[Event Procedure]"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =3401
+                    LayoutCachedTop =2834
+                    LayoutCachedWidth =5672
+                    LayoutCachedHeight =3402
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -683,6 +790,29 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Compare Database
 
+Private Sub btnCreeerSchema_Click()
+Dim xlApp           As Object
+Dim sheetname       As String
+
+Dim MySheet         As Worksheet
+Dim StartBook       As Workbook
+sheetname = "Schema"
+Me.cboKiesTabblad = ""
+
+Call CreateSchemaSheet(AANTALTEAMS, WORKFOLDER, WORKFILE)
+Set xlApp = CreateObject("Excel.Application")
+
+xlApp.Application.Visible = True
+xlApp.Application.DisplayAlerts = False
+
+Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
+Set MySheet = StartBook.Worksheets("Schema")
+'test workfile
+    'Me.cboKiesTabblad.Clear
+MySheet.Activate
+
+End Sub
+
 Private Sub btnCreeerTeamNamen_Click()
 ' standaard  , nrs 1 tm N en naam Team1 tm TeamN
 
@@ -704,7 +834,7 @@ xlApp.Application.Visible = True
 xlApp.Application.DisplayAlerts = False
 
 Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
-Set MySheet = StartBook.Worksheets(sheetname)
+Set MySheet = StartBook.Worksheets("Teams")
 'test workfile
     'Me.cboKiesTabblad.Clear
 MySheet.Activate
@@ -773,7 +903,7 @@ xlApp.Application.Visible = True
 xlApp.Application.DisplayAlerts = False
 'SetForegroundWindow xlApp.Application.Hwnd
 Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
-Set MySheet = StartBook.Worksheets(sheetname)
+Set MySheet = StartBook.Worksheets("Kruistabel")
  AppActivate xlApp.Application.Caption
 'test workfile
     'Me.cboKiesTabblad.Clear
@@ -795,7 +925,7 @@ xlApp.Application.Visible = True
 xlApp.Application.DisplayAlerts = False
 
 Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
-Set MySheet = StartBook.Worksheets(sheetname)
+Set MySheet = StartBook.Worksheets("Team_Template")
 'test workfile
     'Me.cboKiesTabblad.Clear
  AppActivate xlApp.Application.Caption
@@ -809,6 +939,14 @@ If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
 Else
     DoCmd.BrowseTo acBrowseToForm, "frmBegin"
 End If
+End Sub
+
+Private Sub btnTeamWijzingen_Click()
+Call ImportTeamWijzigingen(lngToernooi, lngSessie)
+End Sub
+
+Private Sub btnTransferUitslagenNaarSchema_Click()
+ Call TransferUitslagenNaarSchema(WORKFOLDER, WORKFILE)
 End Sub
 
 Private Sub cboKiesTabblad_AfterUpdate()

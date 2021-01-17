@@ -14,10 +14,8 @@ Begin Form
     Width =14229
     DatasheetFontHeight =11
     ItemSuffix =50
-    Left =2865
-    Top =2085
-    Right =17535
-    Bottom =11955
+    Right =15795
+    Bottom =13680
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
         0x9b1f09e7d98fe540
@@ -816,6 +814,7 @@ Begin Form
                 End
                 Begin CommandButton
                     Visible = NotDefault
+                    Enabled = NotDefault
                     OverlapFlags =93
                     TextFontCharSet =177
                     Left =8503
@@ -1041,7 +1040,7 @@ Begin Form
                     Name ="UITREKENVORM"
                     ControlSource ="UITREKENVORM"
                     RowSourceType ="Value List"
-                    RowSource ="0;\"VPs\";1;\"Imps\";\"Patton\""
+                    RowSource ="0;\"VPs\";1;\"Imps\";2;\"Patton\""
                     ColumnWidths ="0;1701"
                     StatusBarText ="VPs = Viertallen, Imps = Beker, Patton in voorbereiding"
                     GridlineColor =10921638
@@ -1124,12 +1123,12 @@ Private Sub btnSessiegegevens_Click()
     Dim rs As Recordset
     
     Set db = CurrentDb
-    Set rs = db.OpenRecordset("Select * from tblSessie where ToernooiD = " & Me.id)
+    Set rs = db.OpenRecordset("Select * from tblSessie where ToernooiD = " & Me.Id)
     If rs.BOF And rs.EOF Then
     
         ' voeg een nieuw sessie record
         rs.AddNew
-        rs!ToernooID = Me.id
+        rs!ToernooID = Me.Id
         rs!Sessienr = 1
         rs!Sessienaam = Me.ToernooiNaam
         rs.Update
@@ -1137,14 +1136,14 @@ Private Sub btnSessiegegevens_Click()
         db.Close
     Else
         If lngSessie = 0 Then
-            lngSessie = rs!id
+            lngSessie = rs!Id
         End If
         rs.Close
         db.Close
     End If
     
     
-    lngToernooi = Me.id
+    lngToernooi = Me.Id
     
     'test even of al een sessie is anders maak een nieuwe sessie aan
     
@@ -1183,7 +1182,7 @@ Dim rs As Recordset
     Me.Bookmark = rs.Bookmark
     cboKiesToernooi = ""
     End If
-    lngToernooi = Me.id
+    lngToernooi = Me.Id
     lngSessie = DLookup("id", "tblSessie", "Sessienr=" & 1 & " and ToernooiD = " & lngToernooi)
     Call InitAll(lngToernooi, lngSessie)
 End Sub
@@ -1303,6 +1302,8 @@ Private Sub btnOpslaan_Click()
     Me.btnUndo.Visible = False
     Me.btnOpslaan.Enabled = False
     Me.btnUndo.Enabled = False
+    lngToernooiOld = 10000
+    lngSessieOld = 10000
     Call InitAll(lngToernooi, lngSessie)
     Forms!Start_VT!navClub.Visible = BEKERWEDSTRIJD
     Forms!Start_VT!navClub.Enabled = BEKERWEDSTRIJD
@@ -1336,12 +1337,12 @@ End Sub
 Private Sub Form_Current()
     Me.btnUndo.Enabled = False
     Me.btnUndo.Visible = False
-    If Not IsNull(Me.id) Then
-        lngToernooi = Me.id
+    If Not IsNull(Me.Id) Then
+        lngToernooi = Me.Id
     End If
     If Me.NewRecord = False Then
-        lngToernooi = Me.id
-        lngPK = Me.id
+        lngToernooi = Me.Id
+        lngPK = Me.Id
     End If
 End Sub
 

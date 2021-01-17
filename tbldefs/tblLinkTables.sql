@@ -1,0 +1,5 @@
+CREATE TABLE [tblLinkTables] (
+  [id] AUTOINCREMENT CONSTRAINT [PrimaryKey] PRIMARY KEY UNIQUE NOT NULL,
+  [TableName] VARCHAR (255),
+  [DatabaseName] VARCHAR (255)
+)

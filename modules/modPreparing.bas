@@ -4,7 +4,7 @@ Option Compare Database
 
 Public Sub TransferUitslagenNaarSchema(WORKFOLDER, WORKFILE As Variant)
 Dim ViertalUitslag, WebInf, StepRef, ScoreSheetHTML, UitslagHTML, UitslagenHTML, HTMLFolder As String
-Dim rijteller, teller, teller2, kolomteller, kolomteller2, kolomoffset, i, j, intWedstrijd As Integer
+Dim rijteller, Teller, teller2, kolomteller, kolomteller2, kolomoffset, i, j, intWedstrijd As Integer
 Dim intWebInfo As Integer
 
 Dim Thuis, Uit As Variant
@@ -67,7 +67,7 @@ Loop
 End Sub
 
 Public Sub ImportSchema(ToernID As Variant)
-Dim rijteller, teller, kolomteller, i, j, avond, ronde, Thuis, Uit, internImport, gevonden As Integer
+Dim rijteller, Teller, kolomteller, i, j, avond, ronde, Thuis, Uit, internImport, gevonden As Integer
 Dim tRows, tCols As Long
 Dim MySheet As Object
 Dim StartBook As Object
@@ -91,9 +91,9 @@ Dim intSchemaGeladen As Integer
     If Not (rs.BOF And rs.EOF) Then
         rs.Close
         db.Close
-        question = MsgBox("Schema is al geladen, wil je doorgaan J/N ", vbYesNo)
+        Question = MsgBox("Schema is al geladen, wil je doorgaan J/N ", vbYesNo)
         intSchemaGeladen = True
-        If question = vbNo Then
+        If Question = vbNo Then
             Exit Sub
         End If
     End If
@@ -210,11 +210,11 @@ Loop
 
 
 kolomteller = 1
-teller = 1
+Teller = 1
 
-Do While MySheet.Cells(rijteller + teller, 1).Value <> ""
+Do While MySheet.Cells(rijteller + Teller, 1).Value <> ""
 Paring = 1
-ronde = MySheet.Cells(rijteller + teller, 1)
+ronde = MySheet.Cells(rijteller + Teller, 1)
 'For teller = 1 To 15
        For i = 1 To AANTALTEAMS \ 2
         If Not intSchemaGeladen Then
@@ -240,12 +240,12 @@ ronde = MySheet.Cells(rijteller + teller, 1)
         rs!ToernooiID = ToernID
         rs!Wedstrijdronde = ronde
         rs!Paring = Paring
-        rs!TeamThuis = MySheet.Cells(rijteller + teller, i * 2)
-        rs!TeamUit = MySheet.Cells(rijteller + teller, i * 2 + 1)
+        rs!TeamThuis = MySheet.Cells(rijteller + Teller, i * 2)
+        rs!TeamUit = MySheet.Cells(rijteller + Teller, i * 2 + 1)
         rs.Update
         Paring = Paring + 1
         Next
-        teller = teller + 1
+        Teller = Teller + 1
  Loop
  
  
@@ -264,7 +264,7 @@ End Sub
 
 
 Public Sub MuteerExcelTeamUitslagen_Schema(ToernID As Variant, SessieID As Variant)
-Dim rijteller, teller, kolomteller, i, j, avond, sessieoffset As Integer
+Dim rijteller, Teller, kolomteller, i, j, avond, sessieoffset As Integer
 Dim MySheet As Object
 Dim StartBook As Object
 Dim Kolommen() As Variant
@@ -310,27 +310,27 @@ End If
 Set MySheet = StartBook.Worksheets("TeamUitslagen")
 rijteller = 1
 kolomteller = 1
-teller = 1
+Teller = 1
 
 'zoek
 ' for j = 1 to Aantalwedstrijd per sessie
 For j = sessieoffset + 1 To sessieofset + WEDSTRIJDENPERSESSIE
-    Do While MySheet.Cells(rijteller + teller, 2).Value <> j And MySheet.Cells(rijteller + teller, 2).Value <> ""
-        teller = teller + 1
+    Do While MySheet.Cells(rijteller + Teller, 2).Value <> j And MySheet.Cells(rijteller + Teller, 2).Value <> ""
+        Teller = Teller + 1
     Loop
     
-    If MySheet.Cells(rijteller + teller, 2).Value = "" Then Exit For
+    If MySheet.Cells(rijteller + Teller, 2).Value = "" Then Exit For
      Paring = 1
      Set rs = db.OpenRecordset("select * from tblSchema where [ToernooiID] = " & ToernID And " Wedstrijdronde = " & j & " Order By Wedstrijdronde ")
      rs.MoveFirst
-     Do While MySheet.Cells(rijteller + teller, 2).Value = j
-         MySheet.Cells(rijteller + teller, 3) = rs!TeamThuis
-         MySheet.Cells(rijteller + teller, 4) = rs!TeamUit
+     Do While MySheet.Cells(rijteller + Teller, 2).Value = j
+         MySheet.Cells(rijteller + Teller, 3) = rs!TeamThuis
+         MySheet.Cells(rijteller + Teller, 4) = rs!TeamUit
          rs.MoveNext
          'pas paring aan
-         teller = teller + 1
+         Teller = Teller + 1
      Loop
-     If MySheet.Cells(rijteller + teller, 2).Value = "" Then Exit For
+     If MySheet.Cells(rijteller + Teller, 2).Value = "" Then Exit For
      rs.Close
 Next
  
@@ -348,7 +348,7 @@ db.Close
 End Sub
 
 Public Sub AddExcelTeamUitslagen_Schema(ToernID As Variant, SessieID As Variant)
-Dim rijteller, teller, kolomteller, i, j, avond, sessieoffset As Integer
+Dim rijteller, Teller, kolomteller, i, j, avond, sessieoffset As Integer
 Dim MySheet As Object
 Dim StartBook As Object
 Dim Kolommen() As Variant
@@ -394,12 +394,12 @@ End If
 Set MySheet = StartBook.Worksheets("TeamUitslagen")
 rijteller = 1
 kolomteller = 1
-teller = 1
-j = MySheet.Cells(rijteller + teller, 2).Value
+Teller = 1
+j = MySheet.Cells(rijteller + Teller, 2).Value
 
-    Do While MySheet.Cells(rijteller + teller, 2).Value <> ""
-        j = MySheet.Cells(rijteller + teller, 2).Value
-        teller = teller + 1
+    Do While MySheet.Cells(rijteller + Teller, 2).Value <> ""
+        j = MySheet.Cells(rijteller + Teller, 2).Value
+        Teller = Teller + 1
     Loop
 
 If j > sessieoffset Then
@@ -415,13 +415,13 @@ For j = sessieoffset + 1 To sessieoffset + WEDSTRIJDENPERSESSIE
      Set rs = db.OpenRecordset("select * from tblSchema where [ToernooiID] = " & ToernID & " And  [Wedstrijdronde] = " & j & " Order By Paring ")
      rs.MoveFirst
      Do While Not rs.EOF
-         MySheet.Cells(rijteller + teller, 1).Value = Sessienr
-         MySheet.Cells(rijteller + teller, 2).Value = j
-         MySheet.Cells(rijteller + teller, 3).Value = rs!TeamThuis
-         MySheet.Cells(rijteller + teller, 4).Value = rs!TeamUit
+         MySheet.Cells(rijteller + Teller, 1).Value = Sessienr
+         MySheet.Cells(rijteller + Teller, 2).Value = j
+         MySheet.Cells(rijteller + Teller, 3).Value = rs!TeamThuis
+         MySheet.Cells(rijteller + Teller, 4).Value = rs!TeamUit
          rs.MoveNext
          'pas paring aan
-         teller = teller + 1
+         Teller = Teller + 1
      Loop
      rs.Close
 Next
@@ -440,7 +440,7 @@ db.Close
 End Sub
 
 Public Sub AddInternTeamUitslagen_Schema(ToernID As Variant, SessieID As Variant)
-Dim rijteller, teller, kolomteller, i, j, avond, sessieoffset As Integer
+Dim rijteller, Teller, kolomteller, i, j, avond, sessieoffset As Integer
 
 
 'altijd laatste sessie

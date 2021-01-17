@@ -746,21 +746,25 @@ Public Function ScoresheetRow(Boardnr As Variant, Contract As Variant, resultaat
     If Contract = "" Then
         strcontract = "&nbsp;"
     Else
-        hoogte = Val(Contract)
-        If hoogte = 0 Then
-            contracthoogte = "pass"
-            kleur = ""
+        If Contract = "Spel niet gespeeld" Then
+            strcontract = "Spel niet gespeeld"
         Else
-            contracthoogte = Left(Contract, 1)
-            kleur = Mid(Contract, 2)
-        End If
-        '
-        If InStr(kleur, "SA") > 0 Then
-            strcontract = contracthoogte & kleur
-        Else
-            strcontract = contracthoogte & ImageCard(Left(kleur, 1))
-            If Len(kleur) > 1 Then
-                strcontract = strcontract & Mid(kleur, 2)
+            hoogte = Val(Contract)
+            If hoogte = 0 Then
+                contracthoogte = "pass"
+                kleur = ""
+            Else
+                contracthoogte = Left(Contract, 1)
+                kleur = Mid(Contract, 2)
+            End If
+            '
+            If InStr(kleur, "SA") > 0 Then
+                strcontract = contracthoogte & kleur
+            Else
+                strcontract = contracthoogte & ImageCard(Left(kleur, 1))
+                If Len(kleur) > 1 Then
+                    strcontract = strcontract & Mid(kleur, 2)
+                End If
             End If
         End If
     End If
@@ -1013,8 +1017,14 @@ Public Function TeamResultheader() As String
     HTML = HTML & "   " & Align("th class=" & Chr(34) & "data" & Chr(34), "left", "0 15px") & "Tegen</th>" & vbCr
     HTML = HTML & "   " & Align("th class=" & Chr(34) & "data" & Chr(34), "right", "") & "Wij Imps</th>" & vbCr
     HTML = HTML & "   " & Align("th class=" & Chr(34) & "data" & Chr(34), "right", "") & "Zij Imps</th>" & vbCr
-    HTML = HTML & "   " & Align("th class=" & Chr(34) & "data" & Chr(34), "right", "") & "Wij VPs</th>" & vbCr
-    HTML = HTML & "   " & Align("th class=" & Chr(34) & "data" & Chr(34), "right", "") & "Zij VPs</th>" & vbCr
+    If UITREKENVORM = VPs_u Then
+        HTML = HTML & "   " & Align("th class=" & Chr(34) & "data" & Chr(34), "right", "") & "Wij VPs</th>" & vbCr
+        HTML = HTML & "   " & Align("th class=" & Chr(34) & "data" & Chr(34), "right", "") & "Zij VPs</th>" & vbCr
+    Else
+        HTML = HTML & "   " & Align("th class=" & Chr(34) & "data" & Chr(34), "right", "") & "Wij</th>" & vbCr
+        HTML = HTML & "   " & Align("th class=" & Chr(34) & "data" & Chr(34), "right", "") & "Zij</th>" & vbCr
+    End If
+    
     HTML = HTML & " </tr>" & vbCr
     HTML = HTML & "</thead>" & vbCr
     HTML = HTML & "<tbody>" & vbCr
@@ -1043,7 +1053,7 @@ End Function
 
 Public Function Teamkruisheader(Kolom() As Variant) As String
     Dim hmtl        As String
-    Dim teller      As Integer
+    Dim Teller      As Integer
     HTML = ""
     HTML = HTML & "   <tr>" & vbCr
     HTML = HTML & "   <td>" & vbCr
@@ -1052,13 +1062,13 @@ Public Function Teamkruisheader(Kolom() As Variant) As String
     HTML = HTML & " <tr>" & vbCr
     
     HTML = HTML & "  <th>" & Kolom(1) & "</th>" & vbCr
-    For teller = 2 To AANTALTEAMS + 1
+    For Teller = 2 To AANTALTEAMS + 1
         HTML = HTML & "  <th><div class=" & Chr(34) & "data-rotate-header-container" & Chr(34) & ">"
-        HTML = HTML & "<div class=" & Chr(34) & "data-rotate-header-content" & Chr(34) & ">" & Kolom(teller)
+        HTML = HTML & "<div class=" & Chr(34) & "data-rotate-header-content" & Chr(34) & ">" & Kolom(Teller)
         HTML = HTML & "</div></div></th>" & vbCr
     Next
-    For teller = AANTALTEAMS + 2 To AANTALTEAMS + 4
-        HTML = HTML & "  <th>" & Kolom(teller) & "</th>" & vbCr
+    For Teller = AANTALTEAMS + 2 To AANTALTEAMS + 4
+        HTML = HTML & "  <th>" & Kolom(Teller) & "</th>" & vbCr
     Next
     HTML = HTML & " </tr>" & vbCr
     HTML = HTML & "</thead>" & vbCr
@@ -1079,7 +1089,7 @@ End Function
 
 Public Function Teamkruisheaderrow(Kolom() As Variant, Teamnr As Variant) As String
     Dim HTML        As String
-    Dim teller      As Integer
+    Dim Teller      As Integer
     Dim b_href, e_href As String
     Dim info        As Integer
     Dim Tegenstander As Integer
@@ -1088,24 +1098,24 @@ Public Function Teamkruisheaderrow(Kolom() As Variant, Teamnr As Variant) As Str
     HTML = ""
     HTML = HTML & " <tr>" & vbCr
     HTML = HTML & Align("td style=" & Chr(34) & "background-color: #BEC8D1;" & Chr(34), "left", "") & Kolom(1) & "</td>" & vbCr
-    For teller = 2 To AANTALTEAMS + 1
+    For Teller = 2 To AANTALTEAMS + 1
         
-        If Kolom(teller) = "" Then
+        If Kolom(Teller) = "" Then
             HTML = HTML & Align("td", "center", "") & "&nbsp;" & "</td>" & vbCr
         Else
-            If Kolom(teller) = "xxx" Then
-                HTML = HTML & Align("td style=" & Chr(34) & "background-color: #cfe692;" & Chr(34), "center", "") & Kolom(teller) & "</td>" & vbCr
+            If Kolom(Teller) = "xxx" Then
+                HTML = HTML & Align("td style=" & Chr(34) & "background-color: #cfe692;" & Chr(34), "center", "") & Kolom(Teller) & "</td>" & vbCr
             Else
                 ' achtergrond
-                Tegenstander = teller - 1
+                Tegenstander = Teller - 1
                 avond = Team_Tegen_Avond(Teamnr, Tegenstander)
                 info = WebInfo(avond)
                 b_href = "<a href=" & Chr(34) & LOCALSITE & info & "/" & PREFIX & avond & "_Teamnr_" & Teamnr & ".html" & Chr(34) & ">"
-                If TEAMBYE > 0 And teller = TEAMBYE + 1 Then
+                If TEAMBYE > 0 And Teller = TEAMBYE + 1 Then
                     HTML = HTML & Align("td style=" & Chr(34) & "background-color: #b7c5b7;" & Chr(34), "center", "") & b_href & "&nbsp;---" & e_href & "</td>" & vbCr
                 Else
                     ' Tgenstander = teller -1
-                    HTML = HTML & Align("td style=" & Chr(34) & "background-color: #b7c5b7;" & Chr(34), "center", "") & b_href & Format(Kolom(teller), "#0.00") & e_href & "</td>" & vbCr
+                    HTML = HTML & Align("td style=" & Chr(34) & "background-color: #b7c5b7;" & Chr(34), "center", "") & b_href & Format(Kolom(Teller), "#0.00") & e_href & "</td>" & vbCr
                 End If
             End If
         End If
@@ -1119,16 +1129,16 @@ Public Function Teamkruisheaderrow(Kolom() As Variant, Teamnr As Variant) As Str
 End Function
 Public Function Byekruisheaderrow(Kolom() As Variant) As String
     Dim HTML        As String
-    Dim teller      As Integer
+    Dim Teller      As Integer
     HTML = ""
     HTML = HTML & " <tr>" & vbCr
     HTML = HTML & Align("td style=" & Chr(34) & "background-color: #BEC8D1;" & Chr(34), "left", "") & Kolom(1) & "</td>" & vbCr
-    For teller = 2 To AANTALTEAMS + 1
-        If Kolom(teller) = "" Then
+    For Teller = 2 To AANTALTEAMS + 1
+        If Kolom(Teller) = "" Then
             HTML = HTML & Align("td", "center", "") & "&nbsp;" & "</td>" & vbCr
         Else
-            If Kolom(teller) = "xxx" Then
-                HTML = HTML & Align("td style=" & Chr(34) & "background-color: #cfe692;" & Chr(34), "center", "") & Kolom(teller) & "&nbsp;" & "&nbsp;" & "</td>" & vbCr
+            If Kolom(Teller) = "xxx" Then
+                HTML = HTML & Align("td style=" & Chr(34) & "background-color: #cfe692;" & Chr(34), "center", "") & Kolom(Teller) & "&nbsp;" & "&nbsp;" & "</td>" & vbCr
             Else
                 ' achtergrond
                 HTML = HTML & Align("td style=" & Chr(34) & "background-color: #b7c5b7;" & Chr(34), "center", "") & "&nbsp;---" & "</td>" & vbCr

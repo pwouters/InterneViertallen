@@ -29,20 +29,64 @@ Begin
         dbText "Name" ="tblTeams.Teamnr"
         dbLong "AggregateType" ="-1"
     End
+    Begin
+        dbText "Name" ="tblTeams.Speler8"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="tblTeams.Speler3"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="tblTeams.Speler4"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="tblTeams.ClubTeamsID"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="tblTeams.id"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="tblTeams.TeamNaam"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="tblTeams.Speler6"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="tblTeams.Speler1"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="tblTeams.Speler7"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="tblTeams.Speler2"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="tblTeams.Speler5"
+        dbLong "AggregateType" ="-1"
+    End
 End
 Begin
     State =0
     Left =0
     Top =0
-    Right =0
-    Bottom =0
+    Right =1748
+    Bottom =929
     Left =-1
     Top =-1
-    Right =1330
-    Bottom =470
+    Right =1732
+    Bottom =453
     Left =0
     Top =0
-    ColumnsShown =521
+    ColumnsShown =539
     Begin
         Left =48
         Top =12

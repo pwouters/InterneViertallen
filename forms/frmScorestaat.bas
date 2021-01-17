@@ -11,10 +11,10 @@ Begin Form
     Width =17291
     DatasheetFontHeight =11
     ItemSuffix =12
-    Right =18090
-    Bottom =10245
+    Right =24675
+    Bottom =13680
     DatasheetGridlinesColor =15132391
-    Filter ="[ToernooiID] = 1 and [id] = 13"
+    Filter ="[ToernooiID] = 4"
     RecSrcDt = Begin
         0x9436a4437a92e540
     End
@@ -308,6 +308,10 @@ Dim rs As Recordset
   ' If Me.Dirty Then
    '   x = fnSaveRecords
    ' End If
+    Me.FilterOn = False
+    Me.Filter = "[ToernooiID] = " & lngToernooi
+     Me.FilterOn = True
+    
     Set rs = Me.Recordset
    
     Criterium = MyKeyIs & cboKiesTeam
@@ -333,8 +337,8 @@ If lngToernooi = 0 Then
     Call InitAll(lngToernooi, lngSessie)
 End If
 If CurrentProject.AllForms("Start_VT").IsLoaded = True Then
-    Me.cboKiesTeam.Visible = False
-    Me.cboKiesTeam.Enabled = False
+    Me.cboKiesTeam.Visible = True
+    Me.cboKiesTeam.Enabled = True
     Me.cboKiesSessie.Visible = False
     Me.cboKiesSessie.Enabled = False
     

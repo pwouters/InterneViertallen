@@ -18,7 +18,7 @@ Begin Form
     Right =17445
     Bottom =11070
     DatasheetGridlinesColor =15132391
-    Filter ="[ToernooiID]=1 and [SessieID] = 11"
+    Filter ="[ToernooiID]=5 and [SessieID] = 16"
     OrderBy ="[tblOpstelling].[ToernooiID], [tblOpstelling].[Sessie], [tblOpstelling].[Teamnr]"
     RecSrcDt = Begin
         0x7168df213190e540
@@ -250,7 +250,7 @@ Begin Form
                     Top =1539
                     Width =1050
                     Height =330
-                    ColumnWidth =540
+                    ColumnWidth =2295
                     ColumnOrder =3
                     TabIndex =3
                     BorderColor =10921638

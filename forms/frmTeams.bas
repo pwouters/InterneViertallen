@@ -3,6 +3,7 @@ VersionRequired =20
 Begin Form
     AutoCenter = NotDefault
     DividingLines = NotDefault
+    OrderByOn = NotDefault
     AllowDesignChanges = NotDefault
     DefaultView =2
     PictureAlignment =2
@@ -11,9 +12,12 @@ Begin Form
     Width =10209
     DatasheetFontHeight =11
     ItemSuffix =25
-    Right =12495
-    Bottom =10470
+    Left =2520
+    Top =1200
+    Right =17190
+    Bottom =11070
     DatasheetGridlinesColor =15132391
+    OrderBy ="[frmTeams].[Teamnr]"
     RecSrcDt = Begin
         0x33fa47739292e540
     End
@@ -149,7 +153,7 @@ Begin Form
                     Top =741
                     Width =1050
                     Height =330
-                    ColumnWidth =645
+                    ColumnWidth =3060
                     TabIndex =1
                     BorderColor =10921638
                     ForeColor =4210752

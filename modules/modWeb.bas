@@ -175,12 +175,12 @@ End Function
 Public Function grap_rijen(sRijen As Variant) As Variant
     Dim Rijen()     As String
     Dim i           As Integer
-    Dim teller      As Integer
+    Dim Teller      As Integer
     Rijen = Split(sRijen, "</tr>")
     For i = LBound(Rijen) To UBound(Rijen)
         Rijen(i) = Trim(Rijen(i))
-        teller = InStr(Rijen(i), ">")
-        Rijen(i) = Mid(Rijen(i), teller + 1)
+        Teller = InStr(Rijen(i), ">")
+        Rijen(i) = Mid(Rijen(i), Teller + 1)
     Next
     grap_rijen = Rijen
 End Function
@@ -188,13 +188,13 @@ End Function
 Public Function grap_cellen(sCellen As Variant) As Variant
     Dim Cellen()    As String
     Dim i           As Integer
-    Dim teller      As Integer
+    Dim Teller      As Integer
     Cellen = Split(sCellen, "</td>")
     For i = LBound(Cellen) To UBound(Cellen)
         Cellen(i) = Replace(Cellen(i), Chr(34), "")
         Cellen(i) = Trim(Cellen(i))
-        teller = InStr(Cellen(i), ">")
-        Cellen(i) = Trim(Mid(Cellen(i), teller + 1))
+        Teller = InStr(Cellen(i), ">")
+        Cellen(i) = Trim(Mid(Cellen(i), Teller + 1))
     Next
     grap_cellen = Cellen
 End Function

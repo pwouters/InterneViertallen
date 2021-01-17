@@ -7,7 +7,7 @@ Public Function ExportStepSchema(avond As Variant) As String
     
     Dim TeamThuis, TeamUit As Integer
     Dim ThuisSpeler1, UitSpeler1, ThuisSpeler2, UitSpeler3, ByeSpeler1, ByeSpeler3 As String
-    Dim teller, teller2, teller3, Tafel, AantalTafels  As Integer
+    Dim Teller, teller2, teller3, Tafel, AantalTafels  As Integer
     Dim schemarijteller As Integer
     Dim offsetopstelling As Integer
     Dim StepIndelingRonde() As String
@@ -73,21 +73,21 @@ Public Function ExportStepSchema(avond As Variant) As String
     schemarijteller = sessieoffset
     'wedstrijd 2   schemarijteller  + 1 of wel avond * 2
     
-    For teller = 1 To WEDSTRIJDENPERSESSIE * WEDSTRIJD
-        StepIndelingRonde(teller) = ""
-        StepIndelingRonde(teller) = StepIndelingRonde(teller) & "/schedule clear " & teller & vbCrLf
-        StepIndelingRonde(teller) = StepIndelingRonde(teller) & "/schedule Set " & teller
+    For Teller = 1 To WEDSTRIJDENPERSESSIE * WEDSTRIJD
+        StepIndelingRonde(Teller) = ""
+        StepIndelingRonde(Teller) = StepIndelingRonde(Teller) & "/schedule clear " & Teller & vbCrLf
+        StepIndelingRonde(Teller) = StepIndelingRonde(Teller) & "/schedule Set " & Teller
     Next
     
     For intRonde = 1 To WEDSTRIJDENPERSESSIE
         
         offsetopstelling = (avond - 1) * (AANTALTEAMS) + 1
         
-        For teller = 1 To AANTALTEAMS \ 2
+        For Teller = 1 To AANTALTEAMS \ 2
             
             TeamStilzit = 0
-            TeamThuis = SchemaSheet.Cells(schemarijteller + intRonde, teller * 2).Value
-            TeamUit = SchemaSheet.Cells(schemarijteller + intRonde, teller * 2 + 1).Value
+            TeamThuis = SchemaSheet.Cells(schemarijteller + intRonde, Teller * 2).Value
+            TeamUit = SchemaSheet.Cells(schemarijteller + intRonde, Teller * 2 + 1).Value
             ThuisSpeler1 = IndelingSheet.Cells(offsetopstelling + TeamThuis, 3).Value
             ThuisSpeler3 = IndelingSheet.Cells(offsetopstelling + TeamThuis, 5).Value
             UitSpeler1 = IndelingSheet.Cells(offsetopstelling + TeamUit, 3).Value
@@ -105,30 +105,30 @@ Public Function ExportStepSchema(avond As Variant) As String
                 ByeSpeler3 = IndelingSheet.Cells(offsetopstelling + TeamStilzit, 5).Value
             End If
             
-            If (teller <> AANTALTEAMS \ 2) Then
+            If (Teller <> AANTALTEAMS \ 2) Then
                 
                 'A1 thuis1 (speler1) - Uit1 (speler1)  ..   A2 Uit2 (Speler3)  - Thuis2 (Speler3)
                 'For intWedstrijd = 1 To aantalwedstrijden
                 If WEDSTRIJD = ENKEL Then
-                    StepIndelingRonde(intRonde) = StepIndelingRonde(intRonde) & ", A" & (teller * 2 - 1) & " " & ThuisSpeler1 & " " & UitSpeler1 & ", " & "A" & (teller * 2) & " " & UitSpeler3 & " " & ThuisSpeler3 & ""
+                    StepIndelingRonde(intRonde) = StepIndelingRonde(intRonde) & ", A" & (Teller * 2 - 1) & " " & ThuisSpeler1 & " " & UitSpeler1 & ", " & "A" & (Teller * 2) & " " & UitSpeler3 & " " & ThuisSpeler3 & ""
                 Else
-                    StepIndelingRonde((intRonde - 1) * 2 + 1) = StepIndelingRonde((intRonde - 1) * 2 + 1) & ", A" & (teller * 2 - 1) & " " & ThuisSpeler1 & " " & UitSpeler1 & ", " & "A" & (teller * 2) & " " & UitSpeler3 & " " & ThuisSpeler3 & ""
-                    StepIndelingRonde((intRonde) * 2) = StepIndelingRonde((intRonde) * 2) & ", A" & (teller * 2 - 1) & " " & ThuisSpeler1 & " " & UitSpeler3 & ", " & "A" & (teller * 2) & " " & UitSpeler1 & " " & ThuisSpeler3 & ""
+                    StepIndelingRonde((intRonde - 1) * 2 + 1) = StepIndelingRonde((intRonde - 1) * 2 + 1) & ", A" & (Teller * 2 - 1) & " " & ThuisSpeler1 & " " & UitSpeler1 & ", " & "A" & (Teller * 2) & " " & UitSpeler3 & " " & ThuisSpeler3 & ""
+                    StepIndelingRonde((intRonde) * 2) = StepIndelingRonde((intRonde) * 2) & ", A" & (Teller * 2 - 1) & " " & ThuisSpeler1 & " " & UitSpeler3 & ", " & "A" & (Teller * 2) & " " & UitSpeler1 & " " & ThuisSpeler3 & ""
                 End If
             Else
                 If TEAMBYE <> 0 Then
                     If WEDSTRIJD = ENKEL Then
-                        StepIndelingRonde(intRonde) = StepIndelingRonde(intRonde) & ", A" & (teller * 2 - 1) & (teller * 2 - 1) & " " & ByeSpeler1 & " " & ByeSpeler3 & vbCrLf
+                        StepIndelingRonde(intRonde) = StepIndelingRonde(intRonde) & ", A" & (Teller * 2 - 1) & (Teller * 2 - 1) & " " & ByeSpeler1 & " " & ByeSpeler3 & vbCrLf
                     Else
-                        StepIndelingRonde((intRonde - 1) * 2 + 1) = StepIndelingRonde((intRonde - 1) * 2 + 1) & ", A" & (teller * 2 - 1) & " " & ByeSpeler1 & " " & ByeSpeler3 & vbCrLf
-                        StepIndelingRonde((intRonde) * 2) = StepIndelingRonde((intRonde) * 2) & ", A" & (teller * 2 - 1) & " " & ByeSpeler3 & " " & ByeSpeler1 & vbCrLf
+                        StepIndelingRonde((intRonde - 1) * 2 + 1) = StepIndelingRonde((intRonde - 1) * 2 + 1) & ", A" & (Teller * 2 - 1) & " " & ByeSpeler1 & " " & ByeSpeler3 & vbCrLf
+                        StepIndelingRonde((intRonde) * 2) = StepIndelingRonde((intRonde) * 2) & ", A" & (Teller * 2 - 1) & " " & ByeSpeler3 & " " & ByeSpeler1 & vbCrLf
                     End If
                 Else
                     If WEDSTRIJD = ENKEL Then
-                        StepIndelingRonde(intRonde) = StepIndelingRonde(intRonde) & ", A" & (teller * 2 - 1) & " " & ThuisSpeler1 & " " & UitSpeler1 & ", " & "A" & (teller * 2) & " " & UitSpeler3 & " " & ThuisSpeler3 & "" & vbCrLf
+                        StepIndelingRonde(intRonde) = StepIndelingRonde(intRonde) & ", A" & (Teller * 2 - 1) & " " & ThuisSpeler1 & " " & UitSpeler1 & ", " & "A" & (Teller * 2) & " " & UitSpeler3 & " " & ThuisSpeler3 & "" & vbCrLf
                     Else
-                        StepIndelingRonde((intRonde - 1) * 2 - 1) = StepIndelingRonde((intRonde - 1) * 2 + 1) & ", A" & (teller * 2 - 1) & " " & ThuisSpeler1 & " " & UitSpeler1 & ", " & "A" & (teller * 2) & " " & UitSpeler3 & " " & ThuisSpeler3 & "" & vbCrLf
-                        StepIndelingRonde((intRonde - 1) * 2) = StepIndelingRonde((intRonde - 1) * 2) & ", A" & (teller * 2 - 1) & " " & ThuisSpeler1 & " " & UitSpeler3 & ", " & "A" & (teller * 2) & " " & UitSpeler1 & " " & ThuisSpeler3 & "" & vbCrLf
+                        StepIndelingRonde((intRonde - 1) * 2 - 1) = StepIndelingRonde((intRonde - 1) * 2 + 1) & ", A" & (Teller * 2 - 1) & " " & ThuisSpeler1 & " " & UitSpeler1 & ", " & "A" & (Teller * 2) & " " & UitSpeler3 & " " & ThuisSpeler3 & "" & vbCrLf
+                        StepIndelingRonde((intRonde - 1) * 2) = StepIndelingRonde((intRonde - 1) * 2) & ", A" & (Teller * 2 - 1) & " " & ThuisSpeler1 & " " & UitSpeler3 & ", " & "A" & (Teller * 2) & " " & UitSpeler1 & " " & ThuisSpeler3 & "" & vbCrLf
                     End If
                 End If
             End If
@@ -136,8 +136,8 @@ Public Function ExportStepSchema(avond As Variant) As String
     Next
     
     strSchema = ""
-    For teller = 1 To WEDSTRIJDENPERSESSIE * WEDSTRIJD
-        strSchema = strSchema & StepIndelingRonde(teller)
+    For Teller = 1 To WEDSTRIJDENPERSESSIE * WEDSTRIJD
+        strSchema = strSchema & StepIndelingRonde(Teller)
     Next
     ExportStepSchema = strSchema
     

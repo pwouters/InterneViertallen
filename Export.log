@@ -3,7 +3,7 @@ Beginning Export of all Source
 InterneViertallen.accdb
 VCS Version 3.2.2
 Using Fast Save
-4-1-2021 14:42:40
+17-1-2021 16:21:08
 -------------------------------------
 -------------------------------------
 Exporting themes...           
@@ -33,19 +33,20 @@ No imex specs found in this database.
 Exporting db properties...    
   Database Properties (DAO)
 [53]
-  Removing orphaned file: tbl_1_Opstelling.xml
-  Removing orphaned file: tbl_1_Opstelling.xml
-  Removing orphaned file: tbl_1_Schema.xml
-  Removing orphaned file: tbl_1_Schema.xml
-  Removing orphaned file: tbl_1_Teams.xml
-  Removing orphaned file: tbl_1_Teams.xml
-  Removing orphaned file: tbl_1_Uitslagen.xml
-  Removing orphaned file: tbl_1_Uitslagen.xml
-  Removing orphaned file: tbl_1_WebInfo.xml
-  Removing orphaned file: tbl_1_WebInfo.xml
+  Removing orphaned file: tblconstanten.json
+  Removing orphaned file: tblconstanten.json
+  Removing orphaned file: tblToernooiSchema.json
+  Removing orphaned file: tblToernooiSchema.json
+  Removing orphaned file: tblWedstrijd.json
+  Removing orphaned file: tblWedstrijd.json
+  Removing orphaned file: tbl_1_Teamuitslagen.json
+  Removing orphaned file: tbl_1_Teamuitslagen.json
+  Removing orphaned file: tbl_temp_Uitslagen.json
+  Removing orphaned file: tbl_temp_Uitslagen.json
 -------------------------------------
 Exporting tables...           
-  (Skipping 'imps')
+  imps
+  imps (SQL)
   tbl_1_Opstelling
   tbl_1_Opstelling (SQL)
   tbl_1_Schema
@@ -58,105 +59,153 @@ Exporting tables...
   tbl_1_Uitslagen (SQL)
   tbl_1_WebInfo
   tbl_1_WebInfo (SQL)
+  tbl_4_Uitslagen
+  tbl_4_Uitslagen (SQL)
+  tbl_5_Uitslagen
+  tbl_5_Uitslagen (SQL)
+  tbl_6_Uitslagen
+  tbl_6_Uitslagen (SQL)
+  tbl_7_Uitslagen
+  tbl_7_Uitslagen (SQL)
   tbl_temp_Uitslagen
   tbl_temp_Uitslagen (SQL)
   tblClubTeams
   tblClubTeams (SQL)
-  (Skipping 'tblconstanten')
-  (Skipping 'tblFolders')
-  (Skipping 'tblGroepen')
+  tblFolders
+  tblFolders (SQL)
+  tblGroepen
+  tblGroepen (SQL)
   tblIndeling
   tblIndeling (SQL)
-  (Skipping 'tblOpstelling')
-  (Skipping 'tblSchema')
-  (Skipping 'tblScorestaat')
+  tblLinkTables
+  tblLinkTables (SQL)
+  tblOpstelling
+  tblOpstelling (SQL)
+  tblSchema
+  tblSchema (SQL)
+  tblScorestaat
+  tblScorestaat (SQL)
   tblSessie
   tblSessie (SQL)
   tblTeams
   tblTeams (SQL)
+  tblTeamWijzingen
+  tblTeamWijzingen (SQL)
   tblToernooi
   tblToernooi (SQL)
-  (Skipping 'tblToernooiSchema')
-  (Skipping 'tblUitslagen')
-  (Skipping 'tblWebInfo')
-  (Skipping 'tblWedstrijd')
-  (Skipping 'vps')
-[24]
+  tblUitslagen
+  tblUitslagen (SQL)
+  tblUser
+  tblUser (SQL)
+  tblWebInfo
+  tblWebInfo (SQL)
+  vps
+  vps (SQL)
+[28]
 -------------------------------------
 Exporting queries...          
-  (Skipping 'qry_1_Uitslagen')
-  (Skipping 'qry_e_1_Uitslagen')
-  qryGespeeldeWedstrijden
+  qrOpstellingTeams
     Sanitized in 0,00 seconds.
-  qryGespeeldeWedstrijden (SQL)
-  (Skipping 'qryTeams')
+  qrOpstellingTeams (SQL)
+  qry_1_Uitslagen
+    Sanitized in 0,00 seconds.
+  qry_1_Uitslagen (SQL)
+  qry_e_1_Uitslagen
+    Sanitized in 0,00 seconds.
+  qry_e_1_Uitslagen (SQL)
+  (Skipping 'qryGespeeldeWedstrijden')
+  qrySessieWedstrijdNummer
+    Sanitized in 0,00 seconds.
+  qrySessieWedstrijdNummer (SQL)
+  qryTeams
+    Sanitized in 0,00 seconds.
+  qryTeams (SQL)
   qryTeams_per_Toernooi
     Sanitized in 0,00 seconds.
   qryTeams_per_Toernooi (SQL)
-  (Skipping 'qryThuiswedstrijden')
+  qryThuiswedstrijden
+    Sanitized in 0,00 seconds.
+  qryThuiswedstrijden (SQL)
+  qryThuiswedstrijdenImps
+    Sanitized in 0,00 seconds.
+  qryThuiswedstrijdenImps (SQL)
   qryToernooiSessie
     Sanitized in 0,00 seconds.
   qryToernooiSessie (SQL)
-  qryUitwedstrijden
+  qryUitslagen
     Sanitized in 0,00 seconds.
-  qryUitwedstrijden (SQL)
+  qryUitslagen (SQL)
+  (Skipping 'qryUitwedstrijden')
+  qryUitwedstrijdenImps
+    Sanitized in 0,00 seconds.
+  qryUitwedstrijdenImps (SQL)
   qryWedstrijden
     Sanitized in 0,00 seconds.
   qryWedstrijden (SQL)
   qryWedstrijden_Kruistabel
     Sanitized in 0,00 seconds.
   qryWedstrijden_Kruistabel (SQL)
-  (Skipping 'qryZittingen')
+  qryWedstrijdenImps
+    Sanitized in 0,00 seconds.
+  qryWedstrijdenImps (SQL)
+  qryZittingen
+    Sanitized in 0,00 seconds.
+  qryZittingen (SQL)
   (Skipping 'Query1')
   (Skipping 'UpdateTeamIDtblOpstelling')
-[13]
+[19]
 -------------------------------------
 Exporting forms...            
   Toernooigegevens
-    Sanitized in 0,01 seconds.
-  (Skipping 'frmFolders')
-  Start_VT
-    Sanitized in 0,01 seconds.
-  frmWebInfo
     Sanitized in 0,00 seconds.
-  (Skipping 'frmOpstelling')
+  frmFolders
+    Sanitized in 0,00 seconds.
+  Start_VT
+    Sanitized in 0,02 seconds.
+  (Skipping 'frmWebInfo')
+  frmOpstelling
+    Sanitized in 0,00 seconds.
   (Skipping 'frmStepID')
   Sessiegegevens
-    Sanitized in 0,01 seconds.
-  (Skipping 'tblScorestaat')
+    Sanitized in 0,02 seconds.
+  tblScorestaat
+    Sanitized in 0,02 seconds.
   (Skipping 'frmProcess')
-  (Skipping 'frmScorestaat')
+  frmScorestaat
+    Sanitized in 0,00 seconds.
   (Skipping 'frmCopy')
-  (Skipping 'frmTeamUitslagen')
+  frmTeamUitslagen
+    Sanitized in 0,00 seconds.
+  frmTeamWijzingen
+    Sanitized in 0,01 seconds.
   (Skipping 'frmOverzichZittingen')
   (Skipping 'frmDisplay')
   frmStand
-    Sanitized in 0,00 seconds.
+    Sanitized in 0,02 seconds.
   frmImportExport
-    Sanitized in 0,00 seconds.
+    Sanitized in 0,01 seconds.
   frmBegin
     Sanitized in 0,01 seconds.
   frmBereken
     Sanitized in 0,01 seconds.
-  (Skipping 'frmTeams')
-  frmClubTeams
-    Sanitized in 0,00 seconds.
+  frmTeams
+    Sanitized in 0,01 seconds.
+  (Skipping 'frmClubTeams')
   frmSchema
-    Sanitized in 0,00 seconds.
+    Sanitized in 0,01 seconds.
   frmSchemaVerwerking
     Sanitized in 0,01 seconds.
   frmNieuwToernooi
-    Sanitized in 0,02 seconds.
-  frmIndeling
     Sanitized in 0,01 seconds.
-  frmIndelingmaken
-    Sanitized in 0,01 seconds.
-[25]
+  (Skipping 'frmIndeling')
+  (Skipping 'frmIndelingmaken')
+  frmImportExcel
+    Sanitized in 0,00 seconds.
+[27]
 -------------------------------------
 Exporting macros...           
   (Skipping 'autoexec')
 [1]
-  Removing orphaned file: modExportSchema.bas
 -------------------------------------
 Exporting modules...          
   modCreateNextRound
@@ -175,28 +224,27 @@ No reports found in this database.
 No table data found in this database.
 -------------------------------------
 No table data macros found in this database.
+  Removing orphaned file: tblClubTeamstblTeams
+  Removing orphaned file: tblSessietblIndeling
+  Removing orphaned file: tblSessietblOpstelling
+  Removing orphaned file: tblSessietblScorestaat
+  Removing orphaned file: tblSessietblUitslagen
+  Removing orphaned file: tblSessietblWebInfo1
+  Removing orphaned file: tblTeamstblIndeling
+  Removing orphaned file: tblTeamstblIndeling1
+  Removing orphaned file: tblTeamstblScorestaat1
+  Removing orphaned file: tblTeamstblUitslagen
+  Removing orphaned file: tblTeamstblUitslagen1
+  Removing orphaned file: tblTeamstblUitslagen2
+  Removing orphaned file: tblToernooitblIndeling
+  Removing orphaned file: tblToernooitblOpstelling
+  Removing orphaned file: tblToernooitblScorestaat
+  Removing orphaned file: tblToernooitblSessie
+  Removing orphaned file: tblToernooitblTeams
+  Removing orphaned file: tblToernooitblUitslagen
+  Removing orphaned file: tblToernooitblWebInfo
 -------------------------------------
-Exporting relations...        
-  tblClubTeamstblTeams
-  tblSessietblIndeling
-  tblSessietblOpstelling
-  tblSessietblScorestaat
-  tblSessietblUitslagen
-  tblSessietblWebInfo1
-  tblTeamstblIndeling
-  tblTeamstblIndeling1
-  tblTeamstblScorestaat1
-  tblTeamstblUitslagen
-  tblTeamstblUitslagen1
-  tblTeamstblUitslagen2
-  tblToernooitblIndeling
-  tblToernooitblOpstelling
-  tblToernooitblScorestaat
-  tblToernooitblSessie
-  tblToernooitblTeams
-  tblToernooitblUitslagen
-  tblToernooitblWebInfo
-[19]
+No relations found in this database.
 -------------------------------------
 Exporting doc properties...   
   Database Documents
@@ -206,45 +254,44 @@ Exporting nav pane groups...
   Groups
 [1]
 -------------------------------------
-Done. (13,91 seconds)
+Done. (8,77 seconds)
 
 -------------------------------------
         PERFORMANCE REPORTS
 -------------------------------------
 Object Type         Count     Seconds
 -------------------------------------
-themes              1         0,02
-VB project          1         0,03
+themes              1         0,01
+VB project          1         0,02
 vbe references      5         0,05
-proj properties     1         0,02
-db properties       53        0,38
-tables              24        9,43
-queries             13        0,46
-forms               25        1,11
+proj properties     1         0,00
+db properties       53        0,42
+tables              28        2,89
+queries             19        2,22
+forms               27        1,66
 macros              1         0,00
-modules             9         0,84
-relations           19        0,79
-doc properties      2         0,05
-nav pane groups     1         0,04
+modules             9         0,66
+doc properties      2         0,04
+nav pane groups     1         0,02
 -------------------------------------
-TOTALS:             155       13,20
+TOTALS:             148       7,97
 
 -------------------------------------
 Operations          Count     Seconds
 -------------------------------------
-Console Updates     5         0,19
-Extract Theme       1         0,01
-Clear Orphaned      6         0,36
-Delete File         57        0,03
-Unicode Check       47        0,09
-Write to Disk       47        0,07
-Save Table SQL      12        7,86
-Increment Progress  8         0,16
-App.ExportXML()     7         0,25
-App.SaveAsText()    29        1,19
-Read File           20        0,02
-Sanitize File       20        0,12
-Save Query SQL      6         0,01
-Other Operations              3,57
+Console Updates     5         0,15
+Extract Theme       1         0,00
+Unicode Check       97        0,17
+Write to Disk       97        0,12
+Clear Orphaned      6         0,46
+Delete File         96        0,09
+Save Table SQL      28        1,89
+Increment Progress  9         0,18
+App.ExportXML()     8         0,05
+App.SaveAsText()    42        2,60
+Read File           33        0,02
+Sanitize File       33        0,21
+Save Query SQL      15        0,05
+Other Operations              2,77
 
 

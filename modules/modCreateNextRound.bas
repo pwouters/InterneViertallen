@@ -11,7 +11,7 @@ Private intStand        As Integer
 Private intRondesGesp   As Integer
 Private intRondeStand   As Integer
 Private H()             As Integer
-Private id()            As Integer
+Private Id()            As Integer
 Private VanAfViert      As Integer
 Private TotEnMet        As Integer
 Private T, U            As Integer
@@ -21,7 +21,7 @@ Private strIndeling     As String
 
 Public Function BepaalZwitsers(varTeams As Variant, rondestand As Variant, Aantalrondesgespeeld As Variant, strWorkfolder As Variant, strWorkfile As Variant, Optional MaxRonde As Variant) As Variant
     ' werkt vanuit excel bestand
-    Dim teller          As Integer
+    Dim Teller          As Integer
     Dim kolomteller     As Integer
     Dim i, j            As Integer
     Dim MySheet         As Object
@@ -50,7 +50,7 @@ Public Function BepaalZwitsers(varTeams As Variant, rondestand As Variant, Aanta
     ReDim Gemiddelde(varTeams)
     ReDim Gespeeld(varTeams, varTeams)
     ReDim H(varTeams)
-    ReDim id(varTeams \ 2, 1)
+    ReDim Id(varTeams \ 2, 1)
     ReDim Tegenstanders(varTeams, MaxRonde)
     ReDim WedstrijdenGespeeld(varTeams)
     
@@ -137,10 +137,10 @@ Public Function BepaalZwitsers(varTeams As Variant, rondestand As Variant, Aanta
         Stand(Rang(i)) = i
     Next
     
-    For teller = 1 To varTeams
+    For Teller = 1 To varTeams
         For kolomteller = 1 To intRondesGesp
-            Gespeeld(teller, Tegenstanders(teller, kolomteller)) = True
-            Gespeeld(Tegenstanders(teller, kolomteller), teller) = True
+            Gespeeld(Teller, Tegenstanders(Teller, kolomteller)) = True
+            Gespeeld(Tegenstanders(Teller, kolomteller), Teller) = True
         Next
     Next
     
@@ -154,18 +154,18 @@ Public Function BepaalZwitsers(varTeams As Variant, rondestand As Variant, Aanta
         strIndeling = "Geen Combinatie"
     Else
         For i = 1 To varTeams \ 2
-            TotalThuis = Format(Total(id(i, 0)), "#0.00")
+            TotalThuis = Format(Total(Id(i, 0)), "#0.00")
             TotalThuis = String(6 - Len(TotalThuis), " ") & TotalThuis
-            TotalUit = Format(Total(id(i, 1)), "#0.00")
+            TotalUit = Format(Total(Id(i, 1)), "#0.00")
             TotalUit = String(6 - Len(TotalUit), " ") & TotalUit
             
-            strIndeling = strIndeling & Format(id(i, 0), "00") & " - " & Format(id(i, 1), "00") & "  |  Total " & TotalThuis & " - " & TotalUit
-            strIndeling = strIndeling & " |  " & Format(Rang(id(i, 0)), "00") & " - " & Format(Rang(id(i, 1)), "00") & vbCr
+            strIndeling = strIndeling & Format(Id(i, 0), "00") & " - " & Format(Id(i, 1), "00") & "  |  Total " & TotalThuis & " - " & TotalUit
+            strIndeling = strIndeling & " |  " & Format(Rang(Id(i, 0)), "00") & " - " & Format(Rang(Id(i, 1)), "00") & vbCr
             
         Next
     End If
     
-    BepaalZwitsers = id
+    BepaalZwitsers = Id
     
     Set MySheet = Nothing
     Set StartBook = Nothing
@@ -177,7 +177,7 @@ End Function
 
 Public Function BepaalDeens(varTeams As Variant, rondestand As Variant, Aantalrondesgespeeld As Variant, strWorkfolder As Variant, strWorkfile As Variant, Optional MaxRonde As Variant) As Variant
     ' werkt vanuit excel bestand
-    Dim teller          As Integer
+    Dim Teller          As Integer
     Dim kolomteller     As Integer
     Dim i, j            As Integer
     Dim MySheet         As Object
@@ -206,7 +206,7 @@ Public Function BepaalDeens(varTeams As Variant, rondestand As Variant, Aantalro
     ReDim Gemiddelde(varTeams)
     ReDim Gespeeld(varTeams, varTeams)
     ReDim H(varTeams)
-    ReDim id(varTeams \ 2, 1)
+    ReDim Id(varTeams \ 2, 1)
     ReDim Tegenstanders(varTeams, MaxRonde)
     ReDim WedstrijdenGespeeld(varTeams)
     
@@ -294,8 +294,8 @@ Public Function BepaalDeens(varTeams As Variant, rondestand As Variant, Aantalro
 'Deens
   
 For i = 1 To varTeams \ 2
-    id(i, 0) = Stand((i - 1) * 2 + 1)
-    id(i, 1) = Stand(i * 2)
+    Id(i, 0) = Stand((i - 1) * 2 + 1)
+    Id(i, 1) = Stand(i * 2)
 Next
   
     
@@ -307,18 +307,18 @@ Next
         strIndeling = "Geen Combinatie"
     Else
         For i = 1 To varTeams \ 2
-            TotalThuis = Format(Total(id(i, 0)), "#0.00")
+            TotalThuis = Format(Total(Id(i, 0)), "#0.00")
             TotalThuis = String(6 - Len(TotalThuis), " ") & TotalThuis
-            TotalUit = Format(Total(id(i, 1)), "#0.00")
+            TotalUit = Format(Total(Id(i, 1)), "#0.00")
             TotalUit = String(6 - Len(TotalUit), " ") & TotalUit
             
-            strIndeling = strIndeling & Format(id(i, 0), "00") & " - " & Format(id(i, 1), "00") & "  |  Total " & TotalThuis & " - " & TotalUit
-            strIndeling = strIndeling & " |  " & Format(Rang(id(i, 0)), "00") & " - " & Format(Rang(id(i, 1)), "00") & vbCr
+            strIndeling = strIndeling & Format(Id(i, 0), "00") & " - " & Format(Id(i, 1), "00") & "  |  Total " & TotalThuis & " - " & TotalUit
+            strIndeling = strIndeling & " |  " & Format(Rang(Id(i, 0)), "00") & " - " & Format(Rang(Id(i, 1)), "00") & vbCr
             
         Next
     End If
     
-    BepaalDeens = id
+    BepaalDeens = Id
     Set MySheet = Nothing
     Set StartBook = Nothing
     xlApp.Application.DisplayAlerts = True
@@ -439,10 +439,10 @@ Public Sub RekenZwitsers(varTeams)
                 
                 'Wis indeling
                 For i = 1 To Paringen
-                    Gespeeld(id(i, 0), id(i, 1)) = False
-                    Gespeeld(id(i, 1), id(i, 0)) = False
-                    id(i, 0) = 0
-                    id(i, 1) = 0
+                    Gespeeld(Id(i, 0), Id(i, 1)) = False
+                    Gespeeld(Id(i, 1), Id(i, 0)) = False
+                    Id(i, 0) = 0
+                    Id(i, 1) = 0
                 Next
                 
                 GoTo 600
@@ -456,8 +456,8 @@ Public Sub RekenZwitsers(varTeams)
             Paringen = Paringen + 1
             If Stand(T) = 0 Then Stand(T) = 16
             If Stand(U) = 0 Then Stand(U) = 16
-            id(Paringen, 0) = Stand(T)
-            id(Paringen, 1) = Stand(U)
+            Id(Paringen, 0) = Stand(T)
+            Id(Paringen, 1) = Stand(U)
             
             Gespeeld(Stand(T), Stand(U)) = True
             Gespeeld(Stand(U), Stand(T)) = True
@@ -476,7 +476,7 @@ Public Sub RekenZwitsers(varTeams)
 
 
 Public Function RekenRandom(varTeams As Variant, Aantalrondesgespeeld As Variant, strWorkfolder As Variant, strWorkfile As Variant, Optional MaxRonde As Variant) As Variant
-    Dim teller          As Integer
+    Dim Teller          As Integer
     Dim kolomteller     As Integer
     Dim i, j, n, k         As Integer
     Dim intParingen     As Integer
@@ -502,7 +502,7 @@ Public Function RekenRandom(varTeams As Variant, Aantalrondesgespeeld As Variant
     
     ReDim Gespeeld(varTeams, varTeams)
     ReDim H(varTeams)
-    ReDim id(varTeams \ 2, 1)
+    ReDim Id(varTeams \ 2, 1)
     ReDim Tegenstanders(varTeams, MaxRonde)
     ReDim WedstrijdenGespeeld(varTeams)
 
@@ -571,10 +571,10 @@ Public Function RekenRandom(varTeams As Variant, Aantalrondesgespeeld As Variant
     End If
     
     If intRondesGesp > 0 Then
-        For teller = 1 To varTeams
+        For Teller = 1 To varTeams
             For kolomteller = 1 To intRondesGesp
-                Gespeeld(teller, Tegenstanders(teller, kolomteller)) = True
-                Gespeeld(Tegenstanders(teller, kolomteller), teller) = True
+                Gespeeld(Teller, Tegenstanders(Teller, kolomteller)) = True
+                Gespeeld(Tegenstanders(Teller, kolomteller), Teller) = True
             Next
         Next
     End If
@@ -596,16 +596,16 @@ Public Function RekenRandom(varTeams As Variant, Aantalrondesgespeeld As Variant
                 k = k + 1
                 n = Int(Rnd * (.Count - 1) + 1)
                 Thuis = numCollection(n)
-                id(k, 0) = Thuis
+                Id(k, 0) = Thuis
                 .Remove n
                 'trek uit ploeg
                 Nietgespeeld = False
                 Do While .Count > 0
                     n = Int(Rnd * (.Count - 1) + 1)
                     Uit = numCollection(n)
-                    If Not Gespeeld(id(k, 0), Uit) Then
+                    If Not Gespeeld(Id(k, 0), Uit) Then
                         Nietgespeeld = True
-                        id(k, 1) = Uit
+                        Id(k, 1) = Uit
                         .Remove n
                         Exit Do
                     End If
@@ -620,15 +620,15 @@ Public Function RekenRandom(varTeams As Variant, Aantalrondesgespeeld As Variant
     'Display nieuwe indeling
         strIndeling = ""
 For i = 1 To varTeams \ 2
-    strIndeling = strIndeling & Format(id(i, 0), "00") & " - " & Format(id(i, 1), "00") & vbCr
+    strIndeling = strIndeling & Format(Id(i, 0), "00") & " - " & Format(Id(i, 1), "00") & vbCr
 Next
     'toevoegen aan
- RekenRandom = id
+ RekenRandom = Id
 End Function
 
 Public Function BepaalZwitsersIntern(varTeams As Variant, rondestand As Variant, Aantalrondesgespeeld As Variant, ToernID As Variant, Optional MaxRonde As Variant) As Variant
 
-Dim teller          As Integer
+Dim Teller          As Integer
 Dim kolomteller     As Integer
 Dim i, j            As Integer
 Dim Thuisnr, UitNr  As Integer
@@ -658,7 +658,7 @@ ReDim Rang(varTeams)
 ReDim Gemiddelde(varTeams)
 ReDim Gespeeld(varTeams, varTeams)
 ReDim H(varTeams)
-ReDim id(varTeams \ 2, 1)
+ReDim Id(varTeams \ 2, 1)
 ReDim Tegenstanders(varTeams, MaxRonde)
 ReDim WedstrijdenGespeeld(varTeams)
 
@@ -719,10 +719,10 @@ ReDim WedstrijdenGespeeld(varTeams)
     Next
     
     
-    For teller = 1 To varTeams
+    For Teller = 1 To varTeams
         For kolomteller = 1 To intRondesGesp
-             Gespeeld(teller, Tegenstanders(teller, kolomteller)) = True
-             Gespeeld(Tegenstanders(teller, kolomteller), teller) = True
+             Gespeeld(Teller, Tegenstanders(Teller, kolomteller)) = True
+             Gespeeld(Tegenstanders(Teller, kolomteller), Teller) = True
         Next
    Next
     
@@ -737,25 +737,25 @@ If GeenCombinatie Then
     strIndeling = "Geen Combinatie"
 Else
     For i = 1 To varTeams \ 2
-        TotalThuis = Format(Total(id(i, 0)), "#0.00")
+        TotalThuis = Format(Total(Id(i, 0)), "#0.00")
         TotalThuis = String(6 - Len(TotalThuis), " ") & TotalThuis
-        TotalUit = Format(Total(id(i, 1)), "#0.00")
+        TotalUit = Format(Total(Id(i, 1)), "#0.00")
         TotalUit = String(6 - Len(TotalUit), " ") & TotalUit
         
         
-        strIndeling = strIndeling & Format(id(i, 0), "00") & " - " & Format(id(i, 1), "00") & "  |  Total " & TotalThuis & " - " & TotalUit
-        strIndeling = strIndeling & " |  " & Format(Rang(id(i, 0)), "00") & " - " & Format(Rang(id(i, 1)), "00") & vbCr
+        strIndeling = strIndeling & Format(Id(i, 0), "00") & " - " & Format(Id(i, 1), "00") & "  |  Total " & TotalThuis & " - " & TotalUit
+        strIndeling = strIndeling & " |  " & Format(Rang(Id(i, 0)), "00") & " - " & Format(Rang(Id(i, 1)), "00") & vbCr
     
     Next
 End If
 
-BepaalZwitsersIntern = id
+BepaalZwitsersIntern = Id
 
 
 End Function
 
 Public Function RekenRandomIntern(varTeams As Variant, Aantalrondesgespeeld As Variant, ToernID As Variant, Optional MaxRonde As Variant) As Variant
-    Dim teller          As Integer
+    Dim Teller          As Integer
     Dim kolomteller     As Integer
     Dim i, j, n, k         As Integer
     Dim intParingen     As Integer
@@ -781,7 +781,7 @@ Public Function RekenRandomIntern(varTeams As Variant, Aantalrondesgespeeld As V
     
     ReDim Gespeeld(varTeams, varTeams)
     ReDim H(varTeams)
-    ReDim id(varTeams \ 2, 1)
+    ReDim Id(varTeams \ 2, 1)
     ReDim Tegenstanders(varTeams, MaxRonde)
     ReDim WedstrijdenGespeeld(varTeams)
 
@@ -813,10 +813,10 @@ If intRondesGesp > 0 Then
     End If
     
     If intRondesGesp > 0 Then
-        For teller = 1 To varTeams
+        For Teller = 1 To varTeams
             For kolomteller = 1 To intRondesGesp
-                Gespeeld(teller, Tegenstanders(teller, kolomteller)) = True
-                Gespeeld(Tegenstanders(teller, kolomteller), teller) = True
+                Gespeeld(Teller, Tegenstanders(Teller, kolomteller)) = True
+                Gespeeld(Tegenstanders(Teller, kolomteller), Teller) = True
             Next
         Next
     End If
@@ -840,16 +840,16 @@ If intRondesGesp > 0 Then
                 Randomize
                 n = Int(Rnd * (.Count) + 1)
                 Thuis = numCollection(n)
-                id(k, 0) = Thuis
+                Id(k, 0) = Thuis
                 .Remove n
                 'trek uit ploeg
                 Nietgespeeld = False
                 Do While .Count > 0
                     n = Int(Rnd * (.Count) + 1)
                     Uit = numCollection(n)
-                    If Not Gespeeld(id(k, 0), Uit) Then
+                    If Not Gespeeld(Id(k, 0), Uit) Then
                         Nietgespeeld = True
-                        id(k, 1) = Uit
+                        Id(k, 1) = Uit
                         .Remove n
                         Exit Do
                     End If
@@ -862,16 +862,16 @@ If intRondesGesp > 0 Then
     Loop
     strIndeling = ""
 For i = 1 To varTeams \ 2
-    strIndeling = strIndeling & Format(id(i, 0), "00") & " - " & Format(id(i, 1), "00") & vbCr
+    strIndeling = strIndeling & Format(Id(i, 0), "00") & " - " & Format(Id(i, 1), "00") & vbCr
 Next
     'Display nieuwe indeling
     
     'toevoegen aan
- RekenRandomIntern = id
+ RekenRandomIntern = Id
 End Function
 Public Function BepaalDeensIntern(varTeams As Variant, Aantalrondesgespeeld As Variant, ToernID As Variant, Optional MaxRonde As Variant) As Variant
 
-Dim teller          As Integer
+Dim Teller          As Integer
 Dim kolomteller     As Integer
 Dim i, j            As Integer
 Dim Thuisnr, UitNr  As Integer
@@ -901,7 +901,7 @@ ReDim Rang(varTeams)
 ReDim Gemiddelde(varTeams)
 ReDim Gespeeld(varTeams, varTeams)
 ReDim H(varTeams)
-ReDim id(varTeams \ 2, 1)
+ReDim Id(varTeams \ 2, 1)
 ReDim Tegenstanders(varTeams, MaxRonde)
 ReDim WedstrijdenGespeeld(varTeams)
 
@@ -972,8 +972,8 @@ ReDim WedstrijdenGespeeld(varTeams)
     
 
 For i = 1 To varTeams \ 2
-    id(i, 0) = Stand((i - 1) * 2 + 1)
-    id(i, 1) = Stand(i * 2)
+    Id(i, 0) = Stand((i - 1) * 2 + 1)
+    Id(i, 1) = Stand(i * 2)
 Next
 
 
@@ -985,16 +985,16 @@ strIndeling = ""
 Dim TotalThuis, TotalUit    As String
 
 For i = 1 To varTeams \ 2
-    TotalThuis = Format(Total(id(i, 0)), "#0.00")
+    TotalThuis = Format(Total(Id(i, 0)), "#0.00")
     TotalThuis = String(6 - Len(TotalThuis), " ") & TotalThuis
-    TotalUit = Format(Total(id(i, 1)), "#0.00")
+    TotalUit = Format(Total(Id(i, 1)), "#0.00")
     TotalUit = String(6 - Len(TotalUit), " ") & TotalUit
-    strIndeling = strIndeling & Format(id(i, 0), "00") & " - " & Format(id(i, 1), "00") & "  |  Total " & TotalThuis & " - " & TotalUit
-    strIndeling = strIndeling & " |  " & Format(Rang(id(i, 0)), "00") & " - " & Format(Rang(id(i, 1)), "00") & vbCr
+    strIndeling = strIndeling & Format(Id(i, 0), "00") & " - " & Format(Id(i, 1), "00") & "  |  Total " & TotalThuis & " - " & TotalUit
+    strIndeling = strIndeling & " |  " & Format(Rang(Id(i, 0)), "00") & " - " & Format(Rang(Id(i, 1)), "00") & vbCr
 Next
 
 
-BepaalDeensIntern = id
+BepaalDeensIntern = Id
 
 
 End Function
@@ -1003,56 +1003,56 @@ End Function
 
 
 Public Function BepaalIndeling1234(varTeams As Variant, ToernID As Variant, Optional MaxRonde As Variant) As Variant
-    ReDim id(varTeams \ 2, 1)
+    ReDim Id(varTeams \ 2, 1)
     For i = 1 To varTeams \ 2
-        id(i, 0) = (i - 1) * 2 + 1
-        id(i, 1) = i * 2
+        Id(i, 0) = (i - 1) * 2 + 1
+        Id(i, 1) = i * 2
     Next
-    Bepaal1234 = id
+    Bepaal1234 = Id
 End Function
 
 'indeling 1 - 3 4 - 2
 
 Public Function BepaalIndeling1342(varTeams As Variant, ToernID As Variant, Optional MaxRonde As Variant) As Variant
-    ReDim id(varTeams \ 2, 1)
+    ReDim Id(varTeams \ 2, 1)
     For i = 1 To varTeams \ 2
     If i Mod 2 = 1 Then
-        id(i, 0) = (i - 1) * 2 + 1
-        id(i, 1) = i * 2 + 1
+        Id(i, 0) = (i - 1) * 2 + 1
+        Id(i, 1) = i * 2 + 1
     Else
-         id(i, 0) = i * 2
-         id(i, 1) = (i - 1) * 2
+         Id(i, 0) = i * 2
+         Id(i, 1) = (i - 1) * 2
     End If
         
     Next
            strIndeling = ""
 For i = 1 To varTeams \ 2
-    strIndeling = strIndeling & Format(id(i, 0), "00") & " - " & Format(id(i, 1), "00") & vbCr
+    strIndeling = strIndeling & Format(Id(i, 0), "00") & " - " & Format(Id(i, 1), "00") & vbCr
 Next
     'toevoegen aan
- BepaalIndeling1342 = id
+ BepaalIndeling1342 = Id
 
 End Function
 'indeling 1 - 4 2 - 3
 
 
 Public Function BepaalIndeling1423(varTeams As Variant, ToernID As Variant, Optional MaxRonde As Variant) As Variant
-    ReDim id(varTeams \ 2, 1)
+    ReDim Id(varTeams \ 2, 1)
     For i = 1 To varTeams \ 2
     If i Mod 2 = 1 Then
-        id(i, 0) = (i - 1) * 2 + 1
-        id(i, 1) = i * 2 + 2
+        Id(i, 0) = (i - 1) * 2 + 1
+        Id(i, 1) = i * 2 + 2
     Else
-         id(i, 0) = (i - 1) * 2
-         id(i, 1) = (i - 1) * 2 + 1
+         Id(i, 0) = (i - 1) * 2
+         Id(i, 1) = (i - 1) * 2 + 1
     End If
         
     Next
                strIndeling = ""
 For i = 1 To varTeams \ 2
-    strIndeling = strIndeling & Format(id(i, 0), "00") & " - " & Format(id(i, 1), "00") & vbCr
+    strIndeling = strIndeling & Format(Id(i, 0), "00") & " - " & Format(Id(i, 1), "00") & vbCr
 Next
     'toevoegen aan
  
-    BepaalIndeling1423 = id
+    BepaalIndeling1423 = Id
 End Function

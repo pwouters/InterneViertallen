@@ -13,10 +13,8 @@ Begin Form
     Width =10780
     DatasheetFontHeight =11
     ItemSuffix =33
-    Left =2865
-    Top =2085
-    Right =17535
-    Bottom =11955
+    Right =14490
+    Bottom =11685
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
         0x6f1d1de43490e540
@@ -529,7 +527,7 @@ Set rs = db.OpenRecordset("tblSessie")
     rs!AantalWedstrijdenPerSessie = WEDSTRIJDENPERSESSIE
     rs.Update
     rs.Bookmark = rs.LastModified
-    lngSessie = rs!id
+    lngSessie = rs!Id
     
 rs.Close
 db.Close
@@ -549,7 +547,7 @@ End Sub
 
 
 Private Sub btnSluiten_Click()
-    DoCmd.Close
+    DoCmd.Quit
 End Sub
 
 Private Sub cboKiesSessie_AfterUpdate()
@@ -598,7 +596,7 @@ Private Sub Form_Open(Cancel As Integer)
 
          Set db = CurrentDb
          Set rs = db.OpenRecordset("select * from tblSessie where [ToernooiD] = " & lngToernooi & " and  [id]= " & lngSessie & " Order by Sessienr")
-         lngSessie = rs!id
+         lngSessie = rs!Id
          intSessienr = rs!Sessienr
          rs.Close
          db.Close

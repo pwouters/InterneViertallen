@@ -11,9 +11,9 @@ Begin Form
     GridY =10
     Width =17801
     DatasheetFontHeight =11
-    ItemSuffix =79
-    Right =15870
-    Bottom =12240
+    ItemSuffix =85
+    Right =20445
+    Bottom =11685
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
         0x0c9bee322f90e540
@@ -284,7 +284,7 @@ Begin Form
                     TextAlign =1
                     Left =1050
                     Top =60
-                    Width =6960
+                    Width =2925
                     Height =460
                     FontSize =18
                     BorderColor =6968388
@@ -294,10 +294,9 @@ Begin Form
                     FontName ="Calibri Light"
                     GroupTable =3
                     GridlineColor =10921638
-                    HorizontalAnchor =2
                     LayoutCachedLeft =1050
                     LayoutCachedTop =60
-                    LayoutCachedWidth =8010
+                    LayoutCachedWidth =3975
                     LayoutCachedHeight =520
                     ColumnStart =1
                     ColumnEnd =1
@@ -311,9 +310,10 @@ Begin Form
                 End
                 Begin Label
                     OverlapFlags =85
-                    Left =8503
+                    TextAlign =2
+                    Left =4025
                     Top =56
-                    Width =7935
+                    Width =3915
                     Height =315
                     FontWeight =700
                     BorderColor =8355711
@@ -321,28 +321,67 @@ Begin Form
                     Name ="lblHuidigToernooi"
                     Caption ="Viertallen Intern BC70 & Meierij"
                     GridlineColor =10921638
-                    LayoutCachedLeft =8503
+                    LayoutCachedLeft =4025
                     LayoutCachedTop =56
-                    LayoutCachedWidth =16438
+                    LayoutCachedWidth =7940
                     LayoutCachedHeight =371
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                 End
                 Begin Label
                     OverlapFlags =85
-                    Left =8503
+                    TextAlign =2
+                    Left =4025
                     Top =396
-                    Width =7935
+                    Width =3915
                     Height =315
                     FontWeight =700
                     BorderColor =8355711
                     ForeColor =-2147483617
                     Name ="lblHuidigeSessie"
-                    Caption ="Sessie 8"
+                    Caption ="Sessie 7"
                     GridlineColor =10921638
-                    LayoutCachedLeft =8503
+                    LayoutCachedLeft =4025
                     LayoutCachedTop =396
-                    LayoutCachedWidth =16438
+                    LayoutCachedWidth =7940
+                    LayoutCachedHeight =711
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
+                End
+                Begin Label
+                    OverlapFlags =85
+                    Left =8163
+                    Top =57
+                    Width =6585
+                    Height =315
+                    FontWeight =700
+                    BorderColor =8355711
+                    ForeColor =-2147483617
+                    Name ="lblWerkbestand"
+                    Caption ="Interne_Viertallen.xlsx"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =8163
+                    LayoutCachedTop =57
+                    LayoutCachedWidth =14748
+                    LayoutCachedHeight =372
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
+                End
+                Begin Label
+                    OverlapFlags =85
+                    Left =8163
+                    Top =396
+                    Width =6525
+                    Height =315
+                    FontWeight =700
+                    BorderColor =8355711
+                    ForeColor =-2147483617
+                    Name ="lblWerkfolder"
+                    Caption ="C:\\Users\\pgjmw\\Documents\\StepViertallen\\Excel\\"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =8163
+                    LayoutCachedTop =396
+                    LayoutCachedWidth =14688
                     LayoutCachedHeight =711
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
@@ -376,7 +415,7 @@ Begin Form
                     LayoutCachedWidth =2460
                     LayoutCachedHeight =10470
                     LayoutGroup =1
-                    NavigationSubform ="NavigatieSubformulier"
+                    NavigationSubform ="subProcess"
                     Span =1
                     GridlineColor =10921638
                     GroupTable =2
@@ -552,6 +591,7 @@ Begin Form
                             GroupTable =1
                             ForeThemeColorIndex =1
                             ForeTint =100.0
+                            Overlaps =1
                         End
                         Begin NavigationButton
                             OverlapFlags =87
@@ -605,8 +645,9 @@ Begin Form
                             Height =567
                             TabIndex =5
                             ForeColor =16777215
-                            Name ="navclub"
-                            Caption ="Bekerwedstrijden"
+                            Name ="navMutaties"
+                            Caption ="Team Mutaties"
+                            StatusBarText ="Team Mutaties tijdens de speeldag"
                             GroupTable =1
                             LeftPadding =0
                             TopPadding =0
@@ -621,7 +662,7 @@ Begin Form
                             RowStart =5
                             RowEnd =5
                             LayoutGroup =3
-                            NavigationTargetName ="frmClubTeams"
+                            NavigationTargetName ="frmTeamWijzingen"
                             NavigationTargetType =32768
                             HoverColor =15189940
                             HoverThemeColorIndex =4
@@ -639,8 +680,10 @@ Begin Form
                             GroupTable =1
                             ForeThemeColorIndex =1
                             ForeTint =100.0
+                            Overlaps =1
                         End
                         Begin NavigationButton
+                            Enabled = NotDefault
                             OverlapFlags =87
                             Left =360
                             Top =3795
@@ -648,8 +691,8 @@ Begin Form
                             Height =570
                             TabIndex =6
                             ForeColor =16777215
-                            Name ="Navigatieknop13"
-                            Caption ="Opstelling"
+                            Name ="navclub"
+                            Caption ="Bekerwedstrijden"
                             GroupTable =1
                             LeftPadding =0
                             TopPadding =0
@@ -664,7 +707,7 @@ Begin Form
                             RowStart =6
                             RowEnd =6
                             LayoutGroup =3
-                            NavigationTargetName ="frmOpstelling"
+                            NavigationTargetName ="frmClubTeams"
                             NavigationTargetType =32768
                             HoverColor =15189940
                             HoverThemeColorIndex =4
@@ -692,8 +735,8 @@ Begin Form
                             Height =570
                             TabIndex =7
                             ForeColor =16777215
-                            Name ="navTeamUitslag"
-                            Caption ="Team Uitslagen"
+                            Name ="Navigatieknop13"
+                            Caption ="Opstelling"
                             GroupTable =1
                             LeftPadding =0
                             TopPadding =0
@@ -708,7 +751,7 @@ Begin Form
                             RowStart =7
                             RowEnd =7
                             LayoutGroup =3
-                            NavigationTargetName ="frmTeamUitslagen"
+                            NavigationTargetName ="frmOpstelling"
                             NavigationTargetType =32768
                             HoverColor =15189940
                             HoverThemeColorIndex =4
@@ -736,8 +779,8 @@ Begin Form
                             Height =570
                             TabIndex =8
                             ForeColor =16777215
-                            Name ="navStand"
-                            Caption ="Team Stand"
+                            Name ="navTeamUitslag"
+                            Caption ="Team Uitslagen"
                             GroupTable =1
                             LeftPadding =0
                             TopPadding =0
@@ -752,7 +795,7 @@ Begin Form
                             RowStart =8
                             RowEnd =8
                             LayoutGroup =3
-                            NavigationTargetName ="frmStand"
+                            NavigationTargetName ="frmTeamUitslagen"
                             NavigationTargetType =32768
                             HoverColor =15189940
                             HoverThemeColorIndex =4
@@ -780,8 +823,8 @@ Begin Form
                             Height =570
                             TabIndex =9
                             ForeColor =16777215
-                            Name ="navStep"
-                            Caption ="Step script"
+                            Name ="navStand"
+                            Caption ="Team Stand"
                             GroupTable =1
                             LeftPadding =0
                             TopPadding =0
@@ -796,7 +839,7 @@ Begin Form
                             RowStart =9
                             RowEnd =9
                             LayoutGroup =3
-                            NavigationTargetName ="frmDisplay"
+                            NavigationTargetName ="frmStand"
                             NavigationTargetType =32768
                             HoverColor =15189940
                             HoverThemeColorIndex =4
@@ -824,8 +867,8 @@ Begin Form
                             Height =570
                             TabIndex =10
                             ForeColor =16777215
-                            Name ="navImportExport"
-                            Caption ="Import/Export"
+                            Name ="navStep"
+                            Caption ="Step script"
                             GroupTable =1
                             LeftPadding =0
                             TopPadding =0
@@ -840,7 +883,7 @@ Begin Form
                             RowStart =10
                             RowEnd =10
                             LayoutGroup =3
-                            NavigationTargetName ="frmImportExport"
+                            NavigationTargetName ="frmDisplay"
                             NavigationTargetType =32768
                             HoverColor =15189940
                             HoverThemeColorIndex =4
@@ -868,8 +911,8 @@ Begin Form
                             Height =570
                             TabIndex =11
                             ForeColor =16777215
-                            Name ="navBasisFolders"
-                            Caption ="Basis Folders"
+                            Name ="navImportExport"
+                            Caption ="Import/Export"
                             GroupTable =1
                             LeftPadding =0
                             TopPadding =0
@@ -884,7 +927,7 @@ Begin Form
                             RowStart =11
                             RowEnd =11
                             LayoutGroup =3
-                            NavigationTargetName ="frmFolders"
+                            NavigationTargetName ="frmImportExport"
                             NavigationTargetType =32768
                             HoverColor =15189940
                             HoverThemeColorIndex =4
@@ -912,8 +955,8 @@ Begin Form
                             Height =570
                             TabIndex =12
                             ForeColor =16777215
-                            Name ="Navigatieknop11"
-                            Caption ="WebInfo"
+                            Name ="navBasisFolders"
+                            Caption ="Basis Folders"
                             GroupTable =1
                             LeftPadding =0
                             TopPadding =0
@@ -928,7 +971,7 @@ Begin Form
                             RowStart =12
                             RowEnd =12
                             LayoutGroup =3
-                            NavigationTargetName ="frmStepID"
+                            NavigationTargetName ="frmFolders"
                             NavigationTargetType =32768
                             HoverColor =15189940
                             HoverThemeColorIndex =4
@@ -956,8 +999,8 @@ Begin Form
                             Height =570
                             TabIndex =13
                             ForeColor =16777215
-                            Name ="navschema"
-                            Caption ="Indeling"
+                            Name ="Navigatieknop11"
+                            Caption ="WebInfo"
                             GroupTable =1
                             LeftPadding =0
                             TopPadding =0
@@ -972,7 +1015,7 @@ Begin Form
                             RowStart =13
                             RowEnd =13
                             LayoutGroup =3
-                            NavigationTargetName ="frmSchema"
+                            NavigationTargetName ="frmStepID"
                             NavigationTargetType =32768
                             HoverColor =15189940
                             HoverThemeColorIndex =4
@@ -1000,8 +1043,8 @@ Begin Form
                             Height =570
                             TabIndex =14
                             ForeColor =16777215
-                            Name ="navschemaverwerking"
-                            Caption ="Schemaverwerking"
+                            Name ="navschema"
+                            Caption ="Indeling"
                             GroupTable =1
                             LeftPadding =0
                             TopPadding =0
@@ -1016,7 +1059,7 @@ Begin Form
                             RowStart =14
                             RowEnd =14
                             LayoutGroup =3
-                            NavigationTargetName ="frmSchemaVerwerking"
+                            NavigationTargetName ="frmSchema"
                             NavigationTargetType =32768
                             HoverColor =15189940
                             HoverThemeColorIndex =4
@@ -1041,8 +1084,52 @@ Begin Form
                             Left =360
                             Top =8925
                             Width =2100
-                            Height =405
+                            Height =570
                             TabIndex =15
+                            ForeColor =16777215
+                            Name ="navschemaverwerking"
+                            Caption ="Schemaverwerking"
+                            GroupTable =1
+                            LeftPadding =0
+                            TopPadding =0
+                            RightPadding =0
+                            BottomPadding =0
+                            GridlineColor =10921638
+
+                            LayoutCachedLeft =360
+                            LayoutCachedTop =8925
+                            LayoutCachedWidth =2460
+                            LayoutCachedHeight =9495
+                            RowStart =15
+                            RowEnd =15
+                            LayoutGroup =3
+                            NavigationTargetName ="frmSchemaVerwerking"
+                            NavigationTargetType =32768
+                            HoverColor =15189940
+                            HoverThemeColorIndex =4
+                            HoverTint =40.0
+                            PressedColor =15189940
+                            PressedThemeColorIndex =4
+                            PressedTint =40.0
+                            HoverForeColor =4210752
+                            PressedForeColor =4210752
+                            BackColor =12874308
+                            BackThemeColorIndex =4
+                            BorderColor =12874308
+                            BorderThemeColorIndex =4
+                            BorderShade =100.0
+                            GroupTable =1
+                            ForeThemeColorIndex =1
+                            ForeTint =100.0
+                            Overlaps =1
+                        End
+                        Begin NavigationButton
+                            OverlapFlags =87
+                            Left =360
+                            Top =9495
+                            Width =2100
+                            Height =405
+                            TabIndex =16
                             ForeColor =16777215
                             Name ="Navigatieknop1"
                             Caption ="[Nieuwe toevoegen]"
@@ -1055,11 +1142,11 @@ Begin Form
                             GridlineColor =10921638
 
                             LayoutCachedLeft =360
-                            LayoutCachedTop =8925
+                            LayoutCachedTop =9495
                             LayoutCachedWidth =2460
-                            LayoutCachedHeight =9330
-                            RowStart =15
-                            RowEnd =15
+                            LayoutCachedHeight =9900
+                            RowStart =16
+                            RowEnd =16
                             LayoutGroup =3
                             DefaultInsertButton =1
                             HoverColor =15189940
@@ -1090,7 +1177,7 @@ Begin Form
                     Height =10140
                     TabIndex =1
                     BorderColor =10921638
-                    Name ="NavigatieSubformulier"
+                    Name ="subProcess"
                     GroupTable =2
                     TopPadding =0
                     BottomPadding =0
@@ -1128,7 +1215,9 @@ Option Compare Database
 
 Private Sub Form_Load()
             'kijk even
-            
+            Call FolderStructure
+            lngToernooiOld = 0
+            lngSessieOld = 0
             lngToernooi = 1
             lngSessie = 1
             Call InitAll(lngToernooi, lngSessie)

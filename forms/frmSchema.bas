@@ -3,6 +3,7 @@ VersionRequired =20
 Begin Form
     AutoCenter = NotDefault
     DividingLines = NotDefault
+    FilterOn = NotDefault
     AllowDesignChanges = NotDefault
     DefaultView =2
     PictureAlignment =2
@@ -13,18 +14,15 @@ Begin Form
     ItemSuffix =19
     Left =2805
     Top =2340
-    Right =14385
+    Right =14640
     Bottom =7515
     DatasheetGridlinesColor =15132391
-    Filter ="[WedstrijdRonde] = 7"
-    RecSrcDt = Begin
-        0x6c8ed59ad094e540
-    End
+    Filter ="[WedstrijdRonde] = 15"
     RecordSource ="SELECT tblSchema.*, tblTeams.TeamNaam AS TeamnaamThuis, tblTeams_1.TeamNaam AS T"
-        "eamNaamUit FROM (tblSchema INNER JOIN tblTeams ON (tblSchema.ToernooiID = tblTea"
-        "ms.ToernooiID) AND (tblSchema.TeamThuis = tblTeams.Teamnr)) INNER JOIN tblTeams "
-        "AS tblTeams_1 ON (tblSchema.ToernooiID = tblTeams_1.ToernooiID) AND (tblSchema.T"
-        "eamUit = tblTeams_1.Teamnr) WHERE (((tblSchema.ToernooiID)=lngToernooiID())) ORD"
+        "eamNaamUit FROM (tblSchema INNER JOIN tblTeams ON (tblSchema.TeamThuis = tblTeam"
+        "s.Teamnr) AND (tblSchema.ToernooiID = tblTeams.ToernooiID)) INNER JOIN tblTeams "
+        "AS tblTeams_1 ON (tblSchema.TeamUit = tblTeams_1.Teamnr) AND (tblSchema.Toernooi"
+        "ID = tblTeams_1.ToernooiID) WHERE (((tblSchema.ToernooiID)=lngToernooiID())) ORD"
         "ER BY tblSchema.ToernooiID, tblSchema.Wedstrijdronde, tblSchema.Paring; "
     Caption ="frmSchema"
     DatasheetFontName ="Calibri"
@@ -194,7 +192,7 @@ Begin Form
                     Top =1140
                     Width =1050
                     Height =330
-                    ColumnWidth =1050
+                    ColumnWidth =1260
                     ColumnOrder =2
                     TabIndex =2
                     BorderColor =10921638
@@ -233,7 +231,7 @@ Begin Form
                     Top =1539
                     Width =1050
                     Height =330
-                    ColumnWidth =1050
+                    ColumnWidth =1350
                     ColumnOrder =4
                     TabIndex =3
                     BorderColor =10921638
@@ -474,7 +472,7 @@ Begin Form
                     Left =7256
                     Top =1530
                     Height =315
-                    ColumnWidth =1710
+                    ColumnWidth =2820
                     ColumnOrder =5
                     TabIndex =9
                     BorderColor =10921638

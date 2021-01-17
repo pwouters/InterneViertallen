@@ -45,10 +45,6 @@ dbBoolean "OrderByOnLoad" ="-1"
 dbBoolean "TotalsRow" ="0"
 Begin
     Begin
-        dbText "Name" ="tblUitslagen.ToernooiID"
-        dbLong "AggregateType" ="-1"
-    End
-    Begin
         dbText "Name" ="tblSessie.Sessienr"
         dbLong "AggregateType" ="-1"
     End
@@ -61,15 +57,7 @@ Begin
         dbLong "AggregateType" ="-1"
     End
     Begin
-        dbText "Name" ="tblTeams.Teamnr"
-        dbLong "AggregateType" ="-1"
-    End
-    Begin
         dbText "Name" ="Thuisnr"
-        dbLong "AggregateType" ="-1"
-    End
-    Begin
-        dbText "Name" ="tblTeams_1.Teamnr"
         dbLong "AggregateType" ="-1"
     End
     Begin
@@ -93,12 +81,12 @@ Begin
     State =0
     Left =0
     Top =0
-    Right =1006
-    Bottom =833
+    Right =1363
+    Bottom =796
     Left =-1
     Top =-1
-    Right =990
-    Bottom =571
+    Right =1347
+    Bottom =554
     Left =0
     Top =0
     ColumnsShown =539

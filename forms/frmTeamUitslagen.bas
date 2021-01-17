@@ -5,6 +5,7 @@ Begin Form
     AllowDeletions = NotDefault
     DividingLines = NotDefault
     AllowAdditions = NotDefault
+    FilterOn = NotDefault
     AllowEdits = NotDefault
     AllowDesignChanges = NotDefault
     DefaultView =2
@@ -14,10 +15,13 @@ Begin Form
     Width =10209
     DatasheetFontHeight =11
     ItemSuffix =21
-    Right =12300
-    Bottom =10245
+    Left =2520
+    Top =1200
+    Right =17445
+    Bottom =11070
     DatasheetGridlinesColor =15132391
-    Filter ="[ToernooiID]=1 and [SessieID] = 10"
+    Filter ="[ToernooiID]=5 and [SessieID] = 16"
+    OrderBy ="[tblUitslagen].[Wedstrijdnr], [Lookup_TeamIDThuis].[Teamnr]"
     RecSrcDt = Begin
         0x34702d88f391e540
     End
@@ -133,6 +137,7 @@ Begin Form
                     Width =3660
                     Height =330
                     ColumnWidth =975
+                    ColumnOrder =0
                     BorderColor =10921638
                     ForeColor =3484194
                     ColumnInfo ="\"\";\"\";\"\";\"\";\"3\";\"2\""
@@ -177,6 +182,7 @@ Begin Form
                     Width =3660
                     Height =330
                     ColumnWidth =1140
+                    ColumnOrder =2
                     TabIndex =1
                     BorderColor =10921638
                     ForeColor =3484194
@@ -222,6 +228,7 @@ Begin Form
                     Width =3660
                     Height =330
                     ColumnWidth =1110
+                    ColumnOrder =3
                     TabIndex =2
                     BorderColor =10921638
                     ForeColor =3484194
@@ -264,7 +271,8 @@ Begin Form
                     Top =1539
                     Width =1530
                     Height =330
-                    ColumnWidth =690
+                    ColumnWidth =1650
+                    ColumnOrder =1
                     TabIndex =3
                     BorderColor =10921638
                     ForeColor =4210752
@@ -561,4 +569,5 @@ Private Sub Form_Open(Cancel As Integer)
         Me.Filter = "[ToernooiID]=" & lngToernooi & " and [SessieID] = " & lngSessie
         Me.FilterOn = True
     End If
+    Me.OrderBy = ""
 End Sub

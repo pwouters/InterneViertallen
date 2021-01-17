@@ -10,8 +10,8 @@ Begin Form
     Width =12347
     DatasheetFontHeight =11
     ItemSuffix =33
-    Right =15870
-    Bottom =12240
+    Right =15795
+    Bottom =13680
     DatasheetGridlinesColor =15132391
     RecSrcDt = Begin
         0xdd34b7dfb593e540
@@ -193,7 +193,7 @@ Begin Form
             End
         End
         Begin Section
-            Height =6311
+            Height =6763
             Name ="Details"
             AlternateBackColor =15921906
             AlternateBackThemeColorIndex =1
@@ -381,7 +381,7 @@ Begin Form
                     BackStyle =1
                     SizeMode =0
                     Left =566
-                    Top =4421
+                    Top =4873
                     Width =2280
                     Height =1890
                     BorderColor =10921638
@@ -2718,16 +2718,16 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =566
-                    LayoutCachedTop =4421
+                    LayoutCachedTop =4873
                     LayoutCachedWidth =2846
-                    LayoutCachedHeight =6311
-                    TabIndex =11
+                    LayoutCachedHeight =6763
+                    TabIndex =12
                 End
                 Begin TextBox
                     OverlapFlags =85
                     IMESentenceMode =3
                     Left =3402
-                    Top =4988
+                    Top =5440
                     Width =4539
                     Height =907
                     TabIndex =4
@@ -2738,14 +2738,14 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =3402
-                    LayoutCachedTop =4988
+                    LayoutCachedTop =5440
                     LayoutCachedWidth =7941
-                    LayoutCachedHeight =5895
+                    LayoutCachedHeight =6347
                 End
                 Begin Label
                     OverlapFlags =85
                     Left =566
-                    Top =3401
+                    Top =3853
                     Width =2265
                     Height =454
                     TopMargin =57
@@ -2755,15 +2755,15 @@ Begin Form
                     Caption ="Kies Toernooifolder "
                     GridlineColor =10921638
                     LayoutCachedLeft =566
-                    LayoutCachedTop =3401
+                    LayoutCachedTop =3853
                     LayoutCachedWidth =2831
-                    LayoutCachedHeight =3855
+                    LayoutCachedHeight =4307
                 End
                 Begin OptionGroup
                     SpecialEffect =0
                     OverlapFlags =85
                     Left =3401
-                    Top =3401
+                    Top =3853
                     Width =1607
                     Height =943
                     TabIndex =5
@@ -2773,29 +2773,29 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =3401
-                    LayoutCachedTop =3401
+                    LayoutCachedTop =3853
                     LayoutCachedWidth =5008
-                    LayoutCachedHeight =4344
+                    LayoutCachedHeight =4796
                     Begin
                         Begin OptionButton
                             SpecialEffect =2
                             OverlapFlags =87
                             Left =3587
-                            Top =3639
+                            Top =4091
                             OptionValue =1
                             BorderColor =10921638
                             Name ="Keuzerondje20"
                             GridlineColor =10921638
 
                             LayoutCachedLeft =3587
-                            LayoutCachedTop =3639
+                            LayoutCachedTop =4091
                             LayoutCachedWidth =3847
-                            LayoutCachedHeight =3879
+                            LayoutCachedHeight =4331
                             Begin
                                 Begin Label
                                     OverlapFlags =247
                                     Left =3817
-                                    Top =3611
+                                    Top =4063
                                     Width =1005
                                     Height =315
                                     BorderColor =8355711
@@ -2804,9 +2804,9 @@ Begin Form
                                     Caption ="Standaard"
                                     GridlineColor =10921638
                                     LayoutCachedLeft =3817
-                                    LayoutCachedTop =3611
+                                    LayoutCachedTop =4063
                                     LayoutCachedWidth =4822
-                                    LayoutCachedHeight =3926
+                                    LayoutCachedHeight =4378
                                     ForeThemeColorIndex =-1
                                     ForeTint =100.0
                                 End
@@ -2816,21 +2816,21 @@ Begin Form
                             SpecialEffect =2
                             OverlapFlags =87
                             Left =3587
-                            Top =3969
+                            Top =4421
                             OptionValue =2
                             BorderColor =10921638
                             Name ="Keuzerondje22"
                             GridlineColor =10921638
 
                             LayoutCachedLeft =3587
-                            LayoutCachedTop =3969
+                            LayoutCachedTop =4421
                             LayoutCachedWidth =3847
-                            LayoutCachedHeight =4209
+                            LayoutCachedHeight =4661
                             Begin
                                 Begin Label
                                     OverlapFlags =247
                                     Left =3817
-                                    Top =3941
+                                    Top =4393
                                     Width =585
                                     Height =315
                                     BorderColor =8355711
@@ -2839,9 +2839,9 @@ Begin Form
                                     Caption ="Eigen"
                                     GridlineColor =10921638
                                     LayoutCachedLeft =3817
-                                    LayoutCachedTop =3941
+                                    LayoutCachedTop =4393
                                     LayoutCachedWidth =4402
-                                    LayoutCachedHeight =4256
+                                    LayoutCachedHeight =4708
                                     ForeThemeColorIndex =-1
                                     ForeTint =100.0
                                 End
@@ -2880,7 +2880,7 @@ Begin Form
                 Begin CommandButton
                     OverlapFlags =85
                     Left =8503
-                    Top =5555
+                    Top =6007
                     Height =568
                     TabIndex =7
                     ForeColor =4210752
@@ -2890,9 +2890,9 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =8503
-                    LayoutCachedTop =5555
+                    LayoutCachedTop =6007
                     LayoutCachedWidth =10204
-                    LayoutCachedHeight =6123
+                    LayoutCachedHeight =6575
                     BackColor =14461583
                     BorderColor =14461583
                     HoverColor =15189940
@@ -2908,7 +2908,7 @@ Begin Form
                     OldBorderStyle =1
                     OverlapFlags =85
                     Left =7370
-                    Top =3457
+                    Top =3909
                     Width =4485
                     Height =1125
                     BorderColor =10921638
@@ -2919,9 +2919,9 @@ Begin Form
                         "ens"
                     GridlineColor =10921638
                     LayoutCachedLeft =7370
-                    LayoutCachedTop =3457
+                    LayoutCachedTop =3909
                     LayoutCachedWidth =11855
-                    LayoutCachedHeight =4582
+                    LayoutCachedHeight =5034
                     BorderThemeColorIndex =1
                     BorderTint =100.0
                     BorderShade =65.0
@@ -2938,8 +2938,8 @@ Begin Form
                     BorderColor =10921638
                     ForeColor =-2147483617
                     Name ="txtSpellenPerWedstrijd"
-                    ValidationRule =">5 And <13"
-                    ValidationText ="Tussen 6  en 12"
+                    ValidationRule =">5 And <15"
+                    ValidationText ="Tussen 6  en 14"
                     DefaultValue ="7"
                     GridlineColor =10921638
 
@@ -2973,11 +2973,11 @@ Begin Form
                 End
                 Begin ComboBox
                     RowSourceTypeInt =1
-                    OverlapFlags =87
+                    OverlapFlags =93
                     IMESentenceMode =3
                     ColumnCount =2
-                    Left =3401
-                    Top =2268
+                    Left =3392
+                    Top =2722
                     Width =3966
                     Height =454
                     TabIndex =9
@@ -2991,18 +2991,18 @@ Begin Form
                     DefaultValue ="0"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =3401
-                    LayoutCachedTop =2268
-                    LayoutCachedWidth =7367
-                    LayoutCachedHeight =2722
+                    LayoutCachedLeft =3392
+                    LayoutCachedTop =2722
+                    LayoutCachedWidth =7358
+                    LayoutCachedHeight =3176
                     ForeThemeColorIndex =0
                     ForeTint =75.0
                     ForeShade =100.0
                     Begin
                         Begin Label
-                            OverlapFlags =95
-                            Left =575
-                            Top =2268
+                            OverlapFlags =93
+                            Left =566
+                            Top =2722
                             Width =2265
                             Height =454
                             BorderColor =8355711
@@ -3010,10 +3010,10 @@ Begin Form
                             Name ="lblRekenvorm"
                             Caption ="Rekenvorm"
                             GridlineColor =10921638
-                            LayoutCachedLeft =575
-                            LayoutCachedTop =2268
-                            LayoutCachedWidth =2840
-                            LayoutCachedHeight =2722
+                            LayoutCachedLeft =566
+                            LayoutCachedTop =2722
+                            LayoutCachedWidth =2831
+                            LayoutCachedHeight =3176
                             ForeThemeColorIndex =-1
                             ForeTint =100.0
                         End
@@ -3022,7 +3022,7 @@ Begin Form
                 Begin OptionButton
                     OverlapFlags =85
                     Left =3401
-                    Top =2891
+                    Top =3343
                     TabIndex =10
                     BorderColor =10921638
                     Name ="optBekerwedstrijd"
@@ -3030,14 +3030,14 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =3401
-                    LayoutCachedTop =2891
+                    LayoutCachedTop =3343
                     LayoutCachedWidth =3661
-                    LayoutCachedHeight =3131
+                    LayoutCachedHeight =3583
                     Begin
                         Begin Label
                             OverlapFlags =87
                             Left =567
-                            Top =2722
+                            Top =3174
                             Width =2268
                             Height =454
                             BorderColor =8355711
@@ -3046,9 +3046,57 @@ Begin Form
                             Caption ="Bekerwedstrijd"
                             GridlineColor =10921638
                             LayoutCachedLeft =567
-                            LayoutCachedTop =2722
+                            LayoutCachedTop =3174
                             LayoutCachedWidth =2835
-                            LayoutCachedHeight =3176
+                            LayoutCachedHeight =3628
+                            ForeThemeColorIndex =-1
+                            ForeTint =100.0
+                        End
+                    End
+                End
+                Begin ComboBox
+                    LimitToList = NotDefault
+                    RowSourceTypeInt =1
+                    OverlapFlags =87
+                    IMESentenceMode =3
+                    ColumnCount =2
+                    Left =3402
+                    Top =2268
+                    Width =3969
+                    Height =454
+                    TabIndex =11
+                    BorderColor =10921638
+                    ForeColor =-2147483617
+                    Name ="Competitie"
+                    RowSourceType ="Value List"
+                    RowSource ="1;\"Halve\";2;\"Hele\""
+                    ColumnWidths ="0;1701"
+                    StatusBarText ="halve of hele"
+                    GridlineColor =10921638
+                    AllowValueListEdits =0
+
+                    LayoutCachedLeft =3402
+                    LayoutCachedTop =2268
+                    LayoutCachedWidth =7371
+                    LayoutCachedHeight =2722
+                    ForeThemeColorIndex =-1
+                    ForeShade =100.0
+                    Begin
+                        Begin Label
+                            OverlapFlags =95
+                            Left =567
+                            Top =2268
+                            Width =2835
+                            Height =454
+                            BorderColor =8355711
+                            ForeColor =-2147483617
+                            Name ="Bijschrift38"
+                            Caption ="Competitie"
+                            GridlineColor =10921638
+                            LayoutCachedLeft =567
+                            LayoutCachedTop =2268
+                            LayoutCachedWidth =3402
+                            LayoutCachedHeight =2722
                             ForeThemeColorIndex =-1
                             ForeTint =100.0
                         End
@@ -3084,8 +3132,13 @@ Private Sub btnCreeer_Click()
     AANTALSPELLENPERWEDSTRIJD = Me.txtSpellenPerWedstrijd
     BEKERWEDSTRIJD = Me.optBekerwedstrijd
     UITREKENVORM = Me.txtRekenvorm
-    WORKFOLDER = FileNameFromPath(Me.txtToernooifolder)
-    WORKFILE = FolderFromPath(Me.txtToernooifolder)
+    WEDSTRIJD = Me.Competitie
+    WORKFOLDER = FolderFromPath(Me.txtToernooifolder)
+    WORKFILE = Me.txtNieuwToernooi & ".xlsx"
+    If fnExists(WORKFOLDER & WORKFILE) Then
+        MsgBox ("Er is reeds een werkbestand met dezelfde naam en folder aangemaakt")
+        Exit Sub
+    End If
     Call NieuwToernooi
 End Sub
 
@@ -3126,9 +3179,9 @@ Private Sub txtToernooifolder_MouseDown(Button As Integer, Shift As Integer, x A
   If Me.grpStructuur = 1 Then
     strExcel_Folder = Environ("USERPROFILE") & "\Documents\StepViertallen\excel\"
     If Not fnFolderExists(strExcel_Folder) Then
-        question = MsgBox("Folder bestaat nog niet, aanmaken (J/N)", vbYesNo)
+        Question = MsgBox("Folder bestaat nog niet, aanmaken (J/N)", vbYesNo)
     
-        If question = vbYes Then
+        If Question = vbYes Then
             If Not fnFolderExists(Environ("USERPROFILE") & "\Documents\StepViertallen\") Then
                 MkDir (Environ("USERPROFILE") & "\Documents\StepViertallen")
                 MkDir (Environ("USERPROFILE") & "\Documents\StepViertallen\excel")
@@ -3144,7 +3197,7 @@ Private Sub txtToernooifolder_MouseDown(Button As Integer, Shift As Integer, x A
     End If
             'kijk eerst of de folder
   Else
-  
+  strExcel_Folder = WORKFOLDER
     
   If Button = 1 Then
             Dim strFolder As String

@@ -13,13 +13,13 @@ Begin Form
     PictureAlignment =2
     DatasheetGridlinesBehavior =3
     GridY =10
-    Width =11528
+    Width =13606
     DatasheetFontHeight =11
-    ItemSuffix =43
-    Right =15870
-    Bottom =12240
+    ItemSuffix =44
+    Right =15795
+    Bottom =13680
     DatasheetGridlinesColor =15132391
-    Filter ="[ToernooiD]=1 and [id] = 11"
+    Filter ="[ToernooiD]=4 and [id] = 15"
     RecSrcDt = Begin
         0x3ee22f0eb090e540
     End
@@ -380,12 +380,13 @@ Begin Form
                     End
                 End
                 Begin TextBox
-                    OverlapFlags =85
+                    OverlapFlags =93
+                    TextAlign =1
                     IMESentenceMode =3
-                    Left =9751
-                    Top =1360
+                    Left =9809
+                    Top =2267
                     Width =1050
-                    Height =330
+                    Height =340
                     ColumnWidth =1050
                     TabIndex =4
                     BorderColor =10921638
@@ -394,26 +395,26 @@ Begin Form
                     ControlSource ="Aantalspellen"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =9751
-                    LayoutCachedTop =1360
-                    LayoutCachedWidth =10801
-                    LayoutCachedHeight =1690
+                    LayoutCachedLeft =9809
+                    LayoutCachedTop =2267
+                    LayoutCachedWidth =10859
+                    LayoutCachedHeight =2607
                     Begin
                         Begin Label
-                            OverlapFlags =85
+                            OverlapFlags =93
                             Left =6803
-                            Top =1360
+                            Top =2268
                             Width =2844
-                            Height =330
+                            Height =340
                             BorderColor =8355711
                             ForeColor =8355711
                             Name ="Aantalspellen_Bijschrift"
                             Caption ="Aantalspellen"
                             GridlineColor =10921638
                             LayoutCachedLeft =6803
-                            LayoutCachedTop =1360
+                            LayoutCachedTop =2268
                             LayoutCachedWidth =9647
-                            LayoutCachedHeight =1690
+                            LayoutCachedHeight =2608
                         End
                     End
                 End
@@ -662,12 +663,13 @@ Begin Form
                     End
                 End
                 Begin TextBox
-                    OverlapFlags =85
+                    OverlapFlags =93
+                    TextAlign =1
                     IMESentenceMode =3
-                    Left =9677
-                    Top =3061
+                    Left =9809
+                    Top =3629
                     Width =1320
-                    Height =330
+                    Height =340
                     ColumnWidth =1050
                     TabIndex =11
                     BorderColor =10921638
@@ -676,34 +678,35 @@ Begin Form
                     ControlSource ="ActivityID"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =9677
-                    LayoutCachedTop =3061
-                    LayoutCachedWidth =10997
-                    LayoutCachedHeight =3391
+                    LayoutCachedLeft =9809
+                    LayoutCachedTop =3629
+                    LayoutCachedWidth =11129
+                    LayoutCachedHeight =3969
                     Begin
                         Begin Label
-                            OverlapFlags =85
+                            OverlapFlags =93
                             Left =6803
-                            Top =3061
+                            Top =3629
                             Width =2784
-                            Height =330
+                            Height =340
                             BorderColor =8355711
                             ForeColor =8355711
                             Name ="ActivityID_Bijschrift"
                             Caption ="ActivityID (Step)"
                             GridlineColor =10921638
                             LayoutCachedLeft =6803
-                            LayoutCachedTop =3061
+                            LayoutCachedTop =3629
                             LayoutCachedWidth =9587
-                            LayoutCachedHeight =3391
+                            LayoutCachedHeight =3969
                         End
                     End
                 End
                 Begin TextBox
                     OverlapFlags =85
+                    TextAlign =1
                     IMESentenceMode =3
-                    Left =9737
-                    Top =566
+                    Left =9809
+                    Top =567
                     Width =1050
                     Height =330
                     ColumnWidth =1050
@@ -714,70 +717,72 @@ Begin Form
                     ControlSource ="AantalTeams"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =9737
-                    LayoutCachedTop =566
-                    LayoutCachedWidth =10787
-                    LayoutCachedHeight =896
+                    LayoutCachedLeft =9809
+                    LayoutCachedTop =567
+                    LayoutCachedWidth =10859
+                    LayoutCachedHeight =897
                     Begin
                         Begin Label
-                            OverlapFlags =85
+                            OverlapFlags =93
                             Left =6803
-                            Top =566
+                            Top =567
                             Width =2844
-                            Height =330
+                            Height =340
                             BorderColor =8355711
                             ForeColor =8355711
                             Name ="AantalTeams_Bijschrift"
                             Caption ="AantalTeams"
                             GridlineColor =10921638
                             LayoutCachedLeft =6803
-                            LayoutCachedTop =566
+                            LayoutCachedTop =567
                             LayoutCachedWidth =9647
-                            LayoutCachedHeight =896
+                            LayoutCachedHeight =907
                         End
                     End
                 End
                 Begin CheckBox
                     OverlapFlags =85
-                    Left =9737
+                    Left =9809
                     Top =963
                     TabIndex =13
                     BorderColor =10921638
                     Name ="ByeTeam"
                     ControlSource ="ByeTeam"
                     StatusBarText ="Altijdhoogst genummerde team"
+                    OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =9737
+                    LayoutCachedLeft =9809
                     LayoutCachedTop =963
-                    LayoutCachedWidth =9997
+                    LayoutCachedWidth =10069
                     LayoutCachedHeight =1203
                     Begin
                         Begin Label
-                            OverlapFlags =85
+                            OverlapFlags =95
                             Left =6803
-                            Top =963
+                            Top =907
                             Width =2844
-                            Height =330
+                            Height =340
                             BorderColor =8355711
                             ForeColor =8355711
                             Name ="ByeTeam_Bijschrift"
                             Caption ="ByeTeam"
                             GridlineColor =10921638
                             LayoutCachedLeft =6803
-                            LayoutCachedTop =963
+                            LayoutCachedTop =907
                             LayoutCachedWidth =9647
-                            LayoutCachedHeight =1293
+                            LayoutCachedHeight =1247
                         End
                     End
                 End
                 Begin TextBox
-                    OverlapFlags =85
+                    OverlapFlags =95
+                    TextAlign =1
                     IMESentenceMode =3
-                    Left =9737
-                    Top =1756
+                    Left =9809
+                    Top =2608
                     Width =1035
-                    Height =330
+                    Height =340
                     ColumnWidth =1050
                     TabIndex =14
                     BorderColor =10921638
@@ -787,26 +792,26 @@ Begin Form
                     StatusBarText ="Indien je indeelt op basis van de vorige ronde of random"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =9737
-                    LayoutCachedTop =1756
-                    LayoutCachedWidth =10772
-                    LayoutCachedHeight =2086
+                    LayoutCachedLeft =9809
+                    LayoutCachedTop =2608
+                    LayoutCachedWidth =10844
+                    LayoutCachedHeight =2948
                     Begin
                         Begin Label
-                            OverlapFlags =85
+                            OverlapFlags =95
                             Left =6803
-                            Top =1756
+                            Top =2608
                             Width =2844
-                            Height =330
+                            Height =340
                             BorderColor =8355711
                             ForeColor =8355711
                             Name ="AantalWedstrijdenPerSessie_Bijschrift"
                             Caption ="Wedstrijden Per Sessie"
                             GridlineColor =10921638
                             LayoutCachedLeft =6803
-                            LayoutCachedTop =1756
+                            LayoutCachedTop =2608
                             LayoutCachedWidth =9647
-                            LayoutCachedHeight =2086
+                            LayoutCachedHeight =2948
                         End
                     End
                 End
@@ -890,13 +895,14 @@ Begin Form
                 Begin ComboBox
                     LimitToList = NotDefault
                     RowSourceTypeInt =1
-                    OverlapFlags =85
+                    OverlapFlags =95
+                    TextAlign =1
                     IMESentenceMode =3
                     ColumnCount =2
-                    Left =9700
-                    Top =2607
+                    Left =9809
+                    Top =3289
                     Width =1821
-                    Height =315
+                    Height =340
                     ColumnWidth =2235
                     TabIndex =16
                     BorderColor =10921638
@@ -904,45 +910,46 @@ Begin Form
                     Name ="Competitie"
                     ControlSource ="Competitie"
                     RowSourceType ="Value List"
-                    RowSource ="1;\"Halve\";2:\"Hele"
+                    RowSource ="1;\"Halve\";2;\"Hele\""
                     ColumnWidths ="0;1701"
                     StatusBarText ="halve of hele"
                     GridlineColor =10921638
                     AllowValueListEdits =0
 
-                    LayoutCachedLeft =9700
-                    LayoutCachedTop =2607
-                    LayoutCachedWidth =11521
-                    LayoutCachedHeight =2922
+                    LayoutCachedLeft =9809
+                    LayoutCachedTop =3289
+                    LayoutCachedWidth =11630
+                    LayoutCachedHeight =3629
                     Begin
                         Begin Label
-                            OverlapFlags =85
+                            OverlapFlags =95
                             Left =6814
-                            Top =2607
+                            Top =3289
                             Width =2835
-                            Height =315
+                            Height =340
                             BorderColor =8355711
                             ForeColor =8355711
                             Name ="Bijschrift38"
                             Caption ="Competitie"
                             GridlineColor =10921638
                             LayoutCachedLeft =6814
-                            LayoutCachedTop =2607
+                            LayoutCachedTop =3289
                             LayoutCachedWidth =9649
-                            LayoutCachedHeight =2922
+                            LayoutCachedHeight =3629
                         End
                     End
                 End
                 Begin ComboBox
                     LimitToList = NotDefault
                     RowSourceTypeInt =1
-                    OverlapFlags =85
+                    OverlapFlags =87
+                    TextAlign =1
                     IMESentenceMode =3
                     ColumnCount =2
-                    Left =9700
-                    Top =2210
+                    Left =9809
+                    Top =2948
                     Width =1821
-                    Height =315
+                    Height =340
                     ColumnWidth =2490
                     TabIndex =17
                     BorderColor =10921638
@@ -950,32 +957,33 @@ Begin Form
                     Name ="wedstrijdvormID"
                     ControlSource ="wedstrijdvormID"
                     RowSourceType ="Value List"
-                    RowSource ="0;\"Robin\";1;\"Zwitsers\";2;\"Deens\""
+                    RowSource ="0;\"Robin\";1;\"Zwitsers\";2;\"Deens\";3;\"1-2 3-4\";4;\"1-3 4-2\";5;\"1-4 2-3\""
+                        ";6;\"Random\""
                     ColumnWidths ="0;1701"
                     StatusBarText ="robin, zwitsers, deens, eerste ronde 1-2, 3-4, tweede ronde 1-4, 3-2"
                     GridlineColor =10921638
                     AllowValueListEdits =0
 
-                    LayoutCachedLeft =9700
-                    LayoutCachedTop =2210
-                    LayoutCachedWidth =11521
-                    LayoutCachedHeight =2525
+                    LayoutCachedLeft =9809
+                    LayoutCachedTop =2948
+                    LayoutCachedWidth =11630
+                    LayoutCachedHeight =3288
                     Begin
                         Begin Label
-                            OverlapFlags =85
+                            OverlapFlags =87
                             Left =6814
-                            Top =2210
+                            Top =2948
                             Width =2835
-                            Height =315
+                            Height =340
                             BorderColor =8355711
                             ForeColor =8355711
                             Name ="Bijschrift39"
                             Caption ="wedstrijd Soort"
                             GridlineColor =10921638
                             LayoutCachedLeft =6814
-                            LayoutCachedTop =2210
+                            LayoutCachedTop =2948
                             LayoutCachedWidth =9649
-                            LayoutCachedHeight =2525
+                            LayoutCachedHeight =3288
                         End
                     End
                 End
@@ -1222,7 +1230,7 @@ Begin Form
                     Top =6236
                     Width =576
                     Height =576
-                    TabIndex =21
+                    TabIndex =22
                     ForeColor =4210752
                     Name ="btnDelete"
                     Caption ="Knop188"
@@ -1285,7 +1293,7 @@ Begin Form
                 Begin Label
                     OverlapFlags =85
                     Left =6803
-                    Top =3798
+                    Top =4705
                     Width =4725
                     Height =585
                     BorderColor =8355711
@@ -1295,9 +1303,58 @@ Begin Form
                         "m"
                     GridlineColor =10921638
                     LayoutCachedLeft =6803
-                    LayoutCachedTop =3798
+                    LayoutCachedTop =4705
                     LayoutCachedWidth =11528
-                    LayoutCachedHeight =4383
+                    LayoutCachedHeight =5290
+                End
+                Begin ComboBox
+                    Visible = NotDefault
+                    OverlapFlags =85
+                    TextAlign =1
+                    IMESentenceMode =3
+                    ColumnCount =2
+                    Left =9809
+                    Top =1247
+                    Width =3441
+                    Height =340
+                    TabIndex =21
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    ColumnInfo ="\"\";\"\";\"\";\"\";\"10\";\"510\""
+                    Name ="ByTeamNr"
+                    ControlSource ="ByTeamNr"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT tblTeams.Teamnr, tblTeams.TeamNaam FROM tblTeams WHERE (((tblTeams.Toerno"
+                        "oiID)=lngToernooiID())) ORDER BY tblTeams.Teamnr; "
+                    ColumnWidths ="0;2835"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =9809
+                    LayoutCachedTop =1247
+                    LayoutCachedWidth =13250
+                    LayoutCachedHeight =1587
+                    ForeThemeColorIndex =0
+                    ForeTint =75.0
+                    ForeShade =100.0
+                    Begin
+                        Begin Label
+                            Visible = NotDefault
+                            OverlapFlags =87
+                            Left =6803
+                            Top =1247
+                            Width =2835
+                            Height =340
+                            BorderColor =8355711
+                            ForeColor =8355711
+                            Name ="Bijschrift43"
+                            Caption ="ByTeamNr"
+                            GridlineColor =10921638
+                            LayoutCachedLeft =6803
+                            LayoutCachedTop =1247
+                            LayoutCachedWidth =9638
+                            LayoutCachedHeight =1587
+                        End
+                    End
                 End
             End
         End
@@ -1331,6 +1388,10 @@ Private Sub btnSluiten_Click()
         DoCmd.BrowseTo acBrowseToForm, "frmBegin"
    End If
 
+End Sub
+
+Private Sub ByeTeam_Click()
+        Me.ByTeamNr.Visible = Me.ByeTeam.Value
 End Sub
 
 Private Sub cboKiesSessie_AfterUpdate()
@@ -1401,13 +1462,21 @@ Private Sub btnOpslaan_Click()
  If Me.Dirty Then
        x = fnSaveRecords
  End If
+ 
+ 
+ 
+ 
+ 
   Me.Sessienaam.SetFocus
     Me.btnOpslaan.Visible = False
     Me.btnUndo.Visible = False
     Me.btnOpslaan.Enabled = False
     Me.btnUndo.Enabled = False
-     lngSessie = Me.id
- 'Call MeControlEnabled(True)
+     lngSessie = Me.Id
+     lngSessieOld = 1000
+     lngToernooiOld = 1000
+     Call InitAll(lngToernooi, lngSessie)
+  'Call MeControlEnabled(True)
     If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
        Me.cboKiesSessie.Enabled = True
     End If
@@ -1442,10 +1511,13 @@ Private Sub Form_Current()
     Me.btnUndo.Visible = False
     
   If Me.NewRecord = False Then
-      lngPK = Me.id
-      lngSessie = Me.id
+      lngPK = Me.Id
+      lngSessie = Me.Id
       lngToernooi = Me.ToernooID
   End If
+  
+ Me.ByTeamNr.Visible = Me.ByeTeam.Value
+
 End Sub
 
 Private Sub Form_Dirty(Cancel As Integer)
@@ -1480,7 +1552,9 @@ Else
     End If
 End If
 
-
+ Me.ByTeamNr.Visible = Me.ByeTeam.Value
+ 
+ 
 End Sub
 
 Private Sub Form_Open(Cancel As Integer)
@@ -1517,7 +1591,7 @@ If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
  
  
  End If
-
+ Me.ByTeamNr.Visible = Me.ByeTeam.Value
 
 End Sub
 Sub MeControlEnabled(JaNee As Integer)

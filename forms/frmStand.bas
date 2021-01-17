@@ -5,7 +5,6 @@ Begin Form
     AllowDeletions = NotDefault
     DividingLines = NotDefault
     AllowAdditions = NotDefault
-    OrderByOn = NotDefault
     AllowEdits = NotDefault
     AllowDesignChanges = NotDefault
     DefaultView =2
@@ -20,8 +19,6 @@ Begin Form
     Right =17445
     Bottom =11070
     DatasheetGridlinesColor =15132391
-    OrderBy ="[qryWedstrijden_Kruistabel].[Teamnr], [qryWedstrijden_Kruistabel].[Totaal VPS] D"
-        "ESC"
     RecSrcDt = Begin
         0x00211c2f1392e540
     End
@@ -30,6 +27,8 @@ Begin Form
     OnOpen ="[Event Procedure]"
     DatasheetFontName ="Calibri"
     FilterOnLoad =0
+    OrderByOnLoad =0
+    OrderByOnLoad =0
     ShowPageMargins =0
     DisplayOnSharePointSite =1
     DatasheetAlternateBackColor =15921906
@@ -237,7 +236,7 @@ Begin Form
                     Top =1824
                     Width =3660
                     Height =330
-                    ColumnWidth =1020
+                    ColumnWidth =1170
                     TabIndex =3
                     BorderColor =10921638
                     ForeColor =4210752
@@ -354,6 +353,7 @@ Begin Form
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -396,6 +396,7 @@ Begin Form
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -438,6 +439,7 @@ Begin Form
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -480,6 +482,7 @@ Begin Form
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -522,6 +525,7 @@ Begin Form
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -564,6 +568,7 @@ Begin Form
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -606,6 +611,7 @@ Begin Form
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -649,6 +655,7 @@ Begin Form
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -656,7 +663,7 @@ Begin Form
                     Top =5952
                     Width =3660
                     Height =330
-                    ColumnWidth =1020
+                    ColumnWidth =660
                     TabIndex =13
                     BorderColor =10921638
                     ForeColor =4210752
@@ -692,6 +699,7 @@ Begin Form
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -699,11 +707,12 @@ Begin Form
                     Top =6402
                     Width =3660
                     Height =330
-                    ColumnWidth =1417
+                    ColumnWidth =660
                     TabIndex =14
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="11_txt"
+                    ControlSource ="11"
                     Format ="Standard"
                     EventProcPrefix ="Ctl11_txt"
                     GridlineColor =10921638
@@ -734,6 +743,7 @@ Begin Form
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -741,11 +751,12 @@ Begin Form
                     Top =6888
                     Width =3660
                     Height =330
-                    ColumnWidth =1417
+                    ColumnWidth =660
                     TabIndex =15
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="12_txt"
+                    ControlSource ="12"
                     Format ="Standard"
                     EventProcPrefix ="Ctl12_txt"
                     GridlineColor =10921638
@@ -776,6 +787,7 @@ Begin Form
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -788,6 +800,7 @@ Begin Form
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="13_txt"
+                    ControlSource ="13"
                     Format ="Standard"
                     EventProcPrefix ="Ctl13_txt"
                     GridlineColor =10921638
@@ -818,6 +831,7 @@ Begin Form
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -830,6 +844,7 @@ Begin Form
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="14_txt"
+                    ControlSource ="14"
                     Format ="Standard"
                     EventProcPrefix ="Ctl14_txt"
                     GridlineColor =10921638
@@ -860,6 +875,7 @@ Begin Form
                     End
                 End
                 Begin TextBox
+                    ColumnHidden = NotDefault
                     DecimalPlaces =2
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -872,6 +888,7 @@ Begin Form
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="15_txt"
+                    ControlSource ="15"
                     Format ="Standard"
                     EventProcPrefix ="Ctl15_txt"
                     GridlineColor =10921638
@@ -944,7 +961,7 @@ For i = intKolommen + 1 To 14
     Me.Controls(i & "_txt").ColumnHidden = True
 Next
 
-
+Me.OrderBy = ""
 
 
 End Sub
