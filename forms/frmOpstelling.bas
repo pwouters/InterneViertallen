@@ -12,19 +12,20 @@ Begin Form
     GridY =10
     Width =10209
     DatasheetFontHeight =11
-    ItemSuffix =35
+    ItemSuffix =36
     Left =2520
-    Top =1125
-    Right =17190
-    Bottom =10995
+    Top =1200
+    Right =17445
+    Bottom =11070
     DatasheetGridlinesColor =15132391
-    Filter ="([tblOpstelling].[ToernooiID]=1)"
+    Filter ="[ToernooiID]=5 and [SessieID] = 16"
     OrderBy ="[tblOpstelling].[ToernooiID], [tblOpstelling].[Sessie], [tblOpstelling].[Teamnr]"
     RecSrcDt = Begin
         0x7168df213190e540
     End
     RecordSource ="tblOpstelling"
     Caption ="frmOpstelling"
+    OnOpen ="[Event Procedure]"
     DatasheetFontName ="Calibri"
     FilterOnLoad =0
     ShowPageMargins =0
@@ -67,6 +68,24 @@ Begin Form
             ThemeFontIndex =1
             ForeThemeColorIndex =0
             ForeTint =75.0
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+        End
+        Begin ComboBox
+            AddColon = NotDefault
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =11
+            FontName ="Calibri"
+            AllowValueListEdits =1
+            InheritValueList =1
+            ThemeFontIndex =1
+            BackThemeColorIndex =1
+            BorderThemeColorIndex =1
+            BorderShade =65.0
+            ForeThemeColorIndex =2
+            ForeShade =50.0
             GridlineThemeColorIndex =1
             GridlineShade =65.0
         End
@@ -116,6 +135,7 @@ Begin Form
                     Top =342
                     Height =315
                     ColumnWidth =1701
+                    ColumnOrder =0
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="id"
@@ -153,6 +173,7 @@ Begin Form
                     Width =1530
                     Height =330
                     ColumnWidth =975
+                    ColumnOrder =1
                     TabIndex =1
                     BorderColor =10921638
                     ForeColor =4210752
@@ -190,7 +211,8 @@ Begin Form
                     Top =1140
                     Width =960
                     Height =330
-                    ColumnWidth =1380
+                    ColumnWidth =1005
+                    ColumnOrder =2
                     TabIndex =2
                     BorderColor =10921638
                     ForeColor =4210752
@@ -228,7 +250,8 @@ Begin Form
                     Top =1539
                     Width =1050
                     Height =330
-                    ColumnWidth =1050
+                    ColumnWidth =2295
+                    ColumnOrder =3
                     TabIndex =3
                     BorderColor =10921638
                     ForeColor =4210752
@@ -269,6 +292,7 @@ Begin Form
                     Width =7260
                     Height =600
                     ColumnWidth =1365
+                    ColumnOrder =5
                     TabIndex =4
                     BorderColor =10921638
                     ForeColor =4210752
@@ -309,6 +333,7 @@ Begin Form
                     Width =7260
                     Height =600
                     ColumnWidth =1440
+                    ColumnOrder =6
                     TabIndex =5
                     BorderColor =10921638
                     ForeColor =4210752
@@ -349,6 +374,7 @@ Begin Form
                     Width =7260
                     Height =600
                     ColumnWidth =1230
+                    ColumnOrder =7
                     TabIndex =6
                     BorderColor =10921638
                     ForeColor =4210752
@@ -389,6 +415,7 @@ Begin Form
                     Width =7260
                     Height =600
                     ColumnWidth =1500
+                    ColumnOrder =8
                     TabIndex =7
                     BorderColor =10921638
                     ForeColor =4210752
@@ -427,6 +454,7 @@ Begin Form
                     Width =1050
                     Height =330
                     ColumnWidth =765
+                    ColumnOrder =9
                     TabIndex =8
                     BorderColor =10921638
                     ForeColor =4210752
@@ -465,6 +493,7 @@ Begin Form
                     Width =1050
                     Height =330
                     ColumnWidth =765
+                    ColumnOrder =10
                     TabIndex =9
                     BorderColor =10921638
                     ForeColor =4210752
@@ -503,6 +532,7 @@ Begin Form
                     Width =1050
                     Height =330
                     ColumnWidth =645
+                    ColumnOrder =11
                     TabIndex =10
                     BorderColor =10921638
                     ForeColor =4210752
@@ -541,6 +571,7 @@ Begin Form
                     Width =1050
                     Height =330
                     ColumnWidth =465
+                    ColumnOrder =12
                     TabIndex =11
                     BorderColor =10921638
                     ForeColor =4210752
@@ -579,6 +610,7 @@ Begin Form
                     Width =1050
                     Height =330
                     ColumnWidth =450
+                    ColumnOrder =13
                     TabIndex =12
                     BorderColor =10921638
                     ForeColor =4210752
@@ -617,6 +649,7 @@ Begin Form
                     Width =1050
                     Height =330
                     ColumnWidth =390
+                    ColumnOrder =14
                     TabIndex =13
                     BorderColor =10921638
                     ForeColor =4210752
@@ -655,6 +688,7 @@ Begin Form
                     Width =1050
                     Height =330
                     ColumnWidth =450
+                    ColumnOrder =15
                     TabIndex =14
                     BorderColor =10921638
                     ForeColor =4210752
@@ -693,6 +727,7 @@ Begin Form
                     Width =1050
                     Height =330
                     ColumnWidth =360
+                    ColumnOrder =16
                     TabIndex =15
                     BorderColor =10921638
                     ForeColor =4210752
@@ -729,7 +764,8 @@ Begin Form
                     Left =7653
                     Top =5102
                     Height =315
-                    ColumnWidth =900
+                    ColumnWidth =285
+                    ColumnOrder =17
                     TabIndex =16
                     BorderColor =10921638
                     ForeColor =4210752
@@ -766,6 +802,8 @@ Begin Form
                     Left =7143
                     Top =5725
                     Height =315
+                    ColumnWidth =480
+                    ColumnOrder =18
                     TabIndex =17
                     BorderColor =10921638
                     ForeColor =4210752
@@ -796,6 +834,51 @@ Begin Form
                         End
                     End
                 End
+                Begin ComboBox
+                    LimitToList = NotDefault
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    ColumnCount =2
+                    Left =7029
+                    Top =1190
+                    Height =315
+                    ColumnWidth =2160
+                    ColumnOrder =4
+                    TabIndex =18
+                    BorderColor =10921638
+                    ForeColor =3484194
+                    ColumnInfo ="\"\";\"\";\"\";\"\";\"10\";\"510\""
+                    Name ="TeamID"
+                    ControlSource ="TeamID"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT tblTeams.id, tblTeams.TeamNaam FROM tblTeams; "
+                    ColumnWidths ="0;2835"
+                    GridlineColor =10921638
+                    AllowValueListEdits =0
+
+                    LayoutCachedLeft =7029
+                    LayoutCachedTop =1190
+                    LayoutCachedWidth =8730
+                    LayoutCachedHeight =1505
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            Left =5442
+                            Top =1247
+                            Width =780
+                            Height =315
+                            BorderColor =8355711
+                            ForeColor =8355711
+                            Name ="Bijschrift35"
+                            Caption ="TeamID"
+                            GridlineColor =10921638
+                            LayoutCachedLeft =5442
+                            LayoutCachedTop =1247
+                            LayoutCachedWidth =6222
+                            LayoutCachedHeight =1562
+                        End
+                    End
+                End
             End
         End
         Begin FormFooter
@@ -808,3 +891,17 @@ Begin Form
         End
     End
 End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+
+Private Sub Form_Open(Cancel As Integer)
+If CurrentProject.AllForms("Start_VT").IsLoaded = True Then
+    Me.Filter = "[ToernooiID]=" & lngToernooi & " and [SessieID] = " & lngSessie
+    Me.FilterOn = True
+End If
+
+End Sub

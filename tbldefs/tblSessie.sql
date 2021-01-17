@@ -15,5 +15,6 @@ CREATE TABLE [tblSessie] (
   [ActivityID] SHORT ,
   [AantalTeams] SHORT ,
   [ByeTeam] BIT ,
-  [AantalWedstrijdenPerSessie] SHORT 
+  [AantalWedstrijdenPerSessie] SHORT ,
+  [ByTeamNr] SHORT 
 )

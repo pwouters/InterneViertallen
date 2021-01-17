@@ -1,0 +1,14 @@
+{
+  "Info": {
+    "Class": "clsDbTableDef",
+    "Description": "Linked Table",
+    "VCS Version": "3.2.2"
+  },
+  "Items": {
+    "Name": "tblGroepen",
+    "Connect": ";DATABASE=C:\\Users\\pgjmw\\Documents\\StepViertallen\\Access\\Data.accdb",
+    "SourceTableName": "tblGroepen",
+    "Attributes": 1073741824,
+    "PrimaryKey": "[id]"
+  }
+}

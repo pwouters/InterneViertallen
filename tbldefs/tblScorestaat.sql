@@ -1,0 +1,22 @@
+CREATE TABLE [tblScorestaat] (
+  [id] AUTOINCREMENT CONSTRAINT [PrimaryKey] PRIMARY KEY UNIQUE NOT NULL,
+  [ToernooiID] LONG ,
+  [TeamID] LONG ,
+  [SessieID] LONG ,
+  [Wedstrijd] SHORT ,
+  [Paar1] VARCHAR (255),
+  [Paar2] VARCHAR (255),
+  [Spelnr] SHORT ,
+  [Contract1] VARCHAR (255),
+  [Resultaat1] VARCHAR (255),
+  [Door1] VARCHAR (2),
+  [Score1] SHORT ,
+  [Contract2] VARCHAR (255),
+  [Resultaat2] VARCHAR (255),
+  [Door2] VARCHAR (255),
+  [Score2] SHORT ,
+  [Saldo] SHORT ,
+  [Imps] SHORT ,
+  [WijImps] SHORT ,
+  [ZijImps] SHORT 
+)

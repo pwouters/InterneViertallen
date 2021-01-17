@@ -10,5 +10,6 @@ CREATE TABLE [tblTeams] (
   [Speler6] VARCHAR (255),
   [Speler7] VARCHAR (255),
   [Speler8] VARCHAR (255),
-  [ToernooiID] LONG 
+  [ToernooiID] LONG ,
+  [ClubTeamsID] LONG 
 )

@@ -1,0 +1,13 @@
+{
+  "Info": {
+    "Class": "clsDbTableDef",
+    "Description": "Linked Table",
+    "VCS Version": "3.2.2"
+  },
+  "Items": {
+    "Name": "tbl_1_Uitslagen",
+    "Connect": "Excel 12.0 Xml;HDR=YES;IMEX=2;ACCDB=YES;DATABASE=C:\\Users\\pgjmw\\Dropbox\\DonderdagAvond\\Rekenkamer\\Viertallen\\Seizoen_2020_2021\\Excel\\Interne_Viertallen.xlsx",
+    "SourceTableName": "TeamUitslagen$",
+    "Attributes": 1073741824
+  }
+}

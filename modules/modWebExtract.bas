@@ -9,9 +9,9 @@ Public Const ZWITSERS = 2
 
 Public Team_Tegen_Avond() As Integer
 Public WebInfo() As Integer
-Dim Rang() As Integer
-Dim Gemiddelde() As Double
-Dim Gespeeld() As Integer
+Public Rang() As Integer
+Public Gemiddelde() As Double
+Public Gespeeld() As Integer
 
 'Extract uitslag
 
@@ -21,13 +21,13 @@ Dim Gespeeld() As Integer
 
 
 Public Function GetStepUitslag(sUrl As Variant, ActiveID As Variant, Data_of_Results As Variant) As String
-    Dim s, a, b, c As String
+    Dim s, a, B, c As String
     Dim Uitslag As String
     
     Dim Rang, spelers, score As String
     
     
-    Dim teller, teller2, tel2, tel3, telr2, telr3 As Integer
+    Dim Teller, teller2, tel2, tel3, telr2, telr3 As Integer
     s = GetHTMLFromURL(sUrl & ActiveID)
     
     'zoek tag body
@@ -43,9 +43,9 @@ Public Function GetStepUitslag(sUrl As Variant, ActiveID As Variant, Data_of_Res
     '   </tbody>   einde tweede helft
     ' </tbody  einde
     
-     teller = InStr(s, "<body>")
-     If teller > 0 Then
-        s = Mid(s, teller + 6)
+     Teller = InStr(s, "<body>")
+     If Teller > 0 Then
+        s = Mid(s, Teller + 6)
      Else
         'geen body tag dan exit functie
         GetStepUitslag = Chr(34) & "--" & Chr(34) & Chr(34) & "--" & Chr(34) & Chr(34) & "--" & Chr(34) & vbCr
@@ -55,8 +55,8 @@ Public Function GetStepUitslag(sUrl As Variant, ActiveID As Variant, Data_of_Res
      'zoek tag <tbody> is een tabel met inhoud
  's = Replace(s, Chr(10), "")
     's = Trim(s)
-    teller = InStr(s, "<tbody>")
-    If teller = 0 Then
+    Teller = InStr(s, "<tbody>")
+    If Teller = 0 Then
        'indien geen tabelinhoud dan exit function
         GetStepUitslag = Chr(34) & "--" & Chr(34) & Chr(34) & "--" & Chr(34) & Chr(34) & "--" & Chr(34) & vbCr
         Exit Function
@@ -64,16 +64,16 @@ Public Function GetStepUitslag(sUrl As Variant, ActiveID As Variant, Data_of_Res
     
     'we hebben de tweede tag nodig
     
-    s = Mid(s, teller + 7)
+    s = Mid(s, Teller + 7)
     
     If Data_of_Results = 1 Then
-    teller = InStr(s, "<tbody>")
-    If teller = 0 Then
+    Teller = InStr(s, "<tbody>")
+    If Teller = 0 Then
        'indien geen tweede tabelinhoud dan exit function
         GetStepUitslag = Chr(34) & "--" & Chr(34) & Chr(34) & "--" & Chr(34) & Chr(34) & "--" & Chr(34) & vbCr
         Exit Function
     End If
-     s = Mid(s, teller + 7)
+     s = Mid(s, Teller + 7)
    End If
   
     
@@ -94,21 +94,21 @@ Public Function GetStepUitslag(sUrl As Variant, ActiveID As Variant, Data_of_Res
     
     Do While Left(s, 8) <> "</tbody>"
         'zoek tr
-        b = tr_tag(s)
+        B = tr_tag(s)
   
         '3 kolommen
         
         'Kolom rang
        
-        Rang = Chr(34) & td_tag(b) & Chr(34)
+        Rang = Chr(34) & td_tag(B) & Chr(34)
         
         'Kolom spelers
         
-        spelers = Chr(34) & td_tag(b) & Chr(34)
+        spelers = Chr(34) & td_tag(B) & Chr(34)
  
         'Kolom score
         
-        score = Chr(34) & td_tag(b) & Chr(34)
+        score = Chr(34) & td_tag(B) & Chr(34)
         
         Uitslag = Uitslag & Rang & "," & spelers & "," & score & vbCr
        
@@ -116,33 +116,33 @@ Public Function GetStepUitslag(sUrl As Variant, ActiveID As Variant, Data_of_Res
      
      'uitslag is twee kolommen
      
-     teller = InStr(s, "<tbody>")
+     Teller = InStr(s, "<tbody>")
      'mocht er geen twee kolom zijn dan exit functie
      
-     If teller = 0 Then
+     If Teller = 0 Then
         GetStepUitslag = Uitslag
         Exit Function
     End If
         
-        s = Mid(s, teller + 7)
+        s = Mid(s, Teller + 7)
     
     Do While Left(s, 8) <> "</tbody>"
         'zoek tr
-        b = tr_tag(s)
+        B = tr_tag(s)
   
         '3 kolommen
         
         'Kolom rang
        
-        Rang = Chr(34) & td_tag(b) & Chr(34)
+        Rang = Chr(34) & td_tag(B) & Chr(34)
         
         'Kolom spelers
         
-        spelers = Chr(34) & td_tag(b) & Chr(34)
+        spelers = Chr(34) & td_tag(B) & Chr(34)
  
         'Kolom score
         
-        score = Chr(34) & td_tag(b) & Chr(34)
+        score = Chr(34) & td_tag(B) & Chr(34)
         
         Uitslag = Uitslag & Rang & "," & spelers & "," & score & vbCr
      Loop
@@ -153,13 +153,13 @@ End Function
 
 
 Public Function GetStepUitslag_deelnemers(sUrl As Variant, ActiveID As Variant, Data_of_Results As Variant) As String
-    Dim s, a, b, c As String
+    Dim s, a, B, c As String
     Dim Uitslag As String
     
     Dim Rang, spelers, score As String
     
     
-    Dim teller, teller2, tel2, tel3, telr2, telr3 As Integer
+    Dim Teller, teller2, tel2, tel3, telr2, telr3 As Integer
     s = GetHTMLFromURL(sUrl & ActiveID)
     
     'zoek tag body
@@ -175,9 +175,9 @@ Public Function GetStepUitslag_deelnemers(sUrl As Variant, ActiveID As Variant, 
     '   </tbody>   einde tweede helft
     ' </tbody  einde
     
-     teller = InStr(s, "<body>")
-     If teller > 0 Then
-        s = Mid(s, teller + 6)
+     Teller = InStr(s, "<body>")
+     If Teller > 0 Then
+        s = Mid(s, Teller + 6)
      Else
         'geen body tag dan exit functie
         GetStepUitslag_deelnemers = Chr(34) & "--" & Chr(34) & Chr(34) & "--" & Chr(34) & Chr(34) & "--" & Chr(34) & vbCr
@@ -187,8 +187,8 @@ Public Function GetStepUitslag_deelnemers(sUrl As Variant, ActiveID As Variant, 
      'zoek tag <tbody> is een tabel met inhoud
  's = Replace(s, Chr(10), "")
     's = Trim(s)
-    teller = InStr(s, "<tbody>")
-    If teller = 0 Then
+    Teller = InStr(s, "<tbody>")
+    If Teller = 0 Then
        'indien geen tabelinhoud dan exit function
         GetStepUitslag_deelnemers = Chr(34) & "--" & Chr(34) & Chr(34) & "--" & Chr(34) & Chr(34) & "--" & Chr(34) & vbCr
         Exit Function
@@ -196,16 +196,16 @@ Public Function GetStepUitslag_deelnemers(sUrl As Variant, ActiveID As Variant, 
     
     'we hebben de tweede tag nodig
     
-    s = Mid(s, teller + 7)
+    s = Mid(s, Teller + 7)
     
     If Data_of_Results = 1 Then
-    teller = InStr(s, "<tbody>")
-    If teller = 0 Then
+    Teller = InStr(s, "<tbody>")
+    If Teller = 0 Then
        'indien geen tweede tabelinhoud dan exit function
         GetStepUitslag_deelnemers = Chr(34) & "--" & Chr(34) & Chr(34) & "--" & Chr(34) & Chr(34) & "--" & Chr(34) & vbCr
         Exit Function
     End If
-     s = Mid(s, teller + 7)
+     s = Mid(s, Teller + 7)
    End If
   
     
@@ -226,17 +226,17 @@ Public Function GetStepUitslag_deelnemers(sUrl As Variant, ActiveID As Variant, 
     
     Do While Left(s, 8) <> "</tbody>"
         'zoek tr
-        b = tr_tag(s)
+        B = tr_tag(s)
   
         '3 kolommen
         
         'Kolom rang
        
-        Rang = Chr(34) & td_tag(b) & Chr(34)
+        Rang = Chr(34) & td_tag(B) & Chr(34)
         
       'Kolom spelers
         
-        spelers = td_tag(b)
+        spelers = td_tag(B)
         
        teller2 = InStr(spelers, "-")
        Speler1 = Chr(34) & Trim(Left(spelers, teller2 - 1)) & Chr(34)
@@ -250,29 +250,29 @@ Public Function GetStepUitslag_deelnemers(sUrl As Variant, ActiveID As Variant, 
      
      'uitslag is twee kolommen
      
-     teller = InStr(s, "<tbody>")
+     Teller = InStr(s, "<tbody>")
      'mocht er geen twee kolom zijn dan exit functie
      
-     If teller = 0 Then
+     If Teller = 0 Then
         GetStepUitslag_deelnemers = Uitslag
         Exit Function
     End If
         
-        s = Mid(s, teller + 7)
+        s = Mid(s, Teller + 7)
     
     Do While Left(s, 8) <> "</tbody>"
         'zoek tr
-        b = tr_tag(s)
+        B = tr_tag(s)
   
         '3 kolommen
         
         'Kolom rang
        
-        Rang = Chr(34) & td_tag(b) & Chr(34)
+        Rang = Chr(34) & td_tag(B) & Chr(34)
         
         'Kolom spelers
         
-        spelers = td_tag(b)
+        spelers = td_tag(B)
         
        teller2 = InStr(spelers, "-")
        Speler1 = Chr(34) & Trim(Left(spelers, teller2 - 1)) & Chr(34)
@@ -287,14 +287,14 @@ Public Function GetStepUitslag_deelnemers(sUrl As Variant, ActiveID As Variant, 
     GetStepUitslag_deelnemers = Uitslag
 End Function
 Public Function GetStepUitslag_d(sUrl As Variant, ActiveID As Variant) As String
-    Dim s, a, b, c As String
+    Dim s, a, B, c As String
     Dim Uitslag As String
     Dim Rijen_Uitslag() As String
     Dim Kolommen_Uitslag() As String
     Dim Rang, spelers, score, strTable As String
     Dim TweedeKolom As Integer
     Dim tel_tbody_1, tel_tbody_2 As Integer
-    Dim teller, teller2, tel_1, tel_2, telr2, telr3 As Integer
+    Dim Teller, teller2, tel_1, tel_2, telr2, telr3 As Integer
     s = GetHTMLFromURL(sUrl & ActiveID)
     
     
@@ -419,26 +419,26 @@ End Function
 
 Public Function tr_tag(Inhoud As Variant) As String
  Dim telr2, telr3 As Integer
- Dim b As String
+ Dim B As String
         telr2 = InStr(Inhoud, "<tr>")
         telr3 = InStr(Inhoud, "</tr>")
-        b = Mid(Inhoud, telr2 + 4, telr3 - telr2 + 1)
+        B = Mid(Inhoud, telr2 + 4, telr3 - telr2 + 1)
         Inhoud = Trim(Mid(Inhoud, telr3 + 6))
-        tr_tag = b
+        tr_tag = B
 End Function
 
 Public Function td_tag(Inhoud As Variant) As String
  Dim tel2, tel3 As Integer
- Dim b As String
+ Dim B As String
         tel2 = InStr(Inhoud, "<td>")
         tel3 = InStr(Inhoud, "</td>")
-        b = Mid(Inhoud, tel2 + 4, tel3 - tel2 - 4)
-        b = Replace(b, " ", "")
-        b = Replace(b, vbCr, "")
-        b = Replace(b, vbLf, "")
+        B = Mid(Inhoud, tel2 + 4, tel3 - tel2 - 4)
+        B = Replace(B, " ", "")
+        B = Replace(B, vbCr, "")
+        B = Replace(B, vbLf, "")
         
         Inhoud = Trim(Mid(Inhoud, tel3 + 5))
-        td_tag = b
+        td_tag = B
 End Function
 
 ' destilleer paren
@@ -449,32 +449,32 @@ End Function
 
 
 Public Function GetStepUserData(sUrl As Variant, ActiveID As Variant, User As Variant) As String
-    Dim s, a, b, c As String
+    Dim s, a, B, c As String
     Dim Scorestaat As String
     Dim TestNietGespeeld As Integer
     Dim TestKunstMatig, TestGewoon As Integer
     Dim Spelnr, Contract, resultaat, Door, score, ImpsButler, kleur As String
     
     
-    Dim teller, teller2, tel2, tel3, tel4, telr2, telr3, hoogte As Integer
+    Dim Teller, teller2, tel2, tel3, tel4, telr2, telr3, hoogte As Integer
     
     
    s = GetHTMLFromURL(sUrl & ActiveID & "&" & "username=" & User)
    ' s = GetHTMLFromURL(sUrl & ActiveID & "/" & User)
     'zoek body
     
-    teller = InStr(s, "<body>")
+    Teller = InStr(s, "<body>")
     
     
-    If teller > 0 Then
-     s = Mid(s, teller + 6)
+    If Teller > 0 Then
+     s = Mid(s, Teller + 6)
     Else
      GetStepUserData = "-----"
      Exit Function
     End If
     
-    teller = InStr(s, "<tbody>")
-    s = Mid(s, teller + 7)
+    Teller = InStr(s, "<tbody>")
+    s = Mid(s, Teller + 7)
     
     
     s = StripHREF(s)
@@ -489,7 +489,7 @@ Public Function GetStepUserData(sUrl As Variant, ActiveID As Variant, User As Va
     s = Trim(s)
     Do While Left(s, 8) <> "</tbody>"
         'zoek tr
-        b = tr_tag(s)
+        B = tr_tag(s)
         TestNietGespeeld = False
         TestKunstMatig = False
         TestGewoon = True
@@ -500,39 +500,39 @@ Public Function GetStepUserData(sUrl As Variant, ActiveID As Variant, User As Va
         '<td align="left" colspan="4" align="center">Kunstmatige Score</td>
         '<td align="right">50,00%</td>
         
-        If InStr(b, "spel niet gespeeld") > 0 Then
+        If InStr(B, "spel niet gespeeld") > 0 Then
            TestNietGespeeld = True
            TestGewoon = False
         End If
          
-         If InStr(b, "kunstmatige") > 0 Then
+         If InStr(B, "kunstmatige") > 0 Then
           TestKunstMatig = True
           TestGewoon = False
         End If
         
         If TestNietGespeeld Then
             'spelnr
-            Spelnr = Chr(34) & td_tag(b) & Chr(34)
+            Spelnr = Chr(34) & td_tag(B) & Chr(34)
             Scorestaat = Scorestaat & Spelnr & "," & "NGSP" & "," & "" & "," & "" & "," & "" & "," & "" & vbCr
         End If
         
         If TestKunstMatig Then
        
         'spelnr
-            Spelnr = Chr(34) & td_tag(b) & Chr(34)
-            Contract = Chr(34) & td_tag(b) & Chr(34)
-            ImpsButler = Chr(34) & Mid(b, tel2 + 4, tel3 - tel2 - 4) & Chr(34)
+            Spelnr = Chr(34) & td_tag(B) & Chr(34)
+            Contract = Chr(34) & td_tag(B) & Chr(34)
+            ImpsButler = Chr(34) & Mid(B, tel2 + 4, tel3 - tel2 - 4) & Chr(34)
             Scorestaat = Scorestaat & Spelnr & "," & "ARB" & "," & "" & "," & "" & "," & "" & "," & ImpsButler & vbCr
         End If
         
         If TestGewoon Then
              'spelnr
-            Spelnr = Chr(34) & td_tag(b) & Chr(34)
+            Spelnr = Chr(34) & td_tag(B) & Chr(34)
             
             'contract
             '<td>4<img src="/images/suit409.gif" alt="S">X</td>
             
-            a = td_tag(b)
+            a = td_tag(B)
             hoogte = Val(a)
             If hoogte <> 0 Then
                 tel4 = InStr(a, "alt")
@@ -550,17 +550,17 @@ Public Function GetStepUserData(sUrl As Variant, ActiveID As Variant, User As Va
             End If
    
            'Resultaat
-            resultaat = Chr(34) & td_tag(b) & Chr(34)
+            resultaat = Chr(34) & td_tag(B) & Chr(34)
             
             'Door
-            Door = Chr(34) & td_tag(b) & Chr(34)
+            Door = Chr(34) & td_tag(B) & Chr(34)
               
             'Score
-            score = Chr(34) & td_tag(b) & Chr(34)
+            score = Chr(34) & td_tag(B) & Chr(34)
                   
             'Impsbutler
            
-            ImpsButler = Chr(34) & td_tag(b) & Chr(34)
+            ImpsButler = Chr(34) & td_tag(B) & Chr(34)
             ImpsButler = Replace(ImpsButler, "IMP", " IMP")
             Scorestaat = Scorestaat & Spelnr & "," & Contract & "," & resultaat & "," & Door & "," & score & "," & ImpsButler & vbCr
         
@@ -573,14 +573,14 @@ Public Function GetStepUserData(sUrl As Variant, ActiveID As Variant, User As Va
 End Function
 
 Public Function GetStepUserData2(sUrl As Variant, ActiveID As Variant, User As Variant) As String
-    Dim s, a, b, c As String
+    Dim s, a, B, c As String
     Dim Scorestaat As String
     Dim TestNietGespeeld As Integer
     Dim TestKunstMatig, TestGewoon As Integer
     Dim Spelnr, Contract, resultaat, Door, score, ImpsButler, kleur As String
     
     
-    Dim teller, teller2, tel2, tel3, tel4, telr2, telr3, hoogte As Integer
+    Dim Teller, teller2, tel2, tel3, tel4, telr2, telr3, hoogte As Integer
     
     
     ' GetHTMLFromURL(sUrl & ActiveID & "&" & "username=" & User)
@@ -589,21 +589,21 @@ Public Function GetStepUserData2(sUrl As Variant, ActiveID As Variant, User As V
    
     'zoek body
     
-    teller = InStr(s, "<body>")
+    Teller = InStr(s, "<body>")
     
     
-    If teller > 0 Then
-     s = Mid(s, teller + 6)
+    If Teller > 0 Then
+     s = Mid(s, Teller + 6)
     Else
      GetStepUserData2 = "-----"
      Exit Function
     End If
     
-    teller = InStr(s, "<table class=" & Chr(34) & "results" & Chr(34) & ">")
-    s = Mid(s, teller + 23)
+    Teller = InStr(s, "<table class=" & Chr(34) & "results" & Chr(34) & ">")
+    s = Mid(s, Teller + 23)
     
-    teller = InStr(s, "<tbody>")
-    s = Mid(s, teller + 7)
+    Teller = InStr(s, "<tbody>")
+    s = Mid(s, Teller + 7)
     
     
     s = StripHREF(s)
@@ -617,7 +617,7 @@ Public Function GetStepUserData2(sUrl As Variant, ActiveID As Variant, User As V
     
     Do While Left(s, 8) <> "</tbody>"
         'zoek tr
-        b = tr_tag(s)
+        B = tr_tag(s)
         TestNietGespeeld = False
         TestKunstMatig = False
         TestGewoon = True
@@ -628,37 +628,37 @@ Public Function GetStepUserData2(sUrl As Variant, ActiveID As Variant, User As V
         '<td align="left" colspan="4" align="center">Kunstmatige Score</td>
         '<td align="right">50,00%</td>
         
-        If InStr(b, "spel niet gespeeld") > 0 Then
+        If InStr(B, "spel niet gespeeld") > 0 Then
            TestNietGespeeld = True
            TestGewoon = False
         End If
          
-         If InStr(b, "kunstmatige") > 0 Then
+         If InStr(B, "kunstmatige") > 0 Then
           TestKunstMatig = True
           TestGewoon = False
         End If
         
         If TestNietGespeeld Then
             'spelnr
-            Spelnr = Chr(34) & td_tag(b) & Chr(34)
+            Spelnr = Chr(34) & td_tag(B) & Chr(34)
             Scorestaat = Scorestaat & Spelnr & "," & "NGSP" & "," & "" & "," & "" & "," & "" & "," & "" & vbCr
         End If
         
         If TestKunstMatig Then
        
         'spelnr
-            Spelnr = Chr(34) & td_tag(b) & Chr(34)
-            Contract = Chr(34) & td_tag(b) & Chr(34)
-            ImpsButler = Chr(34) & Mid(b, tel2 + 4, tel3 - tel2 - 4) & Chr(34)
+            Spelnr = Chr(34) & td_tag(B) & Chr(34)
+            Contract = Chr(34) & td_tag(B) & Chr(34)
+            ImpsButler = Chr(34) & Mid(B, tel2 + 4, tel3 - tel2 - 4) & Chr(34)
             Scorestaat = Scorestaat & Spelnr & "," & "ARB" & "," & "" & "," & "" & "," & "" & "," & ImpsButler & vbCr
         End If
         
         If TestGewoon Then
              'spelnr
-            Spelnr = Chr(34) & td_tag(b) & Chr(34)
+            Spelnr = Chr(34) & td_tag(B) & Chr(34)
             
             'contract
-            a = td_tag(b)
+            a = td_tag(B)
             hoogte = Val(a)
             If hoogte <> 0 Then
                 tel4 = InStr(a, "alt")
@@ -676,17 +676,17 @@ Public Function GetStepUserData2(sUrl As Variant, ActiveID As Variant, User As V
             End If
    
            'Resultaat
-            resultaat = Chr(34) & td_tag(b) & Chr(34)
+            resultaat = Chr(34) & td_tag(B) & Chr(34)
             
             'Door
             Door = Chr(34) & "" & Chr(34)
               
             'Score
-            score = Chr(34) & td_tag(b) & Chr(34)
+            score = Chr(34) & td_tag(B) & Chr(34)
                   
             'Impsbutler
            
-            ImpsButler = Chr(34) & td_tag(b) & Chr(34)
+            ImpsButler = Chr(34) & td_tag(B) & Chr(34)
             ImpsButler = Replace(ImpsButler, "IMP", " IMP")
             
             'Scorestaat = Scorestaat & Spelnr & "," & Contract & "," & Resultaat & "," & Score & "," & ImpsButler & vbCr
@@ -701,20 +701,20 @@ Public Function GetStepUserData2(sUrl As Variant, ActiveID As Variant, User As V
 End Function
 Public Function StripHREF(a As Variant)
 
-Dim teller, lengte As Long
-Dim b, c As Long
+Dim Teller, lengte As Long
+Dim B, c As Long
 Dim strA As String
 
 
 strA = a
 
-teller = 0
+Teller = 0
 
 
 Do While InStr(strA, "<A") > 0
-    b = InStr(strA, "<A")
-    c = InStr(b, strA, ">")
-    strA = Left(strA, b - 1) + Mid(strA, c + 1)
+    B = InStr(strA, "<A")
+    c = InStr(B, strA, ">")
+    strA = Left(strA, B - 1) + Mid(strA, c + 1)
 Loop
 
 strA = Replace(strA, "</A>", "")
@@ -745,17 +745,17 @@ End Function
 
 Public Sub AlleScoreStatenExcel(avond As Integer)
 Dim i As Integer
-Dim X
+Dim x
 
 For i = 1 To 15
-X = VulScoreKaartInSheet(i, avond, 1, lngToernooi)
+x = VulScoreKaartInSheet(i, avond, 1, lngToernooi)
 Next
 
 End Sub
 
 Public Sub AlleScoreStaten_DATA(avond As Integer)
 Dim i As Integer
-Dim X
+Dim x
 Dim Excelfile, Backupfile As String
 
 'copy excel file naar backup.
@@ -765,21 +765,21 @@ If Dir(WORKFOLDER & "Backup\", vbDirectory) = "" Then
 End If
 
 Backupfile = WORKFOLDER & "Backup\" & Left(WORKFILE, Len(WORKFILE) - 5) & "_" & Format(Now(), "hh_mm") & ".xlsx"
-X = fnCopyfile(Excelfile, Backupfile)
+x = fnCopyfile(Excelfile, Backupfile)
 
 
 'ScoreSheetName = "Avond_" & Avond & "_Teamnr_*"
 'Call deleteSheet(ScoreSheetName)
  
 For i = 1 To 15
-X = VulScoreKaartInSheet(i, avond, 1, lngToernooi)
+x = VulScoreKaartInSheet(i, avond, 1, lngToernooi)
 Next
 
 
 End Sub
 Public Sub AlleScoreStaten_RESULTS(avond As Integer, ToernID As Variant, SessieID As Variant)
 Dim i, j As Integer
-Dim X
+Dim x
 Dim Excelfile, Backupfile As String
 
 Call InitAll(ToernID, SessieID)
@@ -791,17 +791,46 @@ If Dir(WORKFOLDER & "Backup\", vbDirectory) = "" Then
 End If
 
 Backupfile = WORKFOLDER & "Backup\" & Left(WORKFILE, Len(WORKFILE) - 5) & "_" & Format(Now(), "hh_mm") & ".xlsx"
-X = fnCopyfile(Excelfile, Backupfile)
+x = fnCopyfile(Excelfile, Backupfile)
 
+Forms("Start_VT").[subProcess].Form.lblTeamNr.Visible = True
 
 'ScoreSheetName = "Avond_" & Avond & "_Teamnr_*"
 'Call deleteSheet(ScoreSheetName)
- 
-For i = 1 To AANTALTEAMS - IIf(TEAMBYE > 0, 1, 0)
+'SysCmd acSysCmdInitMeter, "Process Scorestaten...", AANTALTEAMS - IIf(TEAMBYE > 0, 1, 0)
+    
+Dim db As Database
+Dim rs As Recordset
 
+Set db = CurrentDb
 
-X = VulScoreKaartInSheet(i, avond, 2, ToernID)
-Next
+Set rs = db.OpenRecordset("select * from tblOpstelling where sessieid = " & lngSessie)
+rs.MoveLast
+j = rs.RecordCount
+SysCmd acSysCmdInitMeter, "Process Scorestaten...", j
+
+  i = 0
+  rs.MoveFirst
+  Do While Not rs.EOF
+    If TEAMBYE = 0 Then
+        i = i + 1
+        Forms("Start_VT").[subProcess].Form.lblTeamNr.Caption = "--- " & rs!Teamnr & " ---"
+        SysCmd acSysCmdUpdateMeter, i
+        x = VulScoreKaartInSheet(rs!Teamnr, avond, 2, ToernID, ScorestaatIntern, ScorestaatExcel)
+    Else
+        If rs!Teamnr <> TEAMBYE Then
+            i = i + 1
+            SysCmd acSysCmdUpdateMeter, i
+            Forms("Start_VT").[subProcess].Form.lblTeamNr.Caption = "--- " & rs!Teamnr & " ---"
+            x = VulScoreKaartInSheet(rs!Teamnr, avond, 2, ToernID, ScorestaatIntern, ScorestaatExcel)
+        End If
+    End If
+    
+  
+  rs.MoveNext
+  Loop
+  Forms("Start_VT").[subProcess].Form.lblTeamNr.Visible = False
+  SysCmd acSysCmdRemoveMeter
 End Sub
 
 Public Sub InsertScoreSheets(avond As Integer)
@@ -810,7 +839,7 @@ Dim StartBook As Object
 Dim xlApp As Object
 Set xlApp = CreateObject("Excel.Application")
 
-xlApp.Application.Visible = False
+xlApp.Application.Visible = intExcelZichtbaar
 xlApp.Application.DisplayAlerts = False
 
 Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
@@ -851,7 +880,7 @@ Next
 End Sub
 Public Sub VulUitslagIn(sUrl As Variant, avond As Variant)
 Dim Uitslag, strWebInfo As String
-Dim rijteller, teller, teller2, kolomteller, kolomteller2, kolomoffset, i, j As Integer
+Dim rijteller, Teller, teller2, kolomteller, kolomteller2, kolomoffset, i, j As Integer
 Dim MySheet As Object
 Dim StartBook As Object
 Dim Rijen() As String
@@ -862,7 +891,7 @@ Dim xlApp As Object
 
 Set xlApp = CreateObject("Excel.Application")
 
-xlApp.Application.Visible = True
+xlApp.Application.Visible = intExcelZichtbaar
 xlApp.Application.DisplayAlerts = False
 
 Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
@@ -895,10 +924,10 @@ MySheet.Cells(1, 0 + kolomoffset).Value = "Rang"
 MySheet.Cells(1, 1 + kolomoffset).Value = "Spelers"
 MySheet.Cells(1, 2 + kolomoffset).Value = "Score"
 rijteller = 2
-For teller = 0 To UBound(Rijen)
-        Kolommen = Split(Rijen(teller), ",")
+For Teller = 0 To UBound(Rijen)
+        Kolommen = Split(Rijen(Teller), ",")
         For teller2 = 0 To UBound(Kolommen)
-            MySheet.Cells(rijteller + teller, kolomoffset + teller2).Value = Replace(Kolommen(teller2), Chr(34), "")
+            MySheet.Cells(rijteller + Teller, kolomoffset + teller2).Value = Replace(Kolommen(teller2), Chr(34), "")
         Next
 Next
 
@@ -914,7 +943,7 @@ End Sub
 
 Public Sub HTMLViertalUitslagenIn(avond As Variant, ToernID As Variant, SessieID As Variant)
 Dim ViertalUitslag, WebInf, StepRef, ScoreSheetHTML, UitslagHTML, UitslagenHTML, HTMLFolder, Prefix_kopje, Suffix_kopje, Linkje, Voetje As String
-Dim rijteller, teller, teller2, kolomteller, kolomteller2, kolomoffset, i, j As Integer
+Dim rijteller, Teller, teller2, kolomteller, kolomteller2, kolomoffset, i, j As Integer
 Dim intWebInfo As Integer
 
 Dim Thuis, Uit As Variant
@@ -935,53 +964,14 @@ Dim db As Database
 
 
 Call InitAll(ToernID, SessieID)
- 
 
-
-Set xlApp = CreateObject("Excel.Application")
-
-xlApp.Application.Visible = True
-xlApp.Application.DisplayAlerts = False
-
-Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
-
-'webinfo
-
-Set db = CurrentDb
-Set rs = db.OpenRecordset("select * from tblSessie  where [id] =" & lngSessie)
-intWebInfo = rs!ActivityID
-rs.Close
-db.Close
-
-'Set MySheet = StartBook.Worksheets("WebInfo")
-'
-'rijteller = 2
-'Do While True
-'If MySheet.Cells(rijteller, 1).Value = avond Then
- '   info = True
- '   intWebInfo = MySheet.Cells(rijteller, 2).Value
- '   Exit Do
-'End If
-
-
-' If MySheet.Cells(rijteller, 1).Value = "" Then
-'   Exit Sub
- 'End If
-' rijteller = rijteller + 1
-'Loop
-
-'ViertalUitslag = GetStepViertalUitslag(STEPDATA, WebInfo)
-
-'Rijen = Split(Uitslag, vbCr)
 HTMLFolder = LOCALHTML
-
-
 If ToernID > 1 Then
-UitslagHTML = HTMLFolder & "Uitslagen_" & ToernID & "_" & PREFIX & avond & ".html"
-Else
-UitslagHTML = HTMLFolder & "Uitslagen" & PREFIX & avond & ".html"
+    UitslagHTML = HTMLFolder & "Uitslagen_" & ToernID & "_" & PREFIX & avond & ".html"
+    Else
+    UitslagHTML = HTMLFolder & "Uitslagen" & PREFIX & avond & ".html"
 End If
-
+    
 UitslagenHTML = ""
 UitslagenHTML = UitslagenHTML & html_header()
 UitslagenHTML = UitslagenHTML & html_Begin_Body()
@@ -1001,54 +991,140 @@ End If
 
 
 UitslagenHTML = UitslagenHTML & rij_header(Prefix_kopje & Suffix_kopje)
-
 UitslagenHTML = UitslagenHTML & TeamUitslagenResultheader()
 
-Set MySheet = StartBook.Sheets("TeamUitslagen")
 
-rijteller = 2
+If ScorestaatExcel Then
 
-Do While MySheet.Cells(rijteller, 1).Value <> ""
+    Set xlApp = CreateObject("Excel.Application")
+    xlApp.Application.Visible = intExcelZichtbaar
+    xlApp.Application.DisplayAlerts = False
+    Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
     
+    'webinfo
+    
+    Set MySheet = StartBook.Worksheets("WebInfo")
+    
+    rijteller = 2
+    Do While True
     If MySheet.Cells(rijteller, 1).Value = avond Then
-    
-        'plot regel
-        
-        Thuis = MySheet.Cells(rijteller, 5).Value
-        Uit = MySheet.Cells(rijteller, 6).Value
-        Imps_Thuis = MySheet.Cells(rijteller, 7).Value
-        Imps_Uit = MySheet.Cells(rijteller, 8).Value
-        VPs_Thuis = MySheet.Cells(rijteller, 9).Value
-        VPs_Uit = MySheet.Cells(rijteller, 10).Value
-        refThuis = LOCALSITE & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & MySheet.Cells(rijteller, 3).Value & ".html"
-        refUit = LOCALSITE & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & MySheet.Cells(rijteller, 4).Value & ".html"
-        
-        If Thuis = "Bye" Then
-            refThuis = refUit
-            Imps_Thuis = "&nbsp;"
-            Imps_Uit = "&nbsp;"
-            VPs_Thuis = "&nbsp;"
-            VPs_Uit = "&nbsp;"
-        End If
-        
-        If Uit = "Bye" Then
-            refUit = refThuis
-            Imps_Thuis = "&nbsp;"
-            Imps_Uit = "&nbsp;"
-            VPs_Thuis = "&nbsp;"
-            VPs_Uit = "&nbsp;"
-        End If
-        If rijteller Mod (AANTALTEAMS \ 2) = 2 And (rijteller < 2 + avond * (AANTALTEAMS \ 2) * WEDSTRIJDENPERSESSIE) Then
-            UitslagenHTML = UitslagenHTML & TeamUnderlineUitslagenResultRow(Thuis, refThuis, Uit, refUit, Imps_Thuis, Imps_Uit, VPs_Thuis, VPs_Uit)
-        Else
-            UitslagenHTML = UitslagenHTML & TeamUitslagenResultRow(Thuis, refThuis, Uit, refUit, Imps_Thuis, Imps_Uit, VPs_Thuis, VPs_Uit)
-        End If
+      info = True
+        intWebInfo = MySheet.Cells(rijteller, 2).Value
+       Exit Do
     End If
-    rijteller = rijteller + 1
-Loop
     
+    
+     If MySheet.Cells(rijteller, 1).Value = "" Then
+       Exit Sub
+    End If
+     rijteller = rijteller + 1
+    Loop
+    
+    
+    Set MySheet = StartBook.Sheets("TeamUitslagen")
+    
+    rijteller = 2
+    
+    Do While MySheet.Cells(rijteller, 1).Value <> ""
+        
+        If MySheet.Cells(rijteller, 1).Value = avond Then
+        
+            'plot regel
+            
+            Thuis = MySheet.Cells(rijteller, 5).Value
+            Uit = MySheet.Cells(rijteller, 6).Value
+            Imps_Thuis = MySheet.Cells(rijteller, 7).Value
+            If Imps_Thuis = "" Then Imps_Thuis = "&nbsp;"
+            Imps_Uit = MySheet.Cells(rijteller, 8).Value
+            If Imps_Uit = "" Then Imps_Uit = "&nbsp;"
+            VPs_Thuis = MySheet.Cells(rijteller, 9).Value
+            If VPs_Thuis = "" Then VPs_Thuis = "&nbsp;"
+            VPs_Uit = MySheet.Cells(rijteller, 10).Value
+            If VPs_Uit = "" Then VPs_Uit = "&nbsp;"
+            
+            refThuis = LOCALSITE & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & MySheet.Cells(rijteller, 3).Value & ".html"
+            refUit = LOCALSITE & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & MySheet.Cells(rijteller, 4).Value & ".html"
+            
+            If Thuis = "Bye" Then
+                refThuis = refUit
+                Imps_Thuis = "&nbsp;"
+                Imps_Uit = "&nbsp;"
+                VPs_Thuis = "&nbsp;"
+                VPs_Uit = "&nbsp;"
+            End If
+            
+            If Uit = "Bye" Then
+                refUit = refThuis
+                Imps_Thuis = "&nbsp;"
+                Imps_Uit = "&nbsp;"
+                VPs_Thuis = "&nbsp;"
+                VPs_Uit = "&nbsp;"
+            End If
+            If rijteller Mod (AANTALTEAMS \ 2) = 2 And (rijteller < 2 + avond * (AANTALTEAMS \ 2) * WEDSTRIJDENPERSESSIE) Then
+                UitslagenHTML = UitslagenHTML & TeamUnderlineUitslagenResultRow(Thuis, refThuis, Uit, refUit, Imps_Thuis, Imps_Uit, VPs_Thuis, VPs_Uit)
+            Else
+                UitslagenHTML = UitslagenHTML & TeamUitslagenResultRow(Thuis, refThuis, Uit, refUit, Imps_Thuis, Imps_Uit, VPs_Thuis, VPs_Uit)
+            End If
+        End If
+        rijteller = rijteller + 1
+    Loop
+    Set MySheet = Nothing
+    Set StartBook = Nothing
+    xlApp.Application.DisplayAlerts = True
+    xlApp.Application.Quit
+    Set xlApp = Nothing
+End If
+
+If ScorestaatIntern Then
+    Set db = CurrentDb
+    Set rs = db.OpenRecordset("select * from tblSessie  where [id] =" & lngSessie)
+    intWebInfo = rs!ActivityID
+    rs.Close
+    
+    Set rs = db.OpenRecordset("select * from qryUitslagen  where [SessieID] =" & lngSessie)
+    rs.MoveFirst
+    rijteller = 2
+    Do While Not rs.EOF
+            Thuis = rs!Thuis
+            Uit = rs!Uit
+            Imps_Thuis = IIf(IsNull(rs!ImpsThuis), "&nbsp;", rs!ImpsThuis)
+            Imps_Uit = IIf(IsNull(rs!ImpsUit), "&nbsp;", rs!ImpsUit)
+            VPs_Thuis = IIf(IsNull(rs!VpsThuis), "&nbsp;", rs!VpsThuis)
+            VPs_Uit = IIf(IsNull(rs!VpsUit), "&nbsp;", rs!VpsUit)
+            refThuis = LOCALSITE & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & rs!TeamnrThuis & ".html"
+            refUit = LOCALSITE & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & rs!TeamnrUit & ".html"
+            If Thuis = "Bye" Then
+                refThuis = refUit
+                Imps_Thuis = "&nbsp;"
+                Imps_Uit = "&nbsp;"
+                VPs_Thuis = "&nbsp;"
+                VPs_Uit = "&nbsp;"
+            End If
+            If Uit = "Bye" Then
+                refUit = refThuis
+                Imps_Thuis = "&nbsp;"
+                Imps_Uit = "&nbsp;"
+                VPs_Thuis = "&nbsp;"
+                VPs_Uit = "&nbsp;"
+            End If
+            If rijteller Mod (AANTALTEAMS \ 2) = 2 And (rijteller < 2 + avond * (AANTALTEAMS \ 2) * WEDSTRIJDENPERSESSIE) Then
+                UitslagenHTML = UitslagenHTML & TeamUnderlineUitslagenResultRow(Thuis, refThuis, Uit, refUit, Imps_Thuis, Imps_Uit, VPs_Thuis, VPs_Uit)
+            Else
+                UitslagenHTML = UitslagenHTML & TeamUitslagenResultRow(Thuis, refThuis, Uit, refUit, Imps_Thuis, Imps_Uit, VPs_Thuis, VPs_Uit)
+            End If
+        rs.MoveNext
+        rijteller = rijteller + 1
+    Loop
+    rs.Close
+    db.Close
+End If
+
+
+
+        
 UitslagenHTML = UitslagenHTML & TeamUitslagenResultfooter()
 UitslagenHTML = UitslagenHTML & html_Einde_Body()
+
 
 If fnExists(UitslagHTML) Then
     Kill (UitslagHTML)
@@ -1069,18 +1145,14 @@ Set oFile = Nothing
     
     
 
-    Set MySheet = Nothing
-    Set StartBook = Nothing
-    xlApp.Application.DisplayAlerts = True
-    xlApp.Application.Quit
-    Set xlApp = Nothing
+ 
 
 
 End Sub
 
 Public Sub HTMLViertalKruistabel(ToernID As Variant)
 Dim ViertalUitslag, WebInf, StepRef, ScoreSheetHTML, UitslagHTML, KruisHTML, HTMLFolder As String
-Dim rijteller, teller, teller2, kolomteller, kolomteller2, kolomoffset, i, j, avond As Integer
+Dim rijteller, Teller, teller2, kolomteller, kolomteller2, kolomoffset, i, j, avond As Integer
 
 
 Dim Thuis, Uit As Variant
@@ -1098,15 +1170,15 @@ Dim xlApp As Object
 
 Dim db As Database
 Dim rs As Recordset
-Set db = CurrentDb
-Set rs = db.OpenRecordset("select * from tblSessie where [ToernooiD] = " & ToernID & " Order by Sessienr")
-rs.MoveLast
-lngSessie = rs!Id
-rs.Close
-db.Close
+'Set db = CurrentDb
+'Set rs = db.OpenRecordset("select * from tblSessie where [ToernooiD] = " & ToernID & " Order by Sessienr")
+'rs.MoveLast
+'lngSessie = rs!id
+'rs.Close
+'db.Close
 
 'fris altijd sessie gegevens op
-lngSessieOld = 0
+'lngSessieOld = 0
 Call InitAll(ToernID, lngSessie)
 
 ReDim WebInfo(20) As Integer
@@ -1116,7 +1188,7 @@ ReDim Team_Tegen_Avond(AANTALTEAMS + 4, AANTALTEAMS + 4) As Integer
 
 Set xlApp = CreateObject("Excel.Application")
 
-xlApp.Application.Visible = True
+xlApp.Application.Visible = intExcelZichtbaar
 xlApp.Application.DisplayAlerts = False
 
 Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
@@ -1125,17 +1197,17 @@ Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
 Set MySheet = StartBook.Worksheets("Schema")
 rijteller = 2
 kolomteller = 1
-teller = 1
-Do While MySheet.Cells(rijteller + teller, 1).Value <> ""
+Teller = 1
+Do While MySheet.Cells(rijteller + Teller, 1).Value <> ""
 
 'For teller = 1 To 15
-        avond = (teller - 1) \ WEDSTRIJDENPERSESSIE + 1
+        avond = DLookup("Sessienr", "qrySessieWedstrijdNummer", "[ToernooID] = " & lngToernooi & " and WedstrijdNr = " & Teller)
         For i = 1 To AANTALTEAMS \ 2
-            Team_Tegen_Avond(MySheet.Cells(rijteller + teller, i * 2).Value, MySheet.Cells(rijteller + teller, i * 2 + 1).Value) = avond
-             Team_Tegen_Avond(MySheet.Cells(rijteller + teller, i * 2 + 1).Value, MySheet.Cells(rijteller + teller, i * 2).Value) = avond
+            Team_Tegen_Avond(MySheet.Cells(rijteller + Teller, i * 2).Value, MySheet.Cells(rijteller + Teller, i * 2 + 1).Value) = avond
+             Team_Tegen_Avond(MySheet.Cells(rijteller + Teller, i * 2 + 1).Value, MySheet.Cells(rijteller + Teller, i * 2).Value) = avond
         Next
 'Next
-    teller = teller + 1
+    Teller = Teller + 1
  Loop
  
 Set MySheet = StartBook.Worksheets("WebInfo")
@@ -1229,26 +1301,28 @@ Set oFile = Nothing
 
 
 End Sub
-Public Function VulScoreKaartInSheet(TeamNr As Variant, avond As Variant, Data_of_Results As Integer, ToernooiID As Variant) As String
+Public Function VulScoreKaartInSheet(Teamnr As Variant, avond As Variant, Data_of_Results As Integer, ToernooiID As Variant, Optional Access As Integer, Optional Excel As Integer) As String
 
-Dim offset_speler As Integer
-Dim rijteller As Integer
-Dim kolomteller, sheetteller As Integer
+Dim offset_speler, intTeamnr, intVorigeTeamnr, intRijtellerEersteTeam As Integer
+Dim rijteller, wedstrijdteller As Integer
+Dim kolomteller, sheetteller, progressteller, progoffset As Integer
 Dim Opstelling, AparteExcel As Integer
 Dim intWebInfo, info As Integer
 Dim Speler1, Speler3, Speler2, Speler4, Paar1, Paar2 As String
 Dim refSpeler1, refSpeler3, refSpeler2, refSpeler4 As String
 Dim StepRef, StepUserRef As String
 Dim PWORef, PWOTeamRef As String
+Dim Criterium, Criterium1, Criterium2 As String
+Dim ThuisWedstrijd, UitWedstrijd, AantalspellenGespeeld As Integer
 Dim Wij, Tegenstander1, Tegenstander2 As String
 Dim refWij, refTegenstander1, refTegenstander2 As String
 Dim strE, strF, strG, strH, strI, strJ As String
-
+Dim t_score1, t_score2, t_saldo, t_imps, t_wijimps, t_zijimps As Integer
 Dim tegenst1, tegen1, tegen2, tegenst2, wij1, Wijzijn As Integer
 Dim TemplateExcelfile As String
 Dim ScoresheetExcelfile As String
 Dim Scorestaat_Speler1, Scorestaat_Speler3, strFormula, Kopje_prefix, Kopje_suffix, Voetje As String
-Dim teller, teller2 As Integer
+Dim Teller, teller2 As Integer
 Dim ScoreSheetName As String
 Dim MySheet As Worksheet
 Dim TemplateBook As Workbook
@@ -1256,13 +1330,14 @@ Dim StartBook As Workbook
 Dim TemplateSheet As Worksheet
 Dim kolomscorespeler1, AantalSpelGespeeldWedstrijd1 As Integer
 Dim kolomscorespeler3, AantalSpelGespeeldWedstrijd2 As Integer
+Dim ThuisID, UitID, UitslagID, WijID, ZijID, TeamByeID As Long
 
-Dim WijScore1, WijScore2, ZijScore1, ZijScore2, WijImps1, ZijImps1, WijImps2, ZijImps2, WijVPs1, ZijVPs1, WijVPs2, ZijVPs2 As Double
+Dim WijVPs1, ZijVPs1 As Double
 
 Dim xlApp As Object
+Dim fso As Object
+Dim oFile As Object
 
-Dim WijScore() As Double
-Dim ZijScore() As Double
 Dim WijImps() As Double
 Dim ZijImps() As Double
 Dim WijVPs() As Double
@@ -1271,20 +1346,44 @@ Dim Tegenstander() As String
 Dim refTegenstander() As String
 Dim tegenst() As Integer
 Dim tegen() As Integer
+Dim tegenID() As Long
 Dim AantalSpelGespeeldWedstrijd() As Integer
 Dim VPschaal() As Integer
 Dim intWedstrijd() As Integer
-Dim resultaat(3, 24) As Integer
+Dim intWedstr As Integer
+Dim TestOpstelling() As Integer
+Dim TestSpelersOpstelling() As Integer
+Dim ImpsVoor, ImpsTegen As Integer
+Dim db As Database
+Dim rs As Recordset
+Dim ts As Recordset
+Dim us As Recordset
+Dim Speler_1(), Speler_3(), Speler_2(), Speler_4(), Paar_1(), Paar_2() As String
+Dim refSpeler_1(), refSpeler_3(), refSpeler_2(), refSpeler_4() As String
+Dim Laagste_Hoogste_Spelnr() As Integer
+Dim intTeamwijzigingen As Integer
+Dim TellerW As Integer
 
+
+
+    lngSessie = DLookup("id", "tblSessie", "[ToernooiD] = " & ToernooiID & " and [Sessienr] = " & avond)
 
 
 Call InitAll(ToernooiID, lngSessie)
-
-
+'ScorestaatIntern = False
+'ScorestaatExcel = False
+'If Not IsNull(Access) Then
+'    ScorestaatIntern = Access
+'    If Not IsNull(Excel) Then
+'     ScorestaatExcel = Excel
+'    End If
+'Else
+'    ScorestaatIntern = False
+'    ScorestaatExcel = True
+'End If
 
 Dim Rekenkamerfolder, HTMLFolder As String
-ReDim WijScore(WEDSTRIJDENPERSESSIE)
-ReDim ZijScore(WEDSTRIJDENPERSESSIE)
+
 ReDim WijImps(WEDSTRIJDENPERSESSIE)
 ReDim ZijImps(WEDSTRIJDENPERSESSIE)
 ReDim WijVPs(WEDSTRIJDENPERSESSIE)
@@ -1293,11 +1392,21 @@ ReDim Tegenstander(WEDSTRIJDENPERSESSIE)
 ReDim refTegenstander(WEDSTRIJDENPERSESSIE)
 ReDim tegenst(WEDSTRIJDENPERSESSIE)
 ReDim tegen(WEDSTRIJDENPERSESSIE)
+ReDim tegenID(WEDSTRIJDENPERSESSIE)
 ReDim AantalSpelGespeeldWedstrijd(WEDSTRIJDENPERSESSIE)
 ReDim VPschaal(WEDSTRIJDENPERSESSIE)
 ReDim intWedstrijd(WEDSTRIJDENPERSESSIE)
-
-
+ReDim Speler_1(WEDSTRIJDENPERSESSIE)
+ReDim Speler_2(WEDSTRIJDENPERSESSIE)
+ReDim Speler_3(WEDSTRIJDENPERSESSIE)
+ReDim Speler_4(WEDSTRIJDENPERSESSIE)
+ReDim refSpeler_1(WEDSTRIJDENPERSESSIE)
+ReDim refSpeler_2(WEDSTRIJDENPERSESSIE)
+ReDim refSpeler_3(WEDSTRIJDENPERSESSIE)
+ReDim refSpeler_4(WEDSTRIJDENPERSESSIE)
+ReDim Paar_1(WEDSTRIJDENPERSESSIE)
+ReDim Paar_2(WEDSTRIJDENPERSESSIE)
+ReDim Laagste_Hoogste_Spelnr(10, 2) 'laagste spelnr / hoogste spelnr
 
 
 Rekenkamerfolder = "C:\Users\pgjmw\Dropbox\DonderdagAvond\Rekenkamer"
@@ -1306,11 +1415,16 @@ HTMLFolder = LOCALHTML
 AparteExcel = False
 
 TemplateExcelfile = Rekenkamerfolder & "\Team_Avond_Template.xlsx"
-ScoresheetExcelfile = Rekenkamerfolder & "\Team_" & PREFIX & avond & "_" & TeamNr & "_" & Format(Now(), "hh_mm") & ".xlsx"
+ScoresheetExcelfile = Rekenkamerfolder & "\Team_" & PREFIX & avond & "_" & Teamnr & "_" & Format(Now(), "hh_mm") & ".xlsx"
 
-
+'speler1
 Dim Rijen() As String
 Dim Kolommen() As String
+
+'speler3
+Dim Rijen2() As String
+Dim Kolommen2() As String
+
 
 If Data_of_Results = 1 Then
     StepRef = STEPDATA
@@ -1320,128 +1434,697 @@ End If
 
 PWORef = LOCALSITE
 
+
+
+
 ' benodigheden
 
 'teamnr
 'avond
 'spelers
+If ScorestaatIntern Then
+    'bepaal WijID
+    
+    If BerekenAlleStaten = False Then
+        SysCmd acSysCmdInitMeter, "Bereken scorestaat ...", WEDSTRIJDENPERSESSIE * AANTALSPELLENPERWEDSTRIJD
+    End If
+    
+    WijID = DLookup("id", "tblTeams", "[Teamnr] = " & Teamnr & " and [ToernooiID] =" & lngToernooi)
+ 
+    Wij = DLookup("TeamNaam", "tblTeams", "[id] = " & WijID)
+    
+    If TEAMBYE <> 0 Then
+        TeamByeID = DLookup("id", "tblTeams", "[Teamnr] = " & TEAMBYE & " and [ToernooiID] =" & lngToernooi)
+    End If
+    
+     'teamwijzigen
+     Set db = CurrentDb
+     Set ts = db.OpenRecordset("Select * from tblTeamWijzingen where TeamID =" & WijID & " and SessieID = " & lngSessie)
+     If ts.BOF And ts.EOF Then
+        intTeamwijzigingen = False
+        ts.Close
+     Else
+        intTeamwijzigingen = True
+     End If
+     
+        
+        
+    'stepID
+    
+    intWebInfo = DLookup("ActivityID", "tblSessie", "[id] = " & lngSessie)
+    If Data_of_Results = 1 Then
+        StepUserRef = StepRef & intWebInfo & "&username="
+        Else
+        StepUserRef = StepRef & intWebInfo & "/"
+    End If
+    'opstelling
+    Set db = CurrentDb
+    Set rs = db.OpenRecordset("Select * from tblOpstelling where [ToernooiID] = " & lngToernooi & " and [SessieID] = " & lngSessie & " and [TeamID] = " & WijID)
+    If rs.BOF And rs.EOF Then
+        MsgBox ("Opstelling niet gevonden van team " & Teamnr)
+        Exit Function
+    End If
+    If rs!Wedstrijd1 = 0 Then
+        MsgBox ("De tegenstanders zijn nog niet ingevuld in de Opstelling  -- via Schemaverwerkig Schema--> Opstelling -- kun je dit plossen")
+        rs.Close
+        db.Close
+        Exit Function
+    End If
+    
+    Speler1 = rs.Fields("Speler1")
+    Speler2 = rs.Fields("Speler2")
+    Speler3 = rs.Fields("Speler3")
+    Speler4 = rs.Fields("Speler4")
+
+    
+    Paar1 = Speler1 & " - " & Speler2
+    Paar2 = Speler3 & " - " & Speler4
+    
+    
+    refSpeler1 = StepUserRef & Speler1
+    refSpeler2 = StepUserRef & Speler2
+    refSpeler3 = StepUserRef & Speler3
+    refSpeler4 = StepUserRef & Speler4
+    
+    If intTeamwijzigingen = True Then
+        TellerW = 1
+        Speler_1(TellerW) = Speler1
+        Speler_2(TellerW) = Speler2
+        Speler_3(TellerW) = Speler3
+        Speler_4(TellerW) = Speler4
+        Paar_1(TellerW) = Speler1 & " - " & Speler2
+        Paar_2(TellerW) = Speler3 & " - " & Speler4
+        Laagste_Hoogste_Spelnr(TellerW, 1) = 1
+        Laagste_Hoogste_Spelnr(TellerW, 2) = AANTALSPELLENPERWEDSTRIJD * WEDSTRIJDENPERSESSIE
+        ts.MoveFirst
+        Do While Not ts.EOF
+            TellerW = TellerW + 1
+            Speler_1(TellerW) = ts!Speler1
+            Speler_2(TellerW) = ts!Speler2
+            Speler_3(TellerW) = ts!Speler3
+            Speler_4(TellerW) = ts!Speler4
+            Paar_1(TellerW) = Speler_1(TellerW) & " - " & Speler_2(TellerW)
+            Paar_2(i) = Speler_3(TellerW) & " - " & Speler_4(TellerW)
+            Laagste_Hoogste_Spelnr(TellerW - 1, 2) = ts!Spelnr - 1
+            Laagste_Hoogste_Spelnr(TellerW, 1) = ts!Spelnr
+            Laagste_Hoogste_Spelnr(TellerW, 2) = AANTALSPELLENPERWEDSTRIJD * WEDSTRIJDENPERSESSIE
+            ts.MoveNext
+        Loop
+    ts.Close
+             
+             
+             
+
+    End If
+    
+     
+     For i = 1 To WEDSTRIJDENPERSESSIE
+        tegenst(i) = rs.Fields("Wedstrijd" & i)
+        'bepaal zijID
+        tegenID(i) = DLookup("id", "tblTeams", "[Teamnr] = " & tegenst(i) & " and [ToernooiID] =" & lngToernooi)
+        Tegenstander(i) = DLookup("TeamNaam", "tblTeams", "[id] = " & tegenID(i))
+        
+     Next
+     
+     refWij = PWORef & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & Teamnr & ".html"
+     
+     For i = 1 To WEDSTRIJDENPERSESSIE
+            refTegenstander(i) = PWORef & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & tegenst(i) & ".html"
+     Next
+
+    rs.Close
+    db.Close
+    
+    
+    
+    
+    If intTeamwijzigingen = False Then
+       Scorestaat_Speler1 = GetStepUserData_d(StepRef, intWebInfo, Speler1)
+       Scorestaat_Speler3 = GetStepUserData_d(StepRef, intWebInfo, Speler3)
+    Else
+            'laad de speler_1()
+            For i = 1 To TellerW
+                Scorestaat_Speler1 = Scorestaat_Speler1 & GetStepUserData_e(StepRef, intWebInfo, Speler_1(i), Laagste_Hoogste_Spelnr(i, 1), Laagste_Hoogste_Spelnr(i, 2))
+                Scorestaat_Speler3 = Scorestaat_Speler3 & GetStepUserData_e(StepRef, intWebInfo, Speler_3(i), Laagste_Hoogste_Spelnr(i, 1), Laagste_Hoogste_Spelnr(i, 2))
+            Next
+    End If
+    
+    Rijen = Split(Scorestaat_Speler1, vbCr)
+             Kolommen = Split(Rijen(Teller), ",")
+    Rijen2 = Split(Scorestaat_Speler3, vbCr)
+    
+    ScoreSheetName = PREFIX & avond & "_Teamnr_" & Teamnr
+    strSheetName = ScoreSheetName
+    
+    intAantalWedstrijdenGespeeld = 0
+    If Sessienr > 1 Then
+        For i = 1 To Sessienr - 1
+         intAantalWedstrijdenGespeeld = intAantalWedstrijdenGespeeld + _
+         DLookup("AantalWedstrijdenPerSessie", "tblSessie", "[ToernooID] = " & lngToernooi & " and  [sessienr] = " & i)
+        Next
+    End If
+    
+      Set db = CurrentDb
+      Set rs = db.OpenRecordset("tblScorestaat")
+       'eerst test op sheet aanwezig is
+      If Not IsNull(DLookup("id", "tblScorestaat", "[SessieID] = " & lngSessie & " and [TeamID] = " & WijID)) Then
+          'verwijder records
+           db.Execute "DELETE * FROM " _
+                & "tblScorestaat WHERE [SessieID] = " & lngSessie & "and [TeamID] = " & WijID
+      End If
+      'rs.MoveFirst
+    Rijen = Split(Scorestaat_Speler1, vbCr)
+    Rijen2 = Split(Scorestaat_Speler3, vbCr)
+    ' zoek wedstrijdnr op
+    intWedstr = intAantalWedstrijdenGespeeld + 1
+    AantalspellenGespeeld = 0
+    wedstrijdteller = 1
+    ImpsVoor = 0
+    ImpsTegen = 0
+    WijVPs1 = 0
+    ZijVPs1 = 0
+    
+    For Teller = 0 To UBound(Rijen) - 1
+        If BerekenAlleStaten = False Then
+          SysCmd acSysCmdUpdateMeter, Teller + 1
+        End If
+
+        If Teller Mod AANTALSPELLENPERWEDSTRIJD = 0 And Teller > 0 Then '0
+                ThuisWedstrijd = False
+                UitWedstrijd = False
+                Criterium1 = "[SessieID] = " & lngSessie & " and [TeamIDThuis] = " & WijID & " and [Wedstrijdnr] = " & intWedstr
+                If Not IsNull(DLookup("id", "tblUitslagen", Criterium1)) Then
+                   ThuisWedstrijd = True
+                   UitslagID = DLookup("id", "tblUitslagen", Criterium1)
+                   If DLookup("TeamIDUit", "tblUitslagen", "[id] = " & UitslagID) = TeamByeID Then
+                    ThuisWedstrijd = False
+                   End If
+                Else
+                   Criterium2 = "[SessieID] = " & lngSessie & " and [TeamIDUit] = " & WijID & " and [Wedstrijdnr] = " & intWedstr
+                   If Not IsNull(DLookup("id", "tblUitslagen", Criterium2)) Then
+                        UitWedstrijd = True
+                        UitslagID = DLookup("id", "tblUitslagen", Criterium2)
+                        If DLookup("TeamIDThuis", "tblUitslagen", "[id] = " & UitslagID) = TeamByeID Then
+                        UitWedstrijd = False
+                   End If
+                   End If
+                End If
+               
+                If ThuisWedstrijd = True Or UitWedstrijd = True Then '1
+                    'update uitslag
+                    'Bepaal eerst hoeveel spellen er zijn gespeeld
+                    
+                     
+                    Set us = db.OpenRecordset("select * from tblUitslagen where [id] = " & UitslagID)
+                    If Not (us.BOF And us.EOF) Then '2
+                        If ThuisWedstrijd Then 'begin Thuis wedstrijd
+                            us.Edit
+                            Select Case UITREKENVORM
+                            Case VPs_u
+                                us!ImpsThuis = ImpsVoor
+                                us!ImpsUit = ImpsTegen
+                                
+                                WijVPs1 = BepaalVPs(ImpsVoor - ImpsTegen, AantalspellenGespeeld)
+                                us!VpsThuis = WijVPs1
+                                ZijVPs1 = BepaalVPs(ImpsTegen - ImpsVoor, AantalspellenGespeeld)
+                                us!VpsUit = ZijVPs1
+                            Case Imps_u
+                                us!ImpsThuis = ImpsVoor
+                                us!ImpsUit = ImpsTegen
+                            Case Patton_u
+                                us!ImpsThuis = ImpsVoor
+                                us!ImpsUit = ImpsTegen
+                            End Select
+                            us.Update
+                            us.Close
+                            WijImps(wedstrijdteller) = ImpsVoor
+                            ZijImps(wedstrijdteller) = ImpsTegen
+                            Select Case UITREKENVORM
+                            Case VPs_u
+                                WijImps(wedstrijdteller) = ImpsVoor
+                                ZijImps(wedstrijdteller) = ImpsTegen
+                                WijVPs(wedstrijdteller) = WijVPs1
+                                ZijVPs(wedstrijdteller) = ZijVPs1
+                            Case Imps_u
+                                WijImps(wedstrijdteller) = ImpsVoor
+                                ZijImps(wedstrijdteller) = ImpsTegen
+                            Case Patton_u
+                                WijImps(wedstrijdteller) = ImpsVoor
+                                ZijImps(wedstrijdteller) = ImpsTegen
+                            End Select
+                        End If  'end Thuis wedstrijd
+                        If UitWedstrijd Then 'Begin uit wedstrijd
+                            us.Edit
+                            Select Case UITREKENVORM
+                            Case VPs_u
+                                us!ImpsThuis = ImpsTegen
+                                us!ImpsUit = ImpsVoor
+                                WijVPs1 = BepaalVPs(ImpsVoor - ImpsTegen, AantalspellenGespeeld)
+                                ZijVPs1 = BepaalVPs(ImpsTegen - ImpsVoor, AantalspellenGespeeld)
+                                us!VpsThuis = ZijVPs1
+                                us!VpsUit = WijVPs1
+                            Case Imps_u
+                                us!ImpsThuis = ImpsTegen
+                                us!ImpsUit = ImpsVoor
+                            Case Patton_u
+                                us!ImpsThuis = ImpsTegen
+                                us!ImpsUit = ImpsVoor
+                            End Select
+                            us.Update
+                            us.Close
+                            WijImps(wedstrijdteller) = ImpsVoor
+                            ZijImps(wedstrijdteller) = ImpsTegen
+                            Select Case UITREKENVORM
+                            Case VPs_u
+                                WijImps(wedstrijdteller) = ImpsVoor
+                                ZijImps(wedstrijdteller) = ImpsTegen
+                                WijVPs(wedstrijdteller) = WijVPs1
+                                ZijVPs(wedstrijdteller) = ZijVPs1
+                            Case Imps_u
+                                WijImps(wedstrijdteller) = ImpsVoor
+                                ZijImps(wedstrijdteller) = ImpsTegen
+                            Case Patton_u
+                                WijImps(wedstrijdteller) = ImpsVoor
+                                ZijImps(wedstrijdteller) = ImpsTegen
+                            End Select
+                        End If 'eind uit wedstrijd
+                 End If 'end 2
+              End If 'end 1
+                
+                'uitslagID = belend
+                
+                'bepaal vp's
+
+              intWedstr = intWedstr + 1
+              wedstrijdteller = wedstrijdteller + 1
+              AantalspellenGespeeld = 0
+              ImpsVoor = 0
+              ImpsTegen = 0
+              WijVPs1 = 0
+              ZijVPs1 = 0
+              ThuisWedstrijd = False
+              UitWedstrijd = False
+         End If '0
+         Kolommen = Split(Rijen(Teller), ",")
+         Kolommen2 = Split(Rijen2(Teller), ",")
+         rs.AddNew
+         rs!SessieID = lngSessie
+         rs!TeamID = WijID
+         rs!WEDSTRIJD = intWedstr
+         rs!ToernooiID = lngToernooi
+         rs!Paar1 = Paar1
+         rs!Paar2 = Paar2
+         rs!Spelnr = Val(Kolommen(0))
+         If Kolommen(1) <> "" Then
+            rs!Contract1 = Kolommen(1)
+         End If
+         If Kolommen(2) <> "" Then
+            rs!Resultaat1 = Kolommen(2)
+         End If
+         If Kolommen(3) <> "" Then
+            rs!Door1 = Kolommen(3)
+         End If
+        
+         If Kolommen(4) <> "" Then
+            t_score1 = Val(Kolommen(4))
+            rs!score1 = t_score1
+         End If
+         
+        If Kolommen2(1) <> "" Then
+            rs!Contract2 = Kolommen2(1)
+         End If
+         If Kolommen2(2) <> "" Then
+            rs!Resultaat2 = Kolommen2(2)
+         End If
+         If Kolommen2(3) <> "" Then
+            rs!Door2 = Kolommen2(3)
+         End If
+        
+         If Kolommen2(4) <> "" Then
+            t_score2 = Val(Kolommen2(4))
+            rs!score2 = t_score2
+         End If
+         
+         If Kolommen(4) <> "" And Kolommen2(4) <> "" Then
+            AantalspellenGespeeld = AantalspellenGespeeld + 1
+            saldo = t_score1 + t_score2
+            rs!saldo = saldo
+            imps = BepaalImps(saldo)
+            rs!imps = imps
+            If imps > 0 Then
+                rs!WijImps = imps
+                ImpsVoor = ImpsVoor + imps
+               Else
+              If imps < 0 Then
+                rs!ZijImps = Abs(imps)
+                ImpsTegen = ImpsTegen + Abs(imps)
+              End If
+           End If
+        End If
+        rs.Update
+      
+      Next
+      
+      
+      If Teller Mod AANTALSPELLENPERWEDSTRIJD = 0 And Teller > 0 Then
+                ThuisWedstrijd = False
+                UitWedstrijd = False
+                Criterium1 = "[SessieID] = " & lngSessie & " and [TeamIDThuis] = " & WijID & " and [Wedstrijdnr] = " & intWedstr
+                If Not IsNull(DLookup("id", "tblUitslagen", Criterium1)) Then
+                   ThuisWedstrijd = True
+                   UitslagID = DLookup("id", "tblUitslagen", Criterium1)
+                   If DLookup("TeamIDUit", "tblUitslagen", "[id] = " & UitslagID) = TeamByeID Then
+                    ThuisWedstrijd = False
+                   End If
+                Else
+                   Criterium2 = "[SessieID] = " & lngSessie & " and [TeamIDUit] = " & WijID & " and [Wedstrijdnr] = " & intWedstr
+                   If Not IsNull(DLookup("id", "tblUitslagen", Criterium2)) Then
+                        UitWedstrijd = True
+                        UitslagID = DLookup("id", "tblUitslagen", Criterium2)
+                        If DLookup("TeamIDThuis", "tblUitslagen", "[id] = " & UitslagID) = TeamByeID Then
+                            UitWedstrijd = False
+                        End If
+                   End If
+                End If
+               
+                If ThuisWedstrijd = True Or UitWedstrijd = True Then
+                    'update uitslag
+                    'Bepaal eerst hoeveel spellen er zijn gespeeld
+                    
+                     
+                    Set us = db.OpenRecordset("select * from tblUitslagen where [id] = " & UitslagID)
+                    If Not (us.BOF And us.EOF) Then
+                        If ThuisWedstrijd Then
+                            us.Edit
+                            Select Case UITREKENVORM
+                             Case VPs_u
+                                us!ImpsThuis = ImpsVoor
+                                us!ImpsUit = ImpsTegen
+                                WijVPs1 = BepaalVPs(ImpsVoor - ImpsTegen, AantalspellenGespeeld)
+                                us!VpsThuis = WijVPs1
+                                ZijVPs1 = BepaalVPs(ImpsTegen - ImpsVoor, AantalspellenGespeeld)
+                                us!VpsUit = ZijVPs1
+                            Case Imps_u
+                                us!ImpsThuis = ImpsVoor
+                                us!ImpsUit = ImpsTegen
+                            Case Patton_u
+                                us!ImpsThuis = ImpsVoor
+                                us!ImpsUit = ImpsTegen
+                            End Select
+                            us.Update
+                            us.Close
+                            Select Case UITREKENVORM
+                            Case VPs_u
+                                WijImps(wedstrijdteller) = ImpsVoor
+                                ZijImps(wedstrijdteller) = ImpsTegen
+                                WijVPs(wedstrijdteller) = WijVPs1
+                                ZijVPs(wedstrijdteller) = ZijVPs1
+                            Case Imps_u
+                                WijImps(wedstrijdteller) = ImpsVoor
+                                ZijImps(wedstrijdteller) = ImpsTegen
+                            Case Patton_u
+                                WijImps(wedstrijdteller) = ImpsVoor
+                                ZijImps(wedstrijdteller) = ImpsTegen
+                            End Select
+                        End If
+                        If UitWedstrijd Then
+                            us.Edit
+                            Select Case UITREKENVORM
+                            Case VPs_u
+                                us!ImpsThuis = ImpsTegen
+                                us!ImpsUit = ImpsVoor
+                                WijVPs1 = BepaalVPs(ImpsVoor - ImpsTegen, AantalspellenGespeeld)
+                                ZijVPs1 = BepaalVPs(ImpsTegen - ImpsVoor, AantalspellenGespeeld)
+                                us!VpsThuis = ZijVPs1
+                                us!VpsUit = WijVPs1
+                           Case Imps_u
+                                us!ImpsThuis = ImpsTegen
+                                us!ImpsUit = ImpsVoor
+                           Case Patton_u
+                                us!ImpsThuis = ImpsTegen
+                                us!ImpsUit = ImpsVoor
+                           End Select
+                           us.Update
+                           us.Close
+                           Select Case UITREKENVORM
+                           Case VPs_u
+                                WijImps(wedstrijdteller) = ImpsVoor
+                                ZijImps(wedstrijdteller) = ImpsTegen
+                                WijVPs(wedstrijdteller) = WijVPs1
+                                ZijVPs(wedstrijdteller) = ZijVPs1
+                          Case Imps_u
+                                WijImps(wedstrijdteller) = ImpsVoor
+                                ZijImps(wedstrijdteller) = ImpsTegen
+                          Case Patton_u
+                               WijImps(wedstrijdteller) = ImpsVoor
+                               ZijImps(wedstrijdteller) = ImpsTegen
+                          End Select
+                        End If
+                    End If
+                End If
+   
+           End If
+      
+     db.Close
+     If BerekenAlleStaten = False Then
+          SysCmd acSysCmdRemoveMeter
+     End If
+End If
+ 
+
+'
+'test even of de workfile aanweig is
 
 
-Set xlApp = CreateObject("Excel.Application")
 
-xlApp.Application.Visible = False
-xlApp.Application.DisplayAlerts = False
 
-Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
+'test op opstelling
 
-Set MySheet = StartBook.Worksheets("WebInfo")
-rijteller = 2
-info = False
-Do While True
-    If MySheet.Cells(rijteller, 1).Value = avond Then
-        info = True
-        intWebInfo = MySheet.Cells(rijteller, 2).Value
+
+
+If ScorestaatExcel Then
+
+     Set db = CurrentDb
+        WijID = DLookup("id", "tblTeams", "[Teamnr] = " & Teamnr & " and [ToernooiID] =" & lngToernooi)
+ 
+     Set ts = db.OpenRecordset("Select * from tblTeamWijzingen where TeamID =" & WijID & " and SessieID = " & lngSessie)
+     If ts.BOF And ts.EOF Then
+        intTeamwijzigingen = False
+        ts.Close
+     Else
+        intTeamwijzigingen = True
+     End If
+     
+     
+    If Not fnExists(WORKFOLDER & WORKFILE) Then
+        MsgBox ("applicatie kan " & WORKFOLDER & WORKFILE & "niet vinden ")
+        Exit Function
+    End If
+    
+
+    Set xlApp = CreateObject("Excel.Application")
+    xlApp.Application.Visible = intExcelZichtbaar
+    xlApp.Application.DisplayAlerts = False
+    Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
+    
+    'test workfile
+    
+    Set MySheet = StartBook.Worksheets("Import_Opstelling")
+
+
+    '
+    
+    'selecteer de sessie
+    
+        Opstelling = False
+        rijteller = 1
+        Do While True
+            If MySheet.Cells(rijteller, 1).Value = avond Then
+             intRijtellerEersteTeam = rijteller
+             Opstelling = True
+             Exit Do
+            End If
+            If MySheet.Cells(rijteller, 1).Value = "" Then
+                VulScoreKaartInSheet = "avond+Teamnr Niet gevonden"
+                Exit Function
+             End If
+        rijteller = rijteller + 1
+        Loop
+    'team gevonden
+    If Opstelling = False Then
+         MsgBox ("applicatie kan in " & WORKFOLDER & WORKFILE & " geen opstelling vinden van sessie/avond/wedstrijd " & avond)
+        Exit Function
+    End If
+
+' Wij ID op zoeken
+
+
+
+    Set MySheet = StartBook.Worksheets("WebInfo")
+    rijteller = 2
+    info = False
+    Do While True
+        If MySheet.Cells(rijteller, 1).Value = avond Then
+            info = True
+            intWebInfo = MySheet.Cells(rijteller, 2).Value
+            Exit Do
+        End If
+          If MySheet.Cells(rijteller, 1).Value = "" Then
+           VulScoreKaartInSheet = "Geen Webinfo"
+           Exit Function
+         End If
+         rijteller = rijteller + 1
+    Loop
+    
+    If BerekenAlleStaten = False Then
+       
+        SysCmd acSysCmdInitMeter, "Bereken scorestaat ...", 100
+        
+    End If
+ 
+    If Data_of_Results = 1 Then
+        StepUserRef = StepRef & intWebInfo & "&username="
+        Else
+        StepUserRef = StepRef & intWebInfo & "/"
+    End If
+
+    Set MySheet = StartBook.Worksheets("Import_Opstelling")
+    
+    
+    Opstelling = False
+        rijteller = 1
+        Do While True
+            If MySheet.Cells(rijteller, 1).Value = avond And MySheet.Cells(rijteller, 2) = Teamnr Then
+             Opstelling = True
+             Exit Do
+            End If
+            If MySheet.Cells(rijteller, 1).Value = "" Then
+                VulScoreKaartInSheet = "avond+Teamnr Niet gevonden"
+                Exit Function
+             End If
+        rijteller = rijteller + 1
+        Loop
+    
+   
+    Speler1 = MySheet.Cells(rijteller, 3).Value
+    Speler2 = MySheet.Cells(rijteller, 4).Value
+    Speler3 = MySheet.Cells(rijteller, 5).Value
+    Speler4 = MySheet.Cells(rijteller, 6).Value
+    
+  If intTeamwijzigingen = True Then
+        TellerW = 1
+        Speler_1(TellerW) = Speler1
+        Speler_2(TellerW) = Speler2
+        Speler_3(TellerW) = Speler3
+        Speler_4(TellerW) = Speler4
+        Paar_1(TellerW) = Speler1 & " - " & Speler2
+        Paar_2(TellerW) = Speler3 & " - " & Speler4
+        Laagste_Hoogste_Spelnr(TellerW, 1) = 1
+        Laagste_Hoogste_Spelnr(TellerW, 2) = AANTALSPELLENPERWEDSTRIJD * WEDSTRIJDENPERSESSIE
+        ts.MoveFirst
+        Do While Not ts.EOF
+            TellerW = TellerW + 1
+            Speler_1(TellerW) = ts!Speler1
+            Speler_2(TellerW) = ts!Speler2
+            Speler_3(TellerW) = ts!Speler3
+            Speler_4(TellerW) = ts!Speler4
+            Paar_1(TellerW) = Speler_1(TellerW) & " - " & Speler_2(TellerW)
+            Paar_2(i) = Speler_3(TellerW) & " - " & Speler_4(TellerW)
+            Laagste_Hoogste_Spelnr(TellerW - 1, 2) = ts!Spelnr - 1
+            Laagste_Hoogste_Spelnr(TellerW, 1) = ts!Spelnr
+            Laagste_Hoogste_Spelnr(TellerW, 2) = AANTALSPELLENPERWEDSTRIJD * WEDSTRIJDENPERSESSIE
+            ts.MoveNext
+        Loop
+        ts.Close
+    End If
+    
+    For i = 1 To WEDSTRIJDENPERSESSIE
+        If MySheet.Cells(rijteller, 6 + i).Value = "" Then
+            MsgBox ("De tegenstanders zijn nog niet ingevuld in de Opstelling  -- via Schemaverwerkig Schema--> Opstelling -- kun je dit plossen")
+            Set MySheet = Nothing
+            Set StartBook = Nothing
+            xlApp.Application.DisplayAlerts = True
+            xlApp.Application.Quit
+            Set xlApp = Nothing
+            Exit Function
+        End If
+        tegenst(i) = MySheet.Cells(rijteller, 6 + i).Value
+   Next
+    
+    Paar1 = Speler1 & " - " & Speler2
+    Paar2 = Speler3 & " - " & Speler4
+    
+    refSpeler1 = StepUserRef & Speler1
+    refSpeler2 = StepUserRef & Speler2
+    refSpeler3 = StepUserRef & Speler3
+    refSpeler4 = StepUserRef & Speler4
+    
+        refWij = PWORef & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & Teamnr & ".html"
+    For i = 1 To WEDSTRIJDENPERSESSIE
+        refTegenstander(i) = PWORef & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & tegenst(i) & ".html"
+    Next
+    
+    
+    Set MySheet = StartBook.Sheets("Teams")
+    
+    For i = 1 To WEDSTRIJDENPERSESSIE
+    rijteller = 2
+    
+    Do While True
+    
+    
+        If MySheet.Cells(rijteller, 1).Value = tegenst(i) Then
+            tegen(i) = True
+            Tegenstander(i) = MySheet.Cells(rijteller, 2).Value
+        End If
+    
+    
+    If MySheet.Cells(rijteller, 1).Value = Teamnr Then
+        wij1 = True
+        'TeamNaam
+        Wij = MySheet.Cells(rijteller, 2).Value
+    End If
+    
+    If tegen(i) And wij1 Then
         Exit Do
     End If
-      If MySheet.Cells(rijteller, 1).Value = "" Then
-       VulScoreKaartInSheet = "Geen Webinfo"
+     If MySheet.Cells(rijteller, 1).Value = "" Then
+       VulScoreKaartInSheet = "Team Niet gevonden"
        Exit Function
      End If
      rijteller = rijteller + 1
-Loop
-
-
-
-If Data_of_Results = 1 Then
-    StepUserRef = StepRef & intWebInfo & "&username="
-Else
-    StepUserRef = StepRef & intWebInfo & "/"
-End If
-
-
-
-Set MySheet = StartBook.Worksheets("Import_Opstelling")
-
-
-Opstelling = False
-    rijteller = 1
-    Do While True
-        If MySheet.Cells(rijteller, 1).Value = avond And MySheet.Cells(rijteller, 2) = TeamNr Then
-         Opstelling = True
-         Exit Do
-        End If
-        If MySheet.Cells(rijteller, 1).Value = "" Then
-            VulScoreKaartInSheet = "avond+Teamnr Niet gevonden"
-            Exit Function
-         End If
-    rijteller = rijteller + 1
     Loop
-
-Speler1 = MySheet.Cells(rijteller, 3).Value
-Speler2 = MySheet.Cells(rijteller, 4).Value
-Speler3 = MySheet.Cells(rijteller, 5).Value
-Speler4 = MySheet.Cells(rijteller, 6).Value
-
-For i = 1 To WEDSTRIJDENPERSESSIE
-    tegenst(i) = MySheet.Cells(rijteller, 6 + i).Value
-Next
-
-Paar1 = Speler1 & " - " & Speler2
-Paar2 = Speler3 & " - " & Speler4
-
-refSpeler1 = StepUserRef & Speler1
-refSpeler2 = StepUserRef & Speler2
-refSpeler3 = StepUserRef & Speler3
-refSpeler4 = StepUserRef & Speler4
-
-    refWij = PWORef & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & TeamNr & ".html"
-For i = 1 To WEDSTRIJDENPERSESSIE
-    refTegenstander(i) = PWORef & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & tegenst(i) & ".html"
-Next
+    
+    Next
 
 
-Set MySheet = StartBook.Sheets("Teams")
 
-For i = 1 To WEDSTRIJDENPERSESSIE
-rijteller = 2
-
-Do While True
-
-
-    If MySheet.Cells(rijteller, 1).Value = tegenst(i) Then
-        tegen(i) = True
-        Tegenstander(i) = MySheet.Cells(rijteller, 2).Value
+   If intTeamwijzigingen = False Then
+       Scorestaat_Speler1 = GetStepUserData_d(StepRef, intWebInfo, Speler1)
+       Scorestaat_Speler3 = GetStepUserData_d(StepRef, intWebInfo, Speler3)
+    Else
+            For i = 1 To TellerW
+                Scorestaat_Speler1 = Scorestaat_Speler1 & GetStepUserData_e(StepRef, intWebInfo, Speler_1(i), Laagste_Hoogste_Spelnr(i, 1), Laagste_Hoogste_Spelnr(i, 2))
+                Scorestaat_Speler3 = Scorestaat_Speler3 & GetStepUserData_e(StepRef, intWebInfo, Speler_3(i), Laagste_Hoogste_Spelnr(i, 1), Laagste_Hoogste_Spelnr(i, 2))
+            Next
     End If
 
 
-If MySheet.Cells(rijteller, 1).Value = TeamNr Then
-    wij1 = True
-    Wij = MySheet.Cells(rijteller, 2).Value
-End If
-
-If tegen(i) And wij1 Then
-    Exit Do
-End If
- If MySheet.Cells(rijteller, 1).Value = "" Then
-   VulScoreKaartInSheet = "Team Niet gevonden"
-   Exit Function
- End If
- rijteller = rijteller + 1
-Loop
-
-Next
 
 
-Scorestaat_Speler1 = GetStepUserData_d(StepRef, intWebInfo, Speler1)
-Scorestaat_Speler3 = GetStepUserData_d(StepRef, intWebInfo, Speler3)
-
-ScoreSheetName = PREFIX & avond & "_Teamnr_" & TeamNr
+ScoreSheetName = PREFIX & avond & "_Teamnr_" & Teamnr
+strSheetName = ScoreSheetName
 'opbouw ook als html bestand
 
-ScoreSheetNameHTML = ScoreSheetName & ".html"
-htmlfile = HTMLFolder & ScoreSheetNameHTML
 
-ScoreSheetHTML = ""
+     If BerekenAlleStaten = False Then
+        SysCmd acSysCmdUpdateMeter, 10
+     End If
+         
+        
+
+' SessieID moet bekend zijn
+' teamID
 
 '
 
@@ -1453,27 +2136,30 @@ Set TemplateBook = Workbooks.Open(TemplateExcelfile)
 Set TemplateSheet = TemplateBook.Worksheets("Team_Template")
 
 Else
-sheetteller = StartBook.Sheets.Count
-For i = 1 To sheetteller
-If i > sheetteller Then
-Exit For
+    
+        sheetteller = StartBook.Sheets.Count
+        For i = 1 To sheetteller
+            If i > sheetteller Then
+            Exit For
+            End If
+            
+            If StartBook.Sheets(i).name = ScoreSheetName Then
+                StartBook.Sheets(ScoreSheetName).Delete
+                Exit For
+            End If
+       Next
+    
+        sheetteller = StartBook.Sheets.Count
+        StartBook.Sheets("Team_Template").Copy After:=StartBook.Sheets(StartBook.Sheets.Count)
+        sheetteller = StartBook.Sheets.Count
+        StartBook.Sheets(sheetteller).name = ScoreSheetName
+        Set TemplateSheet = StartBook.Sheets(ScoreSheetName)
+   
 End If
 
-If StartBook.Sheets(i).name = ScoreSheetName Then
-    StartBook.Sheets(ScoreSheetName).Delete
-    Exit For
-End If
-Next
-
-sheetteller = StartBook.Sheets.Count
-StartBook.Sheets("Team_Template").Copy After:=StartBook.Sheets(StartBook.Sheets.Count)
-sheetteller = StartBook.Sheets.Count
-StartBook.Sheets(sheetteller).name = ScoreSheetName
-Set TemplateSheet = StartBook.Sheets(ScoreSheetName)
-
-End If
-
-
+   If BerekenAlleStaten = False Then
+       SysCmd acSysCmdUpdateMeter, 30
+   End If
 
 
 
@@ -1496,11 +2182,13 @@ Rijen = Split(Scorestaat_Speler1, vbCr)
 rijteller = 3
 kolomteller = 1
 
+progressteller = 4
 
-For teller = 0 To UBound(Rijen) - 1
-    Kolommen = Split(Rijen(teller), ",")
+For Teller = 0 To UBound(Rijen) - 1
+ progressteller = progressteller + (Teller + 1) * diff
+    Kolommen = Split(Rijen(Teller), ",")
     For teller2 = 0 To UBound(Kolommen)
-        TemplateSheet.Cells(rijteller + teller, kolomteller + teller2).Value = Replace(Kolommen(teller2), Chr(34), "")
+        TemplateSheet.Cells(rijteller + Teller, kolomteller + teller2).Value = Replace(Kolommen(teller2), Chr(34), "")
     Next
 Next
 
@@ -1512,35 +2200,42 @@ Rijen = Split(Scorestaat_Speler3, vbCr)
 
 rijteller = 3
 kolomteller = 8
-For teller = 0 To UBound(Rijen) - 1
-    Kolommen = Split(Rijen(teller), ",")
+For Teller = 0 To UBound(Rijen) - 1
+ 
+        
+    Kolommen = Split(Rijen(Teller), ",")
     For teller2 = 0 To UBound(Kolommen)
-           TemplateSheet.Cells(rijteller + teller, kolomteller + teller2).Value = Replace(Kolommen(teller2), Chr(34), "")
+           TemplateSheet.Cells(rijteller + Teller, kolomteller + teller2).Value = Replace(Kolommen(teller2), Chr(34), "")
     Next
 Next
 
+   If BerekenAlleStaten = False Then
+       SysCmd acSysCmdUpdateMeter, 60
+   End If
 'indien NGSP
 
 kolomscorespeler1 = 5
 kolomscorespeler3 = 12
 rijteller = 3
 
-For teller = 0 To UBound(Rijen) - 1
- If TemplateSheet.Cells(rijteller + teller, kolomscorespeler1).Value = "" Or TemplateSheet.Cells(rijteller + teller, kolomscorespeler3).Value = "" Then
+For Teller = 0 To UBound(Rijen) - 1
+ If TemplateSheet.Cells(rijteller + Teller, kolomscorespeler1).Value = "" Or TemplateSheet.Cells(rijteller + Teller, kolomscorespeler3).Value = "" Then
  'maak de regel leeg
  For teller2 = 2 To 6
-    TemplateSheet.Cells(rijteller + teller, teller2).Value = ""
-    TemplateSheet.Cells(rijteller + teller, teller2 + 7).Value = ""
+    TemplateSheet.Cells(rijteller + Teller, teller2).Value = ""
+    TemplateSheet.Cells(rijteller + Teller, teller2 + 7).Value = ""
  Next
   For teller2 = 15 To 18
-    TemplateSheet.Cells(rijteller + teller, teller2).Value = ""
+    TemplateSheet.Cells(rijteller + Teller, teller2).Value = ""
   Next
 
 End If
 
 Next
 
-
+   If BerekenAlleStaten = False Then
+       SysCmd acSysCmdUpdateMeter, 90
+   End If
 'Vul de formules in rechterkant
 
 'Imps = som avn alle imps
@@ -1568,8 +2263,8 @@ For i = 1 To WEDSTRIJDENPERSESSIE
 Next
 
 For i = 1 To WEDSTRIJDENPERSESSIE
-    For teller = (i - 1) * AANTALSPELLENPERWEDSTRIJD To i * AANTALSPELLENPERWEDSTRIJD - 1
-        If TemplateSheet.Cells(rijteller + teller, kolomscorespeler1).Value = "" Then
+    For Teller = (i - 1) * AANTALSPELLENPERWEDSTRIJD To i * AANTALSPELLENPERWEDSTRIJD - 1
+        If TemplateSheet.Cells(rijteller + Teller, kolomscorespeler1).Value = "" Then
             AantalSpelGespeeldWedstrijd(i) = AantalSpelGespeeldWedstrijd(i) + 1
         End If
     Next
@@ -1593,45 +2288,71 @@ Case 9
 VPschaal(i) = 6
 Case 10
 VPschaal(i) = 7
-Case Else
+Case 12
 VPschaal(i) = 2
+Case 14
+VPschaal(i) = 8
+Case 16
+VPschaal(i) = 9
+Case Else
+VPschaal(i) = 9
 End Select
 
 tel1 = 5 + (i - 1) * AANTALSPELLENPERWEDSTRIJD
 tel2 = 6 + (i - 1) * AANTALSPELLENPERWEDSTRIJD
 tel3 = 3 + (i - 1) * AANTALSPELLENPERWEDSTRIJD
 tel4 = 3 + i * AANTALSPELLENPERWEDSTRIJD - 1
-
-strFormula = "=IF(V" & tel1 & ">0,VLOOKUP(V" & tel1 & ",VPSchaal," & VPschaal(i) & "),20-VLOOKUP(V" & tel2 & ",VPSchaal," & VPschaal(i) & "))"
-TemplateSheet.Cells(tel1, 23).Formula = strFormula
-strFormula = "=IF(V" & tel2 & ">0,VLOOKUP(V" & tel2 & ",VPSchaal," & VPschaal(i) & "),20-VLOOKUP(V" & tel1 & ",VPSchaal," & VPschaal(i) & "))"
-TemplateSheet.Cells(tel2, 23).Formula = strFormula
 strFormula = "=SUM(Q" & tel3 & ":Q" & tel4 & ")"
 TemplateSheet.Cells(tel1, 21).Formula = strFormula
 strFormula = "=SUM(R" & tel3 & ":R" & tel4 & ")"
 TemplateSheet.Cells(tel2, 21).Formula = strFormula
 
-
+                          Select Case UITREKENVORM
+                          Case VPs_u
+                                strFormula = "=IF(V" & tel1 & ">0,VLOOKUP(V" & tel1 & ",VPSchaal," & VPschaal(i) & "),20-VLOOKUP(V" & tel2 & ",VPSchaal," & VPschaal(i) & "))"
+                                TemplateSheet.Cells(tel1, 23).Formula = strFormula
+                                strFormula = "=IF(V" & tel2 & ">0,VLOOKUP(V" & tel2 & ",VPSchaal," & VPschaal(i) & "),20-VLOOKUP(V" & tel1 & ",VPSchaal," & VPschaal(i) & "))"
+                                TemplateSheet.Cells(tel2, 23).Formula = strFormula
+                         Case Imps_u
+                                TemplateSheet.Cells(tel1, 23).Value = ""
+                                TemplateSheet.Cells(tel2, 23).Value = ""
+                         End Select
 Next
-
+ If BerekenAlleStaten = False Then
+       SysCmd acSysCmdUpdateMeter, 95
+ End If
 
 'pas formules aan =ALS(V5>0;VERT.ZOEKEN(V5;VPSchaal;2);20-VERT.ZOEKEN(V6;VPSchaal;2))
 For i = 1 To WEDSTRIJDENPERSESSIE
 
-WijScore(i) = TemplateSheet.Cells(5 + (i - 1) * AANTALSPELLENPERWEDSTRIJD, 23).Value
-ZijScore(i) = TemplateSheet.Cells(6 + (i - 1) * AANTALSPELLENPERWEDSTRIJD, 23).Value
+
+If UITREKENVORM = VPs_u Then
+    WijVPs(i) = TemplateSheet.Cells(5 + (i - 1) * AANTALSPELLENPERWEDSTRIJD, 23).Value
+    ZijVPs(i) = TemplateSheet.Cells(6 + (i - 1) * AANTALSPELLENPERWEDSTRIJD, 23).Value
+End If
+
 WijImps(i) = TemplateSheet.Cells(5 + (i - 1) * AANTALSPELLENPERWEDSTRIJD, 21).Value
 ZijImps(i) = TemplateSheet.Cells(6 + (i - 1) * AANTALSPELLENPERWEDSTRIJD, 21).Value
 
 Next
-
-
-
+    If BerekenAlleStaten = False Then
+      SysCmd acSysCmdRemoveMeter
+    End If
+  
+End If
 
 
 
 'maak html
+If ScorestaatExcel Then
 
+If intUitvoerNaarHTML Then
+
+
+ScoreSheetNameHTML = ScoreSheetName & ".html"
+htmlfile = HTMLFolder & ScoreSheetNameHTML
+
+ScoreSheetHTML = ""
 
 'header
 
@@ -1741,7 +2462,11 @@ ScoreSheetHTML = ScoreSheetHTML & "<tr><td>" & vbCr
 ScoreSheetHTML = ScoreSheetHTML & TeamResultheader()
 
 For i = 1 To WEDSTRIJDENPERSESSIE
-    ScoreSheetHTML = ScoreSheetHTML & TeamResultRow(Tegenstander(i), refTegenstander(i), WijImps(i), ZijImps(i), WijScore(i), ZijScore(i))
+ If UITREKENVORM = VPs_u Then
+    ScoreSheetHTML = ScoreSheetHTML & TeamResultRow(Tegenstander(i), refTegenstander(i), WijImps(i), ZijImps(i), WijVPs(i), ZijVPs(i))
+    Else
+     ScoreSheetHTML = ScoreSheetHTML & TeamResultRow(Tegenstander(i), refTegenstander(i), WijImps(i), ZijImps(i), "&nbsp;", "&nbsp;")
+    End If
 Next
 
 ScoreSheetHTML = ScoreSheetHTML & TeamResultfooter()
@@ -1755,14 +2480,194 @@ End If
 
 
 
-Dim fso As Object
+
 Set fso = CreateObject("Scripting.FileSystemObject")
-Dim oFile As Object
+
 Set oFile = fso.CreateTextFile(htmlfile)
 oFile.Write ScoreSheetHTML
 oFile.Close
 Set fso = Nothing
 Set oFile = Nothing
+
+
+   End If
+End If
+
+If ScorestaatIntern Then
+    If intUitvoerNaarHTML Then
+    
+    ScoreSheetNameHTML = ScoreSheetName & ".html"
+    htmlfile = HTMLFolder & ScoreSheetNameHTML
+    
+    ScoreSheetHTML = ""
+    
+    'header
+    
+    ScoreSheetHTML = ScoreSheetHTML & html_header()
+    ScoreSheetHTML = ScoreSheetHTML & html_Begin_Body()
+    
+    
+    ' Kopje Scorestaat
+    
+    If Prefixkopjesscorestaat = "" Then
+        Kopje_prefix = "Scorekaart Viertal " & Wij & " (avond) " & avond & " "
+    Else
+        Kopje_prefix = Prefixkopjesscorestaat
+    End If
+    
+    
+    If Suffixkopjesscorestaat = "" Then
+        Kopje_suffix = ""
+        Else
+        Kopje_suffix = Suffixkopjesscorestaat
+    End If
+    
+    Set db = CurrentDb
+    
+    sql = ""
+    sql = sql & "select * from tblScorestaat where "
+    sql = sql & "[TeamID] = " & WijID
+    sql = sql & " and "
+    sql = sql & "[ToernooiID] = " & lngToernooi
+    sql = sql & " and "
+    sql = sql & "[SessieID] = " & lngSessie
+    sql = sql & " Order by wedstrijd, spelnr "
+    
+    
+    
+    Set rs = db.OpenRecordset(sql)
+    
+    ScoreSheetHTML = ScoreSheetHTML & rij_header(Kopje_prefix & Kopje_suffix)
+    
+    'ScoreSheetHTML = ScoreSheetHTML & rij_Paren(Paar1, Paar2, refSpeler1, refSpeler3)
+    
+    ScoreSheetHTML = ScoreSheetHTML & begin_kolommen()
+    
+    ScoreSheetHTML = ScoreSheetHTML & Scoresheetheader(Paar1, refSpeler1)
+    
+    rs.MoveFirst
+    rijteller = 3
+    Do While Not rs.EOF
+    'links speler1
+        strE = rs!Spelnr
+        strF = rs!Contract1
+        strG = rs!Resultaat1
+        strH = rs!Door1
+        strI = rs!score1
+        'strJ = TemplateSheet.Cells(rijteller, 6)
+        
+        If (rijteller > 3) And rijteller Mod (AANTALSPELLENPERWEDSTRIJD) = 2 Then
+            ScoreSheetHTML = ScoreSheetHTML & ScoresheetLastRow(strE, strF, strG, strH, strI)
+         Else
+            ScoreSheetHTML = ScoreSheetHTML & ScoresheetRow(strE, strF, strG, strH, strI)
+        End If
+    rijteller = rijteller + 1
+    rs.MoveNext
+    Loop
+    
+    ScoreSheetHTML = ScoreSheetHTML & Scorefooter()
+    
+    ScoreSheetHTML = ScoreSheetHTML & Scoresheetheader(Paar2, refSpeler3)
+    'midden speler3
+    rijteller = 3
+    rs.MoveFirst
+    Do While Not rs.EOF
+    'links speler1
+        strE = rs!Spelnr
+        strF = rs!Contract2
+        strG = rs!Resultaat2
+        strH = rs!Door2
+        strI = rs!score2
+    
+        'strJ = TemplateSheet.Cells(rijteller, 13)
+        If (rijteller > 3) And rijteller Mod (AANTALSPELLENPERWEDSTRIJD) = 2 Then
+           ScoreSheetHTML = ScoreSheetHTML & ScoresheetLastRow(strE, strF, strG, strH, strI)
+        Else
+          ScoreSheetHTML = ScoreSheetHTML & ScoresheetRow(strE, strF, strG, strH, strI)
+        End If
+    rijteller = rijteller + 1
+    rs.MoveNext
+    Loop
+    
+    ScoreSheetHTML = ScoreSheetHTML & Scorefooter()
+    
+    ScoreSheetHTML = ScoreSheetHTML & ScoreSaldoheader()
+    'rechts saldi
+    rijteller = 3
+    rs.MoveFirst
+    Do While Not rs.EOF
+        If IsNull(rs!saldo) Then
+            strE = "&nbsp;"
+            strF = "&nbsp;"
+            strG = "&nbsp;"
+            strH = "&nbsp;"
+        Else
+            strE = rs!saldo
+            strF = rs!imps
+            strG = rs!WijImps
+        strH = rs!ZijImps
+        End If
+        
+         If (rijteller > 3) And rijteller Mod (AANTALSPELLENPERWEDSTRIJD) = 2 Then
+       
+        ScoreSheetHTML = ScoreSheetHTML & SaldoLastRow(strE, strF, strG, strH)
+        Else
+        ScoreSheetHTML = ScoreSheetHTML & SaldoRow(strE, strF, strG, strH)
+        End If
+        rijteller = rijteller + 1
+        rs.MoveNext
+    Loop
+    ScoreSheetHTML = ScoreSheetHTML & Scorefooter()
+    ScoreSheetHTML = ScoreSheetHTML & eind_kolommen()
+    
+    
+    'uitslag wedstrijd 1
+    
+    'uitslag wedstrijd 2
+    
+    ScoreSheetHTML = ScoreSheetHTML & rij_Lege_regel
+    
+    strRijheader = "Gesp. "
+    
+    For i = 1 To WEDSTRIJDENPERSESSIE
+        strRijheader = strRijheader & 1 + (i - 1) * AANTALSPELLENPERWEDSTRIJD & "-" & i * AANTALSPELLENPERWEDSTRIJD & " -> " & Tegenstander(i) & " "
+    Next
+    
+    ScoreSheetHTML = ScoreSheetHTML & rij_header(strRijheader)
+    
+    ScoreSheetHTML = ScoreSheetHTML & "<tr><td>" & vbCr
+    ScoreSheetHTML = ScoreSheetHTML & TeamResultheader()
+    
+    For i = 1 To WEDSTRIJDENPERSESSIE
+        If UITREKENVORM = VPs_u Then
+            ScoreSheetHTML = ScoreSheetHTML & TeamResultRow(Tegenstander(i), refTegenstander(i), WijImps(i), ZijImps(i), WijVPs(i), ZijVPs(i))
+        Else
+            ScoreSheetHTML = ScoreSheetHTML & TeamResultRow(Tegenstander(i), refTegenstander(i), WijImps(i), ZijImps(i), "&nbsp;", "&nbsp;")
+        End If
+    Next
+    
+    ScoreSheetHTML = ScoreSheetHTML & TeamResultfooter()
+    ScoreSheetHTML = ScoreSheetHTML & "</td></tr>" & vbCr
+    ScoreSheetHTML = ScoreSheetHTML & html_Einde_Body_scoresheet()
+    
+    If fnExists(htmlfile) Then
+        Kill (htmlfile)
+    End If
+    
+    
+    
+    
+   
+    Set fso = CreateObject("Scripting.FileSystemObject")
+   
+    Set oFile = fso.CreateTextFile(htmlfile)
+    oFile.Write ScoreSheetHTML
+    oFile.Close
+    Set fso = Nothing
+    Set oFile = Nothing
+
+    End If
+End If
 
 
 
@@ -1781,68 +2686,72 @@ Set TemplateSheet = Nothing
 End If
 
 
+
+If ScorestaatExcel Then
 'Vul in de kruistabel
-Set MySheet = StartBook.Sheets("Kruistabel")
+    Set MySheet = StartBook.Sheets("Kruistabel")
+    For i = 1 To WEDSTRIJDENPERSESSIE
+        MySheet.Cells(Teamnr + 1, tegenst(i) + 1).Formula = Replace("=Value(" & Format(WijVPs(i), "#0.##") & ")", ",", ".")
+        MySheet.Cells(tegenst(i) + 1, Teamnr + 1).Formula = Replace("=Value(" & Format(ZijVPs(i), "#0.##") & ")", ",", ".")
+    Next
 
-
-For i = 1 To WEDSTRIJDENPERSESSIE
-
-'MySheet.Cells(TeamNr + 1, tegenst(i) + 1).Formula = Replace("=Value(" & Format(WijScore1, "#0.##") & ")", ",", ".")
-'MySheet.Cells(tegenst1 + 1, TeamNr + 1).Formula = Replace("=Value(" & Format(ZijScore1, "#0.##") & ")", ",", ".")
-'MySheet.Cells(TeamNr + 1, tegenst2 + 1).Formula = Replace("=Value(" & Format(WijScore2, "#0.##") & ")", ",", ".")
-'MySheet.Cells(tegenst2 + 1, TeamNr + 1).Formula = Replace("=Value(" & Format(ZijScore2, "#0.##") & ")", ",", ".")
-MySheet.Cells(TeamNr + 1, tegenst(i) + 1).Formula = Replace("=Value(" & Format(WijScore(i), "#0.##") & ")", ",", ".")
-MySheet.Cells(tegenst(i) + 1, TeamNr + 1).Formula = Replace("=Value(" & Format(ZijScore(i), "#0.##") & ")", ",", ".")
-
-Next
+End If
 
 
 'Vul in de uitslagen in
 
-Set MySheet = StartBook.Sheets("TeamUitslagen")
 
+If ScorestaatExcel Then
 
-
-' zoek of het team thuis spelen is in wedstrijd 1
-
-
-For i = 1 To WEDSTRIJDENPERSESSIE
-    wedstrijd1 = False
-    rijteller = 2
-    Do While MySheet.Cells(rijteller, 1).Value <> ""
-        If MySheet.Cells(rijteller, 1).Value = avond And MySheet.Cells(rijteller, 2).Value = i And MySheet.Cells(rijteller, 3).Value = TeamNr Then
-         wedstrijd1 = True
-         Exit Do
-        End If
-        rijteller = rijteller + 1
-    Loop
+    Set MySheet = StartBook.Sheets("TeamUitslagen")
     
-    If wedstrijd1 And tegenst(i) <> TEAMBYE Then
-            MySheet.Cells(rijteller, 7).Value = WijImps(i)
-            MySheet.Cells(rijteller, 8).Value = ZijImps(i)
-            'MySheet.Cells(rijteller, 9).Formula = Replace("=Value(" & Format(WijScore(i), "#0.##") & ")", ",", ".")
-            'MySheet.Cells(rijteller, 10).Formula = Replace("=Value(" & Format(ZijScore(i), "#0.##") & ")", ",", ".")
-            MySheet.Cells(rijteller, 9).Value = WijScore(i)
-            MySheet.Cells(rijteller, 10).Value = ZijScore(i)
-    End If
-Next
+    offsetsessie = GespeeldeWedstrijden(avond, lngToernooi)
+    
+    
+    ' zoek of het team thuis spelen is in wedstrijd 1
+    
+    
+    For i = 1 To WEDSTRIJDENPERSESSIE
+        Wedstrijd1 = False
+        rijteller = 2
+        Do While MySheet.Cells(rijteller, 1).Value <> ""
+            If (MySheet.Cells(rijteller, 1).Value = avond) And (MySheet.Cells(rijteller, 2).Value = i + offsetsessie) And (MySheet.Cells(rijteller, 3).Value = Teamnr) Then
+             Wedstrijd1 = True
+             Exit Do
+            End If
+            rijteller = rijteller + 1
+        Loop
+        
+        If Wedstrijd1 And tegenst(i) <> TEAMBYE Then
+                MySheet.Cells(rijteller, 7).Value = WijImps(i)
+                MySheet.Cells(rijteller, 8).Value = ZijImps(i)
+                'MySheet.Cells(rijteller, 9).Formula = Replace("=Value(" & Format(WijVPs(i), "#0.##") & ")", ",", ".")
+                'MySheet.Cells(rijteller, 10).Formula = Replace("=Value(" & Format(ZijVPs(i), "#0.##") & ")", ",", ".")
+                If UITREKENVORM = VPs_u Then
+                    MySheet.Cells(rijteller, 9).Value = WijVPs(i)
+                    MySheet.Cells(rijteller, 10).Value = ZijVPs(i)
+                End If
+        End If
+    Next
+    
+    
+        StartBook.Save
+        Set MySheet = Nothing
+        Set StartBook = Nothing
+        xlApp.Application.DisplayAlerts = True
+        xlApp.Application.Quit
+        Set xlApp = Nothing
+End If
 
-
-    StartBook.Save
-    Set MySheet = Nothing
-    Set StartBook = Nothing
-    xlApp.Application.DisplayAlerts = True
-    xlApp.Application.Quit
-    Set xlApp = Nothing
 
 End Function
 
 
 
-Public Function fnExists(fileName) As Integer
+Public Function fnExists(FileName) As Integer
 Dim fs As Object
 Set fs = CreateObject("Scripting.FileSystemObject")
-    If fs.FileExists(fileName) Then
+    If fs.FileExists(FileName) Then
     fnExists = True
     Else
     fnExists = False
@@ -1855,15 +2764,19 @@ Set fs = Nothing
 
 fnExists = False
 End Function
-Public Function fnCopyfile(fileName As Variant, destination As Variant) As Integer
+Public Function fnCopyfile(FileName As Variant, destination As Variant) As Integer
 Dim objFSO As Object
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 ' First parameter: original location\file
 ' Second parameter: new location\file
-objFSO.CopyFile fileName, destination
+objFSO.CopyFile FileName, destination
 Set objFSO = Nothing
 End Function
 Function plus_add(number As Variant) As String
+If IsNull(number) Then
+    plus_add = "&nbsp;"
+    Exit Function
+End If
 If number = "" Then
     plus_add = "&nbsp;"
     Exit Function
@@ -1901,10 +2814,10 @@ Public Function GetStepUserData_d(sUrl As Variant, ActiveID As Variant, User As 
     
     ' GetHTMLFromURL(sUrl & ActiveID & "&" & "username=" & User)
    If sUrl = STEPDATA Then
-    s = GetHTMLFromURL(STEPDATA & ActiveID & "&username=" & User)
+    s = GetHTMLFromURL(STEPDATA & ActiveID & "&username=" & Trim(User))
     intDoor = True
    Else
-    s = GetHTMLFromURL(STEPRESULTS & ActiveID & "/" & User)
+    s = GetHTMLFromURL(STEPRESULTS & ActiveID & "/" & Trim(User))
     intDoor = False
    End If
    
@@ -1921,7 +2834,7 @@ Public Function GetStepUserData_d(sUrl As Variant, ActiveID As Variant, User As 
     a = extract_kleur(a)
     
     Rijen_Uitslag = grap_rijen(a)
-  
+  Spellengespeeld = 0
   For tel_1 = LBound(Rijen_Uitslag) To UBound(Rijen_Uitslag) - 1
     
         Kolommen_Uitslag = grap_cellen(Rijen_Uitslag(tel_1))
@@ -1943,6 +2856,7 @@ Public Function GetStepUserData_d(sUrl As Variant, ActiveID As Variant, User As 
           ImpsButler = stripTags(Kolommen_Uitslag(2))
         'ImpsButler = Replace(ImpsButler, "IMP", " IMP")
         Else
+            g_SpellenGespeeld = g_SpellenGespeeld + 1
             If Not intDoor Then
                 resultaat = stripTags(Kolommen_Uitslag(2))
                 score = stripTags(Kolommen_Uitslag(3))
@@ -1960,29 +2874,117 @@ Public Function GetStepUserData_d(sUrl As Variant, ActiveID As Variant, User As 
         
     Next
     
+    
+    
+    
+    
     GetStepUserData_d = Scorestaat
      
 End Function
-Public Function ZoekWebsite(van As Variant, tot As Variant) As String
-   Dim url, s, a, b, c As String
+Public Function ZoekWebsite(van As Variant, Tot As Variant) As String
+   Dim url, s, a, B, c As String
     
     url = STEPRESULTS
     
-    For i = van To tot
+    For i = van To Tot
         s = GetHTMLFromURL(url & i)
-        X = InStr(s, "Datum:")
-        If X > 0 Then
+        x = InStr(s, "Datum:")
+        If x > 0 Then
         Debug.Print i
-       Debug.Print Mid(s, X, 50)
+       Debug.Print Mid(s, x, 50)
        End If
         
     Next
 End Function
 
+Public Function GetStepUserData_e(sUrl As Variant, ActiveID As Variant, User As Variant, EersteSpelnr As Variant, Optional LaatsteSpelnr As Variant) As String
+    Dim s, a, strTable As String
+    Dim Scorestaat As String
+    Dim intDoor As Integer
+    Dim Rijen_Uitslag() As String
+    Dim Kolommen_Uitslag() As String
+    Dim aantalkolommen As Integer
+    Dim tel_tbody_1, tel_tbody_2 As Long
+    Dim Spelnr, Contract, resultaat, Door, score, ImpsButler, kleur As String
+    Dim Laagstespelnr, HoogsteSpelnr As Integer
+    
+    'variant geschikt voor beide sides
+    
+    ' GetHTMLFromURL(sUrl & ActiveID & "&" & "username=" & User)
+   If sUrl = STEPDATA Then
+    s = GetHTMLFromURL(STEPDATA & ActiveID & "&username=" & Trim(User))
+    intDoor = True
+   Else
+    s = GetHTMLFromURL(STEPRESULTS & ActiveID & "/" & Trim(User))
+    intDoor = False
+   End If
+   
+   Laagstespelnr = EersteSpelnr
+   If IsMissing(LaatsteSpelnr) Then
+        HoogsteSpelnr = EersteSpelnr + AANTALSPELLENPERWEDSTRIJD - 1
+   Else
+        HoogsteSpelnr = LaatsteSpelnr
+    'zoek body
+   End If
 
-Public Sub NogGeenSheetsHTML(avond As Variant, TeamNr As Variant)
+    tel_tbody_1 = InStr(s, "<tbody>")
+    tel_tbody_2 = InStr(tel_tbody_1 + 7, s, "</tbody>")
+    strTable = Mid(s, tel_tbody_1, tel_tbody_2 - tel_tbody_1 + 8)
+    
+    
+    a = grap_table(strTable)
+    
+    a = extract_kleur(a)
+    
+    Rijen_Uitslag = grap_rijen(a)
+  Spellengespeeld = 0
+  For tel_1 = LBound(Rijen_Uitslag) To UBound(Rijen_Uitslag) - 1
+    
+        Kolommen_Uitslag = grap_cellen(Rijen_Uitslag(tel_1))
+        
+        aantalkolommen = UBound(Kolommen_Uitslag)
+        Spelnr = ""
+        Contract = ""
+        resultaat = ""
+        Door = ""
+        score = ""
+        ImpsButler = ""
+        
+        Spelnr = stripTags(Kolommen_Uitslag(0))
+        
+        If Val(Spelnr) >= Laagstespelnr And Val(Spelnr) <= HoogsteSpelnr Then
+             Contract = stripTags(Kolommen_Uitslag(1))
+              If aantalkolommen < 4 Then
+              ImpsButler = stripTags(Kolommen_Uitslag(2))
+            'ImpsButler = Replace(ImpsButler, "IMP", " IMP")
+            Else
+                If Not intDoor Then
+                    resultaat = stripTags(Kolommen_Uitslag(2))
+                    score = stripTags(Kolommen_Uitslag(3))
+                    ImpsButler = stripTags(Kolommen_Uitslag(4))
+                    'ImpsButler = Replace(ImpsButler, "IMP", " IMP")
+                Else
+                    resultaat = stripTags(Kolommen_Uitslag(2))
+                    Door = stripTags(Kolommen_Uitslag(3))
+                    score = stripTags(Kolommen_Uitslag(4))
+                    ImpsButler = stripTags(Kolommen_Uitslag(5))
+                    'ImpsButler = Replace(ImpsButler, "IMP", " IMP")
+                End If
+            End If
+            Scorestaat = Scorestaat & Spelnr & "," & Contract & "," & resultaat & "," & Door & "," & score & "," & ImpsButler & vbCr
+      End If
+    Next
+    
+    
+    
+    
+    
+    GetStepUserData_e = Scorestaat
+     
+End Function
+Public Sub NogGeenSheetsHTML(avond As Variant, Teamnr As Variant)
 
-Dim offset_speler, WEDSTRIJD, wedstrijd1, wedstrijd2 As Integer
+Dim offset_speler, intWedstrijd, Wedstrijd1, Wedstrijd2 As Integer
 Dim rijteller As Integer
 Dim kolomteller, sheetteller As Integer
 Dim Opstelling, AparteExcel As Integer
@@ -1999,7 +3001,7 @@ Dim tegenst1, tegen1, tegen2, tegenst2, wij1, Wijzijn As Integer
 Dim TemplateExcelfile As String
 Dim ScoresheetExcelfile As String
 Dim Scorestaat_Speler1, Scorestaat_Speler3, strFormula As String
-Dim teller, teller2 As Integer
+Dim Teller, teller2 As Integer
 Dim ScoreSheetName As String
 Dim MySheet As Worksheet
 Dim TemplateBook As Workbook
@@ -2027,7 +3029,7 @@ PWORef = LOCALSITE
 
 Set xlApp = CreateObject("Excel.Application")
 
-xlApp.Application.Visible = False
+xlApp.Application.Visible = intExcelZichtbaar
 xlApp.Application.DisplayAlerts = False
 
 Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
@@ -2062,7 +3064,7 @@ Set MySheet = StartBook.Worksheets("Import_Opstelling")
 Opstelling = False
     rijteller = 1
     Do While True
-        If MySheet.Cells(rijteller, 1).Value = avond And MySheet.Cells(rijteller, 2) = TeamNr Then
+        If MySheet.Cells(rijteller, 1).Value = avond And MySheet.Cells(rijteller, 2) = Teamnr Then
          Opstelling = True
          Exit Do
         End If
@@ -2089,7 +3091,7 @@ refSpeler2 = StepUserRef & Speler2
 refSpeler3 = StepUserRef & Speler3
 refSpeler4 = StepUserRef & Speler4
 
-refWij = PWORef & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & TeamNr & ".html"
+refWij = PWORef & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & Teamnr & ".html"
 refTegenstander1 = PWORef & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & tegenst1 & ".html"
 refTegenstander2 = PWORef & intWebInfo & "/" & PREFIX & avond & "_Teamnr_" & tegenst2 & ".html"
 
@@ -2102,7 +3104,7 @@ If MySheet.Cells(rijteller, 1).Value = tegenst1 Then
     tegen1 = True
     Tegenstander1 = MySheet.Cells(rijteller, 2).Value
 End If
-If MySheet.Cells(rijteller, 1).Value = TeamNr Then
+If MySheet.Cells(rijteller, 1).Value = Teamnr Then
     wij1 = True
     Wij = MySheet.Cells(rijteller, 2).Value
 End If
@@ -2122,7 +3124,7 @@ End If
 Loop
 
 
-ScoreSheetName = PREFIX & avond & "_Teamnr_" & TeamNr
+ScoreSheetName = PREFIX & avond & "_Teamnr_" & Teamnr
 'opbouw ook als html bestand
 
 ScoreSheetNameHTML = ScoreSheetName & ".html"
@@ -2173,7 +3175,7 @@ Set oFile = Nothing
 End Sub
 Public Sub NogGeenUitslagenIn(ToernID As Variant, avond As Variant)
 Dim ViertalUitslag, WebInf, StepRef, ScoreSheetHTML, UitslagHTML, UitslagenHTML, HTMLFolder As String
-Dim rijteller, teller, teller2, kolomteller, kolomteller2, kolomoffset, i, j As Integer
+Dim rijteller, Teller, teller2, kolomteller, kolomteller2, kolomoffset, i, j As Integer
 Dim intWebInfo As Integer
 
 Dim Thuis, Uit As Variant
@@ -2212,7 +3214,7 @@ Dim rs As Recordset
 
 Set xlApp = CreateObject("Excel.Application")
 
-xlApp.Application.Visible = True
+xlApp.Application.Visible = intExcelZichtbaar
 xlApp.Application.DisplayAlerts = False
 
 Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
@@ -2236,13 +3238,17 @@ Loop
 'ViertalUitslag = GetStepViertalUitslag(STEPDATA, WebInfo)
 
 'Rijen = Split(Uitslag, vbCr)
-HTMLFolder = LOCALHTML
+
+If ToernID > 1 Then
+UitslagHTML = HTMLFolder & "Uitslagen_" & ToernID & "_" & PREFIX & avond & ".html"
+Else
 UitslagHTML = HTMLFolder & "Uitslagen" & PREFIX & avond & ".html"
+End If
 
 UitslagenHTML = ""
 UitslagenHTML = UitslagenHTML & html_header()
 UitslagenHTML = UitslagenHTML & html_Begin_Body()
-UitslagenHTML = UitslagenHTML & rij_header("Nog geen uitslagen avond !!!" & avond)
+UitslagenHTML = UitslagenHTML & rij_header("Nog geen uitslagen deze sessie !!!" & avond)
 
 UitslagenHTML = UitslagenHTML & TeamUitslagenResultheader()
 
@@ -2323,21 +3329,21 @@ Public Function BepaalImps(score As Variant) As Integer
 Dim db As Database
 Dim rs As Recordset
 Set db = CurrentDb
-Dim Imps As Integer
+Dim imps As Integer
 
 Set rs = db.OpenRecordset("imps")
 rs.MoveFirst
 Do While Not rs.EOF
 
 If score > rs!Verschil Then
-    Imps = rs!Imps
+    imps = rs!imps
     rs.MoveNext
     
     Else
      If score < rs!Verschil Then
-        BepaalImps = Imps
+        BepaalImps = imps
      Else
-        BepaalImps = rs!Imps
+        BepaalImps = rs!imps
      End If
         rs.Close
         db.Close
@@ -2350,28 +3356,52 @@ BepaalImps = 24
 End Function
 
 
-Public Function BepaalVPs(Imps As Variant, Aantalspellen As Variant) As Double
+Public Function BepaalVPs(imps As Variant, Aantalspellen As Variant) As Double
 Dim db As Database
 Dim rs As Recordset
-Set db = CurrentDb
+Dim vp_tabel As Integer
 Dim abs_imps As Integer
-Dim VPs As Double
+Dim Vps As Double
 
-If Imps < 0 Then
+If imps < 0 Then
     BepaalVPs = 0
     Else
     BepaalVPs = 20
 End If
+If Aantalspellen = 0 Then
+BepaalVPs = 10
+Exit Function
+End If
 
+Select Case Aantalspellen
+Case Is < 7
+vp_tabel = 6
+Case 7
+vp_tabel = 7
+Case 8
+vp_tabel = 8
+Case 9
+vp_tabel = 9
+Case 10
+vp_tabel = 10
+Case 11, 12
+vp_tabel = 12
+Case 13, 14
+vp_tabel = 14
+End Select
+
+
+
+Set db = CurrentDb
 Set rs = db.OpenRecordset("vps")
 'laad tabel
 Do While Not rs.EOF
- If rs.Fields("imps") = Abs(Imps) Then
-    VPs = rs.Fields("vps_" & Aantalspellen)
-    If Imps < 0 Then
-    BepaalVPs = 20 - VPs
+ If rs.Fields("imps") = Abs(imps) Then
+    Vps = rs.Fields("vps_" & vp_tabel)
+    If imps < 0 Then
+    BepaalVPs = 20 - Vps
     Else
-    BepaalVPs = VPs
+    BepaalVPs = Vps
     End If
     
     rs.Close
@@ -2384,208 +3414,64 @@ Loop
   db.Close
 End Function
 
-Public Function BepaalZwitsers(ronde As Variant) As String
-Dim ViertalUitslag, WebInf, StepRef, ScoreSheetHTML, UitslagHTML, UitslagenHTML, HTMLFolder As String
-Dim teller, kolomteller, i, j As Integer
+Public Function BerekenVps(Verschil As Variant, Aantalspellen As Variant) As Double
+Dim Vps As Double
+Dim Vps_min_1 As Double
+Dim Vps_plus_1 As Double
+Dim B As Double
+Dim VP_Winner As Double
+Dim Tau, Denom As Double
+
+Tau = (Math.Sqr(5) - 1) / 2 ' Golden ratio
+
+Denom = 1 - Tau * Tau * Tau
+B = 15 * (Math.Sqr(Aantalspellen))
 
 
-Dim MySheet As Object
-Dim StartBook As Object
-Dim xlApp As Object
-Dim Stand(16) As Integer
-Dim intStand As Integer
-Dim H(16) As Integer
-Dim Id(8, 1) As Integer
-Dim VanAfViert, TotEnMet, T, U, Paringen, GeenCombinatie As Integer
-Dim strIndeling As String
-Set xlApp = CreateObject("Excel.Application")
+Vps = Int(1000.5 + 1000 * ((1 - Tau ^ (3 * Verschil / B)) / (Denom))) / 100 ' with a maximum of 20
+If Verschil > 0 Then
+     Vps_min_1 = Int(1000.5 + 1000 * ((1 - Tau ^ (3 * (Verschil - 1) / B)) / (Denom))) / 100
+     Vps_plus_1 = Int(1000.5 + 1000 * ((1 - Tau ^ (3 * (Verschil + 1) / B)) / (Denom))) / 100
+     If Vps_plus_1 > 20 Then Vps_plus_1 = 20
+     If Vps_plus_1 - Vps > Vps - Vps_min_1 Then
+        Vps = Vps + 0.01
+     End If
+End If
 
-xlApp.Application.Visible = True
-xlApp.Application.DisplayAlerts = False
+If Vps > 20 Then Vps = 20
+BerekenVps = Vps
 
-Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
-Set MySheet = StartBook.Worksheets("Kruistabel")
-
-
-ReDim Rang(16)
-ReDim Gemiddelde(16)
-ReDim Gespeeld(16, 16)
-For teller = 1 To 16
-    Rang(teller) = Val(MySheet.Cells(teller + 1, 16 + 4).Value)
-    Gemiddelde(teller) = MySheet.Cells(teller + 1, 16 + 3).Value
-Next
-
-For i = 1 To 16
-    Stand(Rang(i)) = i
-Next
-
-For teller = 1 To 16
-    For kolomteller = 1 To 16
-        If MySheet.Cells(teller + 1, kolomteller + 1).Value <> "" Then
-            Gespeeld(teller, kolomteller) = True
-        Else
-            Gespeeld(teller, kolomteller) = False
-        End If
-    Next
-Next
-
-
-
-200:
- X = 0
-ronde = ronde + 1
-
-600:
- GeenCombinatie = 0
-'TOTENMET
- VanAfViert = 1
- TotEnMet = 16
- 
- T = VanAfViert: maxParingen = 8
- Paringen = 0
- For i = VanAfViert To TotEnMet: H(i) = False: Next: H(VanAfViert) = True
-
- U = VanAfViert
-
-Do
- 
-    U = U + 1
-    If U > TotEnMet And T = VanAfViert Then
-        GeenCombinatie = -1: Exit Do
-    End If
-    If U > TotEnMet Then
-    
-        If X = 0 Then P1 = T - 1: AF = TotEnMet - P1
-          intStand = Stand(P1)
-          Stand(P1) = Stand(P1 + 1)
-          Stand(P1 + 1) = intStand
-          P1 = P1 + 1: X = -1
-          If P1 > TotEnMet - 1 Then AF = AF + 1: P1 = TotEnMet - AF
-          If P1 < VanAfViert Then
-              GeenCombinatie = -1
-                Exit Do
-         End If
-         
-         'Wis indeling
-         For i = 1 To Paringen
-         Gespeeld(Id(i, 0), Id(i, 1)) = False
-         Gespeeld(Id(i, 1), Id(i, 0)) = False
-         Id(i, 0) = 0
-         Id(i, 1) = 0
-         Next
-         
-         GoTo 600
-         
-     Else
-      If H(U) = -1 Then GoTo 610
-   End If
-   
-   
-  If Gespeeld(Stand(T), Stand(U)) Then GoTo 610
- 
-  Paringen = Paringen + 1
-  If Stand(T) = 0 Then Stand(T) = 16
-  If Stand(U) = 0 Then Stand(U) = 16
-  Id(Paringen, 0) = Stand(T)
-  Id(Paringen, 1) = Stand(U)
-  
-  Gespeeld(Stand(T), Stand(U)) = True
-  Gespeeld(Stand(U), Stand(T)) = True
-  
-  H(U) = -1
-  
-  If Paringen = TotEnMet \ 2 Then Exit Do
-  Do
-   T = T + 1
-  Loop Until H(T) <> -1
-  H(T) = -1
-610:
-Loop
-    strIndeling = ""
-    If GeenCombinatie Then
-       strIndeling = "Geen Combinatie"
-    Else
-       For i = 1 To 8
-           strIndeling = strIndeling & Format(Id(i, 0), "#0") & " - " & Format(Id(i, 1), "#0") & vbCr
-       Next
-    End If
- 
- 
-    
-   BepaalZwitsers = strIndeling
-
-
-
-
-    Set MySheet = Nothing
-    Set StartBook = Nothing
-    xlApp.Application.DisplayAlerts = True
-    xlApp.Application.Quit
-    Set xlApp = Nothing
-    
-    
+'1000.5 + 1000.0 * (1.0 - Math.pow(TAU, 3.0*M/B)) / DENOM
 End Function
 
-Public Sub TransferUitslagenNaarSchema(WORKFOLDER, WORKFILE As Variant)
-Dim ViertalUitslag, WebInf, StepRef, ScoreSheetHTML, UitslagHTML, UitslagenHTML, HTMLFolder As String
-Dim rijteller, teller, teller2, kolomteller, kolomteller2, kolomoffset, i, j, WEDSTRIJD As Integer
-Dim intWebInfo As Integer
-
-Dim Thuis, Uit As Variant
-Dim refThuis, refUit As Variant
-Dim Imps_Thuis As Variant
-Dim Imps_Uit As Variant
-Dim VPs_Thuis As Variant
-Dim VPs_Uit As Variant
-
-Dim MySheet As Object
-Dim MySchemaSheet As Object
-Dim StartBook As Object
-Dim Rijen() As String
-Dim Kolommen() As String
-Dim xlApp As Object
-
-
-
-
-
-Set xlApp = CreateObject("Excel.Application")
-
-xlApp.Application.Visible = True
-xlApp.Application.DisplayAlerts = False
-
-Set StartBook = xlApp.Workbooks.Open(WORKFOLDER & WORKFILE)
-
-
-
-Set MySheet = StartBook.Sheets("TeamUitslagen")
-Set MySchemaSheet = StartBook.Sheets("Schema")
-
-
-rijteller = 2
-teller2 = 3
-Do While MySheet.Cells(rijteller, 1).Value <> ""
-    WEDSTRIJD = MySheet.Cells(rijteller, 2).Value
-    MySchemaSheet.Cells(teller2, 1) = WEDSTRIJD
-    Kolom = 1
-    Do While WEDSTRIJD = MySheet.Cells(rijteller, 2).Value
-    Kolom = Kolom + 1
-    MySchemaSheet.Cells(teller2, Kolom).Value = MySheet.Cells(rijteller, 3)
-    Kolom = Kolom + 1
-    MySchemaSheet.Cells(teller2, Kolom).Value = MySheet.Cells(rijteller, 4)
-    rijteller = rijteller + 1
-    Loop
-    teller2 = teller2 + 1
-Loop
-
-   
-    StartBook.Save
-    Set MySheet = Nothing
-    Set MySchemaSheet = Nothing
-    Set StartBook = Nothing
-    xlApp.Application.DisplayAlerts = True
-    xlApp.Application.Quit
-    Set xlApp = Nothing
-
-
-End Sub
+'        For i = 1 To WEDSTRIJDENPERSESSIE
+'             Speler_1(i) = Speler1
+'             Speler_2(i) = Speler2
+'             Speler_3(i) = Speler3
+'             Speler_4(i) = Speler4
+'             Paar_1(i) = Speler1 & " - " & Speler2
+'             Paar_2(i) = Speler3 & " - " & Speler4
+'         Next
+'         ts.MoveFirst
+'         Do While Not ts.EOF
+'             i = ((ts!Spelnr \ AANTALSPELLENPERWEDSTRIJD) + 1)
+'
+'             Speler_1(i) = ts!Speler1
+'             Speler_2(i) = ts!Speler2
+'             Speler_3(i) = ts!Speler3
+'             Speler_4(i) = ts!Speler4
+'             Paar_1(i) = Speler_1(i) & " - " & Speler_2(i)
+'             Paar_2(i) = Speler_3(i) & " - " & Speler_4(i)
+'             If i < WEDSTRIJDENPERSESSIE Then
+'                 For j = i + 1 To WEDSTRIJDENPERSESSIE
+'                     Speler_1(j) = Speler_1(i)
+'                     Speler_2(j) = Speler_2(i)
+'                    Speler_3(j) = Speler_3(i)
+'                     Speler_4(j) = Speler_4(i)
+'                    Paar_1(j) = Speler_1(i) & " - " & Speler_2(i)
+'                    Paar_2(j) = Speler_3(i) & " - " & Speler_4(i)
+'                 Next
+'              End If
+'             ts.MoveNext
+'         Loop
+'         ts.Close

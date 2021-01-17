@@ -3,5 +3,7 @@ CREATE TABLE [tblFolders] (
   [ExcelFolder] VARCHAR (255),
   [HTMLFolder] VARCHAR (255),
   [TemplateFolder] VARCHAR (255),
-  [TemplateFile] VARCHAR (255)
+  [TemplateFile] VARCHAR (255),
+  [Documents] VARCHAR (255),
+  [User] VARCHAR (255)
 )

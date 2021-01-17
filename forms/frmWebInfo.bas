@@ -12,7 +12,7 @@ Begin Form
     Width =4650
     DatasheetFontHeight =11
     ItemSuffix =11
-    Right =18990
+    Right =15870
     Bottom =12240
     DatasheetGridlinesColor =15132391
     OrderBy ="[tblWebInfo].[ToernooiID], [tblWebInfo].[Sessie]"
@@ -47,6 +47,35 @@ Begin Form
             ForeTint =50.0
             GridlineThemeColorIndex =1
             GridlineShade =65.0
+        End
+        Begin CommandButton
+            Width =1701
+            Height =283
+            FontSize =11
+            FontWeight =400
+            FontName ="Calibri"
+            ForeThemeColorIndex =0
+            ForeTint =75.0
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+            UseTheme =1
+            Shape =1
+            Gradient =12
+            BackThemeColorIndex =4
+            BackTint =60.0
+            BorderLineStyle =0
+            BorderColor =16777215
+            BorderThemeColorIndex =4
+            BorderTint =60.0
+            ThemeFontIndex =1
+            HoverThemeColorIndex =4
+            HoverTint =40.0
+            PressedThemeColorIndex =4
+            PressedShade =75.0
+            HoverForeThemeColorIndex =0
+            HoverForeTint =75.0
+            PressedForeThemeColorIndex =0
+            PressedForeTint =75.0
         End
         Begin TextBox
             AddColon = NotDefault
@@ -85,7 +114,7 @@ Begin Form
             GridlineShade =65.0
         End
         Begin FormHeader
-            Height =1077
+            Height =1086
             BackColor =15064278
             Name ="Formulierkoptekst"
             AlternateBackThemeColorIndex =1
@@ -208,6 +237,7 @@ Begin Form
                     ForeColor =4210752
                     Name ="Sessie"
                     ControlSource ="Sessie"
+                    AfterUpdate ="[Event Procedure]"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =2892
@@ -338,6 +368,42 @@ Option Compare Database
 
 Private Sub ActivityID_AfterUpdate()
 'fris sessie tabel op
+Dim db As Database
+Dim rs As Recordset
 
+Set db = CurrentDb
+Set rs = db.OpenRecordset("Select * from tblSessie where Sessienr = " & Me.Sessie & " and [ToernooID] = " & Me.ToernooiID)
 
+If rs.BOF And rs.EOF Then
+    MsgBox ("Nog geen Sessie aangemaakt")
+    DoCmd.RunCommand acCmdUndo
+    Exit Sub
+End If
+
+rs.Edit
+rs!ActivityID = Me.ActivityID
+rs.Update
+rs.Close
+DoCmd.RunCommand acCmdSave
+
+End Sub
+
+Private Sub btnSluiten_Click()
+    If CurrentProject.AllForms("Start_VT").IsLoaded = False Then
+        DoCmd.Close
+    Else
+        DoCmd.BrowseTo acBrowseToForm, "frmBegin"
+   End If
+End Sub
+
+Private Sub Sessie_AfterUpdate()
+Set db = CurrentDb
+Set rs = db.OpenRecordset("Select * from tblSessie where Sessienr = " & Me.Sessie & " and [ToernooID] = " & Me.ToernooiID)
+If rs.BOF And rs.EOF Then
+    MsgBox ("Nog geen Sessie aangemaakt")
+    rs.Close
+    db.Close
+    DoCmd.RunCommand acCmdUndo
+    Exit Sub
+End If
 End Sub

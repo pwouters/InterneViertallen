@@ -6,5 +6,7 @@ CREATE TABLE [vps] (
   [vps_8] DOUBLE ,
   [vps_9] DOUBLE ,
   [vps_10] DOUBLE ,
-  [vps_12] DOUBLE 
+  [vps_12] DOUBLE ,
+  [vps_14] DOUBLE ,
+  [vps_16] DOUBLE 
 )

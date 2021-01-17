@@ -1,0 +1,14 @@
+{
+  "Info": {
+    "Class": "clsDbTableDef",
+    "Description": "Linked Table",
+    "VCS Version": "3.2.2"
+  },
+  "Items": {
+    "Name": "tblToernooi",
+    "Connect": ";DATABASE=C:\\Users\\pgjmw\\Documents\\StepViertallen\\Access\\Data.accdb",
+    "SourceTableName": "tblToernooi",
+    "Attributes": 1073741824,
+    "PrimaryKey": "[ID]"
+  }
+}
